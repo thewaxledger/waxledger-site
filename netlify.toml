@@ -4,3 +4,8 @@
 
 [functions]
   node_bundler = "esbuild"
+
+[[headers]]
+  for = "/social/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://x.com"
