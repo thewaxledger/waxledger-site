@@ -14,6 +14,7 @@ const FRESH_MS = 24 * 3600 * 1000;      // serve from the store without asking u
 const STALE_MS = 7 * 24 * 3600 * 1000;  // older than this and we refresh before answering
 const DAILY_CAP = 1500;                 // upstream calls per UTC day, to keep one subscription healthy
 const INDEX_MAX = 2000;
+const FREE_LOOKUPS = 3;
 
 export function normalizeQuery(q) {
   return String(q || "").toLowerCase().replace(/[^\p{L}\p{N}#'\-\/\s.]/gu, " ").replace(/\s+/g, " ").trim().slice(0, 80);
@@ -77,6 +78,13 @@ export async function handle(req, deps) {
   }
   if (!q && !id) return json({ status: "error", error: "Give me a card to look up." }, 400);
   if (!token) return json({ status: "not_configured", error: "Live comps are not connected yet." }, 503);
+  // Free visitors get FREE_LOOKUPS card lookups a day (counted per visitor on the server); Pro members are unlimited.
+  if (!deps.member && deps.visitor) {
+    const day = new Date(now()).toISOString().slice(0, 10), k = "free/" + day + "/" + deps.visitor;
+    const rec = (await store.get(k, { type: "json" })) || { n: 0 };
+    if (rec.n >= FREE_LOOKUPS) return json({ status: "limit", error: "You've used today's " + FREE_LOOKUPS + " free lookups. Pro members get unlimited comps." }, 402);
+    rec.n++; await store.setJSON(k, rec);
+  }
 
   const t = now();
   async function quotaOk() {
@@ -163,8 +171,12 @@ export async function handle(req, deps) {
   }
 }
 
-export default async (req) => {
+export default async (req, context) => {
   const { getStore } = await import("@netlify/blobs"); // imported here so the handler above can run in local tests without Netlify
+  const { currentMember, liveDeps, sha } = await import("../lib/members.mjs");
   const token = (globalThis.Netlify && Netlify.env && Netlify.env.get("SCP_TOKEN")) || process.env.SCP_TOKEN || "";
-  return handle(req, { store: getStore("comps"), fetchFn: fetch, token });
+  let member = null;
+  try { member = await currentMember(req, await liveDeps()); } catch (e) {}
+  const ip = (context && context.ip) || req.headers.get("x-nf-client-connection-ip") || req.headers.get("x-forwarded-for") || "";
+  return handle(req, { store: getStore("comps"), fetchFn: fetch, token, member, visitor: ip ? sha("v" + ip).slice(0, 24) : "" });
 };
