@@ -201,6 +201,20 @@ main{padding-block:clamp(28px,5vw,56px) 64px}
 .chart .med{stroke:var(--gold-ink);stroke-width:1.5;stroke-dasharray:5 4}
 .chart .medlab{fill:var(--gold-ink);font-weight:700;paint-order:stroke;stroke:var(--surface);stroke-width:4px}
 .tablewrap{overflow-x:auto}
+.ladder{display:flex;flex-direction:column;gap:7px}
+.lrow{display:grid;grid-template-columns:76px minmax(0,1fr) auto;gap:10px;align-items:center;font-size:13px}
+.lk{color:var(--ink-2)}
+.lbar{height:12px;background:var(--surface-2);border-radius:3px;overflow:hidden;display:block}
+.lbar i{display:block;height:100%;background:var(--ink);border-radius:3px}
+.lrow:last-child .lbar i{background:var(--gold)}
+.lv{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;min-width:5ch;text-align:right}
+.matches-wrap{display:flex;flex-direction:column;gap:8px}
+.matches{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px}
+.match{border:1px solid var(--line);background:var(--surface);color:var(--ink);text-align:left;padding:8px 10px;border-radius:6px;cursor:pointer;display:flex;flex-direction:column;gap:2px;font:inherit;font-size:12.5px;min-width:0}
+.match b{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.match span{color:var(--ink-3);font-size:11.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.match:hover{border-color:var(--gold);background:var(--surface-2)}
+.recent{display:flex;flex-direction:column;gap:8px}
 table{border-collapse:collapse;width:100%;font-size:13.5px}
 th{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:8px 10px 8px 0;border-bottom:1px solid var(--line);white-space:nowrap}
 td{padding:9px 10px 9px 0;border-bottom:1px solid var(--line-2);vertical-align:top}
@@ -471,7 +485,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
     <a class="btn btn-gold" href="#membership" data-go="membership">Start free</a>
   </div>
 </header>
-<div class="preview-bar"><div class="wrap"><b>Beta</b><span>Comps, movers and review scores are sample data. Screener prices and release dates are real, checked Oct 8, 2026.</span></div></div>
+<div class="preview-bar"><div class="wrap"><b>Beta</b><span>Movers and review scores are sample data. Comps are live values from SportsCardsPro; Screener prices and release dates are real, checked Oct 8, 2026.</span></div></div>
 
 <main class="wrap">
 
@@ -486,7 +500,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
         <input id="hero-q" type="search" placeholder="Search a card, e.g. Flagg Topps Chrome" aria-label="Search a card">
         <button class="btn btn-gold" type="submit">Look up comps</button>
       </form>
-      <div class="chips" id="hero-chips" aria-label="Sample cards"></div>
+      <div class="chips" id="hero-chips" aria-label="Suggested cards"></div>
       <p class="small muted">Have a raw card in hand? <a href="#pregrade" data-go="pregrade">Run it through the Pre-Grading Tool</a>, right in your browser.</p>
     </div>
     <div class="hero-slab">
@@ -503,7 +517,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
       </div>
       <div class="slab-stats">
         <div>
-          <p class="eyebrow">Last PSA 10 sale <span class="pill pill-sample">Sample</span></p>
+          <p class="eyebrow"><span id="hero-label">Last PSA 10 sale</span> <span class="pill pill-sample" id="hero-sample">Sample</span></p>
           <p class="big-price" id="hero-last">$0</p>
           <p class="small muted" id="hero-card">Cooper Flagg, 2025-26 Topps Chrome base RC #251</p>
         </div>
@@ -551,47 +565,39 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
   <div class="view-head">
     <p class="eyebrow">Comps</p>
     <h2>Sold prices, not asking prices</h2>
-    <p class="lede">Every number here comes from a completed sale. Pick a grade to see the last 60 days, then run the grading math on the same card.</p>
+    <p class="lede">Search any card. Values are compiled from completed eBay sales by SportsCardsPro, by grade. The first search for a card adds it to the Ledger; after that it answers instantly, and it refreshes on its own.</p>
   </div>
   <div class="stack">
     <form class="search" id="comp-search">
-      <input id="comp-q" type="search" placeholder="Player, set or parallel" aria-label="Search comps">
+      <input id="comp-q" type="search" placeholder="Player, year, set, card number" aria-label="Search comps">
       <button class="btn" type="submit">Search</button>
     </form>
-    <div class="chips" id="comp-chips" aria-label="Sample cards"></div>
+    <div class="chips" id="comp-chips" aria-label="Suggested cards"></div>
+    <div class="recent" id="comp-recent" hidden><span class="eyebrow" id="comp-recent-n"></span><div class="chips" id="comp-recent-list" aria-label="Recently added cards"></div></div>
   </div>
 
   <div class="comps-grid">
-    <div class="panel" id="comp-panel">
+    <div class="panel" id="comp-panel" hidden>
       <div class="panel-head">
         <div style="min-width:0">
           <p class="eyebrow" id="comp-set"></p>
           <h3 id="comp-name"></h3>
         </div>
-        <div class="seg" id="grade-seg" role="group" aria-label="Grade">
-          <button type="button" data-grade="raw" aria-pressed="false">Raw</button>
-          <button type="button" data-grade="psa9" aria-pressed="false">PSA 9</button>
-          <button type="button" data-grade="psa10" aria-pressed="true">PSA 10</button>
-        </div>
       </div>
       <div class="tiles" id="comp-tiles"></div>
-      <svg class="chart" id="comp-chart" viewBox="0 0 640 236" role="img" aria-label="Sold prices over the last 60 days"></svg>
-      <div class="tablewrap">
-        <table>
-          <thead><tr><th>Sold</th><th>Listing</th><th>Type</th><th class="num">Price</th></tr></thead>
-          <tbody id="comp-rows"></tbody>
-        </table>
-      </div>
+      <div class="ladder" id="comp-ladder" aria-label="Value by grade"></div>
+      <div class="matches-wrap" id="comp-matches-wrap" hidden><p class="eyebrow">Not the right card? Other matches</p><div class="matches" id="comp-matches"></div></div>
       <div class="linkrow">
-        <span class="pill pill-sample">Sample sales</span>
-        <a id="ebay-link" href="https://www.ebay.com/" target="_blank" rel="noopener">Check live sold listings on eBay</a>
+        <span class="small muted" id="comp-source"></span>
+        <a id="ebay-link" href="https://www.ebay.com/" target="_blank" rel="noopener">Sold listings on eBay</a>
+        <a id="scp-link" href="https://www.sportscardspro.com/" target="_blank" rel="noopener">Sales history on SportsCardsPro</a>
       </div>
     </div>
 
-    <div class="panel" id="comp-empty" hidden>
-      <h3 id="empty-title">No sample data for that search</h3>
-      <p class="muted">This preview carries five sample cards. The live site will search every sold listing. Until then, this link runs the same search against eBay's sold listings.</p>
-      <div class="linkrow"><a id="ebay-link-2" href="https://www.ebay.com/" target="_blank" rel="noopener">Search eBay sold listings</a></div>
+    <div class="panel" id="comp-status">
+      <h3 id="comp-status-title">Search a card to see what it sells for</h3>
+      <p class="muted" id="comp-status-body">Player, year, set and card number work best. Try one of the chips above.</p>
+      <div class="linkrow"><button class="btn btn-sm" type="button" id="comp-retry" hidden>Try again</button><a id="ebay-link-2" href="https://www.ebay.com/" target="_blank" rel="noopener" hidden>Search eBay sold listings</a></div>
     </div>
 
     <form class="panel" id="calc">
@@ -1010,7 +1016,7 @@ function show(name,keepScroll){
   if(VIEWS.indexOf(name)<0)name="market";
   $$("[data-view]").forEach(function(v){v.hidden=v.dataset.view!==name});
   $$(".nav a").forEach(function(a){if(a.dataset.go===name)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
-  if(name==="comps"&&!$("#comp-panel").hidden)renderComps();
+  if(name==="comps")compsOnShow();
   if(name==="screener")renderScatter();
   if(!keepScroll)window.scrollTo(0,0);
   try{localStorage.setItem("wl-view",name)}catch(e){}
@@ -1069,74 +1075,102 @@ function renderMarket(){
 }
 
 /* ---------- comps ---------- */
-var state={card:CARDS[0],grade:"psa10",sport:"All",tsport:"All"};
-function cardChips(el){
-  el.innerHTML=CARDS.map(function(c){return '<button class="chip" type="button" data-card="'+c.id+'" aria-pressed="'+(c===state.card)+'">'+esc(c.name.split(",")[0])+'</button>'}).join("");
-}
-function niceStep(raw){var p=Math.pow(10,Math.floor(Math.log10(raw))),f=raw/p;return (f<=1?1:f<=2?2:f<=5?5:10)*p}
-function drawChart(sales,med){
-  var svg=$("#comp-chart"),W=Math.max(300,Math.round(svg.clientWidth)||640),H=236,m={l:54,r:16,t:16,b:32};
-  svg.setAttribute("viewBox","0 0 "+W+" "+H);
-  var ps=sales.map(function(s){return s.p}),lo=Math.min.apply(null,ps),hi=Math.max.apply(null,ps);
-  var step=niceStep((hi-lo)/3||hi/3||1);
-  lo=Math.floor(lo/step)*step;hi=Math.ceil(hi/step)*step;if(hi===lo)hi=lo+step;
-  function x(d){return m.l+(60-d)/60*(W-m.l-m.r)}
-  function y(p){return m.t+(hi-p)/(hi-lo)*(H-m.t-m.b)}
-  var g="";
-  for(var v=lo;v<=hi+step/2;v+=step){
-    g+='<line class="grid" x1="'+m.l+'" x2="'+(W-m.r)+'" y1="'+y(v).toFixed(1)+'" y2="'+y(v).toFixed(1)+'"/><text x="'+(m.l-8)+'" y="'+(y(v)+3.5).toFixed(1)+'" text-anchor="end">$'+(step<1?v.toFixed(2):Math.round(v).toLocaleString("en-US"))+'</text>';
-  }
-  (W<460?[60,30,0]:[60,45,30,15,0]).forEach(function(d){
-    g+='<text x="'+x(d).toFixed(1)+'" y="'+(H-10)+'" text-anchor="'+(d===0?"end":d===60?"start":"middle")+'">'+(d===0?"Today":saleDate(d))+'</text>';
-  });
-  g+='<line class="med" x1="'+m.l+'" x2="'+(W-m.r)+'" y1="'+y(med).toFixed(1)+'" y2="'+y(med).toFixed(1)+'"/>';
-  sales.slice().reverse().forEach(function(s,i,arr){
-    var last=i===arr.length-1;
-    g+='<circle class="'+(last?"dot-last":"dot")+'" cx="'+x(s.d).toFixed(1)+'" cy="'+y(s.p).toFixed(1)+'" r="'+(last?5.5:3.6)+'"><title>'+saleDate(s.d)+": "+money(s.p)+'</title></circle>';
-  });
-  var ly=y(med)-7;if(ly<m.t+10)ly=y(med)+15;
-  g+='<text class="medlab" x="'+(m.l+6)+'" y="'+ly.toFixed(1)+'">60-day median '+money(med)+'</text>';
-  svg.innerHTML=g;
-}
+// Live values come from /api/comps, a site function that asks SportsCardsPro (values compiled from eBay sales) only for
+// cards the Ledger has not stored yet, then keeps them. This preview falls back to a plain status message when the
+// function is out of reach.
+var state={card:null,q:"",sport:"All",tsport:"All"};
+var COMPS={cache:{},recent:null,seq:0};
+var SUGGEST=CARDS.map(function(c){return {q:c.q,label:c.name.split(",")[0]}}).concat([{q:"Michael Jordan 1986 Fleer #57",label:"Michael Jordan RC"},{q:"Victor Wembanyama 2023 Prizm #136",label:"Wembanyama"},{q:"Shohei Ohtani 2018 Topps Chrome #150",label:"Ohtani RC"}]);
+function cardChips(el){el.innerHTML=SUGGEST.map(function(c){return '<button class="chip" type="button" data-q="'+esc(c.q)+'" aria-pressed="'+(state.q.toLowerCase()===c.q.toLowerCase())+'">'+esc(c.label)+'</button>'}).join("")}
 function ebayUrl(q){return "https://www.ebay.com/sch/i.html?_nkw="+encodeURIComponent(q)+"&LH_Sold=1&LH_Complete=1"}
-function renderComps(){
-  var c=state.card,g=state.grade,sales=salesFor(c,g),s=summary(sales);
-  $("#comp-panel").hidden=false;$("#comp-empty").hidden=true;
-  $("#comp-set").textContent=c.set;$("#comp-name").textContent=c.name;
-  $$("#grade-seg button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.grade===g))});
-  $("#comp-tiles").innerHTML=
-    '<div class="tile"><div class="v">'+money(s.last)+'</div><div class="k">Last sale, '+saleDate(sales[0].d)+'</div></div>'+
-    '<div class="tile"><div class="v">'+money(s.med10)+'</div><div class="k">Median, last 10</div></div>'+
-    '<div class="tile"><div class="v">'+money(s.lo)+"–"+money(s.hi).slice(1)+'</div><div class="k">60-day range</div></div>'+
-    '<div class="tile"><div class="v">'+s.n30+'</div><div class="k">Sales, last 30 days</div></div>';
-  drawChart(sales,s.med);
-  $("#comp-rows").innerHTML=sales.slice(0,10).map(function(x){
-    return '<tr><td class="date">'+saleDate(x.d)+'</td><td>'+esc(x.title.trim())+'</td><td>'+x.type+'</td><td class="num">'+money(x.p)+'</td></tr>';
-  }).join("");
-  $("#ebay-link").href=ebayUrl(c.q+(g==="raw"?"":" "+GRADE_LABEL[g]));
-  cardChips($("#comp-chips"));cardChips($("#hero-chips"));
+function scpUrl(q){return "https://www.sportscardspro.com/search-products?type=prices&q="+encodeURIComponent(q)}
+function compsApi(params){
+  var qs=Object.keys(params).map(function(k){return k+"="+encodeURIComponent(params[k])}).join("&");
+  return fetch("/api/comps?"+qs,{headers:{accept:"application/json"}}).then(function(r){return r.json()});
 }
-function loadCalcFromCard(){
-  var c=state.card;
-  $("#calc-raw").value=Math.round(summary(salesFor(c,"raw")).med10);
-  $("#calc-p9").value=Math.round(summary(salesFor(c,"psa9")).med10);
-  $("#calc-p10").value=Math.round(summary(salesFor(c,"psa10")).med10);
-  renderCalc();
-}
-function pickCard(id){
-  var c=CARDS.filter(function(k){return k.id===id})[0];if(!c)return;
-  state.card=c;renderComps();loadCalcFromCard();
+function compStatus(kind,q,detail){
+  var box=$("#comp-status");
+  if(kind==="hide"){box.hidden=true;return}
+  box.hidden=false;$("#comp-panel").hidden=true;
+  var title,body;
+  if(kind==="loading"){title="Looking up \u201c"+q+"\u201d\u2026";body="First time for this card? It takes a few seconds, then it is in the Ledger for good."}
+  else if(kind==="none"){title="No card matched \u201c"+q+"\u201d";body="Try the player with the year and set, like \u201cMichael Jordan 1986 Fleer\u201d, and add the card number if you know it."}
+  else if(kind==="busy"){title="The Ledger is taking a breather";body=detail||"Today's lookup limit is used up. Cards already in the Ledger still answer."}
+  else if(kind==="offline"){title="Live comps run on thewaxledger.com";body="This preview can't reach the price source. On the live site every search is answered."}
+  else{title="Couldn't reach the price source";body=(detail?detail+" ":"")+"Try again in a moment, or check eBay's sold listings directly."}
+  $("#comp-status-title").textContent=title;$("#comp-status-body").textContent=body;
+  $("#comp-retry").hidden=kind!=="error";
+  var eb=$("#ebay-link-2");eb.hidden=!q||kind==="loading";eb.href=ebayUrl(q||"");
 }
 function searchComps(q){
-  q=q.trim();
-  if(!q){renderComps();return}
-  var words=q.toLowerCase().split(/\s+/);
-  var hit=CARDS.filter(function(c){var hay=(c.name+" "+c.set).toLowerCase();return words.every(function(w){return hay.indexOf(w)>=0})})[0]
-       ||CARDS.filter(function(c){var hay=(c.name+" "+c.set).toLowerCase();return words.some(function(w){return w.length>2&&hay.indexOf(w)>=0})})[0];
-  if(hit){pickCard(hit.id);return}
-  $("#comp-panel").hidden=true;$("#comp-empty").hidden=false;
-  $("#empty-title").textContent='No sample data for "'+q+'"';
-  $("#ebay-link-2").href=ebayUrl(q);
+  q=String(q||"").replace(/\s+/g," ").trim();
+  if(!q)return;
+  $("#comp-q").value=q;state.q=q;
+  var key=q.toLowerCase(),hit=COMPS.cache[key];
+  if(hit){renderProduct(hit,q);return}
+  var seq=++COMPS.seq;
+  compStatus("loading",q);
+  compsApi({q:q}).then(function(j){
+    if(seq!==COMPS.seq)return;
+    if(j.status==="ok"){COMPS.cache[key]=j;renderProduct(j,q);if(!j.cached)loadRecent(true)}
+    else if(j.status==="none")compStatus("none",q);
+    else if(j.status==="busy")compStatus("busy",q,j.error);
+    else if(j.status==="not_configured")compStatus("error",q,"Live comps are being connected.");
+    else compStatus("error",q,j.error);
+  }).catch(function(){if(seq===COMPS.seq)compStatus(/thewaxledger|netlify/.test(location.host)?"error":"offline",q)});
+}
+function pickProduct(id,q){
+  var seq=++COMPS.seq;compStatus("loading",q||"that card");
+  compsApi({id:id,q:q||""}).then(function(j){if(seq!==COMPS.seq)return;if(j.status==="ok"){state.q=q||j.product.name;renderProduct(j,state.q)}else compStatus("error",q,j.error)}).catch(function(){if(seq===COMPS.seq)compStatus("error",q)});
+}
+var LADDER=[["raw","Ungraded"],["g7","Grade 7"],["g8","Grade 8"],["g9","PSA 9"],["bgs95","BGS 9.5"],["psa10","PSA 10"]];
+function renderProduct(j,q){
+  var p=j.product,pr=p.prices;state.card=p;
+  compStatus("hide");$("#comp-panel").hidden=false;
+  $("#comp-set").textContent=p.set+(p.sport&&p.set.toLowerCase().indexOf(p.sport.toLowerCase())<0?" \u00b7 "+p.sport:"");$("#comp-name").textContent=p.name;
+  var mult=pr.raw&&pr.psa10?pr.psa10/pr.raw:null;
+  function v(x){return x!=null?money(x):"\u2014"}
+  $("#comp-tiles").innerHTML=
+    '<div class="tile"><div class="v">'+v(pr.raw)+'</div><div class="k">Ungraded</div></div>'+
+    '<div class="tile"><div class="v">'+v(pr.g9)+'</div><div class="k">PSA 9</div></div>'+
+    '<div class="tile"><div class="v">'+v(pr.psa10)+'</div><div class="k">PSA 10'+(mult?" \u00b7 "+mult.toFixed(1)+"x raw":"")+'</div></div>'+
+    '<div class="tile"><div class="v">'+(p.volume!=null?p.volume.toLocaleString("en-US"):"\u2014")+'</div><div class="k">Sales per year</div></div>';
+  var max=Math.max.apply(null,LADDER.map(function(l){return pr[l[0]]||0}))||1;
+  $("#comp-ladder").innerHTML=LADDER.filter(function(l){return pr[l[0]]!=null}).map(function(l){return '<div class="lrow"><span class="lk">'+l[1]+'</span><span class="lbar"><i style="width:'+Math.max(1.5,pr[l[0]]/max*100).toFixed(1)+'%"></i></span><span class="lv">'+money(pr[l[0]])+'</span></div>'}).join("")||'<p class="muted small">No values on file for this card yet.</p>';
+  var ms=j.matches||[];
+  $("#comp-matches-wrap").hidden=!ms.length;
+  $("#comp-matches").innerHTML=ms.map(function(m){return '<button class="match" type="button" data-pick="'+esc(m.id)+'" data-pick-q="'+esc(q)+'"><b>'+esc(m.name)+'</b><span>'+esc(m.set)+'</span></button>'}).join("");
+  var when=p.fetchedAt?new Date(p.fetchedAt):null;
+  $("#comp-source").textContent="Values by SportsCardsPro from completed eBay sales"+(when?" \u00b7 updated "+MONTHS[when.getMonth()]+" "+when.getDate():"")+(j.stale?" \u00b7 refresh pending":"");
+  $("#ebay-link").href=ebayUrl(p.name+" "+p.set);$("#scp-link").href=scpUrl(p.name+" "+p.set);
+  cardChips($("#comp-chips"));cardChips($("#hero-chips"));
+  loadCalcFromCard();
+}
+function loadCalcFromCard(){
+  var c=state.card;if(!c)return;var pr=c.prices;
+  $("#calc-raw").value=pr.raw!=null?Math.round(pr.raw):"";$("#calc-p9").value=pr.g9!=null?Math.round(pr.g9):"";$("#calc-p10").value=pr.psa10!=null?Math.round(pr.psa10):"";
+  renderCalc();
+}
+function loadRecent(force){
+  if(COMPS.recent&&!force){renderRecent();return}
+  compsApi({recent:1}).then(function(j){if(j.status==="ok"){COMPS.recent=j;renderRecent()}}).catch(function(){});
+}
+function renderRecent(){
+  var r=COMPS.recent,host=$("#comp-recent");if(!r||!r.items||!r.items.length){host.hidden=true;return}
+  host.hidden=false;
+  $("#comp-recent-n").textContent=(r.n||r.items.length).toLocaleString("en-US")+" card"+(r.n===1?"":"s")+" in the Ledger \u00b7 latest";
+  $("#comp-recent-list").innerHTML=r.items.slice(0,12).map(function(i){return '<button class="chip" type="button" data-pick="'+esc(i.id)+'" data-pick-q="'+esc(i.name)+'" title="'+esc(i.set)+'">'+esc(i.name)+(i.psa10!=null?' <span class="muted">'+money(i.psa10)+'</span>':'')+'</button>'}).join("");
+}
+function compsOnShow(){cardChips($("#comp-chips"));loadRecent()}
+function loadHeroLive(){
+  compsApi({q:CARDS[0].q}).then(function(j){
+    if(j.status!=="ok")return;var p=j.product,pr=p.prices;
+    function v(x){return x!=null?money(x):"\u2014"}
+    $("#hero-label").textContent="PSA 10 value";$("#hero-last").textContent=v(pr.psa10);$("#hero-card").textContent=p.name+", "+p.set;
+    $("#hero-stats").innerHTML="<dt>Ungraded</dt><dd>"+v(pr.raw)+"</dd><dt>PSA 9</dt><dd>"+v(pr.g9)+"</dd><dt>Sales per year</dt><dd>"+(p.volume!=null?p.volume.toLocaleString("en-US"):"\u2014")+"</dd><dt>PSA 10 multiple</dt><dd>"+(pr.raw&&pr.psa10?(pr.psa10/pr.raw).toFixed(1)+"x raw":"\u2014")+"</dd>";
+    var pill=$("#hero-sample");pill.textContent="Live";pill.className="pill pill-up";
+    COMPS.cache[CARDS[0].q.toLowerCase()]=j;
+  }).catch(function(){});
 }
 
 /* ---------- grading math ---------- */
@@ -1173,7 +1207,7 @@ function renderCalc(){
     "<dt>If it gems</dt><dd class='"+(r.hit10>=0?"up":"down")+"'>"+signed(r.hit10)+"</dd>"+
     "<dt>If it misses</dt><dd class='"+(r.miss>=0?"up":"down")+"'>"+signed(r.miss)+"</dd>"+
     "<dt>Expected profit at "+gem+"% gems</dt><dd class='"+(r.profit>=0?"up":"down")+"'>"+signed(r.profit)+"</dd>";
-  $("#calc-note").textContent="Uses the Screener's assumptions: the PSA 10 takes a "+pc(SA.haircut)+" sell-date haircut and a miss sells at "+pc(SA.missReal)+" of the PSA 9 price. The calculator is live. The prices it loads from the comp sheet are sample data.";
+  $("#calc-note").textContent="Uses the Screener's assumptions: the PSA 10 takes a "+pc(SA.haircut)+" sell-date haircut and a miss sells at "+pc(SA.missReal)+" of the PSA 9 price. The calculator is live. The prices it loads from the comp sheet are SportsCardsPro values.";
 }
 
 /* ---------- releases ---------- */
@@ -2076,9 +2110,11 @@ document.addEventListener("click",function(e){
   if(e.target.id==="scrim"||e.target.closest("#drawer-x")){closeScr();return}
   t=e.target.closest("[data-sfilter]");if(t){scr.filter=t.dataset.sfilter;renderScreener();return}
   if(e.target.id==="asm-reset"){Object.keys(ASM_DEFAULTS).forEach(function(k){SA[k]=ASM_DEFAULTS[k]});try{localStorage.removeItem("wl-asm")}catch(err){}syncAsm();renderScreener();syncCalcToAsm();return}
-  t=e.target.closest("[data-card]");
-  if(t){pickCard(t.dataset.card);if($('[data-view="comps"]').hidden)show("comps");return}
-  t=e.target.closest("[data-grade]");if(t){state.grade=t.dataset.grade;renderComps();return}
+  t=e.target.closest("[data-q]");
+  if(t){if($('[data-view="comps"]').hidden)show("comps");searchComps(t.dataset.q);return}
+  t=e.target.closest("[data-pick]");
+  if(t){pickProduct(t.dataset.pick,t.dataset.pickQ);return}
+  if(e.target.id==="comp-retry"){searchComps(state.q);return}
   t=e.target.closest("[data-sport]");if(t){state.sport=t.dataset.sport;renderReleases();return}
   t=e.target.closest("[data-tsport]");if(t){state.tsport=t.dataset.tsport;renderTrending();return}
   t=e.target.closest("[data-plan]");
@@ -2098,11 +2134,11 @@ document.addEventListener("keydown",function(e){
   if((e.key==="Enter"||e.key===" ")&&e.target.matches&&e.target.matches("tr[data-scr],.row-scr,g[data-scr]")){e.preventDefault();openScr(e.target.getAttribute("data-scr"))}
 });
 var resizeTimer;
-window.addEventListener("resize",function(){clearTimeout(resizeTimer);resizeTimer=setTimeout(function(){if(!$('[data-view="comps"]').hidden&&!$("#comp-panel").hidden)renderComps();if(!$('[data-view="screener"]').hidden)renderScatter()},150)});
+window.addEventListener("resize",function(){clearTimeout(resizeTimer);resizeTimer=setTimeout(function(){if(!$('[data-view="screener"]').hidden)renderScatter()},150)});
 
 /* ---------- boot ---------- */
 syncAsm();$("#calc-fee").value=(SA.fee+SA.ship).toFixed(2);$("#calc-sell").value=String(Math.round(SA.sellFee*1000)/10);
-renderMarket();renderComps();loadCalcFromCard();renderScreener();renderReleases();renderTrending();renderReviews();
+renderMarket();cardChips($("#hero-chips"));cardChips($("#comp-chips"));renderCalc();loadHeroLive();renderScreener();renderReleases();renderTrending();renderReviews();
 var start=location.hash.slice(1);
 if(VIEWS.indexOf(start)<0){try{start=localStorage.getItem("wl-view")||"market"}catch(e){start="market"}}
 show(start,true);
