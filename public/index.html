@@ -2029,7 +2029,7 @@ function pgResult(){
   var subs={center:centerCap("PSA",wf,wb),corners:wearCap(cornerScore),edges:wearCap(edgeScore),surface:sCap};
   var grade=Math.min(subs.center,subs.corners,subs.edges,subs.surface);
   $("#pg-grade-num").childNodes[0].nodeValue=String(grade);$("#pg-grade-label").textContent=GRADE_LABEL[grade]||"";
-  $("#pg-subs").innerHTML=[["Centering",subs.center],["Corners",subs.corners],["Edges",subs.edges],["Surface",subs.surface]].map(function(r){return '<div class="sub'+(r[1]===grade?" limit":"")+'"><b>'+r[1]+'</b><span>'+r[0]+'</span></div>'}).join("");
+  $("#pg-subs").innerHTML=[["Centering",subs.center],["Corners",subs.corners],["Edges",subs.edges],["Surface",subs.surface]].map(function(r){return '<div class="sub'+(r[1]===grade&&grade<10?" limit":"")+'"><b>'+r[1]+'</b><span>'+r[0]+'</span></div>'}).join("");
   // gem chance
   var p=wf<=55?.95:wf<=58?.85:wf<=60?.65:wf<=62?.35:wf<=65?.12:.03;
   if(b)p*=wb<=70?1:wb<=75?.85:wb<=80?.4:.1;
@@ -2045,7 +2045,7 @@ function pgResult(){
   if(b)rows.push(["Centering, back",Math.round(b.lr)+"/"+Math.round(100-b.lr)+" · "+Math.round(b.tb)+"/"+Math.round(100-b.tb),centerCap("PSA",0,wb)]);
   rows.push(["Corners",cornerScore+"/100",subs.corners]);rows.push(["Edges",edgeScore+"/100",subs.edges]);
   rows.push(["Surface",(flags.length?flags.join(", "):"Nothing flagged")+(scanLines||scanSpecks?" · scan: "+scanLines+" line"+(scanLines===1?"":"s")+", "+scanSpecks+" speck"+(scanSpecks===1?"":"s")+(useScan?"":" (not counted)"):""),subs.surface]);
-  $("#pg-breakdown").innerHTML=rows.map(function(r){return '<span class="k">'+r[0]+'</span><span class="v">'+esc(r[1])+'</span><span class="cap'+(r[2]===grade?" limit":"")+'">'+(r[2]>=10?"10 ok":"caps at "+r[2])+'</span>'}).join("");
+  $("#pg-breakdown").innerHTML=rows.map(function(r){return '<span class="k">'+r[0]+'</span><span class="v">'+esc(r[1])+'</span><span class="cap'+(r[2]===grade&&grade<10?" limit":"")+'">'+(r[2]>=10?"10 ok":"caps at "+r[2])+'</span>'}).join("");
   // per-company table
   var co=CO_LIST.map(function(c){var half=c!=="PSA",g=Math.min(centerCap(c,wf,wb),wearCap(cornerScore,half),wearCap(edgeScore,half),sCap);var cc=centerCap(c,wf,wb);return {co:c,grade:g,center:cc}});
   $("#pg-co").innerHTML='<thead><tr><th>Company</th><th>Centering allows</th><th>Predicted</th></tr></thead><tbody>'+co.map(function(r){return '<tr><td>'+r.co+'</td><td class="mono">'+r.center+'</td><td class="mono"><b>'+r.grade+'</b></td></tr>'}).join("")+'</tbody>';
