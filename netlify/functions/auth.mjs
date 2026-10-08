@@ -11,6 +11,10 @@ const CODE_MIN = 15, MAX_TRIES = 5;
 
 export async function handle(req, deps) {
   const now = deps.now();
+  if (req.method === "GET" && new URL(req.url).searchParams.has("config")) {
+    // which settings are present (never their values)
+    return json({ status: "ok", stripe: !!deps.stripeKey, stripeLive: /^rk_live_|^sk_live_/.test(deps.stripeKey || ""), mail: !!deps.mailer, admins: (deps.adminEmails || []).length });
+  }
   if (req.method === "GET") {
     const m = await currentMember(req, deps);
     return json({ status: "ok", member: m ? { name: m.name, x: m.x, since: m.since, admin: m.admin, email: m.email } : null });
