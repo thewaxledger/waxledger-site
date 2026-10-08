@@ -58,9 +58,22 @@ export async function handle(req, deps) {
   const q = normalizeQuery(url.searchParams.get("q"));
   const id = (url.searchParams.get("id") || "").replace(/\D/g, "");
   if (url.searchParams.has("ping")) return json({ configured: !!token });
+  if (url.searchParams.has("stats")) return json({ status: "ok", ...(await store.get("stats", { type: "json" }) || {}) });
   if (url.searchParams.has("recent")) {
     const index = (await store.get("index", { type: "json" })) || { items: [], n: 0 };
     return json({ status: "ok", n: index.n || index.items.length, items: index.items.slice(0, 24) });
+  }
+  async function tally(prod) {
+    try {
+      const d = new Date(t), wk = d.toISOString().slice(0, 10);
+      const st = (await store.get("stats", { type: "json" })) || { weeks: {} };
+      const monday = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() - ((d.getUTCDay() + 6) % 7))).toISOString().slice(0, 10);
+      const w = st.weeks[monday] || (st.weeks[monday] = { lookups: 0, noGraded: 0, cards: {} });
+      w.lookups++;
+      if (prod.prices.psa10 == null && prod.prices.g9 == null) { w.noGraded++; w.cards[prod.name + " | " + prod.set] = (w.cards[prod.name + " | " + prod.set] || 0) + 1; }
+      const keys = Object.keys(st.weeks).sort(); while (keys.length > 12) delete st.weeks[keys.shift()];
+      await store.setJSON("stats", st);
+    } catch (e) {}
   }
   if (!q && !id) return json({ status: "error", error: "Give me a card to look up." }, 400);
   if (!token) return json({ status: "not_configured", error: "Live comps are not connected yet." }, 503);
@@ -114,12 +127,13 @@ export async function handle(req, deps) {
       const cached = await store.get("product:" + id, { type: "json" });
       const r = await productById(id, cached);
       const back = url.searchParams.get("q") ? (await store.get("query:" + q, { type: "json" })) : null;
+      await tally(r.product);
       return json({ status: "ok", q, product: r.product, matches: back ? back.matches : [], cached: r.cached, stale: !!r.stale });
     }
     const qrec = await store.get("query:" + q, { type: "json" });
     if (qrec && t - qrec.at < FRESH_MS) {
       const cached = await store.get("product:" + qrec.best, { type: "json" });
-      if (cached) return json({ status: "ok", q, product: cached, matches: qrec.matches, cached: true });
+      if (cached) { await tally(cached); return json({ status: "ok", q, product: cached, matches: qrec.matches, cached: true }); }
     }
     // ask upstream: best match with values, and the list of other matches
     let best, list = [];
@@ -142,6 +156,7 @@ export async function handle(req, deps) {
     const matches = list.filter(m => m.id !== best.id).slice(0, 19);
     await saveProduct(best);
     await store.setJSON("query:" + q, { best: best.id, matches, at: t });
+    await tally(best);
     return json({ status: "ok", q, product: best, matches, cached: false });
   } catch (e) {
     return json({ status: "error", error: "Couldn't reach the price source right now." , detail: String(e.message || e).slice(0, 120) }, 502);
