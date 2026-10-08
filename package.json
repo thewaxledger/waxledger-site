@@ -5,6 +5,7 @@
   "description": "Wax Ledger: static site plus a Netlify function that fetches and stores card comps.",
   "type": "module",
   "dependencies": {
-    "@netlify/blobs": "^8.1.0"
+    "@netlify/blobs": "^8.1.0",
+    "nodemailer": "^6.9.16"
   }
 }

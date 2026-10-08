@@ -108,7 +108,7 @@ h3{font-size:1rem;font-weight:600;line-height:1.3}
 .nav a{padding:7px 9px;border-radius:6px;text-decoration:none;color:var(--ink-2);font-weight:500;font-size:13.5px;white-space:nowrap}
 .nav a:hover{color:var(--ink);background:var(--surface-2)}
 .nav a[aria-current="page"]{color:var(--ink);background:var(--surface-2);box-shadow:inset 0 -2px 0 var(--gold)}
-@media (max-width:1180px){.nav{order:3;flex-basis:100%}.head-row .btn{margin-left:auto}}
+.nav{order:3;flex-basis:100%}.head-row .btn{margin-left:auto}
 @media (max-width:760px){.head-row .btn{padding:7px 12px}}
 
 .preview-bar{background:var(--ink);color:var(--bg);font-size:12.5px}
@@ -464,6 +464,59 @@ details.method summary{cursor:pointer;font-weight:600;font-size:1rem}
 .math-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
 .math-tiles .tile .v{font-size:1.5rem}
 .math-tiles .v.up{color:var(--up)}.math-tiles .v.down{color:var(--down)}
+/* buy / sell / trade */
+.stack-sm{display:flex;flex-direction:column;gap:12px;min-width:0}
+.bst-gate-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px;align-items:center}
+@media (max-width:760px){.bst-gate-grid{grid-template-columns:1fr}}
+.bst-form-row{display:flex;gap:8px;flex-wrap:wrap}
+.bst-form-row input,.bst-bar input[type=search],.bst-dialog input,.bst-dialog textarea{background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:9px 11px;font:inherit;font-size:14px;color:var(--ink);min-width:0}
+.bst-form-row input{flex:1 1 200px}
+.bst-teaser{border-left:1px solid var(--line);padding-left:24px;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+@media (max-width:760px){.bst-teaser{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:16px}}
+.big-num{font-family:var(--display);font-weight:800;font-size:3rem;line-height:1;margin:0}
+.bst-bar{display:flex;gap:10px 14px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.bst-bar input[type=search]{flex:1 1 200px}
+.bst-sold{font-size:13px}
+.bst-rules{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:13.5px}
+.bst-rules summary{cursor:pointer;font-weight:600}
+.bst-rules ul{margin:10px 0 2px;padding-left:18px;display:flex;flex-direction:column;gap:6px;color:var(--ink-2)}
+.bst-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.bst-card{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;text-align:left;padding:0;font:inherit;color:inherit}
+.bst-card:hover{border-color:var(--gold)}
+.bst-card:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.bst-thumb{aspect-ratio:4/3;background:var(--surface-2);display:flex;align-items:center;justify-content:center;overflow:hidden;color:var(--ink-3);font-family:var(--display);font-size:1.6rem;text-transform:uppercase}
+.bst-thumb img{width:100%;height:100%;object-fit:contain;background:#0b1424}
+.bst-cbody{padding:10px 12px 12px;display:flex;flex-direction:column;gap:5px}
+.bst-ctitle{font-weight:600;font-size:14px;line-height:1.3}
+.bst-cmeta{display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:12px;color:var(--ink-3)}
+.bst-price{font-family:var(--mono);font-size:15px;color:var(--ink)}
+.tag-sell{background:var(--up-bg);color:var(--up);border-color:transparent}
+.tag-buy{background:var(--gold);color:var(--on-gold);border-color:transparent}
+.tag-trade{background:var(--surface-2);color:var(--ink);border-color:var(--line)}
+.tag-done{background:var(--down-bg);color:var(--down);border-color:transparent}
+.bst-dialog{border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);padding:clamp(16px,3vw,24px);width:min(640px,calc(100vw - 32px));max-height:calc(100vh - 48px);overflow:auto}
+.bst-dialog::backdrop{background:rgba(8,14,24,.55)}
+.bst-dialog textarea{width:100%;resize:vertical}
+.bst-dialog .field input{font-family:inherit}
+.bst-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:480px){.bst-two{grid-template-columns:1fr}}
+.bst-photos{display:flex;gap:8px;flex-wrap:wrap}
+.bst-photos figure{margin:0;position:relative;width:84px;height:84px;border-radius:6px;overflow:hidden;border:1px solid var(--line);background:#0b1424}
+.bst-photos img{width:100%;height:100%;object-fit:contain}
+.bst-photos button{position:absolute;top:2px;right:2px;border:0;border-radius:99px;width:22px;height:22px;background:rgba(0,0,0,.65);color:#fff;cursor:pointer;line-height:1}
+.bst-add-photo{position:relative;align-self:flex-start;margin-top:6px}
+.bst-add-photo input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.bst-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
+.bst-gallery a{display:block;aspect-ratio:3/4;border-radius:6px;overflow:hidden;background:#0b1424;border:1px solid var(--line)}
+.bst-gallery img{width:100%;height:100%;object-fit:contain}
+.bst-facts{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 16px;font-size:13.5px;margin:0}
+.bst-facts dt{color:var(--ink-3)}.bst-facts dd{margin:0;overflow-wrap:anywhere}
+.bst-text{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;color:var(--ink-2);margin:0}
+.bst-replies{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
+.bst-replies li{border-left:2px solid var(--line);padding-left:10px;font-size:13.5px}
+.bst-replies li.seller{border-left-color:var(--gold)}
+.bst-replies b{font-weight:600}.bst-replies time{color:var(--ink-3);font-size:12px;margin-left:6px}
+.bst-actions{display:flex;gap:8px;flex-wrap:wrap}
 footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-3);font-size:12.5px}
 .foot{display:flex;justify-content:space-between;gap:16px 40px;flex-wrap:wrap}
 .foot p{max-width:70ch}
@@ -477,6 +530,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
       <a href="#comps" data-go="comps">Comps</a>
       <a href="#screener" data-go="screener">Screener</a>
       <a href="#pregrade" data-go="pregrade">Pre-Grading Tool</a>
+      <a href="#trade" data-go="trade">Buy/Sell/Trade</a>
       <a href="#releases" data-go="releases">Releases</a>
       <a href="#trending" data-go="trending">Trending</a>
       <a href="#reviews" data-go="reviews">Product Reviews</a>
@@ -837,6 +891,100 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
   <div class="reviews" id="review-grid"></div>
 </section>
 
+<!-- BUY / SELL / TRADE -->
+<section class="view" data-view="trade" hidden>
+  <div class="view-head">
+    <p class="eyebrow">Buy / Sell / Trade <span class="pill pill-gold">Pro members</span></p>
+    <h2>Deal direct, skip the fees</h2>
+    <p class="lede">A members-only board for buying, selling and trading cards with other Wax Ledger members. List a card, answer a want, or message a seller privately. No listing fees and no final value fees: you settle up between yourselves.</p>
+  </div>
+
+  <div class="panel" id="bst-gate">
+    <div class="bst-gate-grid">
+      <div class="stack-sm">
+        <p class="eyebrow" id="bst-gate-eyebrow">Members sign in</p>
+        <h3 id="bst-gate-title">Sign in with your Pro email</h3>
+        <p class="muted" id="bst-gate-body">We'll email you a 6-digit code. No password needed.</p>
+        <form class="bst-form-row" id="bst-email-form">
+          <input id="bst-email" type="email" autocomplete="email" placeholder="you@example.com" aria-label="Email" required>
+          <button class="btn btn-gold" type="submit" id="bst-email-btn">Email me a code</button>
+        </form>
+        <form class="bst-form-row" id="bst-code-form" hidden>
+          <input id="bst-code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="6-digit code" aria-label="Sign-in code" required>
+          <button class="btn btn-gold" type="submit">Sign in</button>
+          <button class="btn btn-sm" type="button" id="bst-code-back">Use a different email</button>
+        </form>
+        <form class="bst-form-row" id="bst-name-form" hidden>
+          <input id="bst-name" maxlength="24" placeholder="Display name" aria-label="Display name" required>
+          <input id="bst-x" maxlength="16" placeholder="X handle (optional)" aria-label="X handle">
+          <button class="btn btn-gold" type="submit">Save</button>
+        </form>
+        <p class="form-note" id="bst-gate-note" aria-live="polite"></p>
+      </div>
+      <div class="bst-teaser">
+        <p class="big-num" id="bst-count">—</p>
+        <p class="muted small">listings on the board right now</p>
+        <a class="btn" href="#membership" data-go="membership">See Pro membership</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="bst-board" hidden>
+    <div class="bst-bar">
+      <div class="seg" role="group" aria-label="Listing type" id="bst-filter">
+        <button type="button" data-f="all" aria-pressed="true">All</button>
+        <button type="button" data-f="sell" aria-pressed="false">Selling</button>
+        <button type="button" data-f="buy" aria-pressed="false">Buying</button>
+        <button type="button" data-f="trade" aria-pressed="false">Trading</button>
+      </div>
+      <input id="bst-search" type="search" placeholder="Search listings" aria-label="Search listings">
+      <label class="check-row bst-sold"><input type="checkbox" id="bst-showsold"><span>Show sold &amp; closed</span></label>
+      <button class="btn btn-gold" type="button" id="bst-new">New listing</button>
+      <span class="small muted" id="bst-who"></span>
+      <button class="btn btn-sm" type="button" id="bst-logout">Sign out</button>
+    </div>
+    <details class="bst-rules"><summary>Trade safely: read before you deal</summary>
+      <ul>
+        <li>Pay with PayPal Goods &amp; Services or another method with buyer protection. Avoid Friends &amp; Family, Zelle, Venmo or Cash App with people you don't know.</li>
+        <li>Ask for timestamped photos (your name and today's date on paper next to the card) before you pay for anything.</li>
+        <li>Ship with tracking, and add signature confirmation over $250. On trades, the newer member usually ships first.</li>
+        <li>Wax Ledger isn't a party to any deal and doesn't hold money or cards. Report anything off and we'll look at it.</li>
+      </ul>
+    </details>
+    <div class="bst-grid" id="bst-list"></div>
+    <p class="pg-empty" id="bst-empty" hidden>No listings match. Be the first: post what you're selling or hunting for.</p>
+  </div>
+
+  <dialog class="bst-dialog" id="bst-compose" aria-labelledby="bst-compose-title">
+    <form id="bst-compose-form" method="dialog" class="stack-sm">
+      <div class="panel-head"><h3 id="bst-compose-title">New listing</h3><button class="btn btn-sm" type="button" data-close>Cancel</button></div>
+      <div class="seg" role="group" aria-label="Type" id="bst-type">
+        <button type="button" data-t="sell" aria-pressed="true">Selling</button>
+        <button type="button" data-t="buy" aria-pressed="false">Buying</button>
+        <button type="button" data-t="trade" aria-pressed="false">Trading</button>
+      </div>
+      <div class="field"><label for="bst-title">Card</label><input id="bst-title" maxlength="90" placeholder="2025-26 Topps Chrome Cooper Flagg #251 Refractor" required></div>
+      <div class="bst-two">
+        <div class="field" id="bst-price-wrap"><label for="bst-price" id="bst-price-label">Asking price ($)</label><input id="bst-price" inputmode="decimal" maxlength="12" placeholder="250"></div>
+        <div class="field"><label for="bst-grade">Grade or condition</label><input id="bst-grade" maxlength="40" placeholder="PSA 9, raw NM, etc."></div>
+      </div>
+      <div class="field" id="bst-wants-wrap" hidden><label for="bst-wants">Looking for in trade</label><input id="bst-wants" maxlength="200" placeholder="Wemby Prizm RCs, Skenes autos"></div>
+      <div class="field"><label for="bst-shipping">Shipping</label><input id="bst-shipping" maxlength="80" placeholder="$5 BMWT, free over $100"></div>
+      <div class="field"><label for="bst-details">Details</label><textarea id="bst-details" maxlength="1500" rows="4" placeholder="Centering, flaws, payment you accept, bundle deals"></textarea></div>
+      <div class="field"><label>Photos <span class="muted" id="bst-photo-need">(at least one front photo for sales, up to 4)</span></label>
+        <div class="bst-photos" id="bst-photo-list"></div>
+        <label class="btn btn-sm bst-add-photo">Add photos<input id="bst-photo-input" type="file" accept="image/*" multiple></label>
+      </div>
+      <p class="form-note" id="bst-compose-note" aria-live="polite"></p>
+      <div class="linkrow"><button class="btn btn-gold" type="submit" id="bst-post">Post listing</button></div>
+    </form>
+  </dialog>
+
+  <dialog class="bst-dialog" id="bst-detail" aria-labelledby="bst-d-title">
+    <div class="stack-sm" id="bst-detail-body"></div>
+  </dialog>
+</section>
+
 <!-- MEMBERSHIP -->
 <section class="view" data-view="membership" hidden>
   <div class="view-head">
@@ -859,6 +1007,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
     <div class="plan plan-pro">
       <div><p class="eyebrow">Pro monthly</p><p class="price">$8 <small>a month</small></p></div>
       <ul class="facts">
+        <li>Members-only Buy/Sell/Trade board, no selling fees</li>
         <li>Unlimited comp lookups, every grade</li>
         <li>The full grading Screener, ranked by expected return</li>
         <li>Grading calculator with saved cards</li>
@@ -1016,12 +1165,13 @@ var CHECKOUT={monthly:"https://buy.stripe.com/bJeeV65z565XgzTcpC3wQ02",annual:"h
 (function(){try{if(/[?&]welcome=pro/.test(location.search))document.addEventListener("DOMContentLoaded",function(){var n=document.getElementById("plan-note");if(n)n.textContent="Welcome to Wax Ledger Pro. Your receipt is on its way to your inbox."})}catch(e){}})();
 
 /* ---------- router ---------- */
-var VIEWS=["market","comps","screener","pregrade","releases","trending","reviews","membership"];
+var VIEWS=["market","comps","screener","pregrade","trade","releases","trending","reviews","membership"];
 function show(name,keepScroll){
   if(VIEWS.indexOf(name)<0)name="market";
   $$("[data-view]").forEach(function(v){v.hidden=v.dataset.view!==name});
   $$(".nav a").forEach(function(a){if(a.dataset.go===name)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
   if(name==="comps")compsOnShow();
+  if(name==="trade")bstInit();
   if(name==="screener")renderScatter();
   if(!keepScroll)window.scrollTo(0,0);
   try{localStorage.setItem("wl-view",name)}catch(e){}
@@ -2107,6 +2257,172 @@ document.addEventListener("click",function(e){
   t=e.target.closest("[data-pg-tab]");if(t){s=PG[t.dataset.side];if(s){s.tab=t.dataset.pgTab;pgRender(s)}}
 });
 window.__pg={run:pgRun,PG:PG};
+
+/* ---------- buy / sell / trade ---------- */
+// Members sign in with an emailed code (/api/auth); the board lives at /api/bst. Photos are shrunk in the browser before upload.
+var BST={me:null,email:"",listings:[],filter:"all",type:"sell",photos:[],loaded:false,busy:false};
+function api(path,body){
+  var opt=body?{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body),credentials:"same-origin"}:{credentials:"same-origin"};
+  return fetch(path,opt).then(function(r){return r.json().catch(function(){return {status:"error",error:"Something went wrong."}}).then(function(j){j._code=r.status;return j})});
+}
+function bstNote(id,msg,bad){var n=$(id);n.textContent=msg||"";n.style.color=bad?"var(--down)":""}
+function bstAgo(t){var s=(Date.now()-t)/1000;if(s<90)return "just now";if(s<3600)return Math.round(s/60)+"m ago";if(s<86400)return Math.round(s/3600)+"h ago";var d=new Date(t);return MONTHS[d.getMonth()]+" "+d.getDate()}
+function bstSince(t){if(!t)return "";var d=new Date(t);return "member since "+MONTHS[d.getMonth()]+" "+d.getFullYear()}
+function bstGate(state){
+  // state: signin | code | name | notmember | offline
+  $("#bst-gate").hidden=false;$("#bst-board").hidden=true;
+  $("#bst-email-form").hidden=!(state==="signin"||state==="notmember");$("#bst-code-form").hidden=state!=="code";$("#bst-name-form").hidden=state!=="name";
+  var t={signin:["Members sign in","Sign in with your Pro email","We'll email you a 6-digit code. No password needed."],
+    code:["Check your email","Enter the 6-digit code","We sent it to "+BST.email+". It expires in 15 minutes."],
+    name:["One more step","Pick a display name","Other members see this on your listings and replies. Add your X handle if you want buyers to check your trade history there."],
+    notmember:["Members only","That email isn't on a Pro membership","Use the email you subscribed with, or join Pro to post and browse the board."],
+    offline:["Members only","The board runs on thewaxledger.com","This preview can't reach it."]}[state];
+  $("#bst-gate-eyebrow").textContent=t[0];$("#bst-gate-title").textContent=t[1];$("#bst-gate-body").textContent=t[2];
+}
+function bstInit(force){
+  if(BST.loaded&&!force){if(BST.me&&BST.me.name)bstLoad();return}
+  BST.loaded=true;
+  api("/api/auth").then(function(j){
+    BST.me=j.member;
+    if(!BST.me){bstGate("signin");bstPreview();return}
+    if(!BST.me.name){BST.email=BST.me.email;bstGate("name");return}
+    bstLoad();
+  }).catch(function(){bstGate("offline")});
+}
+function bstPreview(){api("/api/bst").then(function(j){if(j.preview)$("#bst-count").textContent=j.preview.count}).catch(function(){})}
+function bstLoad(){
+  $("#bst-gate").hidden=true;$("#bst-board").hidden=false;
+  $("#bst-who").textContent="Signed in as "+BST.me.name+(BST.me.admin?" · admin":"");
+  api("/api/bst").then(function(j){
+    if(j._code===401||j.member===false){BST.me=null;bstGate("signin");return}
+    BST.listings=j.listings||[];bstRender();
+  });
+}
+function bstRender(){
+  var q=$("#bst-search").value.trim().toLowerCase(),showDone=$("#bst-showsold").checked;
+  var rows=BST.listings.filter(function(l){
+    if(BST.filter!=="all"&&l.type!==BST.filter)return false;
+    if(!showDone&&l.status!=="open")return false;
+    if(q&&(l.title+" "+l.details+" "+l.wants+" "+l.grade+" "+l.seller.name).toLowerCase().indexOf(q)<0)return false;
+    return true});
+  $("#bst-empty").hidden=rows.length>0;
+  var label={sell:"Selling",buy:"Buying",trade:"Trading"};
+  $("#bst-list").innerHTML=rows.map(function(l){
+    var tag=l.status!=="open"?'<span class="pill tag-done">'+(l.status==="sold"?"Sold":"Closed")+'</span>':'<span class="pill tag-'+l.type+'">'+label[l.type]+'</span>';
+    var thumb=l.photos.length?'<img loading="lazy" alt="" src="/api/bst?photo='+encodeURIComponent(l.photos[0])+'">':label[l.type];
+    var price=l.type==="trade"?"Trade":(l.price?"$"+esc(l.price):(l.type==="buy"?"Offers":"Ask"));
+    return '<button type="button" class="bst-card" data-bst="'+esc(l.id)+'"><div class="bst-thumb">'+thumb+'</div><div class="bst-cbody"><div class="bst-cmeta">'+tag+'<span class="bst-price">'+price+'</span></div><div class="bst-ctitle">'+esc(l.title)+'</div><div class="bst-cmeta"><span>'+esc(l.seller.name)+(l.grade?" · "+esc(l.grade):"")+'</span><span>'+bstAgo(l.created)+(l.replies?" · "+l.replies+" repl"+(l.replies>1?"ies":"y"):"")+(l.reported?" · ⚑"+l.reported:"")+'</span></div></div></button>';
+  }).join("");
+}
+function bstOpen(id){
+  var dlg=$("#bst-detail");$("#bst-detail-body").innerHTML='<p class="muted">Loading…</p>';if(!dlg.open)dlg.showModal();
+  api("/api/bst?id="+encodeURIComponent(id)).then(function(j){
+    if(j.status!=="ok"){$("#bst-detail-body").innerHTML='<p>'+esc(j.error||"Couldn't load that listing.")+'</p><button class="btn btn-sm" type="button" data-close>Close</button>';return}
+    var l=j.listing,label={sell:"Selling",buy:"Buying",trade:"Trading"},open=l.status==="open";
+    var facts=[["Price",l.type==="trade"?"Trade":(l.price?"$"+l.price:"Open to offers")]];
+    if(l.wants)facts.push(["Wants",l.wants]);if(l.grade)facts.push(["Grade",l.grade]);if(l.shipping)facts.push(["Shipping",l.shipping]);
+    facts.push(["Lister",l.seller.name+(l.seller.x?" · @"+l.seller.x+" on X":"")+(l.seller.since?" · "+bstSince(l.seller.since):"")]);
+    facts.push(["Posted",bstAgo(l.created)]);
+    var h='<div class="panel-head"><div><p class="eyebrow">'+label[l.type]+(open?"":" · "+(l.status==="sold"?"Sold":"Closed"))+'</p><h3 id="bst-d-title">'+esc(l.title)+'</h3></div><button class="btn btn-sm" type="button" data-close>Close</button></div>';
+    if(l.photos.length)h+='<div class="bst-gallery">'+l.photos.map(function(p){var u="/api/bst?photo="+encodeURIComponent(p);return '<a href="'+u+'" target="_blank" rel="noopener"><img alt="Listing photo" src="'+u+'"></a>'}).join("")+'</div>';
+    h+='<dl class="bst-facts">'+facts.map(function(f){return "<dt>"+f[0]+"</dt><dd>"+esc(f[1])+"</dd>"}).join("")+'</dl>';
+    if(l.details)h+='<p class="bst-text">'+esc(l.details)+'</p>';
+    h+='<div class="bst-actions">';
+    if(l.mine||BST.me.admin){
+      if(open)h+='<button class="btn btn-sm" type="button" data-bst-status="sold" data-id="'+esc(l.id)+'">Mark '+(l.type==="buy"?"found":"sold")+'</button><button class="btn btn-sm" type="button" data-bst-status="closed" data-id="'+esc(l.id)+'">Close</button>';
+      else h+='<button class="btn btn-sm" type="button" data-bst-status="open" data-id="'+esc(l.id)+'">Reopen</button>';
+      h+='<button class="btn btn-sm" type="button" data-bst-delete="'+esc(l.id)+'">Delete</button>';
+    }
+    if(!l.mine)h+='<button class="btn btn-sm" type="button" data-bst-report="'+esc(l.id)+'">Report</button>';
+    h+='</div>';
+    if(!l.mine&&open)h+='<form class="stack-sm" data-bst-msg="'+esc(l.id)+'"><p class="eyebrow">Message '+esc(l.seller.name)+' privately</p><textarea maxlength="1500" rows="3" placeholder="Offer, questions, payment or shipping details" required></textarea><p class="small muted">We email it to them with your email address as the reply-to, so they can answer you directly.</p><div class="linkrow"><button class="btn btn-gold btn-sm" type="submit">Send privately</button><span class="form-note" aria-live="polite"></span></div></form>';
+    h+='<p class="eyebrow">Replies</p><ul class="bst-replies">'+(l.replies.length?l.replies.map(function(r){return '<li class="'+(r.seller?"seller":"")+'"><b>'+esc(r.name)+(r.seller?" · lister":"")+'</b><time>'+bstAgo(r.at)+'</time><div class="bst-text">'+esc(r.text)+'</div></li>'}).join(""):'<li class="muted">No replies yet.</li>')+'</ul>';
+    if(open)h+='<form class="stack-sm" data-bst-reply="'+esc(l.id)+'"><textarea maxlength="600" rows="2" placeholder="Reply publicly" required></textarea><div class="linkrow"><button class="btn btn-sm" type="submit">Post reply</button><span class="form-note" aria-live="polite"></span></div></form>';
+    $("#bst-detail-body").innerHTML=h;
+  });
+}
+function bstShrink(file){
+  return new Promise(function(res,rej){
+    var url=URL.createObjectURL(file),img=new Image();
+    img.onload=function(){var s=Math.min(1,1400/Math.max(img.naturalWidth,img.naturalHeight)),c=document.createElement("canvas");c.width=Math.round(img.naturalWidth*s);c.height=Math.round(img.naturalHeight*s);c.getContext("2d").drawImage(img,0,0,c.width,c.height);URL.revokeObjectURL(url);
+      var q=.85,d=c.toDataURL("image/jpeg",q);while(d.length>1100000&&q>.4){q-=.1;d=c.toDataURL("image/jpeg",q)}res(d)};
+    img.onerror=function(){URL.revokeObjectURL(url);rej()};img.src=url;});
+}
+function bstPhotos(){$("#bst-photo-list").innerHTML=BST.photos.map(function(d,i){return '<figure><img alt="" src="'+d+'"><button type="button" aria-label="Remove photo" data-bst-rmphoto="'+i+'">×</button></figure>'}).join("")}
+function bstType(t){
+  BST.type=t;$$("#bst-type button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.t===t))});
+  $("#bst-wants-wrap").hidden=t!=="trade";$("#bst-price-wrap").hidden=t==="trade";
+  $("#bst-price-label").textContent=t==="buy"?"Budget ($, optional)":"Asking price ($)";
+  $("#bst-photo-need").textContent=t==="sell"?"(at least one front photo, up to 4)":"(optional, up to 4)";
+}
+function bstCompose(){
+  $("#bst-compose-form").reset();BST.photos=[];bstPhotos();bstType("sell");bstNote("#bst-compose-note","");$("#bst-compose").showModal();
+}
+function bstPost(e){
+  e.preventDefault();if(BST.busy)return;
+  var body={action:"create",type:BST.type,title:$("#bst-title").value,price:$("#bst-price").value,grade:$("#bst-grade").value,wants:$("#bst-wants").value,shipping:$("#bst-shipping").value,details:$("#bst-details").value,photos:BST.photos};
+  BST.busy=true;$("#bst-post").disabled=true;bstNote("#bst-compose-note","Posting…");
+  api("/api/bst",body).then(function(j){
+    BST.busy=false;$("#bst-post").disabled=false;
+    if(j.status!=="ok"){bstNote("#bst-compose-note",j.error,true);return}
+    $("#bst-compose").close();bstLoad();
+  });
+}
+function bstBind(){
+  $("#bst-email-form").addEventListener("submit",function(e){
+    e.preventDefault();BST.email=$("#bst-email").value.trim();bstNote("#bst-gate-note","Checking…");$("#bst-email-btn").disabled=true;
+    api("/api/auth",{action:"start",email:BST.email}).then(function(j){
+      $("#bst-email-btn").disabled=false;
+      if(j.status==="sent"){bstNote("#bst-gate-note","");bstGate("code");$("#bst-code").focus()}
+      else if(j.status==="not_member"){bstNote("#bst-gate-note","");bstGate("notmember")}
+      else bstNote("#bst-gate-note",j.error||"Something went wrong.",true);
+    }).catch(function(){$("#bst-email-btn").disabled=false;bstGate("offline")});
+  });
+  $("#bst-code-form").addEventListener("submit",function(e){
+    e.preventDefault();bstNote("#bst-gate-note","Signing in…");
+    api("/api/auth",{action:"verify",email:BST.email,code:$("#bst-code").value}).then(function(j){
+      if(j.status!=="ok"){bstNote("#bst-gate-note",j.error,true);return}
+      bstNote("#bst-gate-note","");BST.loaded=false;bstInit(true);
+    });
+  });
+  $("#bst-code-back").addEventListener("click",function(){bstGate("signin")});
+  $("#bst-name-form").addEventListener("submit",function(e){
+    e.preventDefault();
+    api("/api/auth",{action:"profile",name:$("#bst-name").value,x:$("#bst-x").value}).then(function(j){
+      if(j.status!=="ok"){bstNote("#bst-gate-note",j.error,true);return}
+      bstNote("#bst-gate-note","");BST.loaded=false;bstInit(true);
+    });
+  });
+  $("#bst-logout").addEventListener("click",function(){api("/api/auth",{action:"logout"}).then(function(){BST.me=null;BST.loaded=false;bstInit(true)})});
+  $("#bst-new").addEventListener("click",bstCompose);
+  $("#bst-compose-form").addEventListener("submit",bstPost);
+  $("#bst-search").addEventListener("input",bstRender);$("#bst-showsold").addEventListener("change",bstRender);
+  $("#bst-photo-input").addEventListener("change",function(e){
+    var files=[].slice.call(e.target.files||[]).slice(0,4-BST.photos.length);e.target.value="";
+    Promise.all(files.map(bstShrink)).then(function(ds){BST.photos=BST.photos.concat(ds).slice(0,4);bstPhotos()}).catch(function(){bstNote("#bst-compose-note","One of those files couldn't be read as an image.",true)});
+  });
+  document.addEventListener("click",function(e){
+    var t=e.target.closest("[data-f]");if(t&&t.closest("#bst-filter")){BST.filter=t.dataset.f;$$("#bst-filter button").forEach(function(b){b.setAttribute("aria-pressed",String(b===t))});bstRender();return}
+    t=e.target.closest("[data-t]");if(t&&t.closest("#bst-type")){bstType(t.dataset.t);return}
+    t=e.target.closest("[data-bst]");if(t){bstOpen(t.dataset.bst);return}
+    t=e.target.closest("[data-bst-rmphoto]");if(t){BST.photos.splice(+t.dataset.bstRmphoto,1);bstPhotos();return}
+    t=e.target.closest("[data-close]");if(t){var d=t.closest("dialog");if(d)d.close();return}
+    t=e.target.closest("[data-bst-status]");if(t){api("/api/bst",{action:"status",id:t.dataset.id,status:t.dataset.bstStatus}).then(function(){bstOpen(t.dataset.id);bstLoad()});return}
+    t=e.target.closest("[data-bst-delete]");if(t){if(t.dataset.confirm){api("/api/bst",{action:"delete",id:t.dataset.bstDelete}).then(function(){$("#bst-detail").close();bstLoad()})}else{t.dataset.confirm="1";t.textContent="Tap again to delete"}return}
+    t=e.target.closest("[data-bst-report]");if(t){if(t.dataset.confirm){api("/api/bst",{action:"report",id:t.dataset.bstReport,reason:"Reported from listing"}).then(function(){t.textContent="Reported. Thanks.";t.disabled=true})}else{t.dataset.confirm="1";t.textContent="Tap again to report"}return}
+  });
+  document.addEventListener("submit",function(e){
+    var f=e.target.closest("[data-bst-reply],[data-bst-msg]");if(!f)return;e.preventDefault();
+    var isMsg=f.hasAttribute("data-bst-msg"),id=f.getAttribute(isMsg?"data-bst-msg":"data-bst-reply"),ta=f.querySelector("textarea"),note=f.querySelector(".form-note");
+    note.textContent="Sending…";
+    api("/api/bst",{action:isMsg?"message":"reply",id:id,text:ta.value}).then(function(j){
+      if(j.status!=="ok"){note.textContent=j.error;note.style.color="var(--down)";return}
+      if(isMsg){note.textContent="Sent. They'll reply to your email.";ta.value=""}else bstOpen(id);
+    });
+  });
+  $("#bst-detail").addEventListener("click",function(e){if(e.target===e.currentTarget)e.currentTarget.close()});
+}
+bstBind();
 
 /* ---------- events ---------- */
 document.addEventListener("click",function(e){
