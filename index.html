@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Wax Ledger: sold comps, a grading screener on real sales, a pre-grader that runs in your browser, and the sports card release calendar.">
+<meta name="description" content="Wax Ledger: sold comps, a grading screener on real sales, a pre-grading tool that runs in your browser, and the sports card release calendar.">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Wax Ledger</title>
 <link rel="canonical" href="https://thewaxledger.com/">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Wax Ledger">
 <meta property="og:title" content="Wax Ledger">
-<meta property="og:description" content="Your one-stop sports card hub. Sold comps, a grading screener on real sales, a pre-grader that runs in your browser, and the release calendar.">
+<meta property="og:description" content="Your one-stop sports card hub. Sold comps, a grading screener on real sales, a pre-grading tool that runs in your browser, and the release calendar.">
 <meta property="og:url" content="https://thewaxledger.com/">
 <meta property="og:image" content="https://thewaxledger.com/og-image.png">
 <meta property="og:image:width" content="2400">
@@ -24,7 +24,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@thewaxledger">
 <meta name="twitter:title" content="Wax Ledger">
-<meta name="twitter:description" content="Your one-stop sports card hub. Sold comps, a grading screener on real sales, a pre-grader that runs in your browser, and the release calendar.">
+<meta name="twitter:description" content="Your one-stop sports card hub. Sold comps, a grading screener on real sales, a pre-grading tool that runs in your browser, and the release calendar.">
 <meta name="twitter:image" content="https://thewaxledger.com/og-image.png">
 </head>
 <body>
@@ -100,15 +100,16 @@ h3{font-size:1rem;font-weight:600;line-height:1.3}
 
 /* header */
 .site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
-.head-row{display:flex;align-items:center;gap:8px 24px;flex-wrap:wrap;padding-block:12px}
+.head-row{display:flex;align-items:center;gap:8px 18px;flex-wrap:wrap;padding-block:12px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-style:italic;font-weight:800;font-size:1.6rem;line-height:1;text-transform:uppercase;letter-spacing:.01em}
 .brand-mark{width:28px;height:28px;flex:none;display:block}
 .nav{display:flex;gap:4px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none}
 .nav::-webkit-scrollbar{display:none}
-.nav a{padding:7px 12px;border-radius:6px;text-decoration:none;color:var(--ink-2);font-weight:500;font-size:14px;white-space:nowrap}
+.nav a{padding:7px 9px;border-radius:6px;text-decoration:none;color:var(--ink-2);font-weight:500;font-size:13.5px;white-space:nowrap}
 .nav a:hover{color:var(--ink);background:var(--surface-2)}
 .nav a[aria-current="page"]{color:var(--ink);background:var(--surface-2);box-shadow:inset 0 -2px 0 var(--gold)}
-@media (max-width:760px){.nav{order:3;flex-basis:100%}.head-row .btn{margin-left:auto;padding:7px 12px}}
+@media (max-width:1180px){.nav{order:3;flex-basis:100%}.head-row .btn{margin-left:auto}}
+@media (max-width:760px){.head-row .btn{padding:7px 12px}}
 
 .preview-bar{background:var(--ink);color:var(--bg);font-size:12.5px}
 .preview-bar .wrap{padding-block:7px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
@@ -371,39 +372,84 @@ details.method summary{cursor:pointer;font-weight:600;font-size:1rem}
 .dsec{display:flex;flex-direction:column;gap:8px}
 @media (prefers-reduced-motion:no-preference){.drawer{animation:wl-slide .18s ease-out}@keyframes wl-slide{from{transform:translateX(20px);opacity:0}to{transform:none;opacity:1}}}
 
-/* pre-grader */
+/* pre-grading tool */
 .pg-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 @media (max-width:900px){.pg-grid{grid-template-columns:1fr}}
-.drop{border:2px dashed var(--line);border-radius:10px;padding:28px 18px;text-align:center;color:var(--ink-2);display:flex;flex-direction:column;gap:8px;align-items:center;cursor:pointer;background:var(--surface-2)}
+.pg-head-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.drop{position:relative;border:2px dashed var(--line);border-radius:10px;padding:28px 18px;text-align:center;color:var(--ink-2);display:flex;flex-direction:column;gap:8px;align-items:center;cursor:pointer;background:var(--surface-2)}
 .drop:hover,.drop.over{border-color:var(--gold);color:var(--ink)}
 .drop b{font-family:var(--display);font-size:1.4rem;text-transform:uppercase;color:var(--ink)}
 .drop input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.drop-wrap{display:flex;flex-direction:column;gap:8px;align-items:center}
+.drop-wrap .drop{width:100%}
+.drop-cam{position:relative;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:6px 14px;border-radius:6px;font:600 13px var(--body);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.drop-cam:hover{background:var(--surface)}
+.drop-cam input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.pg-tabs{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.pg-tabs button{border:1px solid var(--line);background:var(--surface-2);color:var(--ink-2);padding:5px 12px;border-radius:6px;font:600 12.5px var(--body);cursor:pointer}
+.pg-tabs button.on{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.pg-tabs button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .pg-stage{position:relative;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;overflow:hidden;touch-action:none}
 .pg-stage canvas{display:block;width:100%;height:auto;cursor:crosshair}
 .pg-readout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .pg-readout .tile .v{font-size:1.5rem}
 .pg-tools{display:flex;gap:8px 16px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--ink-2)}
+.pg-tools span{flex:1 1 auto;min-width:0}
+.pg-checks{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.pc{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:3px 9px 3px 7px;border-radius:99px;border:1px solid var(--line);color:var(--ink-2);background:var(--surface);cursor:help}
+.pc-dot{width:8px;height:8px;border-radius:50%;background:var(--up);flex:none}
+.pc.warn .pc-dot{background:var(--gold)}.pc.bad .pc-dot{background:var(--down)}
+.pc.bad{color:var(--down);border-color:var(--down-bg)}
 .corners{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 @media (max-width:480px){.corners{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.corner{display:flex;flex-direction:column;gap:5px;align-items:center;font-size:12px;color:var(--ink-2)}
+.corner{display:flex;flex-direction:column;gap:5px;align-items:center;font-size:12px;color:var(--ink-2);text-align:center}
 .corner canvas{width:100%;height:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface-2);image-rendering:pixelated}
 .corner b{font-family:var(--mono);font-weight:500;color:var(--ink)}
+.corner small{display:block;color:var(--ink-3);font-size:11px}
+.pg-edges{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+@media (max-width:480px){.pg-edges{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.edge-cell{border-top:2px solid var(--line);padding-top:6px;font-size:12px;color:var(--ink-2);display:flex;flex-direction:column;gap:2px;min-width:0}
+.edge-cell b{font-weight:600;color:var(--ink)}
+.edge-cell .mono{font-family:var(--mono);font-size:15px;color:var(--ink)}
+.edge-cell small{color:var(--ink-3);font-size:11px}
+.pg-bottom{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:900px){.pg-bottom{grid-template-columns:1fr}}
+.pg-col{display:flex;flex-direction:column;gap:20px}
+.grade-card{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 24px;align-items:center}
+@media (max-width:560px){.grade-card{grid-template-columns:1fr}}
+.grade-big{font-family:var(--display);font-weight:800;font-size:5rem;line-height:.85;letter-spacing:-.01em}
+.grade-big small{display:block;font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.1em;margin-top:8px;color:var(--ink-2)}
+.pg-subs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.sub{border-top:2px solid var(--line);padding-top:6px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.sub b{font-family:var(--display);font-weight:700;font-size:1.6rem;line-height:1}
+.sub span{font-size:11.5px;color:var(--ink-3)}
+.sub.limit{border-top-color:var(--down)}.sub.limit b{color:var(--down)}
+.vd{display:flex;gap:10px 14px;align-items:center;flex-wrap:wrap;font-size:13.5px}
+.vd b{font-family:var(--display);font-size:1.3rem;font-weight:700}
+.breakdown{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px 16px;align-items:center;font-size:13.5px}
+.breakdown .k{color:var(--ink-2)}
+.breakdown .v{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;white-space:normal;max-width:34ch;font-size:12.5px}
+.breakdown .cap{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:99px;background:var(--surface-2);color:var(--ink-2);white-space:nowrap}
+.breakdown .cap.limit{background:var(--down-bg);color:var(--down)}
+.pg-co{width:100%;border-collapse:collapse;font-size:13px}
+.pg-co th{text-align:left;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding:4px 0;border-bottom:1px solid var(--line)}
+.pg-co td{padding:6px 0;border-bottom:1px solid var(--line)}
+.pg-co td.mono{font-family:var(--mono)}
+.pg-co th:not(:first-child),.pg-co td:not(:first-child){text-align:right}
+.pg-notes{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-size:13.5px;color:var(--ink-2)}
+.pg-empty{color:var(--ink-3);font-size:14px;margin:0}
 .checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px}
 @media (max-width:560px){.checks{grid-template-columns:1fr}}
 .check-row{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;cursor:pointer}
 .check-row input{margin-top:3px;accent-color:var(--gold);width:16px;height:16px;flex:none}
 .check-row span small{display:block;color:var(--ink-3);font-size:12px}
-.grade-card{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 24px;align-items:center}
-@media (max-width:560px){.grade-card{grid-template-columns:1fr}}
-.grade-big{font-family:var(--display);font-weight:800;font-size:5rem;line-height:.85;letter-spacing:-.01em}
-.grade-big small{display:block;font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.1em;margin-top:8px;color:var(--ink-2)}
-.breakdown{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px 16px;align-items:center;font-size:13.5px}
-.breakdown .k{color:var(--ink-2)}
-.breakdown .v{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
-.breakdown .cap{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:99px;background:var(--surface-2);color:var(--ink-2);white-space:nowrap}
-.breakdown .cap.limit{background:var(--down-bg);color:var(--down)}
-.pg-notes{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-size:13.5px;color:var(--ink-2)}
-.pg-empty{color:var(--ink-3);font-size:14px}
+.math-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:480px){.math-grid{grid-template-columns:1fr}}
+.math-grid label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--ink-2)}
+.math-grid input{border:1px solid var(--line);border-radius:6px;padding:7px 9px;font:500 14px var(--mono);background:var(--surface);color:var(--ink);min-width:0;width:100%}
+.math-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+.math-tiles .tile .v{font-size:1.5rem}
+.math-tiles .v.up{color:var(--up)}.math-tiles .v.down{color:var(--down)}
 footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-3);font-size:12.5px}
 .foot{display:flex;justify-content:space-between;gap:16px 40px;flex-wrap:wrap}
 .foot p{max-width:70ch}
@@ -416,10 +462,10 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
       <a href="#market" data-go="market">Market</a>
       <a href="#comps" data-go="comps">Comps</a>
       <a href="#screener" data-go="screener">Screener</a>
-      <a href="#pregrade" data-go="pregrade">Pre-grade</a>
+      <a href="#pregrade" data-go="pregrade">Pre-Grading Tool</a>
       <a href="#releases" data-go="releases">Releases</a>
       <a href="#trending" data-go="trending">Trending</a>
-      <a href="#reviews" data-go="reviews">Reviews</a>
+      <a href="#reviews" data-go="reviews">Product Reviews</a>
       <a href="#membership" data-go="membership">Membership</a>
     </nav>
     <a class="btn btn-gold" href="#membership" data-go="membership">Start free</a>
@@ -433,7 +479,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
 <section class="view" data-view="market">
   <div class="hero">
     <div class="hero-copy">
-      <p class="eyebrow">Sold comps · Grading screener · Pre-grader · Release calendar</p>
+      <p class="eyebrow">Sold comps · Grading screener · Pre-Grading Tool · Release calendar</p>
       <h1>Your one-stop sports card hub</h1>
       <p class="lede">Wax Ledger tracks sold prices, upcoming releases and the players moving the market, so every buy, sell and grading call starts from real sales.</p>
       <form class="search" id="hero-search">
@@ -441,7 +487,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
         <button class="btn btn-gold" type="submit">Look up comps</button>
       </form>
       <div class="chips" id="hero-chips" aria-label="Sample cards"></div>
-      <p class="small muted">Have a raw card in hand? <a href="#pregrade" data-go="pregrade">Pre-grade it from a photo</a>, in your browser.</p>
+      <p class="small muted">Have a raw card in hand? <a href="#pregrade" data-go="pregrade">Run it through the Pre-Grading Tool</a>, right in your browser.</p>
     </div>
     <div class="hero-slab">
       <div class="slab" aria-hidden="true">
@@ -470,7 +516,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
   <div class="strip" tabindex="0" aria-label="Seven-day movers, sample data"><div class="strip-row" id="strip"></div></div>
 
   <div class="col">
-    <div class="rule-head"><h3>Top of the screener</h3><a href="#screener" data-go="screener">Full board</a></div>
+    <div class="rule-head"><h3>TheWaxLedger Report - Top Raw Buys</h3><a href="#screener" data-go="screener">Full board</a></div>
     <div class="topgrid" id="home-screen"></div>
     <p class="small muted">Raw cards worth sending to PSA right now, ranked by expected return on real sold prices.</p>
   </div>
@@ -673,55 +719,76 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
   </div>
 </section>
 
-<!-- PRE-GRADE -->
+<!-- PRE-GRADING TOOL -->
 <section class="view" data-view="pregrade" hidden>
   <div class="view-head">
-    <p class="eyebrow">Pre-grade</p>
+    <p class="eyebrow">Pre-Grading Tool</p>
     <h2>Grade it before PSA does</h2>
-    <p class="lede">Upload a photo of the front and back. The tool finds the card's edges, measures centering against PSA's published standards, zooms in on the corners and edges, and gives you an estimated grade. It runs in your browser, so your photos never leave your device.</p>
+    <p class="lede">Upload a photo of the front and back. The tool finds the card even in a tilted or off-angle shot, straightens it to a flat 2.5 × 3.5 frame, measures centering to a tenth of a percent, traces every edge and corner, scans the surface for line and speck candidates, and maps the result to PSA, BGS, SGC, CGC and TAG. It runs in your browser, so your photos never leave your device.</p>
   </div>
 
   <div class="pg-grid">
     <div class="panel" id="pg-side-front">
-      <div class="panel-head"><div><p class="eyebrow">Front</p><h3>Front of the card</h3></div><button class="btn btn-sm" type="button" data-pg-clear="front" hidden>Remove</button></div>
-      <label class="drop" id="pg-drop-front" for="pg-file-front"><b>Add the front</b><span>Drop a photo here, or tap to take one</span><span class="small muted">Out of the sleeve, flat, straight-on, on a plain background that contrasts with the card's border</span><input id="pg-file-front" type="file" accept="image/*"></label>
-      <div class="pg-stage" id="pg-stage-front" hidden><canvas id="pg-canvas-front"></canvas></div>
-      <div class="pg-tools" id="pg-tools-front" hidden><span>Drag any line to correct an edge.</span><button class="btn btn-sm" type="button" data-pg-redetect="front">Detect again</button></div>
+      <div class="panel-head"><div><p class="eyebrow">Front</p><h3>Front of the card</h3></div><div class="pg-head-tools"><span class="pill" id="pg-quality-front" hidden></span><button class="btn btn-sm" type="button" data-pg-clear="front" hidden>Remove</button></div></div>
+      <div class="drop-wrap" id="pg-drop-front"><label class="drop" id="pg-dropzone-front" for="pg-file-front"><b>Add the front</b><span>Drop a photo here or tap to choose one</span><span class="small muted">Out of the sleeve, on a plain background that contrasts with the border. Straight-on is best, but an angled shot gets flattened automatically.</span><input id="pg-file-front" type="file" accept="image/*"></label><label class="drop-cam" for="pg-cam-front">Use camera<input id="pg-cam-front" type="file" accept="image/*" capture="environment"></label></div>
+      <div class="pg-tabs" id="pg-tabs-front" hidden><button type="button" class="on" data-pg-tab="card" data-side="front">Card</button><button type="button" data-pg-tab="photo" data-side="front">Photo</button><button type="button" data-pg-tab="scan" data-side="front">Scan</button></div>
+      <div class="pg-stage" id="pg-stage-front" hidden><canvas id="pg-card-front"></canvas><canvas id="pg-photo-front" hidden></canvas><canvas id="pg-scan-front" hidden></canvas></div>
+      <div class="pg-tools" id="pg-tools-front" hidden><span id="pg-hint-front"></span><button class="btn btn-sm" type="button" data-pg-rotate="front">Rotate</button><button class="btn btn-sm" type="button" data-pg-redetect="front">Detect again</button></div>
+      <ul class="pg-checks" id="pg-pcheck-front" hidden></ul>
       <div class="pg-readout" id="pg-readout-front" hidden></div>
       <div class="corners" id="pg-corners-front" hidden></div>
+      <div class="pg-edges" id="pg-edges-front" hidden></div>
     </div>
     <div class="panel" id="pg-side-back">
-      <div class="panel-head"><div><p class="eyebrow">Back</p><h3>Back of the card</h3></div><button class="btn btn-sm" type="button" data-pg-clear="back" hidden>Remove</button></div>
-      <label class="drop" id="pg-drop-back" for="pg-file-back"><b>Add the back</b><span>Optional, but PSA grades it too</span><span class="small muted">Same setup as the front</span><input id="pg-file-back" type="file" accept="image/*"></label>
-      <div class="pg-stage" id="pg-stage-back" hidden><canvas id="pg-canvas-back"></canvas></div>
-      <div class="pg-tools" id="pg-tools-back" hidden><span>Drag any line to correct an edge.</span><button class="btn btn-sm" type="button" data-pg-redetect="back">Detect again</button></div>
+      <div class="panel-head"><div><p class="eyebrow">Back</p><h3>Back of the card</h3></div><div class="pg-head-tools"><span class="pill" id="pg-quality-back" hidden></span><button class="btn btn-sm" type="button" data-pg-clear="back" hidden>Remove</button></div></div>
+      <div class="drop-wrap" id="pg-drop-back"><label class="drop" id="pg-dropzone-back" for="pg-file-back"><b>Add the back</b><span>Optional, but every company grades it too</span><span class="small muted">Same setup as the front</span><input id="pg-file-back" type="file" accept="image/*"></label><label class="drop-cam" for="pg-cam-back">Use camera<input id="pg-cam-back" type="file" accept="image/*" capture="environment"></label></div>
+      <div class="pg-tabs" id="pg-tabs-back" hidden><button type="button" class="on" data-pg-tab="card" data-side="back">Card</button><button type="button" data-pg-tab="photo" data-side="back">Photo</button><button type="button" data-pg-tab="scan" data-side="back">Scan</button></div>
+      <div class="pg-stage" id="pg-stage-back" hidden><canvas id="pg-card-back"></canvas><canvas id="pg-photo-back" hidden></canvas><canvas id="pg-scan-back" hidden></canvas></div>
+      <div class="pg-tools" id="pg-tools-back" hidden><span id="pg-hint-back"></span><button class="btn btn-sm" type="button" data-pg-rotate="back">Rotate</button><button class="btn btn-sm" type="button" data-pg-redetect="back">Detect again</button></div>
+      <ul class="pg-checks" id="pg-pcheck-back" hidden></ul>
       <div class="pg-readout" id="pg-readout-back" hidden></div>
       <div class="corners" id="pg-corners-back" hidden></div>
+      <div class="pg-edges" id="pg-edges-back" hidden></div>
     </div>
   </div>
 
-  <div class="comps-grid">
+  <div class="pg-bottom">
     <div class="panel" id="pg-result">
       <div class="panel-head"><div><p class="eyebrow">Estimate</p><h3>Where this card lands</h3></div><span class="pill" id="pg-conf" hidden>Confidence</span></div>
       <p class="pg-empty" id="pg-result-empty">Add the front of a card to get an estimate.</p>
       <div class="grade-card" id="pg-grade" hidden>
         <div class="grade-big" id="pg-grade-num">10<small id="pg-grade-label">GEM MINT</small></div>
-        <div class="breakdown" id="pg-breakdown"></div>
+        <div class="pg-subs" id="pg-subs"></div>
       </div>
+      <div id="pg-verdict" hidden></div>
+      <div class="breakdown" id="pg-breakdown"></div>
+      <table class="pg-co" id="pg-co" hidden></table>
       <ul class="pg-notes" id="pg-notes"></ul>
       <div class="linkrow" id="pg-actions" hidden><button class="btn" type="button" id="pg-copy">Copy report</button><span class="form-note" id="pg-copy-note" aria-live="polite"></span></div>
-      <p class="small muted">Centering is measured from the photo. Corner and edge scores are estimates of wear from the photo and are not PSA's scale. Surface flaws need your own eyes under angled light. Not affiliated with PSA.</p>
+      <p class="small muted">Centering and border widths are measured from the straightened photo. Corner and edge scores estimate wear from the photo and are not any company's scale. The surface scan flags candidates to inspect, not confirmed flaws. Company thresholds other than PSA's are compiled from published standards and rounded. Not affiliated with PSA, BGS, SGC, CGC or TAG.</p>
     </div>
-    <form class="panel" id="pg-surface">
-      <div><p class="eyebrow">Surface</p><h3>What do you see under angled light?</h3></div>
-      <div class="checks">
-        <label class="check-row"><input type="checkbox" id="pg-s-lines" data-cap="9"><span>Print lines<small>Faint straight lines in the gloss. Caps at 9.</small></span></label>
-        <label class="check-row"><input type="checkbox" id="pg-s-scratch" data-cap="8"><span>Light scratches or print spots<small>Visible without a loupe. Caps at 8.</small></span></label>
-        <label class="check-row"><input type="checkbox" id="pg-s-dent" data-cap="6"><span>Dent, ding or indentation<small>Catches the light or the fingertip. Caps at 6.</small></span></label>
-        <label class="check-row"><input type="checkbox" id="pg-s-crease" data-cap="4"><span>Crease, stain or writing<small>Any crease, even a hairline. Caps at 4.</small></span></label>
-      </div>
-      <p class="small muted">Photos rarely show surface wear. Tilt the card under a lamp and check the gloss before you submit.</p>
-    </form>
+    <div class="pg-col">
+      <form class="panel" id="pg-surface">
+        <div><p class="eyebrow">Surface</p><h3>What do you see under angled light?</h3></div>
+        <div class="checks">
+          <label class="check-row"><input type="checkbox" id="pg-s-lines" data-cap="9"><span>Print lines<small>Faint straight lines in the gloss. Caps at 9.</small></span></label>
+          <label class="check-row"><input type="checkbox" id="pg-s-scratch" data-cap="8"><span>Light scratches or print spots<small>Visible without a loupe. Caps at 8.</small></span></label>
+          <label class="check-row"><input type="checkbox" id="pg-s-dent" data-cap="6"><span>Dent, ding or indentation<small>Catches the light or the fingertip. Caps at 6.</small></span></label>
+          <label class="check-row"><input type="checkbox" id="pg-s-crease" data-cap="4"><span>Crease, stain or writing<small>Any crease, even a hairline. Caps at 4.</small></span></label>
+        </div>
+        <label class="check-row"><input type="checkbox" id="pg-s-usescan"><span>Count the surface scan's findings<small>Line candidates cap at 9, six or more specks cap at 8. Off by default because busy designs produce false positives.</small></span></label>
+        <p class="small muted">Photos rarely show surface wear. Tilt the card under a lamp and check the gloss before you submit.</p>
+      </form>
+      <form class="panel" id="pg-math">
+        <div><p class="eyebrow">Grading math</p><h3>Is it worth the fee?</h3></div>
+        <div class="math-grid">
+          <label>Raw price ($)<input id="pg-m-raw" type="number" min="0" step="1" inputmode="decimal" placeholder="20"></label>
+          <label>PSA 10 comp ($)<input id="pg-m-10" type="number" min="0" step="1" inputmode="decimal" placeholder="300"></label>
+          <label>PSA 9 comp ($)<input id="pg-m-9" type="number" min="0" step="1" inputmode="decimal" placeholder="52"></label>
+        </div>
+        <div id="pg-math-out"></div>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -757,7 +824,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
 <!-- REVIEWS -->
 <section class="view" data-view="reviews" hidden>
   <div class="view-head">
-    <p class="eyebrow">Reviews</p>
+    <p class="eyebrow">Product Reviews</p>
     <h2>Is the box worth ripping?</h2>
     <p class="lede">Every product is scored on the same four things: the rookie class, the quality of the hits, how much of it was printed, and box price against expected value.</p>
   </div>
@@ -779,7 +846,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
         <li>Full release calendar</li>
         <li>Three comp lookups a day</li>
         <li>Top three Screener picks and top five movers</li>
-        <li>Pre-grader, three cards a day</li>
+        <li>Pre-Grading Tool, three cards a day</li>
       </ul>
       <button class="btn" type="button" data-plan="Free">Join free</button>
     </div>
@@ -789,7 +856,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
         <li>Unlimited comp lookups, every grade</li>
         <li>The full grading Screener, ranked by expected return</li>
         <li>Grading calculator with saved cards</li>
-        <li>Unlimited pre-grades with saved reports</li>
+        <li>Unlimited pre-grading with saved reports</li>
         <li>Price alerts on your watchlist</li>
         <li>Full movers board with catalysts</li>
         <li>Every product review and box score</li>
@@ -1402,25 +1469,119 @@ function syncCalcToAsm(){
   renderCalc();
 }
 
-/* ---------- pre-grader ---------- */
-// Everything runs in the browser on a downscaled copy of the photo; corner crops come from the full-size image.
-var PG={front:null,back:null};
-var GRADE_LABEL={10:"GEM MINT",9:"MINT",8:"NM-MT",7:"NEAR MINT",6:"EX-MT",5:"EXCELLENT",4:"VG-EX",3:"VERY GOOD"};
-function pgSide(name){return PG[name]}
+/* ---------- pre-grading tool ---------- */
+// Everything runs in the browser. Per side: locate the card as a four-corner quad in the photo (background model, largest blob,
+// convex hull, minimum-area box, then a sub-pixel line fit per side at full resolution), warp it to a flat, straight 2.5 x 3.5
+// card, and measure borders, corners, edges and surface on that normalized image. Photo quality is checked first so a weak
+// photo lowers confidence instead of silently lowering the grade.
+var PG={front:null,back:null,report:""};
+var GRADE_LABEL={10:"GEM MINT",9:"MINT",8:"NM-MT",7:"NEAR MINT",6:"EX-MT",5:"EXCELLENT",4:"VG-EX",3:"VERY GOOD",2:"GOOD",1:"POOR"};
+var PG_FULL_MAX=2200,PG_SMALL_MAX=640,PG_CARD_H_MAX=1400,PG_CARD_H_MIN=560,PG_MARGIN=.05,CARD_W_MM=63.5,CARD_RATIO=1.4;
+// Centering tolerances: [grade, worst front split, worst back split]. PSA is its published table. The others are compiled from
+// each company's published standards and rounded to the nearest 5, so read them as a guide, not a ruling.
+var CO_CENTER={
+  PSA:[[10,60,75],[9,65,90],[8,70,90],[7,75,90],[6,80,90],[5,85,90],[4,90,90]],
+  BGS:[[10,50,55],[9.5,55,60],[9,60,70],[8.5,65,75],[8,65,80],[7.5,70,85],[7,70,90]],
+  SGC:[[10,55,65],[9.5,60,70],[9,65,75],[8.5,65,80],[8,70,85],[7,75,90]],
+  CGC:[[10,55,60],[9.5,60,65],[9,65,70],[8.5,70,75],[8,70,80],[7,75,85]],
+  TAG:[[10,55,60],[9.5,60,65],[9,65,70],[8.5,70,75],[8,70,80],[7,75,85]]
+};
+var CO_LIST=["PSA","BGS","SGC","CGC","TAG"];
+
+/* --- small helpers --- */
+function pxDist(d,i,c){return Math.abs(d[i]-c[0])+Math.abs(d[i+1]-c[1])+Math.abs(d[i+2]-c[2])}
+function medianOf(a){if(!a.length)return 0;var b=a.slice().sort(function(x,y){return x-y});return b[b.length>>1]}
+function medianColor(samples){if(!samples.length)return [0,0,0];var out=[];for(var k=0;k<3;k++)out.push(medianOf(samples.map(function(s){return s[k]})));return out}
+function otsu(hist,total){
+  var sum=0;for(var i=0;i<256;i++)sum+=i*hist[i];
+  var sumB=0,wB=0,best=0,thr=0;
+  for(var t=0;t<256;t++){wB+=hist[t];if(!wB)continue;var wF=total-wB;if(!wF)break;sumB+=t*hist[t];var mB=sumB/wB,mF=(sum-sumB)/wF,v=wB*wF*(mB-mF)*(mB-mF);if(v>best){best=v;thr=t}}
+  return thr;
+}
+function lum(d,i){return d[i]*.299+d[i+1]*.587+d[i+2]*.114}
+function clamp(v,a,b){return v<a?a:v>b?b:v}
+function fmt1(v){return (Math.round(v*10)/10).toFixed(1)}
+// bilinear sample of one channel-distance function over RGBA data
+function sampleDist(d,w,h,x,y,c){
+  if(x<0)x=0;if(y<0)y=0;if(x>w-1.001)x=w-1.001;if(y>h-1.001)y=h-1.001;
+  var x0=x|0,y0=y|0,fx=x-x0,fy=y-y0,i00=(y0*w+x0)*4,i10=i00+4,i01=i00+w*4,i11=i01+4;
+  var a=pxDist(d,i00,c),b=pxDist(d,i10,c),cc=pxDist(d,i01,c),dd=pxDist(d,i11,c);
+  return (a*(1-fx)+b*fx)*(1-fy)+(cc*(1-fx)+dd*fx)*fy;
+}
+// total-least-squares line through points with robust outlier rejection; returns {p:[x,y],d:[dx,dy]} or null
+function fitLine(pts){
+  if(pts.length<4)return null;
+  var cur=pts,line=null;
+  for(var pass=0;pass<3;pass++){
+    var n=cur.length,mx=0,my=0,k;for(k=0;k<n;k++){mx+=cur[k][0];my+=cur[k][1]}mx/=n;my/=n;
+    var sxx=0,syy=0,sxy=0;for(k=0;k<n;k++){var dx=cur[k][0]-mx,dy=cur[k][1]-my;sxx+=dx*dx;syy+=dy*dy;sxy+=dx*dy}
+    var ang=.5*Math.atan2(2*sxy,sxx-syy),dxl=Math.cos(ang),dyl=Math.sin(ang);
+    line={p:[mx,my],d:[dxl,dyl]};
+    var res=cur.map(function(q){return Math.abs((q[0]-mx)*-dyl+(q[1]-my)*dxl)}),mad=medianOf(res.map(function(r){return Math.abs(r-medianOf(res))}));
+    var tol=Math.max(.75,3*1.4826*mad),next=[];
+    for(k=0;k<n;k++)if(res[k]<=tol)next.push(cur[k]);
+    if(next.length===n||next.length<4)break;
+    cur=next;
+  }
+  line.n=cur.length;
+  return line;
+}
+function intersect(a,b){
+  var den=a.d[0]*b.d[1]-a.d[1]*b.d[0];if(Math.abs(den)<1e-9)return null;
+  var t=((b.p[0]-a.p[0])*b.d[1]-(b.p[1]-a.p[1])*b.d[0])/den;
+  return [a.p[0]+a.d[0]*t,a.p[1]+a.d[1]*t];
+}
+function hull(pts){
+  pts=pts.slice().sort(function(a,b){return a[0]-b[0]||a[1]-b[1]});
+  if(pts.length<3)return pts;
+  function cross(o,a,b){return (a[0]-o[0])*(b[1]-o[1])-(a[1]-o[1])*(b[0]-o[0])}
+  var lo=[],up=[],i;
+  for(i=0;i<pts.length;i++){while(lo.length>=2&&cross(lo[lo.length-2],lo[lo.length-1],pts[i])<=0)lo.pop();lo.push(pts[i])}
+  for(i=pts.length-1;i>=0;i--){while(up.length>=2&&cross(up[up.length-2],up[up.length-1],pts[i])<=0)up.pop();up.push(pts[i])}
+  lo.pop();up.pop();return lo.concat(up);
+}
+function minAreaRect(h){
+  var best=null,i,j;
+  for(i=0;i<h.length;i++){
+    var a=h[i],b=h[(i+1)%h.length],dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy);if(len<1e-6)continue;
+    var ux=dx/len,uy=dy/len,vx=-uy,vy=ux,minU=1e9,maxU=-1e9,minV=1e9,maxV=-1e9;
+    for(j=0;j<h.length;j++){var u=h[j][0]*ux+h[j][1]*uy,v=h[j][0]*vx+h[j][1]*vy;if(u<minU)minU=u;if(u>maxU)maxU=u;if(v<minV)minV=v;if(v>maxV)maxV=v}
+    var area=(maxU-minU)*(maxV-minV);
+    if(!best||area<best.area)best={area:area,c:[[minU,minV],[maxU,minV],[maxU,maxV],[minU,maxV]].map(function(q){return [q[0]*ux+q[1]*vx,q[0]*uy+q[1]*vy]})};
+  }
+  return best;
+}
+function orderQuad(q){ // clockwise in screen coordinates starting from the top-left
+  var cx=0,cy=0;q.forEach(function(p){cx+=p[0]/4;cy+=p[1]/4});
+  var s=q.slice().sort(function(a,b){return Math.atan2(a[1]-cy,a[0]-cx)-Math.atan2(b[1]-cy,b[0]-cx)});
+  var start=0,bs=1e18;s.forEach(function(p,i){var v=p[0]+p[1];if(v<bs){bs=v;start=i}});
+  return s.slice(start).concat(s.slice(0,start));
+}
+function homography(src,dst){ // maps dst -> src (we sample backwards); src/dst are 4 points
+  var A=[],i;
+  for(i=0;i<4;i++){var x=dst[i][0],y=dst[i][1],X=src[i][0],Y=src[i][1];
+    A.push([x,y,1,0,0,0,-x*X,-y*X,X]);A.push([0,0,0,x,y,1,-x*Y,-y*Y,Y])}
+  for(var c=0;c<8;c++){var piv=c;for(i=c+1;i<8;i++)if(Math.abs(A[i][c])>Math.abs(A[piv][c]))piv=i;var t=A[c];A[c]=A[piv];A[piv]=t;
+    for(i=0;i<8;i++){if(i===c||!A[i][c])continue;var f=A[i][c]/A[c][c];for(var k=c;k<9;k++)A[i][k]-=f*A[c][k]}}
+  var hh=[];for(i=0;i<8;i++)hh.push(A[i][8]/A[i][i]);hh.push(1);return hh;
+}
+
+/* --- loading --- */
 function pgLoad(name,file){
   if(!file||!/^image\//.test(file.type))return;
   var url=URL.createObjectURL(file),img=new Image();
   img.onload=function(){
     URL.revokeObjectURL(url);
-    var full=document.createElement("canvas");full.width=img.naturalWidth;full.height=img.naturalHeight;
-    var fctx=full.getContext("2d",{willReadFrequently:true});fctx.drawImage(img,0,0);
-    var scale=Math.min(1,900/Math.max(img.naturalWidth,img.naturalHeight));
-    var small=document.createElement("canvas");small.width=Math.max(1,Math.round(img.naturalWidth*scale));small.height=Math.max(1,Math.round(img.naturalHeight*scale));
-    var sctx=small.getContext("2d",{willReadFrequently:true});sctx.drawImage(img,0,0,small.width,small.height);
-    var side={name:name,full:full,fctx:fctx,small:small,scale:scale,w:small.width,h:small.height,data:sctx.getImageData(0,0,small.width,small.height).data,drag:null,manual:false};
+    var fs=Math.min(1,PG_FULL_MAX/Math.max(img.naturalWidth,img.naturalHeight));
+    var full=document.createElement("canvas");full.width=Math.max(1,Math.round(img.naturalWidth*fs));full.height=Math.max(1,Math.round(img.naturalHeight*fs));
+    var fctx=full.getContext("2d",{willReadFrequently:true});fctx.drawImage(img,0,0,full.width,full.height);
+    var scale=Math.min(1,PG_SMALL_MAX/Math.max(full.width,full.height));
+    var small=document.createElement("canvas");small.width=Math.max(1,Math.round(full.width*scale));small.height=Math.max(1,Math.round(full.height*scale));
+    var sctx=small.getContext("2d",{willReadFrequently:true});sctx.drawImage(full,0,0,small.width,small.height);
+    var side={name:name,full:full,fw:full.width,fh:full.height,fd:fctx.getImageData(0,0,full.width,full.height).data,small:small,sw:small.width,sh:small.height,sd:sctx.getImageData(0,0,small.width,small.height).data,scale:scale,srcPx:img.naturalWidth,rot:0,manualQuad:false,manualInner:false,tab:"card",drag:null};
     PG[name]=side;
-    pgDetect(side);
-    $("#pg-drop-"+name).hidden=true;$("#pg-stage-"+name).hidden=false;$("#pg-tools-"+name).hidden=false;$("#pg-readout-"+name).hidden=false;$("#pg-corners-"+name).hidden=false;
+    pgRun(side);
+    $("#pg-drop-"+name).hidden=true;["stage","tabs","tools","readout","pcheck","corners","edges"].forEach(function(k){$("#pg-"+k+"-"+name).hidden=false});
     $('[data-pg-clear="'+name+'"]').hidden=false;
     pgRender(side);pgResult();
   };
@@ -1429,217 +1590,466 @@ function pgLoad(name,file){
 }
 function pgClear(name){
   PG[name]=null;$("#pg-file-"+name).value="";
-  $("#pg-drop-"+name).hidden=false;$("#pg-stage-"+name).hidden=true;$("#pg-tools-"+name).hidden=true;$("#pg-readout-"+name).hidden=true;$("#pg-corners-"+name).hidden=true;
-  $('[data-pg-clear="'+name+'"]').hidden=true;$("#pg-corners-"+name).innerHTML="";
+  $("#pg-drop-"+name).hidden=false;["stage","tabs","tools","readout","pcheck","corners","edges"].forEach(function(k){$("#pg-"+k+"-"+name).hidden=true});
+  $('[data-pg-clear="'+name+'"]').hidden=true;$("#pg-corners-"+name).innerHTML="";$("#pg-quality-"+name).hidden=true;
   pgResult();
 }
-function pxDist(d,i,c){return Math.abs(d[i]-c[0])+Math.abs(d[i+1]-c[1])+Math.abs(d[i+2]-c[2])}
-function medianColor(samples){
-  if(!samples.length)return [0,0,0];
-  var out=[];for(var k=0;k<3;k++){var a=samples.map(function(s){return s[k]}).sort(function(x,y){return x-y});out.push(a[a.length>>1])}
-  return out;
-}
-function otsu(hist,total){
-  var sum=0;for(var i=0;i<256;i++)sum+=i*hist[i];
-  var sumB=0,wB=0,best=0,thr=0;
-  for(var t=0;t<256;t++){wB+=hist[t];if(!wB)continue;var wF=total-wB;if(!wF)break;sumB+=t*hist[t];var mB=sumB/wB,mF=(sum-sumB)/wF,v=wB*wF*(mB-mF)*(mB-mF);if(v>best){best=v;thr=t}}
-  return thr;
-}
+function pgRun(side){pgDetect(side);pgRefineQuad(side);pgRectify(side);pgMeasure(side)}
+
+/* --- 1. find the card in the photo --- */
 function pgDetect(side){
-  var w=side.w,h=side.h,d=side.data,i,x,y;
-  // background: median of a frame around the image edge
-  var band=Math.max(2,Math.round(Math.min(w,h)*.02)),samples=[];
+  var w=side.sw,h=side.sh,d=side.sd,i,x,y;
+  var band=Math.max(3,Math.round(Math.min(w,h)*.03)),samples=[];
   for(y=0;y<h;y+=2)for(x=0;x<w;x+=2){if(x<band||x>=w-band||y<band||y>=h-band){i=(y*w+x)*4;samples.push([d[i],d[i+1],d[i+2]])}}
   var bg=medianColor(samples);side.bg=bg;
-  // distance-from-background map with an Otsu threshold
   var dist=new Uint8Array(w*h),hist=new Uint32Array(256);
   for(y=0;y<h;y++)for(x=0;x<w;x++){i=(y*w+x)*4;var v=Math.min(255,Math.round(pxDist(d,i,bg)/3));dist[y*w+x]=v;hist[v]++}
-  var thr=Math.max(14,otsu(hist,w*h));side.bgThr=thr;
-  var rows=new Float32Array(h),cols=new Float32Array(w);
-  for(y=0;y<h;y++)for(x=0;x<w;x++){if(dist[y*w+x]>thr){rows[y]++;cols[x]++}}
-  var ot=-1,ob=-1,ol=-1,orr=-1;
-  for(y=0;y<h;y++){if(rows[y]/w>.25){ot=y;break}}
-  for(y=h-1;y>=0;y--){if(rows[y]/w>.25){ob=y;break}}
-  for(x=0;x<w;x++){if(cols[x]/h>.25){ol=x;break}}
-  for(x=w-1;x>=0;x--){if(cols[x]/h>.25){orr=x;break}}
-  var found=ot>=0&&ob>ot+h*.2&&ol>=0&&orr>ol+w*.2;
+  var thr=Math.max(14,otsu(hist,w*h));side.bgThr=thr;side.dist=dist;
+  // weak mask (hysteresis) so a picture area close to the background colour still joins the border; 3x3 majority
+  // clean-up, then a 5x5 opening to cut thin clutter (stripes, pen marks) loose from the card
+  var weak=Math.max(10,Math.round(thr*.45)),raw=new Uint8Array(w*h),m1=new Uint8Array(w*h),mask=new Uint8Array(w*h),er=new Uint8Array(w*h);
+  for(i=0;i<w*h;i++)raw[i]=dist[i]>weak?1:0;
+  for(y=1;y<h-1;y++)for(x=1;x<w-1;x++){var p=y*w+x,n=raw[p-w-1]+raw[p-w]+raw[p-w+1]+raw[p-1]+raw[p]+raw[p+1]+raw[p+w-1]+raw[p+w]+raw[p+w+1];m1[p]=n>=5?1:0}
+  var rs=new Uint8Array(w*h); // row-wise erosion then column-wise (separable 5x5)
+  for(y=0;y<h;y++)for(x=2;x<w-2;x++){var q=y*w+x;rs[q]=m1[q-2]&m1[q-1]&m1[q]&m1[q+1]&m1[q+2]}
+  for(y=2;y<h-2;y++)for(x=0;x<w;x++){q=y*w+x;er[q]=rs[q-2*w]&rs[q-w]&rs[q]&rs[q+w]&rs[q+2*w]}
+  for(y=0;y<h;y++)for(x=0;x<w;x++){q=y*w+x;rs[q]=(x>1&&er[q-2])|(x>0&&er[q-1])|er[q]|(x<w-1&&er[q+1])|(x<w-2&&er[q+2])?1:0}
+  for(y=0;y<h;y++)for(x=0;x<w;x++){q=y*w+x;mask[q]=(y>1&&rs[q-2*w])|(y>0&&rs[q-w])|rs[q]|(y<h-1&&rs[q+w])|(y<h-2&&rs[q+2*w])?1:0}
+  // connected components; pick the one with the largest extent among those with enough strongly-different pixels
+  var lab=new Int32Array(w*h),stack=new Int32Array(w*h),nl=0,bestScore=0,bestL=0,bestA=0;
+  for(i=0;i<w*h;i++){if(!mask[i]||lab[i])continue;nl++;var sp=0,area=0,strong=0,minx=w,maxx=0,miny=h,maxy=0;stack[sp++]=i;lab[i]=nl;
+    while(sp){var pp=stack[--sp];area++;if(dist[pp]>thr)strong++;var px=pp%w,py=(pp/w)|0;if(px<minx)minx=px;if(px>maxx)maxx=px;if(py<miny)miny=py;if(py>maxy)maxy=py;
+      if(px>0&&mask[pp-1]&&!lab[pp-1]){lab[pp-1]=nl;stack[sp++]=pp-1}
+      if(px<w-1&&mask[pp+1]&&!lab[pp+1]){lab[pp+1]=nl;stack[sp++]=pp+1}
+      if(py>0&&mask[pp-w]&&!lab[pp-w]){lab[pp-w]=nl;stack[sp++]=pp-w}
+      if(py<h-1&&mask[pp+w]&&!lab[pp+w]){lab[pp+w]=nl;stack[sp++]=pp+w}}
+    var ext=(maxx-minx+1)*(maxy-miny+1);
+    if(strong>=w*h*.006&&ext>bestScore){bestScore=ext;bestL=nl;bestA=area}}
+  var found=bestScore>w*h*.03;
+  side.blobFrac=bestA/(w*h);
+  var pts=[];
   if(found){
-    var pr=0,pc=0;for(y=0;y<h;y++)pr=Math.max(pr,rows[y]);for(x=0;x<w;x++)pc=Math.max(pc,cols[x]);
-    var lim=4;while(lim-->0&&cols[ol]<pc*.85)ol++;lim=4;while(lim-->0&&cols[orr]<pc*.85)orr--;lim=4;while(lim-->0&&rows[ot]<pr*.85)ot++;lim=4;while(lim-->0&&rows[ob]<pr*.85)ob--;
+    for(y=0;y<h;y++){var l=-1,r=-1;for(x=0;x<w;x++)if(lab[y*w+x]===bestL){if(l<0)l=x;r=x}if(l>=0){pts.push([l,y]);pts.push([r,y])}}
+    for(x=0;x<w;x++){var t=-1,bb=-1;for(y=0;y<h;y++)if(lab[y*w+x]===bestL){if(t<0)t=y;bb=y}if(t>=0){pts.push([x,t]);pts.push([x,bb])}}
+    var clutter=0,outside=0;for(i=0;i<w*h;i+=3){if(lab[i]!==bestL){outside++;if(dist[i]>thr)clutter++}}side.clutter=outside?clutter/outside:0;
+  }else side.clutter=0;
+  var quad=null;
+  if(found){
+    var hh=hull(pts),rect=minAreaRect(hh);
+    if(rect)quad=pgFitQuad(pts,orderQuad(rect.c),w,h);
   }
-  if(!found){ol=Math.round(w*.1);orr=Math.round(w*.9);ot=Math.round(h*.1);ob=Math.round(h*.9)}
-  side.found=found;
-  var g={ol:ol,or:orr,ot:ot,ob:ob};
-  // border color: band just inside the outer edge
-  var cw=orr-ol,ch=ob-ot,b1=Math.max(2,Math.round(Math.min(cw,ch)*.015)),b2=Math.max(b1+2,Math.round(Math.min(cw,ch)*.04));
-  samples=[];
-  for(y=ot+b1;y<=ob-b1;y+=2)for(x=ol+b1;x<=orr-b1;x+=2){var inL=x<ol+b2,inR=x>orr-b2,inT=y<ot+b2,inB=y>ob-b2;if(inL||inR||inT||inB){i=(y*w+x)*4;samples.push([d[i],d[i+1],d[i+2]])}}
-  var border=medianColor(samples);side.border=border;
-  // inner edges: walk inward along the central band until the color leaves the border color for good
-  function profile(axis,from,dir,len){
-    var out=[],k;
-    for(k=0;k<len;k++){
-      var p=from+dir*k,sum=0,n=0;
-      if(axis==="x"){for(y=ot+Math.round(ch*.3);y<=ob-Math.round(ch*.3);y+=2){i=(y*w+p)*4;sum+=pxDist(d,i,border);n++}}
-      else{for(x=ol+Math.round(cw*.3);x<=orr-Math.round(cw*.3);x+=2){i=(p*w+x)*4;sum+=pxDist(d,i,border);n++}}
-      out.push(n?sum/n:0);
+  if(!quad)quad=[[w*.15,h*.1],[w*.85,h*.1],[w*.85,h*.9],[w*.15,h*.9]];
+  side.found=found;side.quad=orderQuad(quad);side.manualQuad=false;
+}
+// iterate: assign boundary points to the nearest side of the current quad, refit each side, intersect. Converges on
+// trapezoids (angled shots) that a minimum-area rectangle only approximates.
+function quadValid(q,ref,w,h){
+  if(!q||q.some(function(p){return !p||!isFinite(p[0])||!isFinite(p[1])||p[0]<-w*.1||p[0]>w*1.1||p[1]<-h*.1||p[1]>h*1.1}))return false;
+  var sgn=0,i;for(i=0;i<4;i++){var a=q[i],b=q[(i+1)%4],c=q[(i+2)%4],cr=(b[0]-a[0])*(c[1]-b[1])-(b[1]-a[1])*(c[0]-b[0]);if(!sgn)sgn=cr>0?1:-1;else if((cr>0?1:-1)!==sgn)return false;if(Math.hypot(b[0]-a[0],b[1]-a[1])<Math.min(w,h)*.12)return false}
+  function area(z){var s=0;for(var k=0;k<4;k++){var m=(k+1)%4;s+=z[k][0]*z[m][1]-z[m][0]*z[k][1]}return Math.abs(s)/2}
+  var ar=area(q)/area(ref);return ar>.6&&ar<1.4;
+}
+function pgFitQuad(pts,init,w,h){
+  var cur=init,short=Math.min(Math.hypot(init[1][0]-init[0][0],init[1][1]-init[0][1]),Math.hypot(init[3][0]-init[0][0],init[3][1]-init[0][1])),iter,k,s;
+  for(iter=0;iter<4;iter++){
+    var tol=Math.max(2.5,short*(iter?.035:.1)),sides=[[],[],[],[]];
+    for(k=0;k<pts.length;k++){var bestS=-1,bestD=1e9,P=pts[k];
+      for(s=0;s<4;s++){var A=cur[s],B=cur[(s+1)%4],ex=B[0]-A[0],ey=B[1]-A[1],len=Math.hypot(ex,ey),tpar=((P[0]-A[0])*ex+(P[1]-A[1])*ey)/(len*len),dd=Math.abs((P[0]-A[0])*-ey+(P[1]-A[1])*ex)/len;
+        if(tpar>.08&&tpar<.92&&dd<tol&&dd<bestD){bestD=dd;bestS=s}}
+      if(bestS>=0)sides[bestS].push(P)}
+    var lines=sides.map(fitLine);
+    if(!lines.every(function(L){return L&&L.n>=8}))break;
+    var nq=[intersect(lines[3],lines[0]),intersect(lines[0],lines[1]),intersect(lines[1],lines[2]),intersect(lines[2],lines[3])];
+    if(!quadValid(nq,init,w,h))break;
+    var moved=Math.max.apply(null,nq.map(function(p,i){return Math.hypot(p[0]-cur[i][0],p[1]-cur[i][1])}));
+    cur=orderQuad(nq);
+    if(moved<.3)break;
+  }
+  return cur;
+}
+// sub-pixel edge positions at full resolution along each side, then a fresh line fit and corner intersections
+function pgRefineQuad(side){
+  var s=1/side.scale,q=side.quad.map(function(p){return [p[0]*s,p[1]*s]}),fd=side.fd,fw=side.fw,fh=side.fh,bg=side.bg,thr3=side.bgThr*3;
+  var R=side.manualQuad?Math.max(4,2.5*s):Math.max(6,6*s),pass,best=q,okAll=false;
+  for(pass=0;pass<2;pass++){
+    var lines=[],i,moved=0;
+    for(i=0;i<4;i++){
+      var A=best[i],B=best[(i+1)%4],ex=B[0]-A[0],ey=B[1]-A[1],len=Math.hypot(ex,ey),ux=ex/len,uy=ey/len,nx=uy,ny=-ux; // n points outward
+      var pts=[],N=56,k;
+      for(k=0;k<N;k++){var t=.06+.88*k/(N-1),px=A[0]+ex*t,py=A[1]+ey*t,prof=[],st;
+        for(st=-R;st<=R;st+=.5)prof.push(sampleDist(fd,fw,fh,px+nx*st,py+ny*st,bg));
+        // steps down (card -> background) moving outward; take the outermost one that is at least half as strong as the biggest
+        var g=[],j,gmax=0;for(j=2;j<prof.length-2;j++){var gv=prof[j-2]-prof[j+2];g[j]=gv;if(gv>gmax)gmax=gv}
+        if(gmax<thr3*.35)continue;
+        var pick=-1;for(j=prof.length-3;j>=2;j--){if(g[j]>=gmax*.5&&g[j]>=g[j-1]&&g[j]>=g[j+1]){pick=j;break}}
+        if(pick<0)continue;
+        var y0=g[pick-1],y1=g[pick],y2=g[pick+1],den=y0-2*y1+y2,off=den?clamp(.5*(y0-y2)/den,-1,1):0,sPos=-R+.5*(pick+off);
+        pts.push([px+nx*sPos,py+ny*sPos]);
+      }
+      var L=fitLine(pts);
+      lines.push(L&&L.n>=12?L:{p:A,d:[ux,uy],n:0});
     }
-    return out;
+    var fq=[intersect(lines[3],lines[0]),intersect(lines[0],lines[1]),intersect(lines[1],lines[2]),intersect(lines[2],lines[3])];
+    var ok=quadValid(fq,q,side.fw,side.fh)&&fq.every(function(p,k){return Math.hypot(p[0]-best[k][0],p[1]-best[k][1])<R*4});
+    if(!ok)break;
+    moved=Math.max.apply(null,fq.map(function(p,k){return Math.hypot(p[0]-best[k][0],p[1]-best[k][1])}));
+    best=fq;okAll=lines.every(function(L){return L.n>=12});
+    if(moved<R*.3)break;
   }
-  function firstStep(prof){
-    var peak=0;for(var k=0;k<prof.length;k++)peak=Math.max(peak,prof[k]);
-    var t=Math.max(50,peak*.35);
-    for(k=0;k<prof.length-3;k++){if(prof[k]>t&&prof[k+1]>t&&prof[k+2]>t&&prof[k+3]>t)return k}
-    return -1;
-  }
-  var reach=Math.round(Math.min(cw,ch)*.35),inner=true;
-  var sL=firstStep(profile("x",ol+b1,1,reach)),sR=firstStep(profile("x",orr-b1,-1,reach)),sT=firstStep(profile("y",ot+b1,1,reach)),sB=firstStep(profile("y",ob-b1,-1,reach));
-  var minB=Math.round(Math.min(cw,ch)*.012);
-  if(sL<0||sR<0||sT<0||sB<0||sL+b1<minB||sR+b1<minB||sT+b1<minB||sB+b1<minB){inner=false;g.il=ol+Math.round(cw*.06);g.ir=orr-Math.round(cw*.06);g.it=ot+Math.round(ch*.06);g.ib=ob-Math.round(ch*.06)}
-  else{g.il=ol+b1+sL;g.ir=orr-b1-sR;g.it=ot+b1+sT;g.ib=ob-b1-sB}
-  side.innerFound=inner;side.g=g;side.dist=dist;side.manual=false;
-  pgMeasure(side);
+  side.fquad=best;side.refined=okAll;
 }
-function pgRefine(side){
-  // outer edges at full resolution: first column/row where at least half the middle band is card
-  var g=side.g,s=1/side.scale,F=side.full,ctx=side.fctx,bg=side.bg,thr3=side.bgThr*3;
-  function frac(x0,y0,w,h){var fd=ctx.getImageData(x0,y0,w,h).data,n=0,c=0;for(var i=0;i<fd.length;i+=4){n++;if(pxDist(fd,i,bg)>thr3)c++}return n?c/n:0}
-  var cw=g.or-g.ol,ch=g.ob-g.ot,my0=Math.round((g.ot+ch*.2)*s),mh=Math.max(1,Math.round(ch*.6*s)),mx0=Math.round((g.ol+cw*.2)*s),mw=Math.max(1,Math.round(cw*.6*s));
-  var gf={ol:Math.round(g.ol*s),or:Math.round(g.or*s),ot:Math.round(g.ot*s),ob:Math.round(g.ob*s)},span=Math.ceil(3*s)+1,k;
-  if(!side.manual){
-    for(k=-span;k<=span;k++){var x=gf.ol+k;if(x>=0&&x<F.width&&frac(x,my0,1,mh)>.5){gf.ol=x;break}}
-    for(k=-span;k<=span;k++){x=gf.or-k;if(x>=0&&x<F.width&&frac(x,my0,1,mh)>.5){gf.or=x;break}}
-    for(k=-span;k<=span;k++){var y=gf.ot+k;if(y>=0&&y<F.height&&frac(mx0,y,mw,1)>.5){gf.ot=y;break}}
-    for(k=-span;k<=span;k++){y=gf.ob-k;if(y>=0&&y<F.height&&frac(mx0,y,mw,1)>.5){gf.ob=y;break}}
+/* --- 2. warp the card to a flat, straight frame --- */
+function pgRectify(side){
+  var q=side.fquad.slice(),i;
+  for(i=0;i<side.rot;i++)q=[q[3],q[0],q[1],q[2]];
+  var top=Math.hypot(q[1][0]-q[0][0],q[1][1]-q[0][1]),bottom=Math.hypot(q[2][0]-q[3][0],q[2][1]-q[3][1]),left=Math.hypot(q[3][0]-q[0][0],q[3][1]-q[0][1]),right=Math.hypot(q[2][0]-q[1][0],q[2][1]-q[1][1]);
+  if((top+bottom)/2>(left+right)/2*1.08){q=[q[3],q[0],q[1],q[2]];side.rot=(side.rot+1)%4;var t=top;top=left;left=bottom;bottom=right;right=t}
+  side.q=q;side.keystone=Math.max(Math.abs(top-bottom)/((top+bottom)/2),Math.abs(left-right)/((left+right)/2));
+  side.tilt=Math.atan2(q[1][1]-q[0][1],q[1][0]-q[0][0])*180/Math.PI;
+  side.srcCardW=(top+bottom)/2;side.srcCardH=(left+right)/2;side.aspect=side.srcCardH/side.srcCardW;
+  var H=Math.round(clamp(side.srcCardH,PG_CARD_H_MIN,PG_CARD_H_MAX)),W=Math.round(H/CARD_RATIO),m=Math.round(W*PG_MARGIN),OW=W+2*m,OH=H+2*m;
+  var hm=homography(q,[[m,m],[m+W,m],[m+W,m+H],[m,m+H]]),fd=side.fd,fw=side.fw,fh=side.fh,bg=side.bg;
+  var out=new Uint8ClampedArray(OW*OH*4),x,y,o=0;
+  for(y=0;y<OH;y++)for(x=0;x<OW;x++){
+    var wz=hm[6]*x+hm[7]*y+1,sx=(hm[0]*x+hm[1]*y+hm[2])/wz,sy=(hm[3]*x+hm[4]*y+hm[5])/wz;
+    if(sx<0||sy<0||sx>=fw-1||sy>=fh-1){out[o]=bg[0];out[o+1]=bg[1];out[o+2]=bg[2];out[o+3]=255;o+=4;continue}
+    var x0=sx|0,y0=sy|0,fx=sx-x0,fy=sy-y0,i00=(y0*fw+x0)*4,i10=i00+4,i01=i00+fw*4,i11=i01+4,w00=(1-fx)*(1-fy),w10=fx*(1-fy),w01=(1-fx)*fy,w11=fx*fy;
+    out[o]=fd[i00]*w00+fd[i10]*w10+fd[i01]*w01+fd[i11]*w11;out[o+1]=fd[i00+1]*w00+fd[i10+1]*w10+fd[i01+1]*w01+fd[i11+1]*w11;out[o+2]=fd[i00+2]*w00+fd[i10+2]*w10+fd[i01+2]*w01+fd[i11+2]*w11;out[o+3]=255;o+=4;
   }
-  side.gf=gf;
+  var rc=document.createElement("canvas");rc.width=OW;rc.height=OH;var rctx=rc.getContext("2d",{willReadFrequently:true});
+  var id=rctx.createImageData(OW,OH);id.data.set(out);rctx.putImageData(id,0,0);
+  side.rect=rc;side.rd=out;side.rw=OW;side.rh=OH;side.m=m;side.cw=W;side.ch=H;side.pxPerMm=W/CARD_W_MM;
+  if(!side.manualInner)side.inner=null;
 }
+/* --- 3. measure on the normalized card --- */
 function pgMeasure(side){
-  var g=side.g,d=side.data,w=side.w,dist=side.dist,thr=side.bgThr;
-  pgRefine(side);
-  var lb=g.il-g.ol,rb=g.or-g.ir,tb=g.it-g.ot,bb=g.ob-g.ib;
-  side.lr=lb+rb>0?lb/(lb+rb)*100:50;side.tb=tb+bb>0?tb/(tb+bb)*100:50;
-  // corners and edges, measured on the small copy against the background threshold
-  var cw=g.or-g.ol,ch=g.ob-g.ot,c=Math.max(8,Math.round(Math.min(cw,ch)*.09));
-  var borderLum=(side.border[0]*.3+side.border[1]*.59+side.border[2]*.11),colored=borderLum<200;
-  function region(X0,Y0,X1,Y1){ // full-resolution coordinates
-    X0=Math.max(0,X0);Y0=Math.max(0,Y0);X1=Math.min(side.full.width,X1);Y1=Math.min(side.full.height,Y1);
-    if(X1<=X0||Y1<=Y0)return {bg:0,white:0};
-    var fd=side.fctx.getImageData(X0,Y0,X1-X0,Y1-Y0).data,n=(X1-X0)*(Y1-Y0),bgN=0,whiteN=0,i,bg=side.bg,thrW=Math.min(thr,25);
-    for(i=0;i<fd.length;i+=4){
-      if(pxDist(fd,i,bg)/3<=thrW)bgN++;
-      else if(colored){var lum=fd[i]*.3+fd[i+1]*.59+fd[i+2]*.11,sat=Math.max(fd[i],fd[i+1],fd[i+2])-Math.min(fd[i],fd[i+1],fd[i+2]);if(lum>borderLum+60&&sat<40)whiteN++}
-    }
-    return {bg:bgN/n,white:whiteN/n};
+  var d=side.rd,W=side.rw,H=side.rh,m=side.m,cw=side.cw,ch=side.ch,bg=side.bg,thr3=side.bgThr*3,ppm=side.pxPerMm,x,y,i,k;
+  var L=m,Rr=m+cw,T=m,Bt=m+ch;
+  function isCard(x,y){return pxDist(d,(y*W+x)*4,bg)>thr3}
+  var bgLim=Math.min(thr3,75);
+  function awayFromBg(x,y){if(x<2||y<2||x>=W-2||y>=H-2)return false;return pxDist(d,(y*W+x-2)*4,bg)>bgLim&&pxDist(d,(y*W+x+2)*4,bg)>bgLim&&pxDist(d,((y-2)*W+x)*4,bg)>bgLim&&pxDist(d,((y+2)*W+x)*4,bg)>bgLim}
+  // border colour from a band just inside the edge
+  var b1=Math.max(2,Math.round(cw*.015)),b2=Math.max(b1+2,Math.round(cw*.045)),samples=[];
+  for(y=T+b1;y<Bt-b1;y+=2)for(x=L+b1;x<Rr-b1;x+=2){if(x<L+b2||x>=Rr-b2||y<T+b2||y>=Bt-b2){i=(y*W+x)*4;samples.push([d[i],d[i+1],d[i+2]])}}
+  var border=medianColor(samples);side.border=border;
+  var borderLum=lum(border,0),colored=borderLum<200;side.colored=colored;
+  // inner frame (picture edge): mean distance from the border colour along the central band, first sustained step
+  function profile(axis,from,dir,len){var out=[],kk;for(kk=0;kk<len;kk++){var p=from+dir*kk,sum=0,n=0;
+    if(axis==="x"){for(y=T+Math.round(ch*.3);y<=Bt-Math.round(ch*.3);y+=2){i=(y*W+p)*4;sum+=pxDist(d,i,border);n++}}
+    else{for(x=L+Math.round(cw*.3);x<=Rr-Math.round(cw*.3);x+=2){i=(p*W+x)*4;sum+=pxDist(d,i,border);n++}}
+    out.push(n?sum/n:0)}return out}
+  function firstStep(prof){var peak=0;for(var kk=0;kk<prof.length;kk++)peak=Math.max(peak,prof[kk]);var t=Math.max(45,peak*.35);
+    for(kk=1;kk<prof.length-3;kk++){if(prof[kk]>t&&prof[kk+1]>t&&prof[kk+2]>t&&prof[kk+3]>t){var f=(t-prof[kk-1])/(prof[kk]-prof[kk-1]+1e-9);return kk-1+clamp(f,0,1)}}return -1}
+  if(!side.inner||!side.manualInner){
+    var reach=Math.round(cw*.35),pL=firstStep(profile("x",L+b1,1,reach)),pR=firstStep(profile("x",Rr-1-b1,-1,reach)),pT=firstStep(profile("y",T+b1,1,reach)),pB=firstStep(profile("y",Bt-1-b1,-1,reach));
+    var minB=cw*.012,inner={il:L+b1+pL,ir:Rr-1-b1-pR,it:T+b1+pT,ib:Bt-1-b1-pB},okI=pL>=0&&pR>=0&&pT>=0&&pB>=0&&pL+b1>=minB&&pR+b1>=minB&&pT+b1>=minB&&pB+b1>=minB;
+    if(!okI)inner={il:L+cw*.06,ir:Rr-cw*.06,it:T+ch*.06,ib:Bt-ch*.06};
+    side.inner=inner;side.innerFound=okI;side.manualInner=false;
   }
-  // every card corner is rounded by design, so the cleanest corner sets the baseline and only wear beyond it counts
-  var gf=side.gf,C=Math.round(c/side.scale),in1=Math.max(1,Math.round(.3/side.scale)),s1=1/side.scale;
-  function cSize(bw,bh){if(!side.innerFound)return C;var m=Math.round(Math.min(bw,bh)*s1);return Math.max(Math.round(C*.45),Math.min(C,m))}
-  var cTL=cSize(g.il-g.ol,g.it-g.ot),cTR=cSize(g.or-g.ir,g.it-g.ot),cBL=cSize(g.il-g.ol,g.ob-g.ib),cBR=cSize(g.or-g.ir,g.ob-g.ib);
-  var cs=[["TL",gf.ol+in1,gf.ot+in1,gf.ol+cTL,gf.ot+cTL],["TR",gf.or-cTR,gf.ot+in1,gf.or-in1,gf.ot+cTR],["BL",gf.ol+in1,gf.ob-cBL,gf.ol+cBL,gf.ob-in1],["BR",gf.or-cBR,gf.ob-cBR,gf.or-in1,gf.ob-in1]];
-  var regs=cs.map(function(k){return region(k[1],k[2],k[3],k[4])}),base=Math.min(.16,Math.min.apply(null,regs.map(function(r){return r.bg})));
-  side.corners=cs.map(function(k,idx){var r=regs[idx];return {name:k[0],fx:k[0]==="TL"||k[0]==="BL"?gf.ol:gf.or-C,fy:k[0]==="TL"||k[0]==="TR"?gf.ot:gf.ob-C,fsize:C,score:Math.max(0,Math.min(100,Math.round(100-Math.max(0,r.bg-base)*300-r.white*250))),bg:r.bg,white:r.white}});
-  side.measured=side.found||side.manual;
-  var E=Math.max(3,Math.round(Math.min(gf.or-gf.ol,gf.ob-gf.ot)*.012)),S=Math.round(Math.min(gf.or-gf.ol,gf.ob-gf.ot)*.09);
-  var es=[["Top",gf.ol+S,gf.ot+in1,gf.or-S,gf.ot+in1+E],["Bottom",gf.ol+S,gf.ob-in1-E,gf.or-S,gf.ob-in1],["Left",gf.ol+in1,gf.ot+S,gf.ol+in1+E,gf.ob-S],["Right",gf.or-in1-E,gf.ot+S,gf.or-in1,gf.ob-S]];
-  side.edges=es.map(function(k){var r=region(k[1],k[2],k[3],k[4]);return {name:k[0],score:Math.max(0,Math.min(100,Math.round(100-r.bg*400-r.white*200)))}});
-  side.cornerScore=Math.round(side.corners.reduce(function(s,k){return s+k.score},0)/4);
-  side.edgeScore=Math.round(side.edges.reduce(function(s,k){return s+k.score},0)/4);
-}
-function pgRender(side){
-  var cv=$("#pg-canvas-"+side.name),ctx=cv.getContext("2d"),g=side.g,w=side.w,h=side.h;
-  cv.width=w;cv.height=h;ctx.drawImage(side.small,0,0);
-  ctx.lineWidth=Math.max(1.5,w/400);
-  ctx.strokeStyle="#E3A92B";ctx.setLineDash([]);ctx.strokeRect(g.ol+.5,g.ot+.5,g.or-g.ol,g.ob-g.ot);
-  ctx.strokeStyle="#8fe4ff";ctx.setLineDash([6,4]);ctx.strokeRect(g.il+.5,g.it+.5,g.ir-g.il,g.ib-g.it);
-  ctx.setLineDash([]);
-  // grab handles at the midpoints
-  var hs=Math.max(5,w/90);ctx.fillStyle="#E3A92B";
-  [[g.ol,(g.ot+g.ob)/2],[g.or,(g.ot+g.ob)/2],[(g.ol+g.or)/2,g.ot],[(g.ol+g.or)/2,g.ob]].forEach(function(p){ctx.fillRect(p[0]-hs/2,p[1]-hs/2,hs,hs)});
-  ctx.fillStyle="#8fe4ff";
-  [[g.il,(g.it+g.ib)/2],[g.ir,(g.it+g.ib)/2],[(g.il+g.ir)/2,g.it],[(g.il+g.ir)/2,g.ib]].forEach(function(p){ctx.fillRect(p[0]-hs/2,p[1]-hs/2,hs,hs)});
-  var lrW=Math.max(side.lr,100-side.lr),tbW=Math.max(side.tb,100-side.tb);
-  $("#pg-readout-"+side.name).innerHTML=
-    '<div class="tile"><div class="v">'+Math.round(side.lr)+'/'+Math.round(100-side.lr)+'</div><div class="k">Left / right'+(side.innerFound?"":" · guides not found, drag them")+'</div></div>'+
-    '<div class="tile"><div class="v">'+Math.round(side.tb)+'/'+Math.round(100-side.tb)+'</div><div class="k">Top / bottom</div></div>'+
-    '<div class="tile"><div class="v">'+(side.measured?side.cornerScore+'<span class="muted" style="font-size:1rem">/100</span>':"\u2014")+'</div><div class="k">Corner sharpness</div></div>'+
-    '<div class="tile"><div class="v">'+(side.measured?side.edgeScore+'<span class="muted" style="font-size:1rem">/100</span>':"\u2014")+'</div><div class="k">Edge condition</div></div>';
-  var host=$("#pg-corners-"+side.name);
-  host.innerHTML=side.corners.map(function(k){return '<div class="corner"><canvas width="120" height="120" data-corner="'+k.name+'"></canvas><span>'+k.name+' <b>'+k.score+'</b></span></div>'}).join("");
-  side.corners.forEach(function(k){
-    var cc=host.querySelector('[data-corner="'+k.name+'"]').getContext("2d");
-    cc.imageSmoothingEnabled=false;
-    cc.drawImage(side.full,k.fx,k.fy,k.fsize,k.fsize,0,0,120,120);
+  pgCentering(side);
+  // edges: trace the real card boundary against the fitted edge, every pixel, corners excluded
+  var S=Math.round(cw*.07),Rp=Math.max(3,Math.round(m*.8)),E=Math.max(2,Math.round(ppm*.4)),srcPpm=side.srcCardW/CARD_W_MM,roughFloor=Math.max(.04,1/srcPpm);
+  function trace(axis,fixed,dir,from,to){ // returns deviations (px) inward of the fitted edge, and whitening fraction
+    var dev=[],white=0,wn=0,t;
+    for(t=from;t<to;t++){var prof=[],st,cross=null;
+      for(st=-Rp;st<=Rp;st++){var xx=axis==="h"?t:fixed+dir*st,yy=axis==="h"?fixed+dir*st:t;prof.push(pxDist(d,(yy*W+xx)*4,bg))}
+      var n3=Math.max(2,Math.floor(prof.length/3)),outer=medianOf(prof.slice(0,n3)),innerL=medianOf(prof.slice(prof.length-n3));
+      if(innerL-outer>thr3*.5){var lev=(outer+innerL)/2;for(k=1;k<prof.length;k++){if(prof[k-1]<lev&&prof[k]>=lev){cross=-Rp+(k-1)+(lev-prof[k-1])/(prof[k]-prof[k-1]+1e-9);break}}}
+      dev.push(cross===null?null:cross);
+      if(colored){for(st=3;st<=E+2;st++){var xw=axis==="h"?t:fixed+dir*st,yw=axis==="h"?fixed+dir*st:t;i=(yw*W+xw)*4;if(!awayFromBg(xw,yw))continue;var lm=lum(d,i),sat=Math.max(d[i],d[i+1],d[i+2])-Math.min(d[i],d[i+1],d[i+2]);wn++;if(lm>borderLum+60&&sat<40)white++}}
+    }
+    return {dev:dev,white:wn?white/wn:0};
+  }
+  // dir: +1 means the profile runs from outside the card inward along increasing coordinate
+  var tr=[["Top","h",T,1,L+S,Rr-S],["Bottom","h",Bt-1,-1,L+S,Rr-S],["Left","v",L,1,T+S,Bt-S],["Right","v",Rr-1,-1,T+S,Bt-S]];
+  side.edges=tr.map(function(e){
+    var r=trace(e[1],e[2],e[3],e[4],e[5]),vals=r.dev.filter(function(v){return v!==null}),med=medianOf(vals),rough=1.4826*medianOf(vals.map(function(v){return Math.abs(v-med)})),roughMm=rough/ppm;
+    var nickTol=Math.max(1.5,.12*ppm,1.5*ppm/srcPpm),nicks=[],run=0,runStart=0,t;
+    for(t=0;t<r.dev.length;t++){var inward=r.dev[t]!==null&&r.dev[t]-med>nickTol;if(inward){if(!run)runStart=t;run++}else{if(run>=3)nicks.push({at:e[4]+runStart,len:run});run=0}}
+    if(run>=3)nicks.push({at:e[4]+runStart,len:run});
+    var nickMm=nicks.reduce(function(s,n){return s+n.len},0)/ppm,missing=1-vals.length/r.dev.length;
+    var score=100-Math.max(0,roughMm-roughFloor)*400-Math.min(40,nickMm*25+nicks.length*5)-r.white*250-missing*80;
+    return {name:e[0],axis:e[1],fixed:e[2],from:e[4],to:e[5],score:Math.round(clamp(score,0,100)),roughMm:roughMm,nicks:nicks,nickMm:nickMm,white:r.white,med:med,devAll:r.dev};
   });
+  // corners: the sharp corner is where the two traced edges meet locally; background area inside the corner box gives the
+  // effective rounding radius (quarter circle: area = r^2 (1 - pi/4)); the width of the background-to-card transition along
+  // the diagonal gives softness; bright low-saturation pixels on a coloured border are whitening
+  var c=Math.max(8,Math.round(cw*.09)),inn=side.inner,EB=side.edges,cardLevel=Math.max(thr3*1.2,pxDist(border,0,bg));
+  function edgeNear(e,atStart){var n=Math.max(5,Math.round(e.devAll.length*.08)),vals=(atStart?e.devAll.slice(0,n):e.devAll.slice(-n)).filter(function(v){return v!==null});return vals.length?medianOf(vals):e.med}
+  // [name, dx, dy, x origin, y origin, border width x, border width y]
+  var cs=[["TL",1,1,L+edgeNear(EB[2],true),T+edgeNear(EB[0],true),inn.il-L,inn.it-T],["TR",-1,1,Rr-1-edgeNear(EB[3],true),T+edgeNear(EB[0],false),Rr-inn.ir,inn.it-T],["BL",1,-1,L+edgeNear(EB[2],false),Bt-1-edgeNear(EB[1],true),inn.il-L,Bt-inn.ib],["BR",-1,-1,Rr-1-edgeNear(EB[3],false),Bt-1-edgeNear(EB[1],false),Rr-inn.ir,Bt-inn.ib]];
+  var corners=cs.map(function(cc){
+    var dx=cc[1],dy=cc[2],ox=cc[3],oy=cc[4],box=side.innerFound?Math.max(Math.round(c*.5),Math.min(c,Math.round(Math.min(cc[5],cc[6])))):c;
+    var cx=dx>0?Math.round(ox):Math.round(ox),cy=dy>0?Math.round(oy):Math.round(oy),n=0,bgN=0,whiteN=0,xx,yy;
+    for(yy=0;yy<box;yy++)for(xx=0;xx<box;xx++){var X=cx+dx*xx,Y=cy+dy*yy;if(X<0||Y<0||X>=W||Y>=H)continue;i=(Y*W+X)*4;n++;if(pxDist(d,i,bg)<=bgLim)bgN++;else if(colored&&awayFromBg(X,Y)){var lm=lum(d,i),sat=Math.max(d[i],d[i+1],d[i+2])-Math.min(d[i],d[i+1],d[i+2]);if(lm>borderLum+60&&sat<40)whiteN++}}
+    var rad=Math.sqrt(bgN/(1-Math.PI/4))/ppm,fz=0,st;
+    for(st=0;st<c*1.5;st+=.5){var v=sampleDist(d,W,H,ox+dx*st,oy+dy*st,bg);if(v>cardLevel*.25&&v<cardLevel*.75)fz+=.5;if(v>=cardLevel*.75&&st>c*.2)break}
+    return {name:cc[0],x:Math.min(cx,cx+dx*(c-1)),y:Math.min(cy,cy+dy*(c-1)),size:c,radMm:rad,fuzzMm:fz/ppm,bg:n?bgN/n:0,white:n?whiteN/n:0,box:box};
+  });
+  var baseR=Math.min(3.2,Math.min.apply(null,corners.map(function(k){return k.radMm})));
+  corners.forEach(function(k){var ex=Math.max(0,k.radMm-baseR),score=100-ex*22-Math.max(0,k.fuzzMm-.2)*60-k.white*150;k.excessMm=ex;k.score=Math.round(clamp(score,0,100))});
+  side.corners=corners;
+  side.cornerScore=Math.round(corners.reduce(function(s,k){return s+k.score},0)/4);
+  side.edgeScore=Math.round(side.edges.reduce(function(s,k){return s+k.score},0)/4);
+  side.measured=true;
+  pgScanSurface(side);
+  pgPhotoCheck(side);
 }
-function pgNearest(side,px,py){
-  var g=side.g,cands=[["ol",Math.abs(px-g.ol)],["or",Math.abs(px-g.or)],["il",Math.abs(px-g.il)],["ir",Math.abs(px-g.ir)],["ot",Math.abs(py-g.ot)],["ob",Math.abs(py-g.ob)],["it",Math.abs(py-g.it)],["ib",Math.abs(py-g.ib)]];
-  cands.sort(function(a,b){return a[1]-b[1]});
-  return cands[0][1]<=Math.max(8,side.w/50)?cands[0][0]:null;
+function pgCentering(side){
+  var inn=side.inner,m=side.m,lb=inn.il-m,rb=m+side.cw-inn.ir,tb=inn.it-m,bb=m+side.ch-inn.ib;
+  side.lr=lb+rb>0?lb/(lb+rb)*100:50;side.tb=tb+bb>0?tb/(tb+bb)*100:50;
+  side.borderMm={l:lb/side.pxPerMm,r:rb/side.pxPerMm,t:tb/side.pxPerMm,b:bb/side.pxPerMm};
 }
-function pgPointer(side,ev){
-  var cv=$("#pg-canvas-"+side.name),r=cv.getBoundingClientRect();
-  return {x:(ev.clientX-r.left)*side.w/r.width,y:(ev.clientY-r.top)*side.h/r.height};
+/* --- 4. surface scan on the picture area: thin faint lines and isolated specks in low-texture zones; glare masked --- */
+function pgScanSurface(side){
+  var inn=side.inner,ins=Math.max(4,Math.round(side.cw*.012)),x0=Math.round(inn.il)+ins,y0=Math.round(inn.it)+ins,x1=Math.round(inn.ir)-ins,y1=Math.round(inn.ib)-ins,d=side.rd,W=side.rw;
+  if(!side.innerFound){x0=Math.round(side.m+side.cw*.06);x1=Math.round(side.m+side.cw*.94);y0=Math.round(side.m+side.ch*.06);y1=Math.round(side.m+side.ch*.94)}
+  var rw=x1-x0,rh=y1-y0,sc=Math.min(1,1000/rw),gw=Math.max(8,Math.round(rw*sc)),gh=Math.max(8,Math.round(rh*sc)),g=new Float32Array(gw*gh),glare=new Uint8Array(gw*gh),x,y,i,k;
+  var clipAll=0,clipN=0;
+  for(y=0;y<gh;y++)for(x=0;x<gw;x++){var sx=x0+Math.min(rw-1,Math.round(x/sc)),sy=y0+Math.min(rh-1,Math.round(y/sc));i=(sy*W+sx)*4;g[y*gw+x]=lum(d,i);clipN++;if(Math.min(d[i],d[i+1],d[i+2])>=250){glare[y*gw+x]=1;clipAll++}}
+  side.clipFrac=clipN?clipAll/clipN:0;
+  function box(src,r){var tmp=new Float32Array(gw*gh),out=new Float32Array(gw*gh),xx,yy,s,n;
+    for(yy=0;yy<gh;yy++){s=0;n=0;for(xx=-r;xx<=r;xx++){if(xx>=0&&xx<gw){s+=src[yy*gw+xx];n++}}for(xx=0;xx<gw;xx++){tmp[yy*gw+xx]=s/n;var a=xx-r,b=xx+r+1;if(a>=0){s-=src[yy*gw+a];n--}if(b<gw){s+=src[yy*gw+b];n++}}}
+    for(xx=0;xx<gw;xx++){s=0;n=0;for(yy=-r;yy<=r;yy++){if(yy>=0&&yy<gh){s+=tmp[yy*gw+xx];n++}}for(yy=0;yy<gh;yy++){out[yy*gw+xx]=s/n;var a2=yy-r,b2=yy+r+1;if(a2>=0){s-=tmp[a2*gw+xx];n--}if(b2<gh){s+=tmp[b2*gw+xx];n++}}}
+    return out}
+  var bl=box(g,4),hp=new Float32Array(gw*gh),sq=new Float32Array(gw*gh);
+  for(i=0;i<gw*gh;i++){hp[i]=g[i]-bl[i];sq[i]=bl[i]*bl[i]}
+  var mean15=box(bl,7),sq15=box(sq,7),texture=new Uint8Array(gw*gh);
+  var absv=[];for(i=0;i<gw*gh;i+=7)absv.push(Math.abs(hp[i]));var sigma=Math.max(2,1.4826*medianOf(absv));side.noiseSigma=sigma;
+  for(i=0;i<gw*gh;i++){var sd=Math.sqrt(Math.max(0,sq15[i]-mean15[i]*mean15[i]));texture[i]=sd<Math.max(6,3*sigma)?0:1}
+  // dilate glare by 3
+  var gl2=new Uint8Array(gw*gh);for(y=0;y<gh;y++)for(x=0;x<gw;x++){if(!glare[y*gw+x])continue;for(var yy=Math.max(0,y-3);yy<=Math.min(gh-1,y+3);yy++)for(var xx=Math.max(0,x-3);xx<=Math.min(gw-1,x+3);xx++)gl2[yy*gw+xx]=1}
+  var an=new Uint8Array(gw*gh),lim=Math.max(8,4*sigma);
+  for(i=0;i<gw*gh;i++){if(gl2[i])continue;var a1=Math.abs(hp[i]),a2=i+gw<gw*gh?Math.abs(hp[i]+hp[i+gw]):0,a3=(i%gw)<gw-1?Math.abs(hp[i]+hp[i+1]):0;an[i]=a1>lim||a2>lim*1.3||a3>lim*1.3?1:0}
+  var lines=[],minLen=Math.max(18,Math.round(gw*.06));
+  function scanLines(horiz){
+    var outer=horiz?gh:gw,innerN=horiz?gw:gh,o,t;
+    for(o=3;o<outer-3;o++){var run=0,start=0,low=0,flat=0,thick=0;
+      for(t=0;t<=innerN;t++){var p=horiz?o*gw+t:t*gw+o,a=t<innerN&&an[p];
+        if(a){if(!run){start=t;low=0;flat=0;thick=0}run++;if(!texture[p])low++;var pa=horiz?(o-3)*gw+t:(t)*gw+o-3,pb=horiz?(o+3)*gw+t:(t)*gw+o+3;if(Math.abs(g[pa]-g[pb])<Math.max(8,2.5*sigma))flat++;var qa=horiz?(o-2)*gw+t:(t)*gw+o-2,qb=horiz?(o+2)*gw+t:(t)*gw+o+2;if(an[qa]||an[qb])thick++}
+        else if(run&&t+2<innerN&&(horiz?an[o*gw+t+1]||an[o*gw+t+2]:an[(t+1)*gw+o]||an[(t+2)*gw+o])){run++}
+        else{if(run>=minLen&&low/run>=.7&&flat/run>=.75&&thick/run<.3){var sum=0,sg=0,q;for(q=start;q<start+run;q++){var hv=hp[horiz?o*gw+q:q*gw+o];sum+=Math.abs(hv);sg+=hv}if(Math.abs(sg)<sum*.7){run=0;continue}
+            lines.push({dir:horiz?"h":"v",x0:horiz?start:o,y0:horiz?o:start,x1:horiz?start+run:o,y1:horiz?o:start+run,len:run,str:sum/run/sigma});
+            for(q=start;q<start+run;q++)an[horiz?o*gw+q:q*gw+o]=2}
+          run=0}}}
+  }
+  scanLines(true);scanLines(false);
+  // merge lines on neighbouring rows/cols
+  lines.sort(function(a,b){return a.dir<b.dir?-1:a.dir>b.dir?1:(a.dir==="h"?a.y0-b.y0:a.x0-b.x0)});
+  var merged=[];lines.forEach(function(l){var last=merged[merged.length-1];if(last&&last.dir===l.dir&&(l.dir==="h"?Math.abs(l.y0-last.y0)<=2&&l.x0<last.x1+14&&l.x1>last.x0-14:Math.abs(l.x0-last.x0)<=2&&l.y0<last.y1+14&&l.y1>last.y0-14)){last.len=Math.max(last.len,l.len);last.str=Math.max(last.str,l.str);if(l.dir==="h"){last.x0=Math.min(last.x0,l.x0);last.x1=Math.max(last.x1,l.x1)}else{last.y0=Math.min(last.y0,l.y0);last.y1=Math.max(last.y1,l.y1)}}else merged.push(l)});
+  // specks: small isolated anomaly blobs in low-texture zones
+  var lab=new Uint8Array(gw*gh),specks=[],stack=[];
+  var speckLim=Math.max(14,7*sigma);
+  function ringFlat(cx,cy){var sum=0,cnt=0,yy,xx;for(yy=-12;yy<=12;yy++)for(xx=-12;xx<=12;xx++){var r2=xx*xx+yy*yy;if(r2<=25||r2>144)continue;var X=Math.round(cx)+xx,Y=Math.round(cy)+yy;if(X<0||Y<0||X>=gw||Y>=gh)continue;sum+=Math.abs(hp[Y*gw+X]);cnt++}return cnt?sum/cnt:99}
+  // components of same-signed anomalies (a bright dot and the dark halo the blur leaves around it stay separate)
+  for(i=0;i<gw*gh;i++){if(an[i]!==1||lab[i])continue;var sgn=hp[i]>0?1:-1,n=0,minx=gw,maxx=0,miny=gh,maxy=0,peak=0;stack.push(i);lab[i]=1;
+    while(stack.length){var p=stack.pop();n++;var px=p%gw,py=(p/gw)|0;if(Math.abs(hp[p])>peak)peak=Math.abs(hp[p]);if(px<minx)minx=px;if(px>maxx)maxx=px;if(py<miny)miny=py;if(py>maxy)maxy=py;
+      var nb=[px>0?p-1:-1,px<gw-1?p+1:-1,py>0?p-gw:-1,py<gh-1?p+gw:-1],z;for(z=0;z<4;z++){var q=nb[z];if(q>=0&&an[q]===1&&!lab[q]&&(hp[q]>0?1:-1)===sgn){lab[q]=1;stack.push(q)}}}
+    if(n>=3&&n<=40&&maxx-minx<=8&&maxy-miny<=8&&peak>=speckLim)specks.push({x:(minx+maxx)/2,y:(miny+maxy)/2,n:n,peak:peak});}
+  // a dot and its halo share a centre: keep the stronger; then text and halftone come in clusters, so a speck has to stand alone and sit on a flat patch
+  specks.sort(function(a,b){return b.peak-a.peak});
+  var kept=[];specks.forEach(function(a){if(!kept.some(function(b){return Math.abs(a.x-b.x)<6&&Math.abs(a.y-b.y)<6}))kept.push(a)});
+  var iso=Math.max(10,gw*.015);specks=kept.filter(function(a){return !kept.some(function(b){return a!==b&&Math.abs(a.x-b.x)<iso&&Math.abs(a.y-b.y)<iso})&&ringFlat(a.x,a.y)<Math.max(3,1.5*sigma)});
+  // glare spots: connected clipped areas
+  var glab=new Uint8Array(gw*gh),spots=[];
+  for(i=0;i<gw*gh;i++){if(!glare[i]||glab[i])continue;var gn=0,gx=0,gy=0;stack.push(i);glab[i]=1;
+    while(stack.length){var p2=stack.pop();gn++;var px2=p2%gw,py2=(p2/gw)|0;gx+=px2;gy+=py2;
+      if(px2>0&&glare[p2-1]&&!glab[p2-1]){glab[p2-1]=1;stack.push(p2-1)}if(px2<gw-1&&glare[p2+1]&&!glab[p2+1]){glab[p2+1]=1;stack.push(p2+1)}if(py2>0&&glare[p2-gw]&&!glab[p2-gw]){glab[p2-gw]=1;stack.push(p2-gw)}if(py2<gh-1&&glare[p2+gw]&&!glab[p2+gw]){glab[p2+gw]=1;stack.push(p2+gw)}}
+    if(gn>=12)spots.push({x:gx/gn,y:gy/gn,n:gn});}
+  var toRect=function(x,y){return [x0+x/sc,y0+y/sc]};
+  side.scan={x0:x0,y0:y0,sc:sc,gw:gw,gh:gh,lines:merged.map(function(l){var a=toRect(l.x0,l.y0),b=toRect(l.x1,l.y1);return {dir:l.dir,x0:a[0],y0:a[1],x1:b[0],y1:b[1],lenMm:l.len/sc/side.pxPerMm,str:l.str}}),specks:specks.map(function(s){var p=toRect(s.x,s.y);return {x:p[0],y:p[1]}}),glare:spots.map(function(s){var p=toRect(s.x,s.y);return {x:p[0],y:p[1],n:s.n/sc/sc}}),lowTexFrac:(function(){var n=0;for(var j=0;j<gw*gh;j++)if(!texture[j])n++;return n/(gw*gh)})()};
 }
+/* --- 5. photo quality --- */
+function pgPhotoCheck(side){
+  var checks=[],d=side.rd,W=side.rw,m=side.m,cw=side.cw,ch=side.ch,q=side.quad,sw=side.sw,sh=side.sh;
+  function add(key,label,state,tip){checks.push({key:key,label:label,state:state,tip:tip})}
+  // resolution: card width in source pixels
+  var srcW=side.srcCardW/ (side.fw/side.srcPx);
+  add("res","Resolution "+Math.round(srcW).toLocaleString()+" px across",srcW>=900?"ok":srcW>=500?"warn":"bad",srcW>=900?"Enough detail for corners and edges.":srcW>=500?"Usable. Closer or higher-resolution photos sharpen the corner and edge read.":"Too small for a reliable corner, edge or surface read. Move closer or use a higher-resolution photo.");
+  // sharpness: Laplacian variance on a 400 px wide copy of the card
+  var sc=400/cw,gw=400,gh=Math.round(ch*sc),g=new Float32Array(gw*gh),x,y,i;
+  for(y=0;y<gh;y++)for(x=0;x<gw;x++){var sx=m+Math.min(cw-1,Math.round(x/sc)),sy=m+Math.min(ch-1,Math.round(y/sc));g[y*gw+x]=lum(d,(sy*W+sx)*4)}
+  var s=0,s2=0,n=0;for(y=1;y<gh-1;y++)for(x=1;x<gw-1;x++){var v=4*g[y*gw+x]-g[y*gw+x-1]-g[y*gw+x+1]-g[(y-1)*gw+x]-g[(y+1)*gw+x];s+=v;s2+=v*v;n++}
+  var lapVar=s2/n-(s/n)*(s/n);side.sharp=lapVar;
+  add("sharp","Sharpness",lapVar>=60?"ok":lapVar>=25?"warn":"bad",lapVar>=60?"Focus looks crisp.":lapVar>=25?"Slightly soft. Tap to focus on the card and hold still.":"Blurry. Corners and surface can't be read from this photo.");
+  // lighting evenness: luminance of the border band in 8 segments (or the surround for full-bleed cards)
+  var segs=[],b1=Math.max(2,Math.round(cw*.015)),b2=Math.max(b1+2,Math.round(cw*.045)),useBorder=side.innerFound&&lum(side.border,0)>=70;
+  function meanL(x0,y0,x1,y1){x0=Math.round(x0);y0=Math.round(y0);x1=Math.round(x1);y1=Math.round(y1);var t=0,c=0;for(var yy=y0;yy<y1;yy+=2)for(var xx=x0;xx<x1;xx+=2){t+=lum(d,(yy*W+xx)*4);c++}return c?t/c:0}
+  var L=m,R=m+cw,T=m,B=m+ch;
+  if(useBorder){segs=[meanL(L+b1,T+b1,L+(R-L)/2,T+b2),meanL(L+(R-L)/2,T+b1,R-b1,T+b2),meanL(L+b1,B-b2,L+(R-L)/2,B-b1),meanL(L+(R-L)/2,B-b2,R-b1,B-b1),meanL(L+b1,T+b2,L+b2,T+(B-T)/2),meanL(L+b1,T+(B-T)/2,L+b2,B-b2),meanL(R-b2,T+b2,R-b1,T+(B-T)/2),meanL(R-b2,T+(B-T)/2,R-b1,B-b2)]}
+  else{segs=[meanL(1,1,m-1,side.rh/2),meanL(1,side.rh/2,m-1,side.rh-1),meanL(W-m+1,1,W-1,side.rh/2),meanL(W-m+1,side.rh/2,W-1,side.rh-1),meanL(m,1,W/2,m-1),meanL(W/2,1,W-m,m-1),meanL(m,side.rh-m+1,W/2,side.rh-1),meanL(W/2,side.rh-m+1,W-m,side.rh-1)]}
+  var mx=Math.max.apply(null,segs),mn=Math.min.apply(null,segs),ratio=(mx+20)/(mn+20);side.evenness=ratio;
+  add("light","Even lighting",ratio<=1.25?"ok":ratio<=1.6?"warn":"bad",ratio<=1.25?"No strong shadow or gradient across the card.":ratio<=1.6?"One side is darker. A shadow or a lamp off to one side can read as edge wear.":"Strong shadow or gradient. Shoot under even light, away from a window or a single lamp.");
+  // glare: clipped highlights inside the picture area
+  var gl=side.scan.glare,clip=side.clipFrac;
+  add("glare",gl.length?"Glare: "+gl.length+" hot spot"+(gl.length>1?"s":""):"No glare",gl.length===0&&clip<.004?"ok":gl.length<=2&&clip<.02?"warn":"bad",gl.length===0&&clip<.004?"No blown-out highlights on the surface.":"Bright reflections hide the surface underneath and get masked out of the scan. Tilt the card or move the light.");
+  // framing and cut-off edges
+  var area=0;for(i=0;i<4;i++){var j=(i+1)%4;area+=q[i][0]*q[j][1]-q[j][0]*q[i][1]}area=Math.abs(area)/2/(sw*sh);
+  var cut=q.some(function(p){return p[0]<=1||p[1]<=1||p[0]>=sw-2||p[1]>=sh-2});
+  add("frame",cut?"Card touches the frame":"Framing "+Math.round(area*100)+"% of the photo",cut?"bad":area>=.15?"ok":area>=.06?"warn":"bad",cut?"Part of the card is outside the photo, so at least one edge can't be measured. Step back a little.":area>=.15?"The card fills the frame with all four edges clear.":"The card is small in the frame. Move closer so it fills most of the photo.");
+  // background
+  add("bg",side.clutter>.25?"Busy background":"Plain background",side.found?(side.clutter>.25?"warn":"ok"):"bad",!side.found?"The card couldn't be separated from the background. Use a plain surface that contrasts with the card's border.":side.clutter>.25?"Other objects or patterns near the card can pull the edge detection. A plain mat works best.":"Clean separation between the card and its surround.");
+  // angle
+  var ks=side.keystone*100,tilt=((side.tilt%90)+90)%90;if(tilt>45)tilt-=90;
+  add("angle",ks<3&&Math.abs(tilt)<2?"Straight on":"Corrected "+(Math.abs(tilt)>=1?Math.abs(tilt).toFixed(0)+"° tilt":"")+(ks>=3?(Math.abs(tilt)>=1?", ":"")+ks.toFixed(0)+"% keystone":""),ks<10?"ok":ks<22?"warn":"bad",ks<10?"Straightened and flattened to a 2.5 × 3.5 frame.":ks<22?"Shot at an angle. The card has been flattened, but the far side has less detail, so corner and edge reads there are weaker.":"Steep angle. Shoot straight down so all four corners get equal detail.");
+  var bad=checks.filter(function(c){return c.state==="bad"}).length,warn=checks.filter(function(c){return c.state==="warn"}).length;
+  side.checks=checks;side.quality=bad?"Retake":warn?"Usable":"Good";
+}
+
+/* --- rendering --- */
+function pgRender(side){
+  var name=side.name,ov=side.tab;
+  ["card","photo","scan"].forEach(function(t){$("#pg-"+t+"-"+name).hidden=t!==ov});
+  $$("#pg-tabs-"+name+" button").forEach(function(b){b.classList.toggle("on",b.dataset.pgTab===ov)});
+  $("#pg-hint-"+name).textContent=ov==="photo"?"Drag a corner if the gold outline missed the card.":ov==="card"?"Drag a dashed line to correct the picture edge.":"Red: line candidates. Orange: specks. Yellow: glare. Blue: edge nicks.";
+  if(ov==="photo")pgDrawPhoto(side);else if(ov==="card")pgDrawCard(side);else pgDrawScan(side);
+  var q=$("#pg-quality-"+name);q.hidden=false;q.className="pill "+(side.quality==="Good"?"pill-up":side.quality==="Usable"?"pill-gold":"pill-down");q.textContent="Photo: "+side.quality;
+  var bm=side.borderMm;
+  $("#pg-readout-"+name).innerHTML=
+    '<div class="tile"><div class="v">'+Math.round(side.lr)+'/'+Math.round(100-side.lr)+'</div><div class="k">Left / right · '+fmt1(side.lr)+' : '+fmt1(100-side.lr)+(side.innerFound||side.manualInner?"":" · guides not found, drag them")+'</div></div>'+
+    '<div class="tile"><div class="v">'+Math.round(side.tb)+'/'+Math.round(100-side.tb)+'</div><div class="k">Top / bottom · '+fmt1(side.tb)+' : '+fmt1(100-side.tb)+'</div></div>'+
+    '<div class="tile"><div class="v">'+side.cornerScore+'<span class="muted" style="font-size:1rem">/100</span></div><div class="k">Corners · borders '+fmt1(bm.l)+' / '+fmt1(bm.r)+' / '+fmt1(bm.t)+' / '+fmt1(bm.b)+' mm</div></div>'+
+    '<div class="tile"><div class="v">'+side.edgeScore+'<span class="muted" style="font-size:1rem">/100</span></div><div class="k">Edges · '+side.edges.reduce(function(s,e){return s+e.nicks.length},0)+' nick'+(side.edges.reduce(function(s,e){return s+e.nicks.length},0)===1?"":"s")+' found</div></div>';
+  $("#pg-pcheck-"+name).innerHTML=side.checks.map(function(c){return '<li class="pc '+c.state+'" title="'+esc(c.tip)+'"><span class="pc-dot"></span>'+esc(c.label)+'</li>'}).join("");
+  var host=$("#pg-corners-"+name);
+  host.innerHTML=side.corners.map(function(k){return '<div class="corner"><canvas width="120" height="120" data-corner="'+k.name+'"></canvas><span>'+k.name+' <b>'+k.score+'</b><small>'+(k.excessMm>.05?"+"+fmt1(k.excessMm)+" mm wear":"sharp")+(k.white>.01?" · whitening":"")+'</small></span></div>'}).join("");
+  side.corners.forEach(function(k){var cc=host.querySelector('[data-corner="'+k.name+'"]').getContext("2d");cc.imageSmoothingEnabled=false;cc.drawImage(side.rect,k.x,k.y,k.size,k.size,0,0,120,120)});
+  $("#pg-edges-"+name).innerHTML=side.edges.map(function(e){return '<div class="edge-cell"><b>'+e.name+'</b><span class="mono">'+e.score+'</span><small>'+(e.nicks.length?e.nicks.length+" nick"+(e.nicks.length>1?"s":"")+", "+fmt1(e.nickMm)+" mm":"clean")+(e.white>.01?" · whitening":"")+'</small></div>'}).join("");
+}
+function pgDrawPhoto(side){
+  var cv=$("#pg-photo-"+side.name),ctx=cv.getContext("2d"),q=side.quad,w=side.sw,h=side.sh;
+  cv.width=w;cv.height=h;ctx.drawImage(side.small,0,0);
+  ctx.lineWidth=Math.max(1.5,w/400);ctx.strokeStyle="#E3A92B";ctx.beginPath();q.forEach(function(p,i){i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1])});ctx.closePath();ctx.stroke();
+  var hs=Math.max(6,w/70);ctx.fillStyle="#E3A92B";ctx.strokeStyle="#0F1B2D";ctx.lineWidth=1;
+  q.forEach(function(p){ctx.beginPath();ctx.arc(p[0],p[1],hs/2,0,Math.PI*2);ctx.fill();ctx.stroke()});
+}
+function pgDrawCard(side){
+  var cv=$("#pg-card-"+side.name),ctx=cv.getContext("2d"),W=side.rw,H=side.rh,m=side.m,inn=side.inner;
+  cv.width=W;cv.height=H;ctx.drawImage(side.rect,0,0);
+  ctx.lineWidth=Math.max(1.5,W/450);ctx.strokeStyle="#E3A92B";ctx.setLineDash([]);ctx.strokeRect(m+.5,m+.5,side.cw,side.ch);
+  ctx.strokeStyle="#8fe4ff";ctx.setLineDash([8,5]);ctx.strokeRect(inn.il+.5,inn.it+.5,inn.ir-inn.il,inn.ib-inn.it);ctx.setLineDash([]);
+  var hs=Math.max(7,W/80);ctx.fillStyle="#8fe4ff";
+  [[inn.il,(inn.it+inn.ib)/2],[inn.ir,(inn.it+inn.ib)/2],[(inn.il+inn.ir)/2,inn.it],[(inn.il+inn.ir)/2,inn.ib]].forEach(function(p){ctx.fillRect(p[0]-hs/2,p[1]-hs/2,hs,hs)});
+  ctx.strokeStyle="rgba(227,169,43,.7)";ctx.lineWidth=1;side.corners.forEach(function(k){ctx.strokeRect(k.x+.5,k.y+.5,k.size,k.size)});
+}
+function pgDrawScan(side){
+  var cv=$("#pg-scan-"+side.name),ctx=cv.getContext("2d"),W=side.rw,H=side.rh,s=side.scan,lw=Math.max(2,W/300);
+  cv.width=W;cv.height=H;ctx.drawImage(side.rect,0,0);
+  ctx.fillStyle="rgba(15,27,45,.28)";ctx.fillRect(0,0,W,H);ctx.drawImage(side.rect,s.x0,s.y0,side.inner.ir-s.x0,side.inner.ib-s.y0,s.x0,s.y0,side.inner.ir-s.x0,side.inner.ib-s.y0);
+  ctx.lineWidth=lw;ctx.strokeStyle="#ff4d4d";s.lines.forEach(function(l){ctx.beginPath();ctx.moveTo(l.x0,l.y0);ctx.lineTo(l.x1,l.y1);ctx.stroke()});
+  ctx.strokeStyle="#ff9a1f";s.specks.forEach(function(p){ctx.beginPath();ctx.arc(p.x,p.y,lw*4,0,Math.PI*2);ctx.stroke()});
+  ctx.strokeStyle="#ffe14d";s.glare.forEach(function(p){ctx.beginPath();ctx.arc(p.x,p.y,Math.max(lw*5,Math.sqrt(p.n)),0,Math.PI*2);ctx.stroke()});
+  ctx.strokeStyle="#4da3ff";side.edges.forEach(function(e){e.nicks.forEach(function(n){var a=n.at,b=n.at+n.len;ctx.beginPath();if(e.axis==="h"){ctx.moveTo(a,e.fixed);ctx.lineTo(b,e.fixed)}else{ctx.moveTo(e.fixed,a);ctx.lineTo(e.fixed,b)}ctx.stroke()})});
+  side.corners.forEach(function(k){ctx.strokeStyle=k.score>=93?"rgba(79,199,142,.9)":k.score>=85?"#E3A92B":"#ff4d4d";ctx.lineWidth=lw;ctx.strokeRect(k.x+.5,k.y+.5,k.size,k.size)});
+  ctx.setLineDash([]);
+}
+/* --- interaction --- */
+function pgPointer(side,cv,w,h,ev){var r=cv.getBoundingClientRect();return {x:(ev.clientX-r.left)*w/r.width,y:(ev.clientY-r.top)*h/r.height}}
 function pgBind(name){
-  var cv=$("#pg-canvas-"+name);
-  cv.addEventListener("pointerdown",function(ev){var s=PG[name];if(!s)return;var p=pgPointer(s,ev),k=pgNearest(s,p.x,p.y);if(!k)return;s.drag=k;cv.setPointerCapture(ev.pointerId);ev.preventDefault()});
-  cv.addEventListener("pointermove",function(ev){var s=PG[name];if(!s||!s.drag)return;var p=pgPointer(s,ev),g=s.g,k=s.drag,v=/l|r/.test(k)?Math.round(p.x):Math.round(p.y);
-    v=Math.max(0,Math.min(/l|r/.test(k)?s.w-1:s.h-1,v));
-    if(k==="ol"&&v<g.il-2)g.ol=v;else if(k==="or"&&v>g.ir+2)g.or=v;else if(k==="il"&&v>g.ol+1&&v<g.ir-2)g.il=v;else if(k==="ir"&&v<g.or-1&&v>g.il+2)g.ir=v;
-    else if(k==="ot"&&v<g.it-2)g.ot=v;else if(k==="ob"&&v>g.ib+2)g.ob=v;else if(k==="it"&&v>g.ot+1&&v<g.ib-2)g.it=v;else if(k==="ib"&&v<g.ob-1&&v>g.it+2)g.ib=v;
-    s.manual=true;s.innerFound=true;pgMeasure(s);pgRender(s);pgResult()});
-  cv.addEventListener("pointerup",function(ev){var s=PG[name];if(s)s.drag=null});
-  cv.addEventListener("pointercancel",function(){var s=PG[name];if(s)s.drag=null});
-  var drop=$("#pg-drop-"+name);
+  var photo=$("#pg-photo-"+name),card=$("#pg-card-"+name);
+  photo.addEventListener("pointerdown",function(ev){var s=PG[name];if(!s)return;var p=pgPointer(s,photo,s.sw,s.sh,ev),best=-1,bd=1e9;
+    s.quad.forEach(function(q,i){var dd=Math.hypot(q[0]-p.x,q[1]-p.y);if(dd<bd){bd=dd;best=i}});
+    if(bd>Math.max(14,s.sw/30))return;s.drag=best;photo.setPointerCapture(ev.pointerId);ev.preventDefault()});
+  photo.addEventListener("pointermove",function(ev){var s=PG[name];if(!s||s.drag===null||s.drag===undefined)return;var p=pgPointer(s,photo,s.sw,s.sh,ev);
+    s.quad[s.drag]=[clamp(p.x,0,s.sw-1),clamp(p.y,0,s.sh-1)];pgDrawPhoto(s)});
+  function endDrag(){var s=PG[name];if(!s||s.drag===null||s.drag===undefined)return;s.drag=null;s.manualQuad=true;s.quad=orderQuad(s.quad);s.manualInner=false;pgRefineQuad(s);pgRectify(s);pgMeasure(s);pgRender(s);pgResult()}
+  photo.addEventListener("pointerup",endDrag);photo.addEventListener("pointercancel",endDrag);
+  card.addEventListener("pointerdown",function(ev){var s=PG[name];if(!s)return;var p=pgPointer(s,card,s.rw,s.rh,ev),inn=s.inner,c=[["il",Math.abs(p.x-inn.il)],["ir",Math.abs(p.x-inn.ir)],["it",Math.abs(p.y-inn.it)],["ib",Math.abs(p.y-inn.ib)]].sort(function(a,b){return a[1]-b[1]})[0];
+    if(c[1]>Math.max(10,s.rw/40))return;s.drag=c[0];card.setPointerCapture(ev.pointerId);ev.preventDefault()});
+  card.addEventListener("pointermove",function(ev){var s=PG[name];if(!s||typeof s.drag!=="string")return;var p=pgPointer(s,card,s.rw,s.rh,ev),inn=s.inner,k=s.drag,m=s.m;
+    if(k==="il")inn.il=clamp(p.x,m+1,inn.ir-4);else if(k==="ir")inn.ir=clamp(p.x,inn.il+4,m+s.cw-1);else if(k==="it")inn.it=clamp(p.y,m+1,inn.ib-4);else inn.ib=clamp(p.y,inn.it+4,m+s.ch-1);
+    s.manualInner=true;s.innerFound=true;pgCentering(s);pgDrawCard(s);
+    var bm=s.borderMm,ro=$("#pg-readout-"+name).querySelectorAll(".tile");
+    ro[0].innerHTML='<div class="v">'+Math.round(s.lr)+'/'+Math.round(100-s.lr)+'</div><div class="k">Left / right · '+fmt1(s.lr)+' : '+fmt1(100-s.lr)+'</div>';ro[1].innerHTML='<div class="v">'+Math.round(s.tb)+'/'+Math.round(100-s.tb)+'</div><div class="k">Top / bottom · '+fmt1(s.tb)+' : '+fmt1(100-s.tb)+'</div>';
+    pgResult()});
+  function endInner(){var s=PG[name];if(!s||typeof s.drag!=="string")return;s.drag=null;pgMeasure(s);pgRender(s);pgResult()}
+  card.addEventListener("pointerup",endInner);card.addEventListener("pointercancel",endInner);
+  var drop=$("#pg-dropzone-"+name);
   drop.addEventListener("dragover",function(e){e.preventDefault();drop.classList.add("over")});
   drop.addEventListener("dragleave",function(){drop.classList.remove("over")});
   drop.addEventListener("drop",function(e){e.preventDefault();drop.classList.remove("over");if(e.dataTransfer.files[0])pgLoad(name,e.dataTransfer.files[0])});
   $("#pg-file-"+name).addEventListener("change",function(e){if(e.target.files[0])pgLoad(name,e.target.files[0])});
+  $("#pg-cam-"+name).addEventListener("change",function(e){if(e.target.files[0])pgLoad(name,e.target.files[0])});
 }
-function centeringCap(worst,isBack){
-  if(isBack)return worst<=75?10:worst<=90?9:4;
-  return worst<=60?10:worst<=65?9:worst<=70?8:worst<=75?7:worst<=80?6:worst<=85?5:4;
+/* --- grading --- */
+function wearCap(score,half){
+  if(half)return score>=98?10:score>=95?9.5:score>=91?9:score>=87?8.5:score>=82?8:score>=75?7:score>=55?6:5;
+  return score>=97?10:score>=93?9:score>=88?8:score>=82?7:score>=75?6:score>=55?5:4;
 }
-function wearCap(score){return score>=97?10:score>=93?9:score>=88?8:score>=82?7:score>=75?6:score>=65?5:4}
+function centerCap(co,wf,wb){var t=CO_CENTER[co];for(var i=0;i<t.length;i++){if(wf<=t[i][1]+1e-9&&(wb==null||wb<=t[i][2]+1e-9))return t[i][0]}return co==="PSA"?3:6}
+function worstSplit(s){return Math.max(s.lr,100-s.lr,s.tb,100-s.tb)}
 function pgResult(){
   var f=PG.front,b=PG.back;
-  $("#pg-result-empty").hidden=!!f;$("#pg-grade").hidden=!f;$("#pg-actions").hidden=!f;$("#pg-conf").hidden=!f;
-  if(!f){$("#pg-notes").innerHTML="";return}
-  var rows=[],notes=[],caps=[];
-  function add(k,v,cap){rows.push({k:k,v:v,cap:cap});caps.push(cap)}
-  var fw=Math.max(f.lr,100-f.lr,f.tb,100-f.tb);
-  add("Centering, front",Math.round(f.lr)+"/"+Math.round(100-f.lr)+" · "+Math.round(f.tb)+"/"+Math.round(100-f.tb),centeringCap(fw,false));
-  if(b){var bw=Math.max(b.lr,100-b.lr,b.tb,100-b.tb);add("Centering, back",Math.round(b.lr)+"/"+Math.round(100-b.lr)+" · "+Math.round(b.tb)+"/"+Math.round(100-b.tb),centeringCap(bw,true))}
-  var sides=[f].concat(b?[b]:[]).filter(function(s){return s.measured});
-  if(sides.length){
-    var cornerScore=Math.min.apply(null,sides.map(function(s){return s.cornerScore})),edgeScore=Math.min.apply(null,sides.map(function(s){return s.edgeScore}));
-    add("Corners",cornerScore+"/100",wearCap(cornerScore));
-    add("Edges",edgeScore+"/100",wearCap(edgeScore));
-  }else{add("Corners","Not measured",10);add("Edges","Not measured",10)}
-  var sCap=10;$$("#pg-surface input:checked").forEach(function(el){sCap=Math.min(sCap,+el.dataset.cap)});
-  add("Surface",sCap===10?"Nothing flagged":"Flagged",sCap);
-  var grade=Math.min.apply(null,caps);
+  $("#pg-result-empty").hidden=!!f;$("#pg-grade").hidden=!f;$("#pg-actions").hidden=!f;$("#pg-conf").hidden=!f;$("#pg-verdict").hidden=!f;$("#pg-co").hidden=!f;
+  if(!f){$("#pg-notes").innerHTML="";$("#pg-breakdown").innerHTML="";pgMath();return}
+  var wf=worstSplit(f),wb=b?worstSplit(b):null,sides=[f].concat(b?[b]:[]);
+  var cornerScore=Math.min.apply(null,sides.map(function(s){return s.cornerScore})),edgeScore=Math.min.apply(null,sides.map(function(s){return s.edgeScore}));
+  var sCap=10,flags=[];$$("#pg-surface input[data-cap]:checked").forEach(function(el){sCap=Math.min(sCap,+el.dataset.cap);flags.push(el.parentNode.querySelector("span").firstChild.textContent)});
+  var scanLines=sides.reduce(function(n,s){return n+s.scan.lines.length},0),scanSpecks=sides.reduce(function(n,s){return n+s.scan.specks.length},0),useScan=$("#pg-s-usescan").checked;
+  if(useScan){if(scanLines)sCap=Math.min(sCap,9);if(scanSpecks>=6)sCap=Math.min(sCap,8)}
+  var subs={center:centerCap("PSA",wf,wb),corners:wearCap(cornerScore),edges:wearCap(edgeScore),surface:sCap};
+  var grade=Math.min(subs.center,subs.corners,subs.edges,subs.surface);
   $("#pg-grade-num").childNodes[0].nodeValue=String(grade);$("#pg-grade-label").textContent=GRADE_LABEL[grade]||"";
-  $("#pg-breakdown").innerHTML=rows.map(function(r){return '<span class="k">'+r.k+'</span><span class="v">'+r.v+'</span><span class="cap'+(r.cap===grade?" limit":"")+'">'+(r.cap>=10?"10 ok":"caps at "+r.cap)+'</span>'}).join("");
+  $("#pg-subs").innerHTML=[["Centering",subs.center],["Corners",subs.corners],["Edges",subs.edges],["Surface",subs.surface]].map(function(r){return '<div class="sub'+(r[1]===grade?" limit":"")+'"><b>'+r[1]+'</b><span>'+r[0]+'</span></div>'}).join("");
+  // gem chance
+  var p=wf<=55?.95:wf<=58?.85:wf<=60?.65:wf<=62?.35:wf<=65?.12:.03;
+  if(b)p*=wb<=70?1:wb<=75?.85:wb<=80?.4:.1;
+  function wp(s){return s>=99?.95:s>=97?.8:s>=95?.55:s>=93?.3:s>=90?.15:.05}
+  p*=wp(cornerScore)*wp(edgeScore);p*=sCap>=10?.85:sCap>=9?.25:.02;
+  var qual=sides.map(function(s){return s.quality});if(qual.indexOf("Retake")>=0)p*=.6;else if(qual.indexOf("Usable")>=0)p*=.85;
+  p=clamp(p,.01,.9);
+  var verdict=grade>=10?["Submit","pill-up","Predicted 10. Worth a grading fee if the comps support it."]:grade===9?["Consider","pill-gold","Predicted 9. Grade it only if a 9 still sells for more than raw plus fees."]:["Sell raw","pill-down","Predicted "+grade+". Grading rarely adds value here. Sell or keep it raw."];
+  $("#pg-verdict").innerHTML='<div class="vd"><span class="pill '+verdict[1]+'">'+verdict[0]+'</span><b>'+Math.round(p*100)+'% gem chance</b><span class="muted">'+verdict[2]+'</span></div>';
+  // breakdown rows
+  var rows=[];
+  rows.push(["Centering, front",Math.round(f.lr)+"/"+Math.round(100-f.lr)+" · "+Math.round(f.tb)+"/"+Math.round(100-f.tb),subs.center]);
+  if(b)rows.push(["Centering, back",Math.round(b.lr)+"/"+Math.round(100-b.lr)+" · "+Math.round(b.tb)+"/"+Math.round(100-b.tb),centerCap("PSA",0,wb)]);
+  rows.push(["Corners",cornerScore+"/100",subs.corners]);rows.push(["Edges",edgeScore+"/100",subs.edges]);
+  rows.push(["Surface",(flags.length?flags.join(", "):"Nothing flagged")+(scanLines||scanSpecks?" · scan: "+scanLines+" line"+(scanLines===1?"":"s")+", "+scanSpecks+" speck"+(scanSpecks===1?"":"s")+(useScan?"":" (not counted)"):""),subs.surface]);
+  $("#pg-breakdown").innerHTML=rows.map(function(r){return '<span class="k">'+r[0]+'</span><span class="v">'+esc(r[1])+'</span><span class="cap'+(r[2]===grade?" limit":"")+'">'+(r[2]>=10?"10 ok":"caps at "+r[2])+'</span>'}).join("");
+  // per-company table
+  var co=CO_LIST.map(function(c){var half=c!=="PSA",g=Math.min(centerCap(c,wf,wb),wearCap(cornerScore,half),wearCap(edgeScore,half),sCap);var cc=centerCap(c,wf,wb);return {co:c,grade:g,center:cc}});
+  $("#pg-co").innerHTML='<thead><tr><th>Company</th><th>Centering allows</th><th>Predicted</th></tr></thead><tbody>'+co.map(function(r){return '<tr><td>'+r.co+'</td><td class="mono">'+r.center+'</td><td class="mono"><b>'+r.grade+'</b></td></tr>'}).join("")+'</tbody>';
   // notes
-  var worstF=[["left/right",Math.max(f.lr,100-f.lr)],["top/bottom",Math.max(f.tb,100-f.tb)]].sort(function(a,b){return b[1]-a[1]})[0];
-  if(worstF[1]>60)notes.push("Front centering is "+Math.round(worstF[1])+"/"+Math.round(100-worstF[1])+" "+worstF[0]+". PSA 10 needs 60/40 or better on the front; 9 allows 65/35.");
-  else notes.push("Front centering is within PSA 10 range.");
-  if(b){var worstB=Math.max(b.lr,100-b.lr,b.tb,100-b.tb);if(worstB>75)notes.push("Back centering is "+Math.round(worstB)+"/"+Math.round(100-worstB)+". PSA 10 needs 75/25 or better on the back.")}
+  var notes=[];
+  var worstF=[["left/right",Math.max(f.lr,100-f.lr)],["top/bottom",Math.max(f.tb,100-f.tb)]].sort(function(a,c){return c[1]-a[1]})[0];
+  if(worstF[1]>60)notes.push("Front centering is "+fmt1(worstF[1])+"/"+fmt1(100-worstF[1])+" "+worstF[0]+". PSA 10 needs 60/40 or better on the front; 9 allows 65/35.");
+  else if(worstF[1]>55)notes.push("Front centering is "+fmt1(worstF[1])+"/"+fmt1(100-worstF[1])+" "+worstF[0]+": inside PSA's 60/40 for a 10, but outside the 55/45 that BGS and SGC want for their top grades.");
+  else notes.push("Front centering is "+fmt1(worstF[1])+"/"+fmt1(100-worstF[1])+", inside every company's top-grade range.");
+  if(b){if(wb>75)notes.push("Back centering is "+fmt1(wb)+"/"+fmt1(100-wb)+". PSA 10 needs 75/25 or better on the back.")}
   else notes.push("No back photo. PSA grades the back too, so add one for a fuller read.");
-  var weak=f.corners.slice().sort(function(a,b){return a.score-b.score})[0];
-  if(f.measured&&weak.score<93)notes.push("Weakest front corner is "+weak.name+" at "+weak.score+"/100. Check it with a loupe for rounding or whitening.");
-  if(!f.innerFound&&!f.manual)notes.push("The inner border wasn't found on the front. Drag the dashed lines to the edge of the picture area for a real centering read.");
-  if(!f.found)notes.push("The card's outer edges weren't found on the front. Use a plain background that contrasts with the border, or drag the gold lines to the card's edges.");
-  if(sCap<10)notes.push("Surface flags cap the grade at "+sCap+".");
+  var weak=f.corners.slice().sort(function(a,c){return a.score-c.score})[0];
+  if(weak.score<93)notes.push("Weakest front corner is "+weak.name+" at "+weak.score+"/100"+(weak.excessMm>.05?", about "+fmt1(weak.excessMm)+" mm more rounding than the cleanest corner":"")+(weak.white>.01?", with whitening":"")+". Check it with a loupe.");
+  var weakE=f.edges.slice().sort(function(a,c){return a.score-c.score})[0];
+  if(weakE.score<93)notes.push("Weakest front edge is the "+weakE.name.toLowerCase()+" at "+weakE.score+"/100"+(weakE.nicks.length?" with "+weakE.nicks.length+" nick"+(weakE.nicks.length>1?"s":"")+" totalling "+fmt1(weakE.nickMm)+" mm":"")+".");
+  sides.forEach(function(s){if(s.scan.lines.length)notes.push((s.name==="front"?"Front":"Back")+" surface scan found "+s.scan.lines.length+" straight line candidate"+(s.scan.lines.length>1?"s":"")+" (longest "+fmt1(Math.max.apply(null,s.scan.lines.map(function(l){return l.lenMm})))+" mm). Print lines look like this, but so do design elements. Check the Scan view.");
+    if(s.scan.specks.length>=6)notes.push((s.name==="front"?"Front":"Back")+" surface scan found "+s.scan.specks.length+" speck candidates in flat areas. Could be print dots, dust or sensor noise. Wipe the card and reshoot if unsure.")});
+  if(!f.innerFound&&!f.manualInner)notes.push("The picture edge wasn't found on the front (full-bleed design or low contrast). Drag the dashed lines to the edge of the picture area for a real centering read.");
+  if(!f.found)notes.push("The card's outline wasn't found on the front. Use a plain background that contrasts with the border, or drag the gold corners in the Photo view.");
+  if(f.keystone<.06&&(f.aspect<1.3||f.aspect>1.5))notes.push("The detected shape is "+fmt1(f.aspect)+":1, not a standard 1.4:1 card. Check the gold outline in the Photo view.");
+  sides.forEach(function(s){s.checks.filter(function(c){return c.state!=="ok"}).forEach(function(c){notes.push((s.name==="front"?"Front photo":"Back photo")+": "+c.tip)})});
+  if(sCap<10)notes.push("Surface caps the grade at "+sCap+".");
   $("#pg-notes").innerHTML=notes.map(function(n){return "<li>"+esc(n)+"</li>"}).join("");
   // confidence
-  var cardPx=(f.g.or-f.g.ol)/f.scale,conf="High",cls="pill pill-up";
-  if(!f.found||!(f.innerFound||f.manual)){conf="Low";cls="pill pill-down"}
-  else if(cardPx<700||!b||(b&&(!b.found||!(b.innerFound||b.manual)))){conf="Medium";cls="pill pill-gold"}
+  var conf="High",cls="pill pill-up";
+  if(qual.indexOf("Retake")>=0||!f.found||!(f.innerFound||f.manualInner)){conf="Low";cls="pill pill-down"}
+  else if(qual.indexOf("Usable")>=0||!b||!f.refined){conf="Medium";cls="pill pill-gold"}
   var cp=$("#pg-conf");cp.className=cls;cp.textContent=conf+" confidence";
-  PG.report="Wax Ledger pre-grade\nEstimated grade: PSA "+grade+" "+(GRADE_LABEL[grade]||"")+" ("+conf.toLowerCase()+" confidence)\n"+rows.map(function(r){return r.k+": "+r.v+" (cap "+r.cap+")"}).join("\n")+"\n"+notes.join("\n")+"\nthewaxledger.com · not affiliated with PSA";
+  PG.gem=p;PG.grade=grade;
+  PG.report="Wax Ledger Pre-Grading Tool\nPredicted grade: PSA "+grade+" "+(GRADE_LABEL[grade]||"")+" · "+Math.round(p*100)+"% gem chance · "+conf.toLowerCase()+" confidence\nSub-grades: centering "+subs.center+", corners "+subs.corners+", edges "+subs.edges+", surface "+subs.surface+"\n"+rows.map(function(r){return r[0]+": "+r[1]+" (cap "+r[2]+")"}).join("\n")+"\nBy company: "+co.map(function(r){return r.co+" "+r.grade}).join(", ")+"\n"+notes.join("\n")+"\nthewaxledger.com · not affiliated with any grading company";
+  pgMath();
+}
+function pgMath(){
+  var host=$("#pg-math-out"),raw=+$("#pg-m-raw").value,p10=+$("#pg-m-10").value,p9=+$("#pg-m-9").value;
+  if(!PG.front||!(raw>0)||!(p10>0)){host.innerHTML='<p class="pg-empty">'+(PG.front?"Enter the raw price and a PSA 10 comp to see the expected value of grading this card.":"Add a card first.")+'</p>';return}
+  var gem=PG.gem,allIn=raw+SA.fee+SA.ship,net10=p10*(1-SA.haircut)*(1-SA.sellFee),netMiss=(p9>0?p9:0)*SA.missReal*(1-SA.sellFee);
+  var ev=gem*net10+(1-gem)*netMiss,profit=ev-allIn,roi=profit/allIn,be=net10>netMiss?(allIn-netMiss)/(net10-netMiss):1;
+  host.innerHTML='<div class="tiles math-tiles">'+
+    '<div class="tile"><div class="v '+(profit>=0?"up":"down")+'">'+(profit>=0?"+":"−")+'$'+Math.abs(profit).toFixed(0)+'</div><div class="k">Expected profit per attempt</div></div>'+
+    '<div class="tile"><div class="v">'+(roi*100).toFixed(0)+'%</div><div class="k">Expected ROI on $'+allIn.toFixed(0)+' all-in</div></div>'+
+    '<div class="tile"><div class="v">'+Math.round(clamp(be,0,1)*100)+'%</div><div class="k">Break-even gem rate vs '+Math.round(gem*100)+'% predicted</div></div>'+
+    '<div class="tile"><div class="v">$'+ev.toFixed(0)+'</div><div class="k">Expected net back</div></div></div>'+
+    '<p class="small muted">Uses the Screener assumptions: $'+(SA.fee+SA.ship).toFixed(0)+' grading and shipping, '+Math.round(SA.sellFee*100)+'% selling fee, '+Math.round(SA.haircut*100)+'% haircut on the PSA 10 price by sell date, and a 9 realising '+Math.round(SA.missReal*100)+'% of its comp.</p>';
 }
 function pgCopy(){
   var note=$("#pg-copy-note"),t=PG.report||"";
@@ -1648,12 +2058,16 @@ function pgCopy(){
 pgBind("front");pgBind("back");
 $("#pg-surface").addEventListener("change",pgResult);
 $("#pg-surface").addEventListener("submit",function(e){e.preventDefault()});
+$("#pg-math").addEventListener("input",pgMath);
+$("#pg-math").addEventListener("submit",function(e){e.preventDefault()});
 $("#pg-copy").addEventListener("click",pgCopy);
 document.addEventListener("click",function(e){
   var t=e.target.closest("[data-pg-clear]");if(t){pgClear(t.dataset.pgClear);return}
-  t=e.target.closest("[data-pg-redetect]");if(t){var s=PG[t.dataset.pgRedetect];if(s){pgDetect(s);pgRender(s);pgResult()}}
+  t=e.target.closest("[data-pg-redetect]");if(t){var s=PG[t.dataset.pgRedetect];if(s){s.rot=0;s.manualInner=false;pgRun(s);pgRender(s);pgResult()}return}
+  t=e.target.closest("[data-pg-rotate]");if(t){s=PG[t.dataset.pgRotate];if(s){s.rot=(s.rot+2)%4;s.manualInner=false;pgRectify(s);pgMeasure(s);pgRender(s);pgResult()}return}
+  t=e.target.closest("[data-pg-tab]");if(t){s=PG[t.dataset.side];if(s){s.tab=t.dataset.pgTab;pgRender(s)}}
 });
-window.__pg={detect:pgDetect,PG:PG};
+window.__pg={run:pgRun,PG:PG};
 
 /* ---------- events ---------- */
 document.addEventListener("click",function(e){
