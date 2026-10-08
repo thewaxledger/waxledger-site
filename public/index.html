@@ -857,7 +857,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
       <button class="btn" type="button" data-plan="Free">Join free</button>
     </div>
     <div class="plan plan-pro">
-      <div><p class="eyebrow">Pro <span class="pill pill-gold">Most picked</span></p><p class="price">$15 <small>a month</small></p></div>
+      <div><p class="eyebrow">Pro monthly</p><p class="price">$8 <small>a month</small></p></div>
       <ul class="facts">
         <li>Unlimited comp lookups, every grade</li>
         <li>The full grading Screener, ranked by expected return</li>
@@ -867,25 +867,25 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
         <li>Full movers board with catalysts</li>
         <li>Every product review and box score</li>
       </ul>
-      <button class="btn btn-gold" type="button" data-plan="Pro">Start 7-day trial</button>
+      <button class="btn btn-gold" type="button" data-plan="monthly">Subscribe monthly</button>
     </div>
     <div class="plan">
-      <div><p class="eyebrow">Pro annual</p><p class="price">$144 <small>a year</small></p></div>
+      <div><p class="eyebrow">Pro annual <span class="pill pill-gold">21.88% discount</span></p><p class="price">$75 <small>a year</small></p></div>
       <ul class="facts">
         <li>Everything in Pro</li>
-        <li>Works out to $12 a month</li>
+        <li>Works out to $6.25 a month</li>
         <li>Early access to release previews</li>
       </ul>
-      <button class="btn" type="button" data-plan="Pro annual">Start 7-day trial</button>
+      <button class="btn" type="button" data-plan="annual">Subscribe annually</button>
     </div>
   </div>
   <p class="form-note" id="plan-note" aria-live="polite"></p>
   <div>
-    <div class="rule-head"><h3>Questions</h3><span class="pill pill-sample">Proposed pricing</span></div>
+    <div class="rule-head"><h3>Questions</h3></div>
     <div class="faq" style="margin-top:20px">
       <div><h3>Where do the prices come from?</h3><p>Completed sales only. Asking prices and modeled estimates are never mixed into a comp.</p></div>
       <div><h3>Which sports are covered?</h3><p>Baseball, basketball and football first. Hockey, soccer and racing releases are already on the calendar.</p></div>
-      <div><h3>Can I cancel?</h3><p>Any time, from your account page. You keep access through the end of the period you paid for.</p></div>
+      <div><h3>Can I cancel?</h3><p>Any time, from the <a href="#" id="manage-sub">manage subscription</a> page. You keep access through the end of the period you paid for.</p></div>
       <div><h3>Is this investment advice?</h3><p>No. Wax Ledger reports what cards sold for and shows the math. What you buy is your call.</p></div>
     </div>
   </div>
@@ -1009,6 +1009,11 @@ function summary(sales){
   return {last:sales[0].p,med10:median(last10),med:median(prices),lo:Math.min.apply(null,prices),hi:Math.max.apply(null,prices),n30:m30};
 }
 function saleDate(daysAgo){var t=today0();t.setDate(t.getDate()-daysAgo);return MONTHS[t.getMonth()]+" "+t.getDate()}
+
+/* ---------- checkout ---------- */
+// Stripe-hosted checkout and billing pages. Free plan buttons have no link.
+var CHECKOUT={monthly:"https://buy.stripe.com/test_7sY28t3OpcyQ9D7gC733W00",annual:"https://buy.stripe.com/test_6oU8wR3Op0Q89D73Pl33W01",portal:"https://billing.stripe.com/p/login/test_7sY28t3OpcyQ9D7gC733W00"};
+(function(){try{if(/[?&]welcome=pro/.test(location.search))document.addEventListener("DOMContentLoaded",function(){var n=document.getElementById("plan-note");if(n)n.textContent="Welcome to Wax Ledger Pro. Your receipt is on its way to your inbox."})}catch(e){}})();
 
 /* ---------- router ---------- */
 var VIEWS=["market","comps","screener","pregrade","releases","trending","reviews","membership"];
@@ -2118,7 +2123,8 @@ document.addEventListener("click",function(e){
   t=e.target.closest("[data-sport]");if(t){state.sport=t.dataset.sport;renderReleases();return}
   t=e.target.closest("[data-tsport]");if(t){state.tsport=t.dataset.tsport;renderTrending();return}
   t=e.target.closest("[data-plan]");
-  if(t){$("#plan-note").textContent="Checkout isn't connected in this preview, so the "+t.dataset.plan+" plan can't be started yet. Nothing was charged.";return}
+  if(t){var link=CHECKOUT[t.dataset.plan];if(link){location.href=link}else{$("#plan-note").textContent="Checkout opens shortly. Nothing was charged."}return}
+  if(e.target.id==="manage-sub"){e.preventDefault();if(CHECKOUT.portal)location.href=CHECKOUT.portal;else $("#plan-note").textContent="The billing page opens shortly.";return}
 });
 $("#hero-search").addEventListener("submit",function(e){e.preventDefault();var q=$("#hero-q").value;$("#comp-q").value=q;show("comps");searchComps(q)});
 $("#comp-search").addEventListener("submit",function(e){e.preventDefault();searchComps($("#comp-q").value)});
