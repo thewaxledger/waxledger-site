@@ -1,0 +1,1700 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Wax Ledger: sold comps, a grading screener on real sales, a pre-grader that runs in your browser, and the sports card release calendar.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Wax Ledger</title>
+<link rel="canonical" href="https://thewaxledger.com/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0F1B2D">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wax Ledger">
+<meta property="og:title" content="Wax Ledger">
+<meta property="og:description" content="Your one-stop sports card hub. Sold comps, a grading screener on real sales, a pre-grader that runs in your browser, and the release calendar.">
+<meta property="og:url" content="https://thewaxledger.com/">
+<meta property="og:image" content="https://thewaxledger.com/og-image.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1260">
+<meta property="og:image:alt" content="Wax Ledger logo with the tagline Your one-stop sports card hub">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@thewaxledger">
+<meta name="twitter:title" content="Wax Ledger">
+<meta name="twitter:description" content="Your one-stop sports card hub. Sold comps, a grading screener on real sales, a pre-grader that runs in your browser, and the release calendar.">
+<meta name="twitter:image" content="https://thewaxledger.com/og-image.png">
+</head>
+<body>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+/* Layout: a multi-view site behind one sticky header. Quiet ledger surfaces everywhere;
+   the one loud object is the graded slab with its refractor card in the Market hero. */
+:root{
+  --bg:#ECEFF1; --surface:#FFFFFF; --surface-2:#F4F6F8;
+  --ink:#0F1B2D; --ink-2:#44536A; --ink-3:#657388;
+  --line:#D0D8E0; --line-2:#E3E8ED;
+  --gold:#E3A92B; --gold-ink:#765000; --on-gold:#1A1300;
+  --up:#0D7446; --up-bg:#DFF2E8; --down:#B2372A; --down-bg:#FAE4E0;
+  --label:#FFFFFF; --slab:#F7F9FB; --card-ink:#0B1424;
+  --display:"Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A101A; --surface:#121A28; --surface-2:#192335;
+    --ink:#E8EDF4; --ink-2:#AAB6C8; --ink-3:#8492A7;
+    --line:#2A374D; --line-2:#1F2A3D;
+    --gold:#EDB840; --gold-ink:#F2C75C; --on-gold:#1A1300;
+    --up:#4FC78E; --up-bg:#11301F; --down:#F2877A; --down-bg:#3A1915;
+    --label:#F3F5F7; --slab:#1B2638; --card-ink:#0B1424;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A101A; --surface:#121A28; --surface-2:#192335;
+  --ink:#E8EDF4; --ink-2:#AAB6C8; --ink-3:#8492A7;
+  --line:#2A374D; --line-2:#1F2A3D;
+  --gold:#EDB840; --gold-ink:#F2C75C; --on-gold:#1A1300;
+  --up:#4FC78E; --up-bg:#11301F; --down:#F2877A; --down-bg:#3A1915;
+  --label:#F3F5F7; --slab:#1B2638; --card-ink:#0B1424;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1160px;margin-inline:auto;padding-inline:clamp(16px,4vw,32px)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+h1,h2,h3,p{margin:0}
+h1,h2{font-family:var(--display);text-transform:uppercase;text-wrap:balance;letter-spacing:.005em}
+h1{font-weight:800;font-size:clamp(2.6rem,6.4vw,4.4rem);line-height:.94}
+h2{font-weight:700;font-size:clamp(1.7rem,3.2vw,2.15rem);line-height:1}
+h3{font-size:1rem;font-weight:600;line-height:1.3}
+.lede{color:var(--ink-2);font-size:1.05rem;max-width:56ch}
+.muted{color:var(--ink-3)}
+.small{font-size:12.5px}
+
+/* buttons, pills, chips */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:9px 16px;border-radius:6px;font-weight:600;font-size:14px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{background:var(--surface-2)}
+.btn-gold{background:var(--gold);border-color:var(--gold);color:var(--on-gold)}
+.btn-gold:hover{background:var(--gold);filter:brightness(1.06)}
+.pill{display:inline-flex;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--ink-2);white-space:nowrap}
+.pill-up{background:var(--up-bg);color:var(--up);border-color:transparent}
+.pill-down{background:var(--down-bg);color:var(--down);border-color:transparent}
+.pill-gold{background:var(--gold);color:var(--on-gold);border-color:transparent}
+.pill-sample{border-style:dashed}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--ink-2);padding:6px 12px;border-radius:99px;font-size:13px;cursor:pointer}
+.chip:hover{border-color:var(--ink-3);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.up{color:var(--up)} .down{color:var(--down)}
+
+/* header */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+.head-row{display:flex;align-items:center;gap:8px 24px;flex-wrap:wrap;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-style:italic;font-weight:800;font-size:1.6rem;line-height:1;text-transform:uppercase;letter-spacing:.01em}
+.brand-mark{width:28px;height:28px;flex:none;display:block}
+.nav{display:flex;gap:4px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{padding:7px 12px;border-radius:6px;text-decoration:none;color:var(--ink-2);font-weight:500;font-size:14px;white-space:nowrap}
+.nav a:hover{color:var(--ink);background:var(--surface-2)}
+.nav a[aria-current="page"]{color:var(--ink);background:var(--surface-2);box-shadow:inset 0 -2px 0 var(--gold)}
+@media (max-width:760px){.nav{order:3;flex-basis:100%}.head-row .btn{margin-left:auto;padding:7px 12px}}
+
+.preview-bar{background:var(--ink);color:var(--bg);font-size:12.5px}
+.preview-bar .wrap{padding-block:7px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.preview-bar b{font-family:var(--mono);font-weight:500;letter-spacing:.08em;text-transform:uppercase;font-size:11px;color:var(--gold)}
+
+main{padding-block:clamp(28px,5vw,56px) 64px}
+.view{display:flex;flex-direction:column;gap:clamp(32px,5vw,56px)}
+.view-head{display:flex;flex-direction:column;gap:10px}
+.stack{display:flex;flex-direction:column;gap:14px}
+.rule-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:8px}
+.rule-head h3{font-family:var(--display);font-weight:700;font-size:1.3rem;text-transform:uppercase;letter-spacing:.02em}
+.rule-head a{font-size:13px;color:var(--ink-2)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,5vw,64px);align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:18px;min-width:0}
+.search{display:flex;gap:8px;flex-wrap:wrap}
+.search input{flex:1 1 220px;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:11px 14px}
+.search input::placeholder{color:var(--ink-3)}
+.hero-slab{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:20px;align-items:center;justify-content:center}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+@media (max-width:440px){.hero-slab{grid-template-columns:1fr}.slab{max-width:200px}}
+
+/* the slab: the page's one loud object */
+.slab{background:var(--slab);border:1px solid var(--line);border-radius:12px;padding:9px;display:flex;flex-direction:column;gap:9px;box-shadow:0 18px 40px -22px rgba(8,16,30,.55),inset 0 0 0 3px var(--surface)}
+.slab-label{background:var(--label);color:var(--card-ink);border:2px solid var(--card-ink);border-radius:4px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:6px 8px;align-items:center}
+.slab-label .lines{font-family:var(--mono);font-size:8.5px;line-height:1.45;letter-spacing:.03em;text-transform:uppercase;min-width:0;overflow-wrap:anywhere}
+.slab-label .grade{font-family:var(--display);font-weight:800;font-size:30px;line-height:.9;text-align:right}
+.slab-label .grade small{display:block;font-family:var(--mono);font-weight:500;font-size:7.5px;letter-spacing:.08em}
+.cardface{aspect-ratio:5/7;max-width:100%;border-radius:5px;padding:7px;background:linear-gradient(115deg,#ff9a9a,#ffd98a 18%,#b9f3a6 36%,#8fe4ff 54%,#b8a8ff 72%,#ff9fd8 90%,#ff9a9a);background-size:220% 220%;background-position:20% 30%;transition:background-position 1.2s ease}
+.slab:hover .cardface{background-position:85% 70%}
+@media (prefers-reduced-motion:reduce){.cardface{transition:none}}
+.cardface-in{height:100%;border-radius:3px;background:repeating-linear-gradient(118deg,rgba(255,255,255,.07) 0 2px,transparent 2px 9px),linear-gradient(160deg,#16294a,#0b1424 70%);color:#F3F5F7;display:flex;flex-direction:column;justify-content:space-between;padding:9px;overflow:hidden}
+.cardface-in .rc{align-self:flex-start;font-family:var(--display);font-style:italic;font-weight:800;font-size:19px;line-height:1;border:2px solid #F3F5F7;border-radius:3px;padding:1px 6px 2px}
+.cardface-in .ghost{font-family:var(--display);font-style:italic;font-weight:800;font-size:92px;line-height:.8;color:rgba(255,255,255,.1);text-align:center}
+.cardface-in .plate{display:flex;justify-content:space-between;align-items:flex-end;gap:6px}
+.cardface-in .name{font-family:var(--display);font-style:italic;font-weight:800;font-size:19px;line-height:.95;text-transform:uppercase}
+.cardface-in .serial{font-family:var(--mono);font-size:10px;color:#EDB840;white-space:nowrap}
+.slab-stats{display:flex;flex-direction:column;gap:14px;min-width:0}
+.stat-list{display:grid;grid-template-columns:1fr auto;gap:8px 16px;margin:0;font-size:13.5px}
+.stat-list dt{color:var(--ink-2)}
+.stat-list dd{margin:0;font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;font-weight:500}
+.big-price{font-family:var(--display);font-weight:800;font-size:3rem;line-height:.9}
+
+/* movers strip */
+.strip{border-block:1px solid var(--line);overflow-x:auto;scrollbar-width:thin}
+.strip-row{display:flex;gap:28px;padding-block:11px;width:max-content}
+.strip-item{display:flex;gap:10px;align-items:baseline;font-size:13.5px;white-space:nowrap}
+.strip-item b{font-weight:600}
+
+/* market columns */
+.cols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,3.5vw,44px)}
+@media (max-width:900px){.cols3{grid-template-columns:1fr}}
+.col{display:flex;flex-direction:column;gap:6px;min-width:0}
+.rows{display:flex;flex-direction:column}
+.row{display:grid;gap:12px;align-items:center;padding-block:11px;border-bottom:1px solid var(--line-2)}
+.row:last-child{border-bottom:0}
+.row-rel{grid-template-columns:54px minmax(0,1fr) auto}
+.row-mov{grid-template-columns:minmax(0,1fr) 64px auto}
+.datebox{font-family:var(--mono);font-size:11px;line-height:1.25;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2)}
+.datebox b{display:block;font-family:var(--display);font-size:1.6rem;font-weight:700;letter-spacing:0;color:var(--ink);line-height:.95}
+.t1{font-weight:600;line-height:1.3;overflow-wrap:anywhere}
+.t2{color:var(--ink-3);font-size:12.5px;line-height:1.4}
+.news{display:flex;flex-direction:column;gap:3px;padding-block:11px;border-bottom:1px solid var(--line-2)}
+.news:last-of-type{border-bottom:0}
+.signup{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.form-note{font-size:12.5px;color:var(--ink-2);min-height:1.2em}
+
+/* comps */
+.comps-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(20px,3vw,36px);align-items:start}
+@media (max-width:960px){.comps-grid{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:clamp(16px,2.4vw,24px);display:flex;flex-direction:column;gap:18px;min-width:0}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.panel-head h3{font-size:1.15rem}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;flex:none}
+.seg button{border:0;background:transparent;padding:6px 12px;font-size:13px;font-weight:500;color:var(--ink-2);cursor:pointer;border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:560px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tile{border-top:2px solid var(--ink);padding-top:8px;min-width:0}
+.tile .v{font-family:var(--display);font-weight:700;font-size:1.7rem;line-height:1.05;overflow-wrap:anywhere}
+.tile .k{font-size:12px;color:var(--ink-3)}
+.chart{width:100%;height:auto;display:block}
+.chart text{font-family:var(--mono);font-size:10.5px;fill:var(--ink-3)}
+.chart .grid{stroke:var(--line-2);stroke-width:1}
+.chart .dot{fill:var(--ink);fill-opacity:.82}
+.chart .dot-last{fill:var(--gold);stroke:var(--ink);stroke-width:1.5}
+.chart .med{stroke:var(--gold-ink);stroke-width:1.5;stroke-dasharray:5 4}
+.chart .medlab{fill:var(--gold-ink);font-weight:700;paint-order:stroke;stroke:var(--surface);stroke-width:4px}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:8px 10px 8px 0;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 10px 9px 0;border-bottom:1px solid var(--line-2);vertical-align:top}
+td.num,th.num{text-align:right;padding-right:0;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.date{font-family:var(--mono);white-space:nowrap;color:var(--ink-2)}
+tr:last-child td{border-bottom:0}
+.linkrow{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13.5px}
+
+/* calculator */
+.calc-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.field{display:flex;flex-direction:column;gap:4px;min-width:0}
+.field label{font-size:12.5px;color:var(--ink-2)}
+.field input{width:100%;background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:8px 10px;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.verdict{border-top:2px solid var(--ink);padding-top:14px;display:flex;flex-direction:column;gap:12px}
+.verdict-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.verdict-top .v{font-family:var(--display);font-weight:800;font-size:2.5rem;line-height:.9}
+.meter{position:relative;height:10px;border-radius:99px;background:var(--surface-2);border:1px solid var(--line)}
+.meter i{position:absolute;top:-5px;width:2px;height:18px;background:var(--ink)}
+.meter span{position:absolute;inset:0 auto 0 0;border-radius:99px;background:var(--gold)}
+.meter-key{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:var(--ink-3);flex-wrap:wrap}
+
+/* releases */
+.toolbar{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;align-items:center}
+.check{display:inline-flex;gap:8px;align-items:center;font-size:13.5px;color:var(--ink-2);cursor:pointer}
+.month{font-family:var(--display);font-weight:700;font-size:1.3rem;text-transform:uppercase;letter-spacing:.02em;border-bottom:2px solid var(--ink);padding-bottom:6px;margin-top:8px}
+.row-cal{grid-template-columns:64px minmax(0,1fr) auto;align-items:start}
+.row-cal .meta{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.row-cal .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.row-cal.is-out .t1,.row-cal.is-out .datebox b{color:var(--ink-3)}
+.empty{padding:28px 0;color:var(--ink-2)}
+
+/* trending */
+.row-trend{grid-template-columns:30px minmax(0,1fr) auto 110px 76px}
+.row-trend .rank{font-family:var(--display);font-weight:700;font-size:1.4rem;color:var(--ink-3)}
+.row-trend .chg{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:700;text-align:right}
+.spark{width:100%;height:28px;display:block}
+@media (max-width:640px){.row-trend{grid-template-columns:26px minmax(0,1fr) 70px}.row-trend .spark,.row-trend .sport{display:none}}
+
+/* reviews */
+.reviews{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:960px){.reviews{grid-template-columns:1fr}}
+.review{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.review-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.score{font-family:var(--display);font-weight:800;font-size:2.6rem;line-height:.85;text-align:right}
+.score small{display:block;font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:.06em;color:var(--ink-3);margin-top:4px}
+.facts{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:13.5px;color:var(--ink-2)}
+.facts li{padding-left:14px;position:relative}
+.facts li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:2px;background:var(--gold-ink)}
+.bars{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:7px 10px;align-items:center;font-size:12.5px;color:var(--ink-2);margin-top:auto}
+.bar{height:6px;border-radius:99px;background:var(--surface-2);border:1px solid var(--line-2);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink)}
+
+/* membership */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+@media (max-width:900px){.plans{grid-template-columns:1fr}}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.plan-pro{border:2px solid var(--ink)}
+.plan .price{font-family:var(--display);font-weight:800;font-size:3rem;line-height:.9}
+.plan .price small{font-family:var(--body);font-weight:400;font-size:14px;color:var(--ink-3)}
+.plan .btn{margin-top:auto}
+.faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 44px}
+@media (max-width:760px){.faq{grid-template-columns:1fr}}
+.faq div{display:flex;flex-direction:column;gap:4px}
+.faq p{color:var(--ink-2)}
+
+/* screener */
+.scr-tools{display:flex;gap:10px 16px;flex-wrap:wrap;align-items:center}
+.sel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:6px 10px;font-size:13px}
+.chip .n{opacity:.65;margin-left:5px;font-family:var(--mono);font-size:11px}
+.slabcell{display:flex;flex-direction:column;gap:2px;min-width:150px;line-height:1.1;text-align:left}
+.slabcell .ey{font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+.slabcell .nm{font-family:var(--display);font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:.01em;color:var(--ink)}
+.slabcell .vr{font-family:var(--display);font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-2)}
+#scr-table td,#scr-table th{padding:9px 8px;vertical-align:middle}
+#scr-table td:first-child,#scr-table th:first-child{padding-left:0}
+#scr-table td:last-child,#scr-table th:last-child{padding-right:0}
+#scr-table tbody tr{cursor:pointer}
+#scr-table tbody tr:hover td{background:var(--surface-2)}
+#scr-table tbody tr.dim td.num{color:var(--ink-3)}
+#scr-table td.rank{font-family:var(--display);font-weight:700;font-size:1.35rem;color:var(--ink-3);width:28px}
+#scr-table td.rank.top{color:var(--up)}
+#scr-table td.num.up{color:var(--up)} #scr-table td.num.down{color:var(--down)}
+.gemcell{display:flex;flex-direction:column;gap:3px;align-items:flex-end}
+.gmeter{position:relative;width:64px;height:6px;border-radius:3px;background:var(--surface-2);border:1px solid var(--line)}
+.gmeter span{position:absolute;inset:0 auto 0 0;border-radius:3px;background:var(--gold)}
+.gmeter i{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--ink)}
+.gsrc{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.gsrc.warn{color:var(--gold-ink)}
+.why{display:block;font-size:11.5px;color:var(--ink-3);margin-top:3px;white-space:normal;max-width:150px;line-height:1.3}
+#scr-list{display:none}
+.row-scr{grid-template-columns:26px minmax(0,1fr) auto;align-items:start;cursor:pointer}
+.row-scr .rank{font-family:var(--display);font-weight:700;font-size:1.3rem;color:var(--ink-3);line-height:1}
+.row-scr .rank.top{color:var(--up)}
+.row-scr .slabcell{min-width:0}
+.row-scr .right{display:flex;flex-direction:column;gap:4px;align-items:flex-end;text-align:right;font-family:var(--mono);font-size:12.5px}
+.row-scr .figs{grid-column:2/-1;display:flex;gap:4px 14px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-2)}
+.row-scr .figs b{font-family:var(--mono);font-weight:500;color:var(--ink)}
+@media (max-width:1000px){.hide-s{display:none}}
+@media (max-width:760px){#scr-tablewrap{display:none}#scr-list{display:flex}}
+.scatter{width:100%;height:auto;display:block}
+.scatter text{font-family:var(--mono);font-size:10.5px;fill:var(--ink-3)}
+.scatter .grid{stroke:var(--line-2);stroke-width:1}
+.scatter .axis{stroke:var(--line);stroke-width:1}
+.scatter .wash{fill:var(--up);fill-opacity:.07}
+.scatter .diag{stroke:var(--ink-3);stroke-width:1.5}
+.scatter .thr{stroke:var(--ink-3);stroke-width:1;stroke-dasharray:4 4}
+.scatter .rl{font-family:var(--body);font-style:italic;font-size:11px}
+.scatter .lbl{font-family:var(--body);font-size:11px;fill:var(--ink-2)}
+.scatter .pt{cursor:pointer}
+.scatter .pt .hit{fill:transparent}
+.scatter .pt.grade .mk{fill:var(--up);stroke:var(--surface);stroke-width:2}
+.scatter .pt.mid .mk{fill:var(--gold);stroke:var(--ink);stroke-width:1}
+.scatter .pt.fail .mk{fill:var(--surface);stroke:var(--down);stroke-width:2}
+.legend{display:flex;gap:6px 16px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.legend .g{background:var(--up)} .legend .m{background:var(--gold);border:1px solid var(--ink)} .legend .f{border:2px solid var(--down)}
+.asm-group{display:flex;flex-direction:column;gap:10px}
+.asm-group h4{margin:0;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.asm-row{display:grid;grid-template-columns:minmax(0,1fr) 92px;gap:10px;align-items:center;font-size:13.5px}
+.asm-row label{color:var(--ink-2)}
+.asm-row input[type="number"]{width:100%;background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:6px 8px;font-family:var(--mono);text-align:right}
+.asm-row input[type="checkbox"]{justify-self:end;width:16px;height:16px;accent-color:var(--gold)}
+.btn-sm{padding:5px 10px;font-size:12.5px}
+details.method summary{cursor:pointer;font-weight:600;font-size:1rem}
+.prose{max-width:68ch;display:flex;flex-direction:column;gap:10px;color:var(--ink-2);margin-top:14px}
+.prose h4{margin:8px 0 0;font-family:var(--display);font-size:1.15rem;text-transform:uppercase;letter-spacing:.02em;color:var(--ink)}
+.prose ul,.prose ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.prose code{font-family:var(--mono);font-size:12.5px;background:var(--surface-2);padding:1px 5px;border-radius:4px;color:var(--ink)}
+.topgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 clamp(16px,2.5vw,32px)}
+@media (max-width:900px){.topgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.topgrid{grid-template-columns:1fr}}
+.topcard{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 12px;padding:14px 0;border:0;border-bottom:1px solid var(--line-2);background:none;cursor:pointer;text-align:left;align-items:start}
+.topcard:hover .nm{text-decoration:underline}
+.topcard .rank{font-family:var(--display);font-weight:800;font-size:2rem;line-height:.9;color:var(--up)}
+.topcard .slabcell{min-width:0}
+.topcard .roi{grid-column:2;font-family:var(--mono);font-size:12.5px;color:var(--ink-2)}
+.topcard .roi b{color:var(--up);font-weight:700}
+.scrim{position:fixed;inset:0;background:rgba(8,14,24,.45);z-index:40}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(470px,100vw);background:var(--surface);border-left:1px solid var(--line);z-index:50;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);box-shadow:-18px 0 40px -24px rgba(8,16,30,.6)}
+.drawer-hd{display:flex;gap:12px;align-items:flex-start;padding:16px 18px 14px;border-bottom:2px solid var(--ink)}
+.drawer-hd .slabcell{min-width:0}
+.drawer-hd .slabcell .nm{font-size:1.6rem}
+.drawer-x{margin-left:auto;border:1px solid var(--line);background:transparent;border-radius:6px;width:32px;height:32px;cursor:pointer;font-size:18px;line-height:1;flex:none}
+.drawer-bd{overflow:auto;padding:18px 18px calc(24px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:20px}
+.drawer-top{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px}
+.duo .tile .v{font-size:1.6rem}
+.math{border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:13.5px}
+.math div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:8px 12px;border-bottom:1px solid var(--line-2)}
+.math div:last-child{border-bottom:0}
+.math .sum{background:var(--surface-2);font-weight:600}
+.math small{display:block;color:var(--ink-3);font-size:11.5px;font-weight:400}
+.math span:last-child{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.popbar{display:flex;height:12px;gap:2px;border-radius:3px;overflow:hidden}
+.popbar div{min-width:2px}
+.popbar .p10{background:var(--ink)} .popbar .p9{background:var(--ink-3)} .popbar .p8{background:var(--line)}
+.popkey{display:flex;gap:6px 14px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-2);margin-top:8px}
+.popkey i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.gates{display:flex;flex-direction:column;gap:6px;font-size:13.5px;margin:0;padding:0;list-style:none}
+.gates li{display:flex;gap:8px;align-items:baseline}
+.gates b{width:14px;flex:none;text-align:center}
+.gates .ok b{color:var(--up)} .gates .no b{color:var(--down)}
+.sens{width:100%;height:auto;display:block}
+.sens text{font-family:var(--mono);font-size:10.5px;fill:var(--ink-3)}
+.sens .zero{stroke:var(--line)} .sens .ln{fill:none;stroke:var(--ink);stroke-width:2} .sens .area{fill:var(--gold);fill-opacity:.14} .sens .be{stroke:var(--ink-3);stroke-dasharray:3 3} .sens .mk{fill:var(--gold);stroke:var(--ink);stroke-width:1.5}
+.sens .here{fill:var(--ink-2)}
+.note{font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+.dsec{display:flex;flex-direction:column;gap:8px}
+@media (prefers-reduced-motion:no-preference){.drawer{animation:wl-slide .18s ease-out}@keyframes wl-slide{from{transform:translateX(20px);opacity:0}to{transform:none;opacity:1}}}
+
+/* pre-grader */
+.pg-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:900px){.pg-grid{grid-template-columns:1fr}}
+.drop{border:2px dashed var(--line);border-radius:10px;padding:28px 18px;text-align:center;color:var(--ink-2);display:flex;flex-direction:column;gap:8px;align-items:center;cursor:pointer;background:var(--surface-2)}
+.drop:hover,.drop.over{border-color:var(--gold);color:var(--ink)}
+.drop b{font-family:var(--display);font-size:1.4rem;text-transform:uppercase;color:var(--ink)}
+.drop input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.pg-stage{position:relative;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;overflow:hidden;touch-action:none}
+.pg-stage canvas{display:block;width:100%;height:auto;cursor:crosshair}
+.pg-readout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.pg-readout .tile .v{font-size:1.5rem}
+.pg-tools{display:flex;gap:8px 16px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--ink-2)}
+.corners{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:480px){.corners{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.corner{display:flex;flex-direction:column;gap:5px;align-items:center;font-size:12px;color:var(--ink-2)}
+.corner canvas{width:100%;height:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface-2);image-rendering:pixelated}
+.corner b{font-family:var(--mono);font-weight:500;color:var(--ink)}
+.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px}
+@media (max-width:560px){.checks{grid-template-columns:1fr}}
+.check-row{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;cursor:pointer}
+.check-row input{margin-top:3px;accent-color:var(--gold);width:16px;height:16px;flex:none}
+.check-row span small{display:block;color:var(--ink-3);font-size:12px}
+.grade-card{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 24px;align-items:center}
+@media (max-width:560px){.grade-card{grid-template-columns:1fr}}
+.grade-big{font-family:var(--display);font-weight:800;font-size:5rem;line-height:.85;letter-spacing:-.01em}
+.grade-big small{display:block;font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.1em;margin-top:8px;color:var(--ink-2)}
+.breakdown{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px 16px;align-items:center;font-size:13.5px}
+.breakdown .k{color:var(--ink-2)}
+.breakdown .v{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.breakdown .cap{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:99px;background:var(--surface-2);color:var(--ink-2);white-space:nowrap}
+.breakdown .cap.limit{background:var(--down-bg);color:var(--down)}
+.pg-notes{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-size:13.5px;color:var(--ink-2)}
+.pg-empty{color:var(--ink-3);font-size:14px}
+footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-3);font-size:12.5px}
+.foot{display:flex;justify-content:space-between;gap:16px 40px;flex-wrap:wrap}
+.foot p{max-width:70ch}
+</style>
+
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="#market" data-go="market"><svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true"><rect x="12" y="4" width="76" height="92" rx="9" fill="var(--label)" stroke="var(--ink)" stroke-width="4"/><rect x="19" y="11" width="62" height="24" rx="3" fill="var(--card-ink)"/><rect x="24" y="16" width="16" height="4.5" rx="2.25" fill="#F3F5F7" opacity=".9"/><rect x="24" y="25" width="11" height="4.5" rx="2.25" fill="#F3F5F7" opacity=".55"/><rect x="19" y="41" width="62" height="48" rx="3" fill="var(--card-ink)"/><g transform="translate(50 65) scale(0.46) translate(-50 -50)"><circle cx="50" cy="50" r="46" fill="#E3A92B"/><g transform="translate(51 50) scale(0.95) translate(-50 -50)"><polyline points="12,40 22,66 32,51 42,69 55,28" fill="none" stroke="#0F1B2D" stroke-width="9" stroke-linejoin="miter" stroke-linecap="round"/><circle cx="55" cy="28" r="6" fill="#0F1B2D" stroke="#E3A92B" stroke-width="3"/><polyline points="74,36 65,68 80,68" fill="none" stroke="#0F1B2D" stroke-width="9" stroke-linejoin="miter" stroke-linecap="round"/></g></g></svg>Wax Ledger</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#market" data-go="market">Market</a>
+      <a href="#comps" data-go="comps">Comps</a>
+      <a href="#screener" data-go="screener">Screener</a>
+      <a href="#pregrade" data-go="pregrade">Pre-grade</a>
+      <a href="#releases" data-go="releases">Releases</a>
+      <a href="#trending" data-go="trending">Trending</a>
+      <a href="#reviews" data-go="reviews">Reviews</a>
+      <a href="#membership" data-go="membership">Membership</a>
+    </nav>
+    <a class="btn btn-gold" href="#membership" data-go="membership">Start free</a>
+  </div>
+</header>
+<div class="preview-bar"><div class="wrap"><b>Beta</b><span>Comps, movers and review scores are sample data. Screener prices and release dates are real, checked Oct 8, 2026.</span></div></div>
+
+<main class="wrap">
+
+<!-- MARKET -->
+<section class="view" data-view="market">
+  <div class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Sold comps · Grading screener · Pre-grader · Release calendar</p>
+      <h1>Your one-stop sports card hub</h1>
+      <p class="lede">Wax Ledger tracks sold prices, upcoming releases and the players moving the market, so every buy, sell and grading call starts from real sales.</p>
+      <form class="search" id="hero-search">
+        <input id="hero-q" type="search" placeholder="Search a card, e.g. Flagg Topps Chrome" aria-label="Search a card">
+        <button class="btn btn-gold" type="submit">Look up comps</button>
+      </form>
+      <div class="chips" id="hero-chips" aria-label="Sample cards"></div>
+      <p class="small muted">Have a raw card in hand? <a href="#pregrade" data-go="pregrade">Pre-grade it from a photo</a>, in your browser.</p>
+    </div>
+    <div class="hero-slab">
+      <div class="slab" aria-hidden="true">
+        <div class="slab-label">
+          <div class="lines">2025-26 Topps Chrome<br>Cooper Flagg<br>Base RC · Sample</div>
+          <div class="grade">10<small>GEM MT</small></div>
+        </div>
+        <div class="cardface"><div class="cardface-in">
+          <span class="rc">RC</span>
+          <span class="ghost">10</span>
+          <div class="plate"><span class="name">Rookie<br>Card</span><span class="serial">07/50</span></div>
+        </div></div>
+      </div>
+      <div class="slab-stats">
+        <div>
+          <p class="eyebrow">Last PSA 10 sale <span class="pill pill-sample">Sample</span></p>
+          <p class="big-price" id="hero-last">$0</p>
+          <p class="small muted" id="hero-card">Cooper Flagg, 2025-26 Topps Chrome base RC #251</p>
+        </div>
+        <dl class="stat-list" id="hero-stats"></dl>
+        <a class="small" href="#comps" data-go="comps">Open the full comp sheet</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="strip" tabindex="0" aria-label="Seven-day movers, sample data"><div class="strip-row" id="strip"></div></div>
+
+  <div class="col">
+    <div class="rule-head"><h3>Top of the screener</h3><a href="#screener" data-go="screener">Full board</a></div>
+    <div class="topgrid" id="home-screen"></div>
+    <p class="small muted">Raw cards worth sending to PSA right now, ranked by expected return on real sold prices.</p>
+  </div>
+
+  <div class="cols3">
+    <div class="col">
+      <div class="rule-head"><h3>Next out</h3><a href="#releases" data-go="releases">Full calendar</a></div>
+      <div class="rows" id="home-releases"></div>
+    </div>
+    <div class="col">
+      <div class="rule-head"><h3>Movers</h3><a href="#trending" data-go="trending">All players</a></div>
+      <div class="rows" id="home-movers"></div>
+    </div>
+    <div class="col">
+      <div class="rule-head"><h3>From the desk</h3><span class="small muted">Oct 8</span></div>
+      <div id="home-news"></div>
+      <form class="signup" id="nl-form">
+        <h3>The Ledger, every Friday</h3>
+        <p class="small muted">One email. The week's movers, what's releasing, and one grading call worth making.</p>
+        <div class="search">
+          <input id="nl-email" type="email" placeholder="you@email.com" aria-label="Email address" required>
+          <button class="btn" type="submit">Subscribe</button>
+        </div>
+        <p class="form-note" id="nl-note" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- COMPS -->
+<section class="view" data-view="comps" hidden>
+  <div class="view-head">
+    <p class="eyebrow">Comps</p>
+    <h2>Sold prices, not asking prices</h2>
+    <p class="lede">Every number here comes from a completed sale. Pick a grade to see the last 60 days, then run the grading math on the same card.</p>
+  </div>
+  <div class="stack">
+    <form class="search" id="comp-search">
+      <input id="comp-q" type="search" placeholder="Player, set or parallel" aria-label="Search comps">
+      <button class="btn" type="submit">Search</button>
+    </form>
+    <div class="chips" id="comp-chips" aria-label="Sample cards"></div>
+  </div>
+
+  <div class="comps-grid">
+    <div class="panel" id="comp-panel">
+      <div class="panel-head">
+        <div style="min-width:0">
+          <p class="eyebrow" id="comp-set"></p>
+          <h3 id="comp-name"></h3>
+        </div>
+        <div class="seg" id="grade-seg" role="group" aria-label="Grade">
+          <button type="button" data-grade="raw" aria-pressed="false">Raw</button>
+          <button type="button" data-grade="psa9" aria-pressed="false">PSA 9</button>
+          <button type="button" data-grade="psa10" aria-pressed="true">PSA 10</button>
+        </div>
+      </div>
+      <div class="tiles" id="comp-tiles"></div>
+      <svg class="chart" id="comp-chart" viewBox="0 0 640 236" role="img" aria-label="Sold prices over the last 60 days"></svg>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Sold</th><th>Listing</th><th>Type</th><th class="num">Price</th></tr></thead>
+          <tbody id="comp-rows"></tbody>
+        </table>
+      </div>
+      <div class="linkrow">
+        <span class="pill pill-sample">Sample sales</span>
+        <a id="ebay-link" href="https://www.ebay.com/" target="_blank" rel="noopener">Check live sold listings on eBay</a>
+      </div>
+    </div>
+
+    <div class="panel" id="comp-empty" hidden>
+      <h3 id="empty-title">No sample data for that search</h3>
+      <p class="muted">This preview carries five sample cards. The live site will search every sold listing. Until then, this link runs the same search against eBay's sold listings.</p>
+      <div class="linkrow"><a id="ebay-link-2" href="https://www.ebay.com/" target="_blank" rel="noopener">Search eBay sold listings</a></div>
+    </div>
+
+    <form class="panel" id="calc">
+      <div>
+        <p class="eyebrow">Grading math</p>
+        <h3>Buy raw and grade, or pass?</h3>
+      </div>
+      <div class="calc-fields">
+        <div class="field"><label for="calc-raw">Raw price ($)</label><input id="calc-raw" type="number" min="0" step="1" inputmode="decimal"></div>
+        <div class="field"><label for="calc-fee">Grading cost, all-in ($)</label><input id="calc-fee" type="number" min="0" step="0.01" inputmode="decimal"></div>
+        <div class="field"><label for="calc-p10">PSA 10 sells for ($)</label><input id="calc-p10" type="number" min="0" step="1" inputmode="decimal"></div>
+        <div class="field"><label for="calc-p9">PSA 9 sells for ($)</label><input id="calc-p9" type="number" min="0" step="1" inputmode="decimal"></div>
+        <div class="field"><label for="calc-sell">Selling fees (%)</label><input id="calc-sell" type="number" min="0" max="100" step="0.5" inputmode="decimal"></div>
+        <div class="field"><label for="calc-gem">Your gem rate (%)</label><input id="calc-gem" type="number" min="0" max="100" step="1" inputmode="decimal" value="35"></div>
+      </div>
+      <div class="verdict" aria-live="polite">
+        <div class="verdict-top">
+          <div><p class="eyebrow">Break-even gem rate</p><p class="v" id="calc-be">0%</p></div>
+          <span class="pill" id="calc-pill">Verdict</span>
+        </div>
+        <div class="meter" aria-hidden="true"><span id="calc-meter-fill"></span><i id="calc-meter-mark"></i></div>
+        <div class="meter-key"><span>Gold bar: your gem rate</span><span>Black mark: break-even</span></div>
+        <dl class="stat-list" id="calc-out"></dl>
+        <p class="small muted" id="calc-note"></p>
+        <a class="small" href="#screener" data-go="screener">See the ranked board in the Screener</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- SCREENER -->
+<section class="view" data-view="screener" hidden>
+  <div class="view-head">
+    <p class="eyebrow">Screener</p>
+    <h2>Buy raw, grade, sell the slab</h2>
+    <p class="lede">Every card is priced on both outcomes, a 10 and a miss, weighted by its real PSA gem rate and set against what one attempt costs. Cards that clear every gate are ranked by expected return.</p>
+  </div>
+  <div class="tiles" id="scr-tiles"></div>
+  <div class="panel">
+    <div class="panel-head">
+      <div style="min-width:0">
+        <p class="eyebrow">Ranked board <span class="pill pill-up">Real comps</span></p>
+        <h3 id="scr-title">Grading candidates</h3>
+      </div>
+      <div class="scr-tools">
+        <div class="chips" id="scr-chips" aria-label="Filter by verdict"></div>
+        <select class="sel" id="scr-sport" aria-label="Sport"></select>
+      </div>
+    </div>
+    <div class="tablewrap" id="scr-tablewrap">
+      <table id="scr-table">
+        <thead><tr><th>#</th><th>Card</th><th class="num">Raw</th><th class="num">PSA 10</th><th class="num hide-s">PSA 9</th><th class="num">Gem rate</th><th class="num hide-s">Break-even</th><th class="num hide-s">Margin</th><th class="num">Profit</th><th class="num">ROI</th><th>Verdict</th></tr></thead>
+        <tbody id="scr-body"></tbody>
+      </table>
+    </div>
+    <div class="rows" id="scr-list"></div>
+    <p class="empty" id="scr-empty" hidden>No cards match this filter.</p>
+    <p class="small muted" id="scr-foot"></p>
+  </div>
+  <div class="comps-grid">
+    <div class="panel">
+      <div class="panel-head">
+        <div><p class="eyebrow">Gem rate vs break-even</p><h3>How much room each card has</h3></div>
+        <span class="small muted">Select a point to open the card</span>
+      </div>
+      <svg class="scatter" id="scr-chart" viewBox="0 0 560 420" role="img" aria-label="Scatter of gem rate against break-even gem rate"></svg>
+      <div class="legend"><span><i class="g"></i>Grade</span><span><i class="m"></i>Marginal or unverified pop</span><span><i class="f"></i>Fails a gate</span></div>
+      <p class="small muted" id="scr-chart-foot"></p>
+    </div>
+    <form class="panel" id="asm-form">
+      <div class="panel-head">
+        <div><p class="eyebrow">Assumptions</p><h3>Change one, re-price the board</h3></div>
+        <button class="btn btn-sm" type="button" id="asm-reset">Reset</button>
+      </div>
+      <div class="asm-group"><h4>Costs</h4>
+        <div class="asm-row"><label for="asm-fee">Grading fee per card ($)</label><input id="asm-fee" type="number" min="0" step="0.01" inputmode="decimal"></div>
+        <div class="asm-row"><label for="asm-ship">Shipping and insurance, round trip ($)</label><input id="asm-ship" type="number" min="0" step="0.5" inputmode="decimal"></div>
+        <div class="asm-row"><label for="asm-sellFee">Selling fee (%)</label><input id="asm-sellFee" type="number" min="0" max="100" step="0.5" inputmode="decimal"></div>
+      </div>
+      <div class="asm-group"><h4>Market haircuts</h4>
+        <div class="asm-row"><label for="asm-haircut">PSA 10 price drop by sell date (%)</label><input id="asm-haircut" type="number" min="0" max="100" step="1" inputmode="decimal"></div>
+        <div class="asm-row"><label for="asm-missReal">A miss sells for this share of the PSA 9 price (%)</label><input id="asm-missReal" type="number" min="0" max="100" step="1" inputmode="decimal"></div>
+        <div class="asm-row"><label for="asm-assumedGem">Gem rate when the pop is missing (%)</label><input id="asm-assumedGem" type="number" min="0" max="100" step="1" inputmode="decimal"></div>
+      </div>
+      <div class="asm-group"><h4>Gates</h4>
+        <div class="asm-row"><label for="asm-minPrice">Minimum PSA 10 price ($)</label><input id="asm-minPrice" type="number" min="0" step="10" inputmode="decimal"></div>
+        <div class="asm-row"><label for="asm-minSales">Minimum PSA 10 sales per 90 days</label><input id="asm-minSales" type="number" min="0" step="1" inputmode="decimal"></div>
+        <div class="asm-row"><label for="asm-minMargin">Minimum safety margin (pts)</label><input id="asm-minMargin" type="number" min="0" max="100" step="1" inputmode="decimal"></div>
+        <div class="asm-row"><label for="asm-requireReal">Require real PSA 10 comps</label><input id="asm-requireReal" type="checkbox"></div>
+      </div>
+      <p class="small muted">Your changes are saved in this browser only. The grading calculator on the Comps page uses the same assumptions.</p>
+    </form>
+  </div>
+  <div class="panel">
+    <details class="method">
+      <summary>How the screener decides</summary>
+      <div class="prose">
+        <p>The question for every card is the same. If you buy it raw today and send it to PSA, what do you expect to clear once the slab comes back?</p>
+        <h4>The math</h4>
+        <ul>
+          <li><code>All-in</code> is the raw price plus the grading fee and shipping. That is the cost of one attempt.</li>
+          <li><code>Net on a 10</code> is the PSA 10 price, less the sell-date haircut and the selling fee. You sell months from now, after the pop has grown.</li>
+          <li><code>Net on a miss</code> is the PSA 9 price times the miss share, less the selling fee. Most misses are 9s and some are 8s, so one blended number covers both.</li>
+          <li><code>Gem rate</code> is PSA 10 pop divided by total pop, from the population report.</li>
+          <li><code>Expected profit</code> is gem rate times net on a 10, plus the rest times net on a miss, minus all-in. ROI divides that by all-in.</li>
+          <li><code>Break-even gem rate</code> is the gem rate at which you neither make nor lose money.</li>
+          <li><code>Safety margin</code> is the gem rate minus the break-even, in points. This is the quality gate.</li>
+        </ul>
+        <h4>Why the PSA 9 price matters more than the multiple</h4>
+        <p>A 10x raw-to-PSA-10 multiple looks great until you miss. When the 9 is worth less than the raw card plus the fee, every miss eats the whole attempt. When the 9 is worth more than you paid, a miss returns most of your money and a 25% gem rate can still be a strong grade. That is why the board ranks on return and safety margin, and ignores the multiple.</p>
+        <h4>The verdict ladder</h4>
+        <ol>
+          <li><strong>Skip</strong> if the PSA 10 price is a modeled estimate with no real sales behind it.</li>
+          <li><strong>Fail</strong> if the PSA 10 is under the price floor. Below it the fixed fee eats the spread.</li>
+          <li><strong>Fail</strong> if there are too few PSA 10 sales in 90 days. Thin comps are prices you may not get.</li>
+          <li><strong>Fail</strong> if expected profit is zero or negative.</li>
+          <li><strong>Verify pop</strong> if the card is profitable but running on a placeholder gem rate.</li>
+          <li><strong>Marginal</strong> if the safety margin is under the minimum.</li>
+          <li><strong>Grade</strong> otherwise, ranked by expected ROI.</li>
+        </ol>
+        <h4>Where the numbers come from</h4>
+        <p>Prices are sold listings. Rows that have been checked against eBay sold listings say so in their source line, and rows that rest on a price guide alone are marked as not verified. Population counts come from the PSA pop report. Every card carries an as-of date.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- PRE-GRADE -->
+<section class="view" data-view="pregrade" hidden>
+  <div class="view-head">
+    <p class="eyebrow">Pre-grade</p>
+    <h2>Grade it before PSA does</h2>
+    <p class="lede">Upload a photo of the front and back. The tool finds the card's edges, measures centering against PSA's published standards, zooms in on the corners and edges, and gives you an estimated grade. It runs in your browser, so your photos never leave your device.</p>
+  </div>
+
+  <div class="pg-grid">
+    <div class="panel" id="pg-side-front">
+      <div class="panel-head"><div><p class="eyebrow">Front</p><h3>Front of the card</h3></div><button class="btn btn-sm" type="button" data-pg-clear="front" hidden>Remove</button></div>
+      <label class="drop" id="pg-drop-front" for="pg-file-front"><b>Add the front</b><span>Drop a photo here, or tap to take one</span><span class="small muted">Out of the sleeve, flat, straight-on, on a plain background that contrasts with the card's border</span><input id="pg-file-front" type="file" accept="image/*"></label>
+      <div class="pg-stage" id="pg-stage-front" hidden><canvas id="pg-canvas-front"></canvas></div>
+      <div class="pg-tools" id="pg-tools-front" hidden><span>Drag any line to correct an edge.</span><button class="btn btn-sm" type="button" data-pg-redetect="front">Detect again</button></div>
+      <div class="pg-readout" id="pg-readout-front" hidden></div>
+      <div class="corners" id="pg-corners-front" hidden></div>
+    </div>
+    <div class="panel" id="pg-side-back">
+      <div class="panel-head"><div><p class="eyebrow">Back</p><h3>Back of the card</h3></div><button class="btn btn-sm" type="button" data-pg-clear="back" hidden>Remove</button></div>
+      <label class="drop" id="pg-drop-back" for="pg-file-back"><b>Add the back</b><span>Optional, but PSA grades it too</span><span class="small muted">Same setup as the front</span><input id="pg-file-back" type="file" accept="image/*"></label>
+      <div class="pg-stage" id="pg-stage-back" hidden><canvas id="pg-canvas-back"></canvas></div>
+      <div class="pg-tools" id="pg-tools-back" hidden><span>Drag any line to correct an edge.</span><button class="btn btn-sm" type="button" data-pg-redetect="back">Detect again</button></div>
+      <div class="pg-readout" id="pg-readout-back" hidden></div>
+      <div class="corners" id="pg-corners-back" hidden></div>
+    </div>
+  </div>
+
+  <div class="comps-grid">
+    <div class="panel" id="pg-result">
+      <div class="panel-head"><div><p class="eyebrow">Estimate</p><h3>Where this card lands</h3></div><span class="pill" id="pg-conf" hidden>Confidence</span></div>
+      <p class="pg-empty" id="pg-result-empty">Add the front of a card to get an estimate.</p>
+      <div class="grade-card" id="pg-grade" hidden>
+        <div class="grade-big" id="pg-grade-num">10<small id="pg-grade-label">GEM MINT</small></div>
+        <div class="breakdown" id="pg-breakdown"></div>
+      </div>
+      <ul class="pg-notes" id="pg-notes"></ul>
+      <div class="linkrow" id="pg-actions" hidden><button class="btn" type="button" id="pg-copy">Copy report</button><span class="form-note" id="pg-copy-note" aria-live="polite"></span></div>
+      <p class="small muted">Centering is measured from the photo. Corner and edge scores are estimates of wear from the photo and are not PSA's scale. Surface flaws need your own eyes under angled light. Not affiliated with PSA.</p>
+    </div>
+    <form class="panel" id="pg-surface">
+      <div><p class="eyebrow">Surface</p><h3>What do you see under angled light?</h3></div>
+      <div class="checks">
+        <label class="check-row"><input type="checkbox" id="pg-s-lines" data-cap="9"><span>Print lines<small>Faint straight lines in the gloss. Caps at 9.</small></span></label>
+        <label class="check-row"><input type="checkbox" id="pg-s-scratch" data-cap="8"><span>Light scratches or print spots<small>Visible without a loupe. Caps at 8.</small></span></label>
+        <label class="check-row"><input type="checkbox" id="pg-s-dent" data-cap="6"><span>Dent, ding or indentation<small>Catches the light or the fingertip. Caps at 6.</small></span></label>
+        <label class="check-row"><input type="checkbox" id="pg-s-crease" data-cap="4"><span>Crease, stain or writing<small>Any crease, even a hairline. Caps at 4.</small></span></label>
+      </div>
+      <p class="small muted">Photos rarely show surface wear. Tilt the card under a lamp and check the gloss before you submit.</p>
+    </form>
+  </div>
+</section>
+
+<!-- RELEASES -->
+<section class="view" data-view="releases" hidden>
+  <div class="view-head">
+    <p class="eyebrow">Releases</p>
+    <h2>What's hitting shelves</h2>
+    <p class="lede">Release dates across the major manufacturers, with box configuration and the names driving each checklist. Dates move, so check back the week of.</p>
+  </div>
+  <div class="toolbar">
+    <div class="chips" id="sport-chips" aria-label="Filter by sport"></div>
+    <label class="check"><input type="checkbox" id="upcoming-only" checked> Upcoming only</label>
+  </div>
+  <div id="cal"></div>
+  <p class="small muted">Dates compiled from manufacturer announcements as reported by Sports Collectors Daily and DraftKings Network, checked Oct 8, 2026.</p>
+</section>
+
+<!-- TRENDING -->
+<section class="view" data-view="trending" hidden>
+  <div class="view-head">
+    <p class="eyebrow">Trending</p>
+    <h2>Who's moving, and why</h2>
+    <p class="lede">Players ranked by seven-day change in median sold price across their key rookie cards, with the catalyst behind each move.</p>
+  </div>
+  <div class="toolbar">
+    <div class="chips" id="trend-chips" aria-label="Filter by sport"></div>
+    <span class="pill pill-sample">Sample figures</span>
+  </div>
+  <div class="rows" id="trend-rows"></div>
+</section>
+
+<!-- REVIEWS -->
+<section class="view" data-view="reviews" hidden>
+  <div class="view-head">
+    <p class="eyebrow">Reviews</p>
+    <h2>Is the box worth ripping?</h2>
+    <p class="lede">Every product is scored on the same four things: the rookie class, the quality of the hits, how much of it was printed, and box price against expected value.</p>
+  </div>
+  <div class="reviews" id="review-grid"></div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section class="view" data-view="membership" hidden>
+  <div class="view-head">
+    <p class="eyebrow">Membership</p>
+    <h2>One good buy pays for the year</h2>
+    <p class="lede">Start with the free Friday email. Upgrade when you want the full comp sheet and the grading math on every card you're watching.</p>
+  </div>
+  <div class="plans">
+    <div class="plan">
+      <div><p class="eyebrow">Free</p><p class="price">$0</p></div>
+      <ul class="facts">
+        <li>The Ledger newsletter every Friday</li>
+        <li>Full release calendar</li>
+        <li>Three comp lookups a day</li>
+        <li>Top three Screener picks and top five movers</li>
+        <li>Pre-grader, three cards a day</li>
+      </ul>
+      <button class="btn" type="button" data-plan="Free">Join free</button>
+    </div>
+    <div class="plan plan-pro">
+      <div><p class="eyebrow">Pro <span class="pill pill-gold">Most picked</span></p><p class="price">$15 <small>a month</small></p></div>
+      <ul class="facts">
+        <li>Unlimited comp lookups, every grade</li>
+        <li>The full grading Screener, ranked by expected return</li>
+        <li>Grading calculator with saved cards</li>
+        <li>Unlimited pre-grades with saved reports</li>
+        <li>Price alerts on your watchlist</li>
+        <li>Full movers board with catalysts</li>
+        <li>Every product review and box score</li>
+      </ul>
+      <button class="btn btn-gold" type="button" data-plan="Pro">Start 7-day trial</button>
+    </div>
+    <div class="plan">
+      <div><p class="eyebrow">Pro annual</p><p class="price">$144 <small>a year</small></p></div>
+      <ul class="facts">
+        <li>Everything in Pro</li>
+        <li>Works out to $12 a month</li>
+        <li>Early access to release previews</li>
+      </ul>
+      <button class="btn" type="button" data-plan="Pro annual">Start 7-day trial</button>
+    </div>
+  </div>
+  <p class="form-note" id="plan-note" aria-live="polite"></p>
+  <div>
+    <div class="rule-head"><h3>Questions</h3><span class="pill pill-sample">Proposed pricing</span></div>
+    <div class="faq" style="margin-top:20px">
+      <div><h3>Where do the prices come from?</h3><p>Completed sales only. Asking prices and modeled estimates are never mixed into a comp.</p></div>
+      <div><h3>Which sports are covered?</h3><p>Baseball, basketball and football first. Hockey, soccer and racing releases are already on the calendar.</p></div>
+      <div><h3>Can I cancel?</h3><p>Any time, from your account page. You keep access through the end of the period you paid for.</p></div>
+      <div><h3>Is this investment advice?</h3><p>No. Wax Ledger reports what cards sold for and shows the math. What you buy is your call.</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-label="Card detail"></aside>
+
+<footer><div class="wrap foot">
+  <p>Wax Ledger is an independent publication. It is not affiliated with eBay, PSA, Topps, Fanatics, Panini, Upper Deck or Leaf. Nothing here is financial advice.</p>
+  <p class="mono">Beta · Oct 8, 2026</p>
+</div></footer>
+
+<script>
+(function(){
+"use strict";
+var $=function(s,r){return (r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+var MONTHS_FULL=["January","February","March","April","May","June","July","August","September","October","November","December"];
+var DAYS=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function money(n){return "$"+(n>=100?Math.round(n).toLocaleString("en-US"):n.toFixed(2))}
+function today0(){var d=new Date();return new Date(d.getFullYear(),d.getMonth(),d.getDate())}
+function parseDay(s){var p=s.split("-");return new Date(+p[0],+p[1]-1,+p[2])}
+function rng(seed){var a=seed>>>0;return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function hash(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function median(a){var s=a.slice().sort(function(x,y){return x-y});var m=s.length>>1;return s.length?(s.length%2?s[m]:(s[m-1]+s[m])/2):0}
+
+/* ---------- data ---------- */
+// Real release dates (Sports Collectors Daily, DraftKings Network; checked Oct 8, 2026).
+var RELEASES=[
+ {d:"2026-09-30",n:"Bowman Football",m:"Topps",s:"Football",t:"Hobby: 20 packs of 8 with two autographs. 200 NFL cards plus 200 Bowman Prospects."},
+ {d:"2026-09-30",n:"Prizm WNBA",m:"Panini",s:"Basketball",t:"Hobby: 12 packs of 12 with two autographs and 24 Prizm parallels."},
+ {d:"2026-10-02",n:"Bowman Football Sapphire Edition",m:"Topps",s:"Football",t:"Eight four-card packs, about one autograph per box."},
+ {d:"2026-10-07",n:"Topps Allen & Ginter Baseball",m:"Topps",s:"Baseball",t:"300-card set. Hobby: 24 packs of 8 with two hits per box."},
+ {d:"2026-10-07",n:"Bowman Chrome Baseball Sapphire Edition",m:"Topps",s:"Baseball",t:"Eight four-card packs, one autograph per box."},
+ {d:"2026-10-07",n:"2026-27 Upper Deck Series 1 Hockey",m:"Upper Deck",s:"Hockey",t:"250 cards with 49 Young Guns. Hobby boxes average six. Blasters and tins follow Oct 21."},
+ {d:"2026-10-09",n:"Leaf Football",m:"Leaf",s:"Football",t:"Six packs of 8 per hobby box."},
+ {d:"2026-10-09",n:"Panini Track Kings Racing",m:"Panini",s:"Racing",t:"Ten cards per hobby box with three autographs or memorabilia cards."},
+ {d:"2026-10-14",n:"Topps Update Series Baseball",m:"Topps",s:"Baseball",t:"350 cards of rookies, call-ups and traded players. 75th anniversary inserts.",pick:1},
+ {d:"2026-10-14",n:"2025-26 Panini Select Basketball",m:"Panini",s:"Basketball",t:"Tiered base set with Tie-Dye, Gold and Black Finite parallels."},
+ {d:"2026-10-14",n:"Panini Donruss Optic NWSL",m:"Panini",s:"Soccer",t:"Three autographs or memorabilia cards per hobby box. Downtown and Kismet chases."},
+ {d:"2026-10-15",n:"Topps Chrome Formula 1",m:"Topps",s:"Racing",t:"200 subjects across F1, F2 and F3 with on-card autographs."},
+ {d:"2026-10-16",n:"Topps Chrome Samurai Japan Baseball",m:"Topps",s:"Baseball",t:"Collector's box: four seven-card packs with two numbered parallels."},
+ {d:"2026-10-21",n:"Topps Heritage Football",m:"Topps",s:"Football",t:"400-card base set. Hobby: 20 packs of 8 with one autograph or relic."},
+ {d:"2026-10-21",n:"Panini Obsidian Football",m:"Panini",s:"Football",t:"Seven cards per box, including a patch autograph and a second autograph."},
+ {d:"2026-10-21",n:"2025-26 Upper Deck Stature Hockey",m:"Upper Deck",s:"Hockey",t:"Thick stock, colored parallels, rookies and autographs."},
+ {d:"2026-10-22",n:"2026-27 Topps Flagship Basketball",m:"Topps",s:"Basketball",t:"300-card base set. Rookies: AJ Dybantsa, Darryn Peterson, Cameron Boozer.",pick:1},
+ {d:"2026-10-23",n:"Panini Impeccable WNBA",m:"Panini",s:"Basketball",t:"Nine cards per box with about five autographs."},
+ {d:"2026-10-28",n:"Panini Donruss Football",m:"Panini",s:"Football",t:"200-card base set. Hobby: one autograph and one memorabilia card. Downtown chases.",pick:1},
+ {d:"2026-10-28",n:"Topps Five Star Baseball",m:"Topps",s:"Baseball",t:"Six encased cards per box, about five of them on-card autographs."},
+ {d:"2026-11-04",n:"Topps Cosmic Chrome Baseball",m:"Topps",s:"Baseball",t:"200-card base set. Roman Anthony, Konnor Griffin, Kevin McGonigle, Munetaka Murakami.",pick:1},
+ {d:"2026-11-11",n:"Topps Museum Collection Baseball",m:"Topps",s:"Baseball",t:"Moved from Oct 7."}
+];
+var NEWS=[
+ {d:"Oct 7",h:"Series 1 Hockey is out",b:"Hobby boxes average six Young Guns from a 49-card rookie subset. Blasters and tins follow Oct 21."},
+ {d:"Oct 6",h:"Flagship Basketball preorders are open",b:"The standard release is Oct 22. AJ Dybantsa, Darryn Peterson and Cameron Boozer lead the rookie checklist."},
+ {d:"Oct 5",h:"Cosmic Chrome Baseball preorders are open",b:"It releases Nov 4 with a 200-card base set."},
+ {d:"Sep 28",h:"Museum Collection Baseball moves to Nov 11",b:"Topps pushed the release back from Oct 7."}
+];
+// Sample sales. Flagg, Murakami and Skenes are centered on the Screener's real medians; every individual sale is generated.
+var CARDS=[
+ {id:"flagg",name:"Cooper Flagg, base RC #251",set:"2025-26 Topps Chrome Basketball",q:"Cooper Flagg 2025-26 Topps Chrome 251",base:{raw:19.5,psa9:52,psa10:300},drift:.04},
+ {id:"murakami",name:"Munetaka Murakami, Red RC Variation #9",set:"2026 Bowman Baseball",q:"Munetaka Murakami 2026 Bowman Red RC Variation",base:{raw:19,psa9:85,psa10:460},drift:-.08},
+ {id:"griffin",name:"Konnor Griffin, base RC",set:"2026 Bowman Chrome Baseball",q:"Konnor Griffin 2026 Bowman Chrome RC",base:{raw:18,psa9:22,psa10:140},drift:.11},
+ {id:"mendoza",name:"Fernando Mendoza, base RC",set:"2026 Bowman Football",q:"Fernando Mendoza 2026 Bowman RC",base:{raw:12,psa9:15,psa10:95},drift:.14},
+ {id:"skenes",name:"Paul Skenes, base RC #USC88",set:"2024 Topps Chrome Update Baseball",q:"Paul Skenes 2024 Topps Chrome Update USC88",base:{raw:6.9,psa9:25,psa10:100},drift:-.05}
+];
+var GRADE_LABEL={raw:"Raw",psa9:"PSA 9",psa10:"PSA 10"};
+var TREND=[
+ {n:"AJ Dybantsa",s:"Basketball",c:"Leads the 2026-27 Topps Flagship Basketball rookie class, out Oct 22.",p:18.4},
+ {n:"Fernando Mendoza",s:"Football",c:"Headlines the Topps Inception Football rookie class.",p:12.1},
+ {n:"Konnor Griffin",s:"Baseball",c:"On the Cosmic Chrome Baseball checklist, out Nov 4.",p:9.6},
+ {n:"Darryn Peterson",s:"Basketball",c:"Flagship Basketball rookie, out Oct 22.",p:8.9},
+ {n:"Munetaka Murakami",s:"Baseball",c:"On the Cosmic Chrome Baseball checklist, out Nov 4.",p:7.2},
+ {n:"CJ Carr",s:"Football",c:"Bowman University Best Football preorders opened Oct 5.",p:6.3},
+ {n:"Kevin McGonigle",s:"Baseball",c:"On the Cosmic Chrome Baseball checklist, out Nov 4.",p:4.4},
+ {n:"Cameron Boozer",s:"Basketball",c:"Flagship Basketball rookie, out Oct 22.",p:3.9},
+ {n:"Cooper Flagg",s:"Basketball",c:"His second NBA season tips off this month.",p:1.8},
+ {n:"JJ Wetherholt",s:"Baseball",c:"On the Cosmic Chrome Baseball checklist, out Nov 4.",p:-2.2},
+ {n:"Arch Manning",s:"Football",c:"Bowman University Best Football preorders opened Oct 5.",p:-3.1},
+ {n:"Roman Anthony",s:"Baseball",c:"On the Cosmic Chrome Baseball checklist, out Nov 4.",p:-5.8}
+];
+var REVIEWS=[
+ {kind:"Review",n:"2026 Bowman Chrome Baseball",when:"Out now",score:"8.2",
+  facts:["Two autographs per hobby box","104 Chrome Prospect Autograph signers","28 Chrome Rookie Autographs, roughly one per 17 hobby boxes","Base prospect autographs run about 2,300 copies each (HobbyMonitor estimate)"],
+  bars:[["Rookie class",8.5],["Hit quality",8],["Print run",7],["Price vs. value",7.5]]},
+ {kind:"Preview",n:"2026 Topps Update Series Baseball",when:"Releases Oct 14",score:"7.4",
+  facts:["350-card checklist of rookies, call-ups and traded players","Hobby, Jumbo, Value Box, Hanger and Fat Pack formats","75th anniversary inserts and parallels"],
+  bars:[["Rookie class",7.5],["Hit quality",6.5],["Print run",6],["Price vs. value",8]]},
+ {kind:"Preview",n:"2026-27 Topps Flagship Basketball",when:"Releases Oct 22",score:"8.6",
+  facts:["300-card base set","Rookies: AJ Dybantsa, Darryn Peterson, Cameron Boozer, Caleb Wilson","Golden Mirror, Wood and Clear variations","Hobby, Jumbo, Mega Box, Blaster and Hanger formats"],
+  bars:[["Rookie class",9.5],["Hit quality",7.5],["Print run",6.5],["Price vs. value",8]]}
+];
+
+/* ---------- sample sales ---------- */
+var LISTING_TAILS={raw:["","NM-MT","Pack Fresh","Rookie","Sharp Corners"],psa9:["PSA 9 MINT","PSA 9","PSA 9 Rookie"],psa10:["PSA 10 GEM MINT","PSA 10","PSA 10 Gem Mt Rookie"]};
+var TYPES=["Auction","Buy It Now","Best Offer"];
+var salesCache={};
+function salesFor(card,grade){
+  var key=card.id+"|"+grade;
+  if(salesCache[key])return salesCache[key];
+  var r=rng(hash(key)),n=16+Math.floor(r()*10),out=[];
+  for(var i=0;i<n;i++){
+    var d=Math.floor(r()*60);
+    var trend=1+card.drift*((60-d)/60-.5);
+    var noise=1+(r()-.5)*(grade==="psa10"?.16:.24);
+    var p=card.base[grade]*trend*noise;
+    p=p>=100?Math.round(p):Math.round(p*100)/100;
+    var tails=LISTING_TAILS[grade];
+    out.push({d:d,p:p,type:TYPES[Math.floor(r()*3)],title:card.set+" "+card.name.replace(/,/g,"")+" "+tails[Math.floor(r()*tails.length)]});
+  }
+  out.sort(function(a,b){return a.d-b.d});
+  return (salesCache[key]=out);
+}
+function summary(sales){
+  var prices=sales.map(function(s){return s.p});
+  var last10=prices.slice(0,10),m30=sales.filter(function(s){return s.d<30}).length;
+  return {last:sales[0].p,med10:median(last10),med:median(prices),lo:Math.min.apply(null,prices),hi:Math.max.apply(null,prices),n30:m30};
+}
+function saleDate(daysAgo){var t=today0();t.setDate(t.getDate()-daysAgo);return MONTHS[t.getMonth()]+" "+t.getDate()}
+
+/* ---------- router ---------- */
+var VIEWS=["market","comps","screener","pregrade","releases","trending","reviews","membership"];
+function show(name,keepScroll){
+  if(VIEWS.indexOf(name)<0)name="market";
+  $$("[data-view]").forEach(function(v){v.hidden=v.dataset.view!==name});
+  $$(".nav a").forEach(function(a){if(a.dataset.go===name)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+  if(name==="comps"&&!$("#comp-panel").hidden)renderComps();
+  if(name==="screener")renderScatter();
+  if(!keepScroll)window.scrollTo(0,0);
+  try{localStorage.setItem("wl-view",name)}catch(e){}
+}
+document.addEventListener("click",function(e){
+  var a=e.target.closest("[data-go]");
+  if(a){show(a.dataset.go)}
+});
+window.addEventListener("hashchange",function(){show(location.hash.slice(1))});
+
+/* ---------- market ---------- */
+function statusOf(dateStr){
+  var diff=Math.round((parseDay(dateStr)-today0())/864e5);
+  if(diff<0)return {out:true,txt:"Out now",diff:diff};
+  if(diff===0)return {out:false,txt:"Today",diff:0};
+  return {out:false,txt:diff===1?"Tomorrow":"In "+diff+" days",diff:diff};
+}
+function dateBox(dateStr){var d=parseDay(dateStr);return '<div class="datebox">'+MONTHS[d.getMonth()]+'<b>'+d.getDate()+'</b>'+DAYS[d.getDay()]+'</div>'}
+function sparkPath(seedStr,pct,w,h){
+  var r=rng(hash(seedStr)),pts=[],v=0,n=14;
+  for(var i=0;i<n;i++){v+=(r()-.5)*2;pts.push(v)}
+  // tilt the walk so it ends in the direction of the change
+  var tilt=(pct/4)-(pts[n-1]-pts[0]);
+  pts=pts.map(function(p,i){return p+tilt*i/(n-1)});
+  var lo=Math.min.apply(null,pts),hi=Math.max.apply(null,pts),span=hi-lo||1;
+  return pts.map(function(p,i){return (i?"L":"M")+(2+i*(w-4)/(n-1)).toFixed(1)+" "+(2+(hi-p)/span*(h-4)).toFixed(1)}).join(" ");
+}
+function sparkSvg(t){
+  var cls=t.p>=0?"var(--up)":"var(--down)";
+  return '<svg class="spark" viewBox="0 0 110 28" preserveAspectRatio="none" aria-hidden="true"><path d="'+sparkPath(t.n,t.p,110,28)+'" fill="none" stroke="'+cls+'" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>';
+}
+function pct(p){return (p>=0?"+":"−")+Math.abs(p).toFixed(1)+"%"}
+function renderMarket(){
+  var flagg=CARDS[0],s10=summary(salesFor(flagg,"psa10")),sraw=summary(salesFor(flagg,"raw"));
+  $("#hero-last").textContent=money(s10.last);
+  $("#hero-stats").innerHTML=
+    "<dt>Median, last 10 sales</dt><dd>"+money(s10.med10)+"</dd>"+
+    "<dt>Sales, last 30 days</dt><dd>"+s10.n30+"</dd>"+
+    "<dt>Raw median</dt><dd>"+money(sraw.med10)+"</dd>"+
+    "<dt>PSA 10 multiple</dt><dd>"+(s10.med10/sraw.med10).toFixed(1)+"x raw</dd>";
+  $("#strip").innerHTML=TREND.map(function(t){
+    return '<span class="strip-item"><b>'+esc(t.n)+'</b><span class="mono '+(t.p>=0?"up":"down")+'">'+pct(t.p)+'</span></span>';
+  }).join("")+'<span class="strip-item muted">7-day change, sample data</span>';
+  var upcoming=RELEASES.filter(function(r){return !statusOf(r.d).out}).slice(0,5);
+  if(!upcoming.length)upcoming=RELEASES.slice(-5);
+  $("#home-releases").innerHTML=upcoming.map(function(r){
+    var st=statusOf(r.d);
+    return '<div class="row row-rel">'+dateBox(r.d)+'<div><div class="t1">'+esc(r.n)+'</div><div class="t2">'+esc(r.m)+" · "+esc(r.s)+'</div></div><span class="pill'+(st.diff<=1&&!st.out?" pill-gold":"")+'">'+st.txt+'</span></div>';
+  }).join("");
+  $("#home-movers").innerHTML=TREND.slice(0,5).map(function(t){
+    return '<div class="row row-mov"><div><div class="t1">'+esc(t.n)+'</div><div class="t2">'+esc(t.s)+'</div></div>'+sparkSvg(t)+'<span class="pill '+(t.p>=0?"pill-up":"pill-down")+'">'+pct(t.p)+'</span></div>';
+  }).join("");
+  $("#home-news").innerHTML=NEWS.map(function(n){
+    return '<div class="news"><span class="eyebrow">'+n.d+'</span><div class="t1">'+esc(n.h)+'</div><div class="t2">'+esc(n.b)+'</div></div>';
+  }).join("");
+}
+
+/* ---------- comps ---------- */
+var state={card:CARDS[0],grade:"psa10",sport:"All",tsport:"All"};
+function cardChips(el){
+  el.innerHTML=CARDS.map(function(c){return '<button class="chip" type="button" data-card="'+c.id+'" aria-pressed="'+(c===state.card)+'">'+esc(c.name.split(",")[0])+'</button>'}).join("");
+}
+function niceStep(raw){var p=Math.pow(10,Math.floor(Math.log10(raw))),f=raw/p;return (f<=1?1:f<=2?2:f<=5?5:10)*p}
+function drawChart(sales,med){
+  var svg=$("#comp-chart"),W=Math.max(300,Math.round(svg.clientWidth)||640),H=236,m={l:54,r:16,t:16,b:32};
+  svg.setAttribute("viewBox","0 0 "+W+" "+H);
+  var ps=sales.map(function(s){return s.p}),lo=Math.min.apply(null,ps),hi=Math.max.apply(null,ps);
+  var step=niceStep((hi-lo)/3||hi/3||1);
+  lo=Math.floor(lo/step)*step;hi=Math.ceil(hi/step)*step;if(hi===lo)hi=lo+step;
+  function x(d){return m.l+(60-d)/60*(W-m.l-m.r)}
+  function y(p){return m.t+(hi-p)/(hi-lo)*(H-m.t-m.b)}
+  var g="";
+  for(var v=lo;v<=hi+step/2;v+=step){
+    g+='<line class="grid" x1="'+m.l+'" x2="'+(W-m.r)+'" y1="'+y(v).toFixed(1)+'" y2="'+y(v).toFixed(1)+'"/><text x="'+(m.l-8)+'" y="'+(y(v)+3.5).toFixed(1)+'" text-anchor="end">$'+(step<1?v.toFixed(2):Math.round(v).toLocaleString("en-US"))+'</text>';
+  }
+  (W<460?[60,30,0]:[60,45,30,15,0]).forEach(function(d){
+    g+='<text x="'+x(d).toFixed(1)+'" y="'+(H-10)+'" text-anchor="'+(d===0?"end":d===60?"start":"middle")+'">'+(d===0?"Today":saleDate(d))+'</text>';
+  });
+  g+='<line class="med" x1="'+m.l+'" x2="'+(W-m.r)+'" y1="'+y(med).toFixed(1)+'" y2="'+y(med).toFixed(1)+'"/>';
+  sales.slice().reverse().forEach(function(s,i,arr){
+    var last=i===arr.length-1;
+    g+='<circle class="'+(last?"dot-last":"dot")+'" cx="'+x(s.d).toFixed(1)+'" cy="'+y(s.p).toFixed(1)+'" r="'+(last?5.5:3.6)+'"><title>'+saleDate(s.d)+": "+money(s.p)+'</title></circle>';
+  });
+  var ly=y(med)-7;if(ly<m.t+10)ly=y(med)+15;
+  g+='<text class="medlab" x="'+(m.l+6)+'" y="'+ly.toFixed(1)+'">60-day median '+money(med)+'</text>';
+  svg.innerHTML=g;
+}
+function ebayUrl(q){return "https://www.ebay.com/sch/i.html?_nkw="+encodeURIComponent(q)+"&LH_Sold=1&LH_Complete=1"}
+function renderComps(){
+  var c=state.card,g=state.grade,sales=salesFor(c,g),s=summary(sales);
+  $("#comp-panel").hidden=false;$("#comp-empty").hidden=true;
+  $("#comp-set").textContent=c.set;$("#comp-name").textContent=c.name;
+  $$("#grade-seg button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.grade===g))});
+  $("#comp-tiles").innerHTML=
+    '<div class="tile"><div class="v">'+money(s.last)+'</div><div class="k">Last sale, '+saleDate(sales[0].d)+'</div></div>'+
+    '<div class="tile"><div class="v">'+money(s.med10)+'</div><div class="k">Median, last 10</div></div>'+
+    '<div class="tile"><div class="v">'+money(s.lo)+"–"+money(s.hi).slice(1)+'</div><div class="k">60-day range</div></div>'+
+    '<div class="tile"><div class="v">'+s.n30+'</div><div class="k">Sales, last 30 days</div></div>';
+  drawChart(sales,s.med);
+  $("#comp-rows").innerHTML=sales.slice(0,10).map(function(x){
+    return '<tr><td class="date">'+saleDate(x.d)+'</td><td>'+esc(x.title.trim())+'</td><td>'+x.type+'</td><td class="num">'+money(x.p)+'</td></tr>';
+  }).join("");
+  $("#ebay-link").href=ebayUrl(c.q+(g==="raw"?"":" "+GRADE_LABEL[g]));
+  cardChips($("#comp-chips"));cardChips($("#hero-chips"));
+}
+function loadCalcFromCard(){
+  var c=state.card;
+  $("#calc-raw").value=Math.round(summary(salesFor(c,"raw")).med10);
+  $("#calc-p9").value=Math.round(summary(salesFor(c,"psa9")).med10);
+  $("#calc-p10").value=Math.round(summary(salesFor(c,"psa10")).med10);
+  renderCalc();
+}
+function pickCard(id){
+  var c=CARDS.filter(function(k){return k.id===id})[0];if(!c)return;
+  state.card=c;renderComps();loadCalcFromCard();
+}
+function searchComps(q){
+  q=q.trim();
+  if(!q){renderComps();return}
+  var words=q.toLowerCase().split(/\s+/);
+  var hit=CARDS.filter(function(c){var hay=(c.name+" "+c.set).toLowerCase();return words.every(function(w){return hay.indexOf(w)>=0})})[0]
+       ||CARDS.filter(function(c){var hay=(c.name+" "+c.set).toLowerCase();return words.some(function(w){return w.length>2&&hay.indexOf(w)>=0})})[0];
+  if(hit){pickCard(hit.id);return}
+  $("#comp-panel").hidden=true;$("#comp-empty").hidden=false;
+  $("#empty-title").textContent='No sample data for "'+q+'"';
+  $("#ebay-link-2").href=ebayUrl(q);
+}
+
+/* ---------- grading math ---------- */
+// Same model as the Screener: the PSA 10 takes the sell-date haircut, a miss sells at a share of the PSA 9 price.
+function gradeMath(raw,p10,p9,cost,feePct,gemPct){
+  var f=feePct/100,g=gemPct/100,net10=p10*(1-SA.haircut)*(1-f),net9=p9*SA.missReal*(1-f),outlay=raw+cost;
+  var spread=net10-net9;
+  var be=spread>0?(outlay-net9)/spread:Infinity;
+  var ev=g*net10+(1-g)*net9-outlay;
+  return {net10:net10,net9:net9,outlay:outlay,breakeven:be,profit:ev,hit10:net10-outlay,miss:net9-outlay};
+}
+function num(id){var v=parseFloat($(id).value);return isFinite(v)&&v>=0?v:0}
+function signed(n){return (n>=0?"+":"−")+money(Math.abs(n))}
+function renderCalc(){
+  var gem=Math.min(100,num("#calc-gem"));
+  var r=gradeMath(num("#calc-raw"),num("#calc-p10"),num("#calc-p9"),num("#calc-fee"),Math.min(100,num("#calc-sell")),gem);
+  var pill=$("#calc-pill"),be=r.breakeven,beTxt,cls,label;
+  if(!isFinite(be)||be>1){beTxt=isFinite(be)?"Over 100%":"None";cls="pill pill-down";label="Pass"}
+  else if(be<=0){beTxt="0%";cls="pill pill-up";label="Grade it"}
+  else{
+    beTxt=(be*100).toFixed(1)+"%";
+    var edge=gem-be*100;
+    if(edge>=SA.minMargin*100){cls="pill pill-up";label="Grade it"}
+    else if(edge>=0){cls="pill pill-gold";label="Thin margin"}
+    else{cls="pill pill-down";label="Pass"}
+  }
+  $("#calc-be").textContent=beTxt;pill.className=cls;pill.textContent=label;
+  $("#calc-meter-fill").style.width=gem+"%";
+  var mark=$("#calc-meter-mark");
+  mark.hidden=!(isFinite(be)&&be>=0&&be<=1);
+  mark.style.left="calc("+(Math.max(0,Math.min(1,be))*100)+"% - 1px)";
+  $("#calc-out").innerHTML=
+    "<dt>Cash in per card</dt><dd>"+money(r.outlay)+"</dd>"+
+    "<dt>If it gems</dt><dd class='"+(r.hit10>=0?"up":"down")+"'>"+signed(r.hit10)+"</dd>"+
+    "<dt>If it misses</dt><dd class='"+(r.miss>=0?"up":"down")+"'>"+signed(r.miss)+"</dd>"+
+    "<dt>Expected profit at "+gem+"% gems</dt><dd class='"+(r.profit>=0?"up":"down")+"'>"+signed(r.profit)+"</dd>";
+  $("#calc-note").textContent="Uses the Screener's assumptions: the PSA 10 takes a "+pc(SA.haircut)+" sell-date haircut and a miss sells at "+pc(SA.missReal)+" of the PSA 9 price. The calculator is live. The prices it loads from the comp sheet are sample data.";
+}
+
+/* ---------- releases ---------- */
+function sportList(items){var seen=["All"];items.forEach(function(i){if(seen.indexOf(i.s)<0)seen.push(i.s)});return seen}
+function chipRow(el,list,current,attr){
+  el.innerHTML=list.map(function(s){return '<button class="chip" type="button" data-'+attr+'="'+s+'" aria-pressed="'+(s===current)+'">'+s+'</button>'}).join("");
+}
+function renderReleases(){
+  chipRow($("#sport-chips"),sportList(RELEASES),state.sport,"sport");
+  var upOnly=$("#upcoming-only").checked;
+  var list=RELEASES.filter(function(r){return (state.sport==="All"||r.s===state.sport)&&(!upOnly||!statusOf(r.d).out)});
+  if(!list.length){$("#cal").innerHTML='<p class="empty">Nothing on the calendar matches. Clear the sport filter or turn off "Upcoming only".</p>';return}
+  var html="",cur="";
+  list.forEach(function(r){
+    var d=parseDay(r.d),key=MONTHS_FULL[d.getMonth()]+" "+d.getFullYear(),st=statusOf(r.d);
+    if(key!==cur){if(cur)html+="</div>";html+='<div class="month">'+key+'</div><div class="rows">';cur=key}
+    html+='<div class="row row-cal'+(st.out?" is-out":"")+'">'+dateBox(r.d)+
+      '<div><div class="t1">'+esc(r.n)+'</div><div class="t2">'+esc(r.t)+'</div><div class="tags"><span class="pill">'+esc(r.m)+'</span><span class="pill">'+esc(r.s)+'</span>'+(r.pick?'<span class="pill pill-gold">Desk pick</span>':"")+'</div></div>'+
+      '<div class="meta"><span class="pill'+(st.out?"":" pill-up")+'">'+st.txt+'</span></div></div>';
+  });
+  $("#cal").innerHTML=html+"</div>";
+}
+
+/* ---------- trending ---------- */
+function renderTrending(){
+  chipRow($("#trend-chips"),sportList(TREND),state.tsport,"tsport");
+  var list=TREND.filter(function(t){return state.tsport==="All"||t.s===state.tsport});
+  $("#trend-rows").innerHTML=list.map(function(t,i){
+    return '<div class="row row-trend"><span class="rank">'+(i+1)+'</span><div><div class="t1">'+esc(t.n)+'</div><div class="t2">'+esc(t.c)+'</div></div><span class="pill sport">'+t.s+'</span>'+sparkSvg(t)+'<span class="chg '+(t.p>=0?"up":"down")+'">'+pct(t.p)+'</span></div>';
+  }).join("");
+}
+
+/* ---------- reviews ---------- */
+function renderReviews(){
+  $("#review-grid").innerHTML=REVIEWS.map(function(r){
+    return '<article class="review"><div class="review-top"><div><p class="eyebrow">'+r.kind+" · "+r.when+'</p><h3 style="margin-top:6px">'+esc(r.n)+'</h3></div><div class="score">'+r.score+'<small>SAMPLE / 10</small></div></div>'+
+      '<ul class="facts">'+r.facts.map(function(f){return "<li>"+esc(f)+"</li>"}).join("")+'</ul>'+
+      '<div class="bars">'+r.bars.map(function(b){return "<span>"+b[0]+'</span><span class="bar"><i style="width:'+(b[1]*10)+'%"></i></span><span class="mono">'+b[1].toFixed(1)+"</span>"}).join("")+'</div></article>';
+  }).join("");
+}
+
+/* ---------- screener ---------- */
+// Snapshot of the Grading Screener board, Oct 8, 2026. Real sold comps and PSA pop counts.
+var SCREEN=[{"id":"flagg-2025-topps-chrome-251-base","player":"Cooper Flagg","year":"2025-26","set":"Topps Chrome","cardNo":"251","parallel":"Base RC","sport":"Basketball","raw":19.53,"rawSales30":60,"psa10":300,"psa10Sales90":350,"compType":"Real","psa9":52,"pop10":5077,"pop9":7487,"popTotal":16744,"asOf":"2026-10-05","conf":"H","order":1,"note":"PSA POP (Oct 7): 10=5,077, 9=7,487, 8=2,837, total 16,744 → 30.3% gem; 45% come back 9. Huge pop and ~2 PSA 10 sales/day. Card Ladder (Sep 13) had 447 PSA 10 sales, avg $287. The $49 PSA 9 is the weak leg — 7,487 nines in circulation keep it cheap. Gem rate is below the 35% the model was assuming. PSA APR (Oct 8): PSA 10 346 sales/90d (171 in the last 30), avg $307, latest $300; PSA 9 401 sales avg $53. Confirms the $300 / ~$50 pair. The nine is worth so little that the card only breaks even.","src":"SportsCardsPro (prices); PSA pop report Oct 7; PSA APR (Oct 8)"},{"id":"flagg-2025-topps-chrome-update-151-refractor","player":"Cooper Flagg","year":"2025-26","set":"Topps Chrome Update","cardNo":"151","parallel":"Refractor","sport":"Basketball","raw":136.02,"rawSales30":60,"psa10":666.61,"psa10Sales90":0,"compType":"Estimate","psa9":226.41,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-10-02","conf":"L","order":2,"note":"Product released ~Sep 24; zero graded sales of any grade yet — every graded price is modeled. Re-check in Dec once slabs exist.","src":"SportsCardsPro"},{"id":"flagg-2025-topps-chrome-update-151-base","player":"Cooper Flagg","year":"2025-26","set":"Topps Chrome Update","cardNo":"151","parallel":"Base RC","sport":"Basketball","raw":8.79,"rawSales30":90,"psa10":71.17,"psa10Sales90":0,"compType":"Estimate","psa9":23.98,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-09-30","conf":"L","order":3,"note":"Same release — graded prices modeled. Also fails the $250 floor.","src":"SportsCardsPro"},{"id":"wembanyama-2023-panini-prizm-136-base","player":"Victor Wembanyama","year":"2023-24","set":"Panini Prizm","cardNo":"136","parallel":"Base RC","sport":"Basketball","raw":72,"rawSales30":90,"psa10":360,"psa10Sales90":359,"compType":"Real","psa9":103,"pop10":27860,"pop9":17445,"popTotal":48387,"asOf":"2026-10-04","conf":"H","order":4,"note":"PSA POP (Oct 7): 10=27,860, 9=17,445, 8=2,328, total 48,387 → 57.6% gem. Enormous pop — the most-graded card in the model by 3x — and still ~2 PSA 10 sales/day at ~$353. Prizm base gems well; the PSA 9 at $103 vs $72 raw means a miss nets ~$76 against $142 all-in. Price has eased from $450–550 in Sep to ~$353. PSA APR (Oct 8): PSA 10 359 sales/90d, avg $376, latest $305; PSA 9 212 sales avg $103. PSA 10 nudged to $360.","src":"SportsCardsPro; pop: PSA pop report Oct 7; PSA APR (Oct 8)"},{"id":"wembanyama-2023-topps-cosmic-chrome-151-base","player":"Victor Wembanyama","year":"2023-24","set":"Topps Cosmic Chrome","cardNo":"151","parallel":"Base RC","sport":"Basketball","raw":158.25,"rawSales30":90,"psa10":599,"psa10Sales90":27,"compType":"Real","psa9":212.75,"pop10":1096,"pop9":325,"popTotal":1767,"asOf":"2026-10-07","conf":"H","order":5,"note":"PSA POP (Oct 7): 10=1,096, 9=325, 8=224, total 1,767 → 62.0% gem — the highest in the model. Only 18% come back 9. Liquidity is the constraint: ~2 PSA 10 sales/week ($599), right at the floor. PSA 9 $213 vs $158 raw = a miss still nets $157 against $228 all-in. PSA 9 has been drifting down ($275–384 May/Jun → $200–237 Aug/Sep). PSA APR (Oct 8): PSA 10 24 sales/90d, avg $577, latest $599; PSA 9 18 sales avg $222. eBay sold Oct 8: ~27 PSA 10s in 90 days, median $592–600, none since Sep 28. Liquidity sits at the floor either way.","src":"SportsCardsPro; pop: PSA pop report Oct 7; PSA APR (Oct 8)"},{"id":"skenes-2024-topps-chrome-update-usc88-base","player":"Paul Skenes","year":"2024","set":"Topps Chrome Update","cardNo":"USC88","parallel":"Base RC","sport":"Baseball","raw":6.92,"rawSales30":28,"psa10":100,"psa10Sales90":39,"compType":"Real","psa9":24.99,"pop10":1414,"pop9":1368,"popTotal":3075,"asOf":"2026-10-02","conf":"M","order":6,"note":"Pop gem 46%. 14x multiple but fails the $250 floor — the 9s are worthless, so every miss eats a full fee.","src":"SportsCardsPro (pop: SportsCardsPro pop page, undated)"},{"id":"sasaki-2025-topps-chrome-217-base","player":"Roki Sasaki","year":"2025","set":"Topps Chrome","cardNo":"217","parallel":"Base RC","sport":"Baseball","raw":1.5,"rawSales30":15,"psa10":55,"psa10Sales90":9,"compType":"Real","psa9":16.5,"pop10":89,"pop9":157,"popTotal":300,"asOf":"2026-09-29","conf":"L","order":7,"note":"Pop looks incomplete (30 PSA 10 sales recorded vs pop of 89). PSA 10 trending down ($70–100 Mar/Apr → $36–60 Jul/Sep).","src":"SportsCardsPro"},{"id":"murakami-2026-bowman-paper-9-rookie","player":"Munetaka Murakami","year":"2026","set":"Bowman (paper)","cardNo":"9","parallel":"Rookie Red RC Variation","sport":"Baseball","raw":19,"rawSales30":25,"psa10":460,"psa10Sales90":18,"compType":"Real","psa9":85,"pop10":50,"pop9":70,"popTotal":151,"asOf":"2026-10-06","conf":"H","order":8,"note":"eBay sold, Oct 7. Genuine Red RC PSA 10, 14 sales Jul 26–Oct 3: Sep–Oct median $494, last two weeks $431 (range $325–500), ~half Best Offer. PSA 9 $80–98 (5 sales). Raw $15–25. PSA POP (Oct 7): 10=50, 9=70, 8=26, 7=2, 6=2, Auth=1, total 151 → 33% gem. 46% of all submissions come back 9 — the 9 is the modal outcome, so the $88 PSA 9 price is doing real work. Earlier $149 PSA 10 figure was SportsCardsPro mis-tagging base #9 sales. ROY odds ~2% — value is scarcity + Japanese demand, not redemption. Bowman CHROME #76 Red RC is a different card. PSA APR (Oct 8): PSA 10 12 sales/90d, avg $457, 30-day avg $427, latest $500; PSA 9 12 sales avg $79. eBay found 14 PSA 10 sales Jul 26–Oct 3 (~18 per 90 days). Both sources put PSA 10 liquidity at roughly one sale a week — under the 25-per-90-days floor. PSA 10 set to $460, PSA 9 to $85, sales/90d to 18.","src":"eBay sold (Oct 7); pop: PSA pop report (Oct 7); PSA APR (Oct 8)"},{"id":"kurtz-2025-topps-chrome-update-usc178-base","player":"Nick Kurtz","year":"2025","set":"Topps Chrome Update","cardNo":"USC178","parallel":"Base RC","sport":"Baseball","raw":1.99,"rawSales30":25,"psa10":109,"psa10Sales90":9,"compType":"Real","psa9":18.49,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-10-01","conf":"M","order":9,"note":"2025 AL ROY. No PSA 10 sale since Aug 31 (last print $66) — thin and softening. Fails the $250 floor.","src":"SportsCardsPro"},{"id":"cruz-2024-topps-chrome-update-usc150-base","player":"Elly De La Cruz","year":"2024","set":"Topps Chrome Update","cardNo":"USC150","parallel":"Base RC (Rookie Debut)","sport":"Baseball","raw":1.99,"rawSales30":27,"psa10":49.99,"psa10Sales90":7,"compType":"Real","psa9":13.45,"pop10":168,"pop9":207,"popTotal":423,"asOf":"2026-10-04","conf":"M","order":10,"note":"No 2023 Chrome Update RC exists — his first Topps RCs are 2024 product. Pop likely incomplete (same tell as Sasaki).","src":"SportsCardsPro"},{"id":"ohtani-2018-topps-update-us1-base","player":"Shohei Ohtani","year":"2018","set":"Topps Update","cardNo":"US1","parallel":"Base RC (Pitching, red jersey)","sport":"Baseball","raw":120,"rawSales30":90,"psa10":545,"psa10Sales90":257,"compType":"Real","psa9":195,"pop10":17415,"pop9":10539,"popTotal":31535,"asOf":"2026-10-04","conf":"H","order":11,"note":"PSA POP (Oct 7): 10=17,415, 9=10,539, 8=2,320, total 31,535 → 55.2% gem (base pitching/red jersey; the SP and SSP variants have their own lines). Deep liquidity: ~1 PSA 10 sale/day at $532. PSA 9 $200 vs $120 raw — a miss nets $148 against $190 all-in, so downside is only ~$42. Beware the Batting SSP (#US1 'Ssp-Batting', PSA 10 ~$13.5k). PSA APR (Oct 8): PSA 10 257 sales/90d, avg $559, 30-day avg $530, latest $550; PSA 9 185 sales avg $199. The most liquid card on the board. PSA 10 set to $545.","src":"SportsCardsPro; pop: PSA pop report Oct 7; PSA APR (Oct 8)"},{"id":"ohtani-2018-topps-chrome-150-base","player":"Shohei Ohtani","year":"2018","set":"Topps Chrome","cardNo":"150","parallel":"Base RC (Pitching)","sport":"Baseball","raw":81.25,"rawSales30":8,"psa10":150.8,"psa10Sales90":60,"compType":"Real","psa9":73.68,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2024-05-29","conf":"L","order":12,"note":"STALE — only a cached mirror returned numbers; newest sale May 2024. PSA 9 below raw is the tell. Refresh before relying on anything in this row.","src":"SportsCardsPro cached mirror"},{"id":"judge-2017-topps-chrome-169-base","player":"Aaron Judge","year":"2017","set":"Topps Chrome","cardNo":"169","parallel":"Base RC (Catching)","sport":"Baseball","raw":97,"rawSales30":4,"psa10":275,"psa10Sales90":90,"compType":"Real","psa9":85.25,"pop10":7395,"pop9":1505,"popTotal":9199,"asOf":"2025-06-14","conf":"L","order":13,"note":"Prices ~16 months stale (SportsCardsPro newest sale Jun 2025). Pop gem 80% — but a 2.8x multiple doesn't survive the sell-date haircut.","src":"SportsCardsPro (pop from embedded table)"},{"id":"jr-2022-topps-chrome-221-extended","player":"Bobby Witt Jr.","year":"2022","set":"Topps Chrome","cardNo":"221","parallel":"Extended SP (NOT regular base)","sport":"Baseball","raw":142.75,"rawSales30":4,"psa10":892,"psa10Sales90":6,"compType":"Real","psa9":285,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-10-07","conf":"L","order":14,"note":"#221 is the short-print extension card (base set ends at #220); raw rows contaminated by Ben Baller copies. ~1 PSA 10 sale/month — illiquid. His regular Chrome RC is 2022 Chrome Update #USC176 (not researched).","src":"SportsCardsPro"},{"id":"henderson-2023-topps-chrome-2-base","player":"Gunnar Henderson","year":"2023","set":"Topps Chrome","cardNo":"2","parallel":"Base RC","sport":"Baseball","raw":1.2,"rawSales30":15,"psa10":32.75,"psa10Sales90":26,"compType":"Real","psa9":15,"pop10":2061,"pop9":887,"popTotal":3100,"asOf":"2026-10-01","conf":"M","order":15,"note":"Pop gem 66%. Fails the $250 floor by a mile — kept as a reference row for what a high gem rate looks like.","src":"SportsCardsPro"},{"id":"trout-2011-topps-update-us175-base","player":"Mike Trout","year":"2011","set":"Topps Update","cardNo":"US175","parallel":"Base RC","sport":"Baseball","raw":285,"rawSales30":30,"psa10":960,"psa10Sales90":94,"compType":"Real","psa9":410,"pop10":7062,"pop9":5677,"popTotal":16536,"asOf":"2026-10-07","conf":"H","order":16,"note":"PSA POP (Oct 7): 10=7,062, 9=5,677, 8=1,687, total 16,536 → 42.7% gem — better than the 2011-print-quality worry suggested, though this pop is heavily pre-screened (15 years of submitters picking their best copies). PSA 10 $897 is from a cached SportsCardsPro mirror and likely ~10% low; raw $285 and PSA 9 $405 are fresh through Oct 3. PSA 9 > raw means a miss nets $300 against $355 all-in. Big ticket: $355 per attempt. PSA APR (Oct 8): PSA 10 94 sales/90d, avg $984, 30-day avg $959, latest $995; PSA 9 55 sales avg $425 (30-day $395). Replaces the cached-mirror $897 — PSA 10 raised to $960, PSA 9 to $410.","src":"SportsCardsPro (PSA 10 from cached mirror); pop: PSA pop report Oct 7; PSA APR (Oct 8)"},{"id":"flagg-2025-topps-chrome-251-refractor","player":"Cooper Flagg","year":"2025-26","set":"Topps Chrome","cardNo":"251","parallel":"Refractor (unnumbered)","sport":"Basketball","raw":250,"rawSales30":30,"psa10":1838,"psa10Sales90":143,"compType":"Real","psa9":375,"pop10":1178,"pop9":2126,"popTotal":4584,"asOf":"2026-10-04","conf":"H","order":17,"note":"PSA POP (Oct 7): 10=1,178, 9=2,126, 8=822, total 4,584 → 25.7% gem; 46% come back 9. Prices: SportsCardsPro $1,838 / Card Ladder avg $1,892 over 143 sales (Jul–Oct), last $1,740 Oct 4; PSA 9 $375 (30 sales). The 9 salvage ($375 vs $250 raw) is what makes a 26% gem rate work. Pop is growing ~1 PSA 10/day; underwrite Feb at $1,000–1,200, not $1,800. PSA APR (Oct 8): PSA 10 94 sales/90d, avg $1,941, 30-day avg $1,824, latest $1,740; PSA 9 126 sales avg $370. Matches the board.","src":"SportsCardsPro + Card Ladder (prices); PSA pop report Oct 7; PSA APR (Oct 8)"},{"id":"flagg-2025-bowman-basketball-brr-1-chrome","player":"Cooper Flagg","year":"2025-26","set":"Bowman Basketball","cardNo":"BRR-1","parallel":"Chrome Rookie Red RC Variation","sport":"Basketball","raw":null,"rawSales30":null,"psa10":null,"psa10Sales90":null,"compType":"Real","psa9":null,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-10-07","conf":"L","order":18,"note":"Card exists (1:20 hobby packs per TCGtalk) but NO price data was retrievable — none of the price guides carry it. Fill raw / PSA 10 / PSA 9 from eBay sold. No source ties it to a Fanatics redemption program for the NBA. No Red RC variant exists on the Topps Chrome #251 console (18 variants, none Red).","src":"n/a"},{"id":"crow-armstrong-2020-bowman-draft-chrome-bd-72-1st","player":"Pete Crow-Armstrong","year":"2020","set":"Bowman Draft Chrome","cardNo":"BD-72","parallel":"1st Bowman Chrome base","sport":"Baseball","raw":41.51,"rawSales30":150,"psa10":300,"psa10Sales90":84,"compType":"Real","psa9":120,"pop10":939,"pop9":496,"popTotal":1477,"asOf":"2026-10-06","conf":"H","order":19,"note":"PSA POP (Oct 7): Chrome base 10=939, 9=496, 8=34, total 1,477 → 63.6% gem (Cardlines' 926/1,454 was right). Refractor line: 1,113/1,566 = 71%. eBay sold, Oct 7: base PSA 10 15 sales Sep 16–Oct 6, median $321, trending down weekly ($392 → $346 → $286); last four $255/$275/$297/$312. PSA 9 $120 (13 sales). SportsCardsPro's $406 headline mixed Refractor/Sapphire prints into base comps. Price trend is the risk — at $250 PSA 10 the card fails the floor. PSA APR (Oct 8): PSA 10 84 sales/90d, avg $392, 30-day avg $409, latest $250; PSA 9 37 sales avg $122. eBay last ten PSA 10 median $308 (Oct 3–6: $255–312) — kept at $300 because the October prints are below the 90-day average.","src":"eBay sold (Oct 7); pop: PSA pop report Oct 7; PSA APR (Oct 8)"},{"id":"crow-armstrong-2020-bowman-draft-bd-72-1st","player":"Pete Crow-Armstrong","year":"2020","set":"Bowman Draft","cardNo":"BD-72","parallel":"1st Bowman (paper)","sport":"Baseball","raw":10,"rawSales30":150,"psa10":300,"psa10Sales90":25,"compType":"Real","psa9":55,"pop10":395,"pop9":175,"popTotal":600,"asOf":"2026-10-07","conf":"H","order":20,"note":"PSA APR (90 days): PSA 10 20 sales, avg $239, Sep sales $295–355, latest $187.50 and $295 on Oct 6; 30-day avg $281. eBay sold (titles without 'Chrome', Aug 28–Oct 6): 11 PSA 10 sales, median $330 ($230–510). PSA 9: PSA APR 11 sales avg $59 (30-day $88); eBay 4 sales $42–110. Raw: PSA APR avg $12, recent eBay $6.55–25. PSA POP: 10=395 / 9=175 / 8=19 of 600 → 66% gem — the paper gems better than the Chrome (64%) and only 600 have been graded. Price re-rated in September on PCA's MVP-level season ('NL MVP' in titles). Liquidity is the one soft spot: ~20–25 PSA 10 sales per 90 days, right at the floor.","src":"eBay sold + PSA APR (Oct 8); pop: PSA pop report Oct 8"},{"id":"crow-armstrong-2024-topps-chrome-16-base","player":"Pete Crow-Armstrong","year":"2024","set":"Topps Chrome","cardNo":"16","parallel":"Base RC","sport":"Baseball","raw":9.84,"rawSales30":180,"psa10":152.76,"psa10Sales90":13,"compType":"Real","psa9":44.17,"pop10":157,"pop9":195,"popTotal":478,"asOf":"2026-10-04","conf":"H","order":21,"note":"Most liquid raw (6/day). Pop gem 33%. September PSA 10 sales ($255 on 9/18, $320 on 9/6) sit well above the $153 headline — if that holds it crosses the $250 floor; re-pull in 30 days. Newest raw $3 is an outlier.","src":"SportsCardsPro"},{"id":"crow-armstrong-2024-topps-series-2-407-base","player":"Pete Crow-Armstrong","year":"2024","set":"Topps Series 2","cardNo":"407","parallel":"Base RC","sport":"Baseball","raw":4.26,"rawSales30":60,"psa10":126.83,"psa10Sales90":13,"compType":"Real","psa9":30,"pop10":224,"pop9":185,"popTotal":446,"asOf":"2026-09-28","conf":"H","order":22,"note":"Highest gem rate of his cards (50%) but fails the $250 floor. Recent PSA 10 sales $210–247 run ~1.8x the headline. Series 1 has no PCA base RC (insert SMLB-25 only).","src":"SportsCardsPro"},{"id":"crow-armstrong-2024-topps-chrome-update-usc158-base","player":"Pete Crow-Armstrong","year":"2024","set":"Topps Chrome Update","cardNo":"USC158","parallel":"Base RC (Rookie Debut)","sport":"Baseball","raw":4.78,"rawSales30":120,"psa10":290,"psa10Sales90":3,"compType":"Real","psa9":25,"pop10":38,"pop9":47,"popTotal":99,"asOf":"2026-09-11","conf":"M","order":23,"note":"Clean base PSA 10 comps $319 (9/10) and $287 (9/7); the listed comp set is contaminated with numbered parallels ($600 /50, Lava /125). ~1 PSA 10 sale/month and total pop 99 — fails liquidity. Pop gem 38%.","src":"SportsCardsPro"},{"id":"allen-2018-donruss-optic-154-rated","player":"Josh Allen","year":"2018","set":"Donruss Optic","cardNo":"154","parallel":"Rated Rookie base","sport":"Football","raw":265,"rawSales30":35,"psa10":950,"psa10Sales90":70,"compType":"Real","psa9":300,"pop10":2559,"pop9":2070,"popTotal":5090,"asOf":"2026-10-07","conf":"H","order":24,"note":"eBay sold, Oct 7: PSA 10 41 sales Aug 13–Oct 7, window median $850 and the last ten $1,093 ($750–1,550) — rising fast; PSA 9 38 sales at $285–350; raw 35 sales/30d, clean copies $190–300 (the $15 and $175 prints were damaged, $450 an outlier). PSA POP: 10=2,559 / 9=2,070 / 8=345 of 5,090 → 50% gem. The $300 nine covers most of a $265 raw, so the downside on a miss is small. The risk is the ticket: $335 per attempt and a PSA 10 price that has moved 30% in six weeks — underwrite at $850, not $1,100. PSA APR (Oct 8): PSA 10 60 sales/90d, avg $854, 30-day avg $945, latest $1,050; PSA 9 45 sales avg $277 (30-day $298). Agrees with eBay: the 10 is running up fast.","src":"eBay sold (Oct 7); pop: PSA pop report Oct 8; PSA APR (Oct 8)"},{"id":"allen-2018-panini-prizm-205-base","player":"Josh Allen","year":"2018","set":"Panini Prizm","cardNo":"205","parallel":"Base RC","sport":"Football","raw":150,"rawSales30":23,"psa10":680,"psa10Sales90":50,"compType":"Real","psa9":190,"pop10":2330,"pop9":4244,"popTotal":7257,"asOf":"2026-10-07","conf":"H","order":25,"note":"eBay sold, Oct 7: PSA 10 21 sales Aug 30–Oct 7, median $645, last ten $740 ($599–910) and rising; PSA 9 31 sales at $175–230; raw 23 sales/30d at $110–205. PSA POP: 10=2,330 / 9=4,244 / 8=531 of 7,257 → 32% gem; 58% of submissions come back 9. 2018 Prizm centering is the problem. The $190 nine is what keeps it near break-even; it only works if you can screen centering hard before buying. PSA APR (Oct 8): PSA 10 47 sales/90d, avg $625, 30-day avg $664, latest $600; PSA 9 87 sales avg $199. PSA 10 set to $680 (between PSA's 30-day average and eBay's last-ten median).","src":"eBay sold (Oct 7); pop: PSA pop report Oct 8; PSA APR (Oct 8)"},{"id":"jackson-2018-donruss-optic-167-rated","player":"Lamar Jackson","year":"2018","set":"Donruss Optic","cardNo":"167","parallel":"Rated Rookie base","sport":"Football","raw":52,"rawSales30":29,"psa10":250,"psa10Sales90":66,"compType":"Real","psa9":90,"pop10":2839,"pop9":1858,"popTotal":4942,"asOf":"2026-10-07","conf":"H","order":26,"note":"eBay sold, Oct 7: PSA 10 57 sales Aug 11–Oct 7 at a tight $247–300, median $250–255 — sitting exactly on the model's price floor; PSA 9 22 sales, $71–115; raw 29 sales/30d at $31–70. PSA POP: 10=2,839 / 9=1,858 / 8=174 of 4,942 → 57% gem, one of the best in the model. Extremely liquid, but the PSA 10 is only ~5x raw and the fee eats most of it: a 57% gem rate against a break-even near 50%. A $25 move in the PSA 10 either way flips the verdict. PSA APR (Oct 8): PSA 10 66 sales/90d, avg $232, 30-day avg $245, latest $260; PSA 9 28 sales avg $85. PSA's averages sit just under the $250 floor; eBay's median sits just on it. Set to $250 — this card lives on the line.","src":"eBay sold (Oct 7); pop: PSA pop report Oct 8; PSA APR (Oct 8)"},{"id":"jackson-2018-panini-prizm-212-base","player":"Lamar Jackson","year":"2018","set":"Panini Prizm","cardNo":"212","parallel":"Base RC","sport":"Football","raw":30,"rawSales30":30,"psa10":350,"psa10Sales90":13,"compType":"Real","psa9":50,"pop10":798,"pop9":4398,"popTotal":6824,"asOf":"2026-10-06","conf":"M","order":27,"note":"SportsCardsPro prices (not eBay-verified): raw $12–43, PSA 9 $32–65, PSA 10 $350 at ~1 sale/week. PSA POP: 10=798 / 9=4,398 / 8=1,448 of 6,824 → 11.7% gem — 64% come back 9 and 21% come back 8 or worse. The worst gem rate in the model. Even the 11x multiple can't carry that.","src":"SportsCardsPro (not eBay-verified); pop: PSA pop report Oct 8"},{"id":"williams-2024-panini-prizm-301-base","player":"Caleb Williams","year":"2024","set":"Panini Prizm","cardNo":"301","parallel":"Base RC","sport":"Football","raw":6,"rawSales30":150,"psa10":299,"psa10Sales90":26,"compType":"Real","psa9":40,"pop10":984,"pop9":2653,"popTotal":5334,"asOf":"2026-10-07","conf":"H","order":28,"note":"eBay sold, Oct 7: raw ~$5–7 with 65 sales in ten days; PSA 9 $26–50 (8 sales in ten days); PSA 10 one sale at $299 in the same window (SportsCardsPro shows ~2/week). PSA POP: 10=984 / 9=2,653 / 8=1,069 of 5,334 → 18% gem, 50% nines, 20% eights-or-worse. A 48x multiple that gems less than one in five is a trap: the expected value is below the fee.","src":"eBay sold (Oct 7); pop: PSA pop report Oct 8"},{"id":"nix-2024-panini-prizm-309-base","player":"Bo Nix","year":"2024","set":"Panini Prizm","cardNo":"309","parallel":"Base RC","sport":"Football","raw":3,"rawSales30":110,"psa10":80,"psa10Sales90":36,"compType":"Real","psa9":22,"pop10":1727,"pop9":3256,"popTotal":5943,"asOf":"2026-10-07","conf":"H","order":29,"note":"eBay sold, Oct 7: PSA 10 $79–120 (4 sales in ten days), PSA 9 $16–36, raw $1–3. PSA POP: 10=1,727 / 9=3,256 / 8=763 of 5,943 → 29% gem. Fails the $250 floor by a wide margin.","src":"eBay sold (Oct 7); pop: PSA pop report Oct 8"},{"id":"maye-2024-panini-prizm-329-base","player":"Drake Maye","year":"2024","set":"Panini Prizm","cardNo":"329","parallel":"Base RC","sport":"Football","raw":5,"rawSales30":110,"psa10":110,"psa10Sales90":200,"compType":"Real","psa9":23,"pop10":2704,"pop9":4053,"popTotal":8069,"asOf":"2026-10-07","conf":"H","order":30,"note":"eBay sold, Oct 7: PSA 10 $98–125, 22 sales in ten days (very liquid); PSA 9 $18–35; raw $1–24. PSA POP: 10=2,704 / 9=4,053 / 8=899 of 8,069 → 34% gem. Fails the $250 floor.","src":"eBay sold (Oct 7); pop: PSA pop report Oct 8"},{"id":"daniels-2024-panini-prizm-347-base","player":"Jayden Daniels","year":"2024","set":"Panini Prizm","cardNo":"347","parallel":"Base RC","sport":"Football","raw":2.5,"rawSales30":150,"psa10":52,"psa10Sales90":150,"compType":"Real","psa9":17,"pop10":5753,"pop9":8236,"popTotal":16111,"asOf":"2026-10-07","conf":"H","order":31,"note":"eBay sold, Oct 7: PSA 10 $50–60 (one $100 print), 17 sales in ten days; PSA 9 $10–22; raw ~$1–3. PSA POP: 10=5,753 / 9=8,236 / 8=1,671 of 16,111 → 36% gem. Huge pop, far below the floor.","src":"eBay sold (Oct 7); pop: PSA pop report Oct 8"},{"id":"harper-2025-topps-chrome-252-base","player":"Dylan Harper","year":"2025-26","set":"Topps Chrome","cardNo":"252","parallel":"Base RC","sport":"Basketball","raw":5,"rawSales30":180,"psa10":320,"psa10Sales90":25,"compType":"Real","psa9":50,"pop10":319,"pop9":416,"popTotal":830,"asOf":"2026-10-07","conf":"H","order":32,"note":"eBay sold, Oct 7: PSA 10 29 sales Jul 11–Oct 5, window median $315 and the last ten $356 — the latest four printed $325–490; PSA 9 20 sales since July, median $48–56; raw ~$5 with 47 sales in eight days. PSA POP: 10=319 / 9=416 / 8=75 of 830 → 38% gem. Tiny pop for a #2 pick (Flagg base is 16,744) — the price is holding because almost nobody is grading it yet. ~33 PSA 10 sales/90d is fine liquidity. Underwrite at $300. PSA APR (Oct 8): PSA 10 25 sales/90d, avg $305, 30-day avg $311, latest $375; PSA 9 17 sales avg $51. PSA 10 set to $320; liquidity right at the floor.","src":"eBay sold (Oct 7); pop: PSA pop report Oct 8; PSA APR (Oct 8)"},{"id":"harper-2025-topps-chrome-252-refractor","player":"Dylan Harper","year":"2025-26","set":"Topps Chrome","cardNo":"252","parallel":"Refractor (unnumbered)","sport":"Basketball","raw":70,"rawSales30":100,"psa10":1200,"psa10Sales90":28,"compType":"Real","psa9":165,"pop10":264,"pop9":565,"popTotal":1034,"asOf":"2026-10-07","conf":"H","order":33,"note":"eBay sold, Oct 7: PSA 10 32 sales Jul 11–Sep 28, median $1,200–1,258 (most $1,125–1,500, a few $500–540 prints); no base-Refractor PSA 10 sale in the first week of October; PSA 9 8 sales at $170–199; raw 76 sales in 17 days, $50–81. PSA POP: 10=264 / 9=565 / 8=159 of 1,034 → 26% gem, 55% nines. Same shape as the Flagg Refractor: a weak gem rate carried by a 9 that returns more than the raw cost. PSA APR (Oct 8): PSA 10 19 sales/90d, avg $1,321, but only 4 in the last 30 days (avg $1,065, latest $1,100); PSA 9 39 sales avg $165. eBay found 32 PSA 10s over 79 days; PSA's own count is 19 — set to 28 and treat liquidity as thin. The 10 is drifting down from $1,300 toward $1,100.","src":"eBay sold (Oct 7); pop: PSA pop report Oct 8; PSA APR (Oct 8)"},{"id":"knueppel-2025-topps-chrome-254-refractor","player":"Kon Knueppel","year":"2025-26","set":"Topps Chrome","cardNo":"254","parallel":"Refractor (unnumbered)","sport":"Basketball","raw":45,"rawSales30":100,"psa10":605,"psa10Sales90":60,"compType":"Real","psa9":75,"pop10":826,"pop9":1079,"popTotal":2233,"asOf":"2026-10-07","conf":"H","order":34,"note":"eBay sold, Oct 7: PSA 10 18 sales Sep 17–Oct 7, median $605–611 ($380–690; three on Oct 7 alone at $610–690); PSA 9 16 sales, $58–81; raw 72 sales in 21 days at $36–55. PSA POP: 10=826 / 9=1,079 / 8=229 of 2,233 → 37% gem. Deep liquidity on both ends, 9 returns most of the raw cost, 13x multiple. Knueppel's rookie-year production is driving this; price is the thing to watch, not the math. PSA APR (Oct 8): PSA 10 59 sales/90d, avg $635, 30-day avg $604, latest $600; PSA 9 47 sales avg $79. Agrees with eBay.","src":"eBay sold (Oct 7); pop: PSA pop report Oct 8; PSA APR (Oct 8)"},{"id":"edgecombe-2025-topps-chrome-253-refractor","player":"VJ Edgecombe","year":"2025-26","set":"Topps Chrome","cardNo":"253","parallel":"Refractor (unnumbered)","sport":"Basketball","raw":40,"rawSales30":72,"psa10":590,"psa10Sales90":60,"compType":"Real","psa9":76,"pop10":624,"pop9":709,"popTotal":1481,"asOf":"2026-10-07","conf":"H","order":35,"note":"eBay sold, Oct 7: PSA 10 27 sales Sep 15–Oct 7, median $590 ($495–600, one $204 outlier); PSA 9 10 sales, $44–88; raw 55 sales in 23 days at $30–40. PSA POP: 10=624 / 9=709 / 8=113 of 1,481 → 42% gem — the best gem rate of the four rookies' Refractors. ~105 PSA 10 sales/90d. One of the highest expected returns on the board at these prices. PSA APR (Oct 8): PSA 10 54 sales/90d, avg $610, 30-day avg $587, latest $550; PSA 9 36 sales avg $77. Agrees with eBay; sales/90d trimmed to PSA's count.","src":"eBay sold (Oct 7); pop: PSA pop report Oct 8; PSA APR (Oct 8)"},{"id":"bailey-2025-topps-chrome-255-refractor","player":"Ace Bailey","year":"2025-26","set":"Topps Chrome","cardNo":"255","parallel":"Refractor (unnumbered)","sport":"Basketball","raw":13,"rawSales30":79,"psa10":285,"psa10Sales90":26,"compType":"Real","psa9":39,"pop10":257,"pop9":320,"popTotal":655,"asOf":"2026-10-07","conf":"H","order":36,"note":"eBay sold, Oct 7: PSA 10 8 sales Sep 9–Oct 7, median $285–292 ($180–300) — right at the floor; PSA 9 9 sales, $23–55; raw 74 sales in 28 days at $10–32. PSA POP: 10=257 / 9=320 / 8=61 of 655 → 39% gem. The $39 nine barely covers the raw card, so every miss eats most of the fee; break-even 31% against a 39% gem rate. Thin. The weakest of the 2025 class. PSA APR (Oct 8): PSA 10 19 sales/90d, avg $281, latest $280; PSA 9 13 sales avg $38. Agrees with eBay.","src":"eBay sold (Oct 7); pop: PSA pop report Oct 8; PSA APR (Oct 8)"},{"id":"bedard-2023-upper-deck-series-2-451-young","player":"Connor Bedard","year":"2023-24","set":"Upper Deck Series 2","cardNo":"451","parallel":"Young Guns RC","sport":"Hockey","raw":210,"rawSales30":57,"psa10":650,"psa10Sales90":77,"compType":"Real","psa9":250,"pop10":8202,"pop9":9899,"popTotal":20406,"asOf":"2026-10-07","conf":"H","order":37,"note":"eBay sold, Oct 7: PSA 10 41 sales Aug 20–Oct 7, window median $675, last ten $632 ($600–675); PSA 9 42 sales, $224–282; raw 57 sales/30d at $170–246. PSA POP: 10=8,202 / 9=9,899 / 8=1,843 of 20,406 → 40% gem. Everything about this card is liquid, but the PSA 10 is only 3x raw and the 9 trades just above raw, so the fee is the whole margin: 40% gem vs a 36% break-even. Not worth a $280 ticket for a few dollars of expected profit. PSA APR (Oct 8): PSA 10 79 sales/90d, avg $673, latest $620; PSA 9 69 sales avg $253. Agrees with eBay.","src":"eBay sold (Oct 7); pop: PSA pop report Oct 8; PSA APR (Oct 8)"},{"id":"celebrini-2024-upper-deck-series-2-451-young","player":"Macklin Celebrini","year":"2024-25","set":"Upper Deck Series 2","cardNo":"451","parallel":"Young Guns RC","sport":"Hockey","raw":440,"rawSales30":113,"psa10":2110,"psa10Sales90":79,"compType":"Real","psa9":540,"pop10":2494,"pop9":5240,"popTotal":10636,"asOf":"2026-10-07","conf":"H","order":38,"note":"eBay sold, Oct 7: PSA 10 22 sales Sep 12–Oct 7, median $2,110–2,136 ($1,900–2,150; a $24k 'Speckled Rainbow' print is a parallel); PSA 9 29 sales, $485–600; raw 113 sales/30d at $380–555. PSA POP: 10=2,494 / 9=5,240 / 8=2,401 of 10,636 → 23% gem, and 23% come back 8 or worse — 2024-25 Series 2 print quality is poor, so the model's 85% miss realization is generous here. $510 per attempt and a −$110 downside on a 9; clears, but it is a capital-heavy, low-gem bet that only works because the 9 is worth more than raw. PSA APR (Oct 8): PSA 10 77 sales/90d, avg $2,143, latest $2,050; PSA 9 122 sales avg $531. Agrees with eBay.","src":"eBay sold (Oct 7); pop: PSA pop report Oct 8; PSA APR (Oct 8)"},{"id":"mcdavid-2015-upper-deck-series-1-201-young","player":"Connor McDavid","year":"2015-16","set":"Upper Deck Series 1","cardNo":"201","parallel":"Young Guns RC","sport":"Hockey","raw":900,"rawSales30":7,"psa10":3200,"psa10Sales90":29,"compType":"Real","psa9":1150,"pop10":3305,"pop9":3302,"popTotal":8014,"asOf":"2026-10-07","conf":"H","order":39,"note":"eBay sold, Oct 7: PSA 10 26 sales Jul 11–Oct 1, window median $3,114, last ten $3,389 ($3,378–5,418); PSA 9 24 sales, $914–1,316; raw only 7 sales/30d at $720–1,100. PSA POP: 10=3,305 / 9=3,302 / 8=912 of 8,014 → 41% gem (heavily pre-screened after a decade). The 9 at $1,150 returns more than the $900 raw, so the break-even is under 10%. The constraints are capital ($970 per attempt) and raw supply (two a week). PSA APR (Oct 8): PSA 10 28 sales/90d, avg $3,227, 30-day avg $3,327, latest $3,100; PSA 9 26 sales avg $1,164. Agrees with eBay.","src":"eBay sold (Oct 7); pop: PSA pop report Oct 8; PSA APR (Oct 8)"},{"id":"herbert-2020-panini-prizm-325-base","player":"Justin Herbert","year":"2020","set":"Panini Prizm","cardNo":"325","parallel":"Base RC","sport":"Football","raw":7.26,"rawSales30":30,"psa10":49.58,"psa10Sales90":90,"compType":"Real","psa9":19.35,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-10-05","conf":"M","order":40,"note":"SportsCardsPro screen: raw $1–22, PSA 9 $10–29, PSA 10 ~$50 at ~1/day. Very liquid, nowhere near the floor. Variant numbers (#325A/#325b) mixed into titles.","src":"SportsCardsPro (not eBay-verified)"},{"id":"burrow-2020-panini-prizm-307-base","player":"Joe Burrow","year":"2020","set":"Panini Prizm","cardNo":"307","parallel":"Base RC","sport":"Football","raw":15.08,"rawSales30":30,"psa10":113.59,"psa10Sales90":90,"compType":"Real","psa9":29.99,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-10-05","conf":"M","order":41,"note":"SportsCardsPro screen: PSA 10 ~$114 at ~1/day; photo-variation sales contaminate the 9 comps. Less than half the floor.","src":"SportsCardsPro (not eBay-verified)"},{"id":"hurts-2020-panini-prizm-343-base","player":"Jalen Hurts","year":"2020","set":"Panini Prizm","cardNo":"343","parallel":"Base RC","sport":"Football","raw":5,"rawSales30":30,"psa10":57.5,"psa10Sales90":90,"compType":"Real","psa9":17.99,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-09-30","conf":"M","order":42,"note":"SportsCardsPro screen: PSA 10 ~$58 at ~1/day. Far below the floor.","src":"SportsCardsPro (not eBay-verified)"},{"id":"edwards-2020-panini-prizm-258-base","player":"Anthony Edwards","year":"2020-21","set":"Panini Prizm","cardNo":"258","parallel":"Base RC","sport":"Basketball","raw":9.9,"rawSales30":65,"psa10":130,"psa10Sales90":39,"compType":"Real","psa9":35,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-10-06","conf":"M","order":43,"note":"SportsCardsPro screen: PSA 10 ~$130 at ~3/week, PSA 9 $35, raw $5–22. Extremely liquid, half the floor.","src":"SportsCardsPro (not eBay-verified)"},{"id":"ball-2020-panini-prizm-278-base","player":"LaMelo Ball","year":"2020-21","set":"Panini Prizm","cardNo":"278","parallel":"Base RC","sport":"Basketball","raw":2.53,"rawSales30":31,"psa10":57.88,"psa10Sales90":39,"compType":"Real","psa9":15.27,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-10-04","conf":"M","order":44,"note":"SportsCardsPro screen: PSA 10 ~$58, PSA 9 trending down. Far below the floor.","src":"SportsCardsPro (not eBay-verified)"},{"id":"doncic-2018-panini-prizm-280-base","player":"Luka Doncic","year":"2018-19","set":"Panini Prizm","cardNo":"280","parallel":"Base RC","sport":"Basketball","raw":55,"rawSales30":14,"psa10":201,"psa10Sales90":90,"compType":"Real","psa9":79.03,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-10-04","conf":"M","order":45,"note":"SportsCardsPro screen: PSA 10 ~$201 at ~1/day, PSA 9 $40–150 (median $79) vs raw $41–70. The 9 covers raw and liquidity is deep; it fails only the $250 floor. The closest near-miss among the veterans — worth re-checking if Luka's market moves.","src":"SportsCardsPro (not eBay-verified)"},{"id":"gilgeous-alexander-2018-panini-prizm-184-base","player":"Shai Gilgeous-Alexander","year":"2018-19","set":"Panini Prizm","cardNo":"184","parallel":"Base RC","sport":"Basketball","raw":21.29,"rawSales30":47,"psa10":225.09,"psa10Sales90":39,"compType":"Real","psa9":41.8,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-10-01","conf":"M","order":46,"note":"SportsCardsPro screen: PSA 10 ~$225 at ~3/week, PSA 9 $34–50, raw $8–35, all drifting slightly down. $25 under the floor.","src":"SportsCardsPro (not eBay-verified)"},{"id":"morant-2019-panini-prizm-249-base","player":"Ja Morant","year":"2019-20","set":"Panini Prizm","cardNo":"249","parallel":"Base RC","sport":"Basketball","raw":3.99,"rawSales30":13,"psa10":27.5,"psa10Sales90":90,"compType":"Real","psa9":9.9,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-09-29","conf":"M","order":47,"note":"SportsCardsPro screen: PSA 10 ~$28 and falling. Nowhere near the floor.","src":"SportsCardsPro (not eBay-verified)"},{"id":"tatum-2017-panini-prizm-16-base","player":"Jayson Tatum","year":"2017-18","set":"Panini Prizm","cardNo":"16","parallel":"Base RC","sport":"Basketball","raw":19.16,"rawSales30":16,"psa10":97.5,"psa10Sales90":90,"compType":"Real","psa9":33,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-10-04","conf":"M","order":48,"note":"SportsCardsPro screen: PSA 10 ~$98 at ~1/day, PSA 9 $33 vs raw $19. Liquid, far under the floor.","src":"SportsCardsPro (not eBay-verified)"},{"id":"cunningham-2021-panini-prizm-282-base","player":"Cade Cunningham","year":"2021-22","set":"Panini Prizm","cardNo":"282","parallel":"Base RC","sport":"Basketball","raw":3.13,"rawSales30":37,"psa10":89,"psa10Sales90":26,"compType":"Real","psa9":23.7,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-10-05","conf":"M","order":49,"note":"SportsCardsPro screen: PSA 10 ~$89 at ~2/week; 9 comps contaminated by an NBA 75th insert. Far below the floor.","src":"SportsCardsPro (not eBay-verified)"},{"id":"banchero-2022-panini-prizm-249-base","player":"Paolo Banchero","year":"2022-23","set":"Panini Prizm","cardNo":"249","parallel":"Base RC","sport":"Basketball","raw":2.18,"rawSales30":16,"psa10":48.27,"psa10Sales90":26,"compType":"Real","psa9":16,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-09-12","conf":"M","order":50,"note":"SportsCardsPro screen: PSA 10 ~$48; newest sales are mid-September. Far below the floor.","src":"SportsCardsPro (not eBay-verified)"},{"id":"knueppel-2025-topps-chrome-254-base","player":"Kon Knueppel","year":"2025-26","set":"Topps Chrome","cardNo":"254","parallel":"Base RC","sport":"Basketball","raw":3,"rawSales30":41,"psa10":105,"psa10Sales90":50,"compType":"Real","psa9":22.08,"pop10":1587,"pop9":2194,"popTotal":4742,"asOf":"2026-10-05","conf":"M","order":51,"note":"SportsCardsPro screen: PSA 10 $94–120 (12 visible sales Sep 10–28), PSA 9 $22, raw $3. PSA POP: 10=1,587 / 9=2,194 / 8=698 of 4,742 → 33% gem. The Refractor is the card to grade; the base fails the floor.","src":"SportsCardsPro (not eBay-verified); pop: PSA pop report Oct 8"},{"id":"edgecombe-2025-topps-chrome-253-base","player":"VJ Edgecombe","year":"2025-26","set":"Topps Chrome","cardNo":"253","parallel":"Base RC","sport":"Basketball","raw":2.25,"rawSales30":41,"psa10":106.75,"psa10Sales90":26,"compType":"Real","psa9":21.5,"pop10":537,"pop9":606,"popTotal":1335,"asOf":"2026-10-05","conf":"M","order":52,"note":"SportsCardsPro screen: PSA 10 $76–225 (median ~$107), PSA 9 $22, raw $2. PSA POP: 10=537 / 9=606 / 8=137 of 1,335 → 40% gem. Fails the floor; grade the Refractor instead.","src":"SportsCardsPro (not eBay-verified); pop: PSA pop report Oct 8"},{"id":"bailey-2025-topps-chrome-255-base","player":"Ace Bailey","year":"2025-26","set":"Topps Chrome","cardNo":"255","parallel":"Base RC","sport":"Basketball","raw":1.74,"rawSales30":30,"psa10":65.52,"psa10Sales90":13,"compType":"Real","psa9":10,"pop10":143,"pop9":127,"popTotal":324,"asOf":"2026-09-30","conf":"M","order":53,"note":"SportsCardsPro screen: PSA 10 $41–202 (median ~$66) at ~1/week, PSA 9 $10. PSA POP: 10=143 / 9=127 / 8=52 of 324 → 44% gem. Fails the floor and liquidity.","src":"SportsCardsPro (not eBay-verified); pop: PSA pop report Oct 8"},{"id":"soto-2018-topps-update-us300-base","player":"Juan Soto","year":"2018","set":"Topps Update","cardNo":"US300","parallel":"Base RC","sport":"Baseball","raw":7.55,"rawSales30":30,"psa10":40,"psa10Sales90":90,"compType":"Real","psa9":21.03,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-10-02","conf":"M","order":54,"note":"SportsCardsPro screen: PSA 10 ~$40 at ~1/day. Grade 8/9 comps contaminated by the hands-on-hips SP variation ($157–229 at PSA 9). Far below the floor.","src":"SportsCardsPro (not eBay-verified)"},{"id":"soto-2018-topps-chrome-update-hmt55-base","player":"Juan Soto","year":"2018","set":"Topps Chrome Update","cardNo":"HMT55","parallel":"Base RC","sport":"Baseball","raw":19.41,"rawSales30":30,"psa10":70,"psa10Sales90":90,"compType":"Real","psa9":35.5,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-09-29","conf":"M","order":55,"note":"SportsCardsPro screen: PSA 10 listed $65 but the five newest sales ran $70–124; PSA 9 $35; raw $19. Clean data, roughly a quarter of the floor.","src":"SportsCardsPro (not eBay-verified)"},{"id":"acuna-2018-topps-update-us250-base","player":"Ronald Acuña Jr.","year":"2018","set":"Topps Update","cardNo":"US250","parallel":"Base RC","sport":"Baseball","raw":7.07,"rawSales30":30,"psa10":37.5,"psa10Sales90":90,"compType":"Real","psa9":19.8,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-09-30","conf":"M","order":56,"note":"SportsCardsPro screen: PSA 10 $27–36 recently, ~1/day. Far below the floor.","src":"SportsCardsPro (not eBay-verified)"},{"id":"guerrero-2019-topps-chrome-201-base","player":"Vladimir Guerrero Jr.","year":"2019","set":"Topps Chrome","cardNo":"201","parallel":"Base RC","sport":"Baseball","raw":3.52,"rawSales30":30,"psa10":38,"psa10Sales90":90,"compType":"Real","psa9":18.58,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-10-01","conf":"M","order":57,"note":"SportsCardsPro screen: PSA 10 ~$38 at ~1/day. Far below the floor.","src":"SportsCardsPro (not eBay-verified)"},{"id":"tatis-2019-topps-chrome-203-base","player":"Fernando Tatis Jr.","year":"2019","set":"Topps Chrome","cardNo":"203","parallel":"Base RC","sport":"Baseball","raw":4.05,"rawSales30":13,"psa10":26.04,"psa10Sales90":90,"compType":"Real","psa9":15,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-09-30","conf":"M","order":58,"note":"SportsCardsPro screen: PSA 10 ~$26 and drifting down. Far below the floor.","src":"SportsCardsPro (not eBay-verified)"},{"id":"witt-2022-topps-chrome-update-usc176-base","player":"Bobby Witt Jr.","year":"2022","set":"Topps Chrome Update","cardNo":"USC176","parallel":"Base RC","sport":"Baseball","raw":2.88,"rawSales30":30,"psa10":71.74,"psa10Sales90":10,"compType":"Real","psa9":19.56,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-08-28","conf":"M","order":59,"note":"SportsCardsPro screen: PSA 10 $67–120 but only five sales May–Aug (~10/90d); newest sale six weeks old. This is his regular Chrome RC (the #221 row is the SP). Fails the floor and liquidity.","src":"SportsCardsPro (not eBay-verified)"},{"id":"murakami-2026-bowman-chrome-76-rookie","player":"Munetaka Murakami","year":"2026","set":"Bowman Chrome","cardNo":"76","parallel":"Rookie Red RC Variation","sport":"Baseball","raw":10.5,"rawSales30":107,"psa10":220,"psa10Sales90":0,"compType":"Estimate","psa9":40,"pop10":null,"pop9":null,"popTotal":null,"asOf":"2026-10-07","conf":"L","order":60,"note":"The Bowman CHROME version of the Red RC logo variation (black-jersey photo), released ~Sep 10–12, 2026 — a different card from the paper Bowman #9 Red RC. eBay raw, 93 sales Sep 12–Oct 7 (~107/30d): $30–32 at release → $20–23 by Sep 20–22 → $10–12 by Oct 4–7. Roughly 4x the raw volume of the paper #9 Red at half the price. No graded sales and no PSA pop entries exist as of Oct 8, so the PSA 10 and PSA 9 prices here are placeholders. Re-check when the first slabs from expedited submissions hit eBay (likely Nov) and the pop line appears.","src":"eBay sold Oct 8 (raw); graded prices are an estimate — no graded copies exist yet; PSA pop report Oct 8 (no entries)"}];
+var ASM_DEFAULTS={fee:59.99,ship:10,sellFee:.13,haircut:.20,missReal:.85,assumedGem:.35,minPrice:250,minSales:25,minMargin:.10,requireReal:true};
+var ASM_FIELDS=[["fee","money"],["ship","money"],["sellFee","pct"],["haircut","pct"],["missReal","pct"],["assumedGem","pct"],["minPrice","money"],["minSales","int"],["minMargin","pct"],["requireReal","bool"]];
+var SA={};Object.keys(ASM_DEFAULTS).forEach(function(k){SA[k]=ASM_DEFAULTS[k]});
+try{var savedAsm=JSON.parse(localStorage.getItem("wl-asm")||"null");if(savedAsm&&typeof savedAsm==="object")Object.keys(ASM_DEFAULTS).forEach(function(k){if(typeof savedAsm[k]===typeof ASM_DEFAULTS[k])SA[k]=savedAsm[k]})}catch(e){}
+var scr={filter:"grade",sport:"all",sel:null};
+function isNum(v){return typeof v==="number"&&isFinite(v)}
+function usd(v,o){o=o||{};if(!isNum(v))return "—";var d=o.dec!=null?o.dec:(o.price&&Math.abs(v)<50?2:0);return (v<0?"−":(o.sign?"+":""))+"$"+Math.abs(v).toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d})}
+function pc(v,d,sign){if(!isNum(v))return "—";return (v<0?"−":(sign?"+":""))+(Math.abs(v)*100).toFixed(d||0)+"%"}
+function ptsf(v){return isNum(v)?(v<0?"−":"+")+(Math.abs(v)*100).toFixed(0)+" pts":"—"}
+function intf(v){return isNum(v)?Math.round(v).toLocaleString("en-US"):"—"}
+function sgn(v){return isNum(v)?(v>0?"up":v<0?"down":""):""}
+function beTxt(m,d){return isNum(m.be)?(m.be>1?">100%":m.be<0?"<0%":pc(m.be,d)):"—"}
+function scrCompute(c,A){
+  var raw=isNum(c.raw)?c.raw:null,p10=isNum(c.psa10)?c.psa10:null,p9=isNum(c.psa9)?c.psa9:null;
+  var r={hasData:raw!=null&&p10!=null&&p9!=null};
+  r.gemPop=(isNum(c.pop10)&&c.popTotal)?c.pop10/c.popTotal:null;
+  r.gem=r.gemPop!=null?r.gemPop:A.assumedGem;
+  r.gemSource=r.gemPop!=null?"Pop":"Assumed";
+  if(!r.hasData){r.verdict={code:"NODATA",label:"No data",why:"No sold prices yet"};return r}
+  r.mult=raw>0?p10/raw:null;
+  r.allIn=raw+A.fee+A.ship;
+  r.net10=p10*(1-A.haircut)*(1-A.sellFee);
+  r.netMiss=p9*A.missReal*(1-A.sellFee);
+  r.ev=r.gem*r.net10+(1-r.gem)*r.netMiss;
+  r.profit=r.ev-r.allIn;
+  r.roi=r.allIn?r.profit/r.allIn:null;
+  r.be=(r.net10-r.netMiss)!==0?(r.allIn-r.netMiss)/(r.net10-r.netMiss):null;
+  r.margin=r.be!=null?r.gem-r.be:null;
+  r.down9=r.netMiss-r.allIn;r.up10=r.net10-r.allIn;
+  r.priceOK=p10>=A.minPrice;
+  r.liqOK=(isNum(c.psa10Sales90)?c.psa10Sales90:0)>=A.minSales;
+  r.realOK=!A.requireReal||c.compType==="Real";
+  r.margOK=r.margin!=null&&r.margin>=A.minMargin;
+  var v;
+  if(!r.realOK)v={code:"SKIP",label:"Skip",why:"PSA 10 price is an estimate"};
+  else if(!r.priceOK)v={code:"FAIL",label:"Fail",why:"PSA 10 below the "+usd(A.minPrice)+" floor"};
+  else if(!r.liqOK)v={code:"FAIL",label:"Fail",why:"Too few PSA 10 sales"};
+  else if(r.profit<=0)v={code:"FAIL",label:"Fail",why:"Negative expected value"};
+  else if(r.gemSource!=="Pop")v={code:"CANDIDATE",label:"Verify pop",why:"Profitable on a placeholder gem rate"};
+  else if(!r.margOK)v={code:"MARGINAL",label:"Marginal",why:"Thin safety margin"};
+  else v={code:"GRADE",label:"Grade",why:""};
+  r.verdict=v;return r;
+}
+var VORDER={GRADE:0,MARGINAL:1,CANDIDATE:2,FAIL:3,SKIP:4,NODATA:5};
+var VPILL={GRADE:"pill pill-up",MARGINAL:"pill pill-gold",CANDIDATE:"pill pill-gold",FAIL:"pill pill-down",SKIP:"pill",NODATA:"pill"};
+function scrRows(){
+  var out=SCREEN.map(function(c){return {c:c,m:scrCompute(c,SA)}});
+  out.sort(function(a,b){
+    var d=VORDER[a.m.verdict.code]-VORDER[b.m.verdict.code];if(d)return d;
+    if(a.m.verdict.code==="GRADE")return b.m.roi-a.m.roi;
+    if(a.m.hasData&&b.m.hasData)return b.m.profit-a.m.profit;
+    return (a.c.order||0)-(b.c.order||0);
+  });
+  var rank=0;out.forEach(function(r){r.rank=r.m.verdict.code==="GRADE"?++rank:null});
+  return out;
+}
+function vpill(v){return '<span class="'+VPILL[v.code]+'">'+v.label+'</span>'}
+function slabCell(c){
+  return '<div class="slabcell"><span class="ey">'+esc((c.year||"")+" "+(c.set||""))+'</span><span class="nm">'+esc(c.player||"")+'</span><span class="vr">'+esc((c.cardNo?"#"+c.cardNo:"")+(c.cardNo&&c.parallel?" · ":"")+(c.parallel||""))+'</span></div>';
+}
+function shortName(c){
+  var last=(c.player||"").trim().replace(/\s+(Jr\.?|Sr\.?|II|III)$/i,"").split(/\s+/).pop()||"?";
+  var par=(c.parallel||"").replace(/\(.*?\)/g,"").trim();
+  var ps=par&&!/^base/i.test(par)?" "+par.split(/\s+/).slice(0,2).join(" "):"";
+  return last+" #"+(c.cardNo||"?")+ps;
+}
+function inFilter(r){
+  var code=r.m.verdict.code;
+  if(scr.filter==="grade"&&code!=="GRADE")return false;
+  if(scr.filter==="near"&&code!=="MARGINAL"&&code!=="CANDIDATE")return false;
+  if(scr.filter==="fail"&&["FAIL","SKIP","NODATA"].indexOf(code)<0)return false;
+  if(scr.sport!=="all"&&r.c.sport!==scr.sport)return false;
+  return true;
+}
+function gemCell(m){
+  var h='<div class="gemcell"><span>'+pc(m.gem)+'</span><div class="gmeter" aria-hidden="true"><span style="width:'+Math.max(0,Math.min(1,m.gem))*100+'%"></span>';
+  if(isNum(m.be)&&m.be>=0&&m.be<=1)h+='<i style="left:calc('+(m.be*100)+'% - 1px)"></i>';
+  return h+'</div><span class="gsrc'+(m.gemSource==="Assumed"?" warn":"")+'">'+(m.gemSource==="Pop"?"pop":"assumed")+'</span></div>';
+}
+function renderScreener(){
+  var rs=scrRows(),g=rs.filter(function(r){return r.m.verdict.code==="GRADE"});
+  var cap=g.reduce(function(s,r){return s+r.m.allIn},0),prof=g.reduce(function(s,r){return s+r.m.profit},0),best=g[0];
+  $("#scr-tiles").innerHTML=
+    '<div class="tile"><div class="v">'+g.length+' <span class="muted" style="font-size:1rem">of '+rs.length+'</span></div><div class="k">Cards that clear every gate</div></div>'+
+    '<div class="tile"><div class="v">'+(best?pc(best.m.roi,0,true):"—")+'</div><div class="k">'+(best?"Best expected ROI, "+esc(shortName(best.c)):"No card clears yet")+'</div></div>'+
+    '<div class="tile"><div class="v">'+(g.length?usd(cap):"—")+'</div><div class="k">Capital to try one of each</div></div>'+
+    '<div class="tile"><div class="v">'+(g.length?usd(prof,{sign:true}):"—")+'</div><div class="k">'+(g.length&&cap?"Expected profit, "+pc(prof/cap)+" on capital":"Expected profit")+'</div></div>';
+  var counts={all:rs.length,grade:g.length,near:rs.filter(function(r){return r.m.verdict.code==="MARGINAL"||r.m.verdict.code==="CANDIDATE"}).length};
+  counts.fail=rs.length-counts.grade-counts.near;
+  $("#scr-chips").innerHTML=[["all","All"],["grade","Clears"],["near","Near miss"],["fail","Fails"]].map(function(d){
+    return '<button class="chip" type="button" data-sfilter="'+d[0]+'" aria-pressed="'+(scr.filter===d[0])+'">'+d[1]+'<span class="n">'+counts[d[0]]+'</span></button>';
+  }).join("");
+  var sel=$("#scr-sport");
+  if(!sel.options.length){
+    var sports=[];SCREEN.forEach(function(c){if(c.sport&&sports.indexOf(c.sport)<0)sports.push(c.sport)});sports.sort();
+    sel.innerHTML='<option value="all">All sports</option>'+sports.map(function(s){return '<option value="'+s+'">'+s+'</option>'}).join("");
+  }
+  sel.value=scr.sport;
+  var vis=rs.filter(inFilter);
+  $("#scr-empty").hidden=vis.length>0;
+  $("#scr-body").innerHTML=vis.map(function(r){
+    var c=r.c,m=r.m,dim=["GRADE","MARGINAL","CANDIDATE"].indexOf(m.verdict.code)<0;
+    var showM=isNum(m.margin)&&isNum(m.be)&&Math.abs(m.be)<=1;
+    return '<tr data-scr="'+c.id+'" tabindex="0"'+(dim?' class="dim"':"")+'>'+
+      '<td class="rank'+(r.rank===1?" top":"")+'">'+(r.rank||"")+'</td><td>'+slabCell(c)+'</td>'+
+      '<td class="num">'+usd(c.raw,{price:true})+'</td><td class="num">'+usd(c.psa10,{price:true})+'</td><td class="num hide-s">'+usd(c.psa9,{price:true})+'</td>'+
+      '<td class="num">'+(m.hasData?gemCell(m):"—")+'</td><td class="num hide-s">'+(m.hasData?beTxt(m):"—")+'</td>'+
+      '<td class="num hide-s '+(showM?sgn(m.margin):"")+'">'+(showM?ptsf(m.margin):"—")+'</td>'+
+      '<td class="num '+sgn(m.profit)+'">'+usd(m.profit,{sign:true})+'</td><td class="num '+sgn(m.roi)+'">'+pc(m.roi,0,true)+'</td>'+
+      '<td>'+vpill(m.verdict)+(m.verdict.why?'<span class="why">'+esc(m.verdict.why)+'</span>':"")+'</td></tr>';
+  }).join("");
+  $("#scr-list").innerHTML=vis.map(function(r){
+    var c=r.c,m=r.m;
+    return '<div class="row row-scr" data-scr="'+c.id+'" tabindex="0" role="button"><span class="rank'+(r.rank===1?" top":"")+'">'+(r.rank||"")+'</span>'+slabCell(c)+
+      '<div class="right">'+vpill(m.verdict)+(m.hasData?'<span class="'+sgn(m.profit)+'">'+usd(m.profit,{sign:true})+'</span><span class="muted">ROI '+pc(m.roi,0,true)+'</span>':"")+'</div>'+
+      '<div class="figs">'+(m.hasData?'<span>Raw <b>'+usd(c.raw,{price:true})+'</b></span><span>PSA 10 <b>'+usd(c.psa10,{price:true})+'</b></span><span>PSA 9 <b>'+usd(c.psa9,{price:true})+'</b></span><span>Gem <b>'+pc(m.gem)+'</b>'+(m.gemSource==="Assumed"?" assumed":"")+'</span><span>Break-even <b>'+beTxt(m)+'</b></span>':"")+(m.verdict.why?'<span class="muted">'+esc(m.verdict.why)+'</span>':"")+'</div></div>';
+  }).join("");
+  $("#scr-foot").textContent="Ranked by expected ROI among cards that clear every gate. Profit is per card, after a "+pc(SA.haircut)+" sell-date haircut and a "+pc(SA.sellFee)+" selling fee. Data as of Oct 8, 2026.";
+  renderScatter();
+  $("#home-screen").innerHTML=g.slice(0,4).map(function(r){
+    return '<button class="topcard" type="button" data-scr="'+r.c.id+'"><span class="rank">'+r.rank+'</span>'+slabCell(r.c)+'<span class="roi"><b>'+pc(r.m.roi,0,true)+'</b> expected ROI · '+usd(r.m.profit,{sign:true})+' a card</span></button>';
+  }).join("")||'<p class="muted">No card clears the gates right now.</p>';
+}
+function renderScatter(){
+  var svg=$("#scr-chart");if(!svg)return;
+  var W=Math.max(320,Math.min(640,Math.round(svg.clientWidth)||560)),H=Math.max(300,Math.min(420,Math.round(W*.75))),L=52,R=16,T=16,B=42;
+  svg.setAttribute("viewBox","0 0 "+W+" "+H);
+  var pw=W-L-R,ph=H-T-B;
+  function X(v){return +(L+v*pw).toFixed(1)}
+  function Y(v){return +(T+(1-v)*ph).toFixed(1)}
+  var g='<polygon class="wash" points="'+X(0)+','+Y(0)+' '+X(1)+','+Y(0)+' '+X(1)+','+Y(1)+'"/>';
+  [0,.25,.5,.75,1].forEach(function(t){
+    g+='<line class="grid" x1="'+X(t)+'" x2="'+X(t)+'" y1="'+Y(0)+'" y2="'+Y(1)+'"/><line class="grid" x1="'+X(0)+'" x2="'+X(1)+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>';
+    g+='<text x="'+X(t)+'" y="'+(Y(0)+15)+'" text-anchor="middle">'+(t*100)+'%</text><text x="'+(X(0)-7)+'" y="'+(Y(t)+3.5)+'" text-anchor="end">'+(t*100)+'%</text>';
+  });
+  g+='<line class="axis" x1="'+X(0)+'" x2="'+X(1)+'" y1="'+Y(0)+'" y2="'+Y(0)+'"/><line class="axis" x1="'+X(0)+'" x2="'+X(0)+'" y1="'+Y(0)+'" y2="'+Y(1)+'"/>';
+  g+='<text x="'+X(.5)+'" y="'+(H-6)+'" text-anchor="middle">Gem rate (PSA 10 share of pop)</text>';
+  g+='<text x="12" y="'+Y(.5)+'" text-anchor="middle" transform="rotate(-90 12 '+Y(.5)+')">Break-even gem rate</text>';
+  g+='<line class="diag" x1="'+X(0)+'" y1="'+Y(0)+'" x2="'+X(1)+'" y2="'+Y(1)+'"/>';
+  var boxes=[];function est(s){return s.length*6.1+6}
+  function reg(x,y,anchor,txt){var w=est(txt),x0=anchor==="start"?x:anchor==="end"?x-w:x-w/2;boxes.push({x0:x0,x1:x0+w,y0:y-11,y1:y+3});g+='<text class="rl" x="'+x+'" y="'+y+'" text-anchor="'+anchor+'">'+txt+'</text>'}
+  reg(X(.86),Y(.86)-8,"end","break-even: gem rate = required rate");
+  var mm=SA.minMargin;
+  if(mm>0&&mm<1){g+='<line class="thr" x1="'+X(mm)+'" y1="'+Y(0)+'" x2="'+X(1)+'" y2="'+Y(1-mm)+'"/>';reg(X(1)-4,Y(1-mm)+14,"end","Grade line (+"+Math.round(mm*100)+" pts)")}
+  reg(X(1)-4,Y(0)-6,"end","gems more often than it needs to");
+  var plotted=[],off=[],assumed=[];
+  scrRows().forEach(function(r){var m=r.m;if(!m.hasData)return;if(m.gemSource!=="Pop"){assumed.push(r);return}if(!isNum(m.be)||m.be<0||m.be>1){off.push(r);return}plotted.push(r)});
+  plotted.forEach(function(r){var cx=X(r.m.gem),cy=Y(r.m.be);boxes.push({x0:cx-8,x1:cx+8,y0:cy-8,y1:cy+8})});
+  var lbl="",pts="";
+  plotted.forEach(function(r){
+    var c=r.c,m=r.m,cx=X(m.gem),cy=Y(m.be),code=m.verdict.code;
+    var cls=code==="GRADE"?"grade":(code==="MARGINAL"||code==="CANDIDATE"?"mid":"fail");
+    pts+='<g class="pt '+cls+'" data-scr="'+c.id+'" tabindex="0" role="button" aria-label="'+esc(c.player+" "+c.year+" "+c.set+" #"+c.cardNo)+'"><title>'+esc(c.player+", "+c.year+" "+c.set+" #"+c.cardNo+" "+(c.parallel||"")+": gem "+pc(m.gem,1)+", break-even "+pc(m.be,1)+", expected profit "+usd(m.profit,{sign:true})+", "+m.verdict.label)+'</title><circle class="hit" cx="'+cx+'" cy="'+cy+'" r="13"/><circle class="mk" cx="'+cx+'" cy="'+cy+'" r="5"/></g>';
+    var txt=shortName(c),w=est(txt),hh=13;
+    var cands=[[cx+10,cy+4,"start"],[cx-10,cy+4,"end"],[cx,cy-11,"middle"],[cx,cy+19,"middle"],[cx+10,cy-9,"start"],[cx+10,cy+17,"start"],[cx-10,cy-9,"end"],[cx-10,cy+17,"end"],[cx,cy-23,"middle"],[cx,cy+31,"middle"],[cx+10,cy-21,"start"],[cx-10,cy-21,"end"],[cx+10,cy+29,"start"],[cx-10,cy+29,"end"]];
+    for(var i=0;i<cands.length;i++){
+      var x=cands[i][0],y=cands[i][1],anc=cands[i][2],x0=anc==="start"?x:anc==="end"?x-w:x-w/2,box={x0:x0,x1:x0+w,y0:y-hh+3,y1:y+3};
+      if(box.x0<L-2||box.x1>W-2||box.y0<T-4||box.y1>Y(0))continue;
+      if(boxes.some(function(b){return !(box.x1<b.x0||box.x0>b.x1||box.y1<b.y0||box.y0>b.y1)}))continue;
+      boxes.push(box);lbl+='<text class="lbl" x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" text-anchor="'+anc+'">'+esc(txt)+'</text>';break;
+    }
+  });
+  svg.innerHTML=g+lbl+pts;
+  var notes=[plotted.length+" cards plotted."];
+  if(off.length)notes.push(off.length+" sit off the chart because their break-even is outside 0 to 100%.");
+  if(assumed.length)notes.push(assumed.length+" have no pop data yet and are left off.");
+  $("#scr-chart-foot").textContent=notes.join(" ");
+}
+function sensSvg(m){
+  var W=400,H=150,L=50,R=12,T=14,B=26,pw=W-L-R,ph=H-T-B;
+  function f(g){return g*m.net10+(1-g)*m.netMiss-m.allIn}
+  var y0=Math.min(f(0),f(1),0),y1=Math.max(f(0),f(1),0),pad=(y1-y0)*.08||10;y0-=pad;y1+=pad;
+  function X(g){return +(L+g*pw).toFixed(1)}
+  function Y(v){return +(T+(1-(v-y0)/(y1-y0))*ph).toFixed(1)}
+  var s='<svg class="sens" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Expected profit across gem rates">';
+  s+='<polygon class="area" points="'+X(0)+','+Y(0)+' '+X(0)+','+Y(f(0))+' '+X(1)+','+Y(f(1))+' '+X(1)+','+Y(0)+'"/>';
+  s+='<line class="zero" x1="'+X(0)+'" x2="'+X(1)+'" y1="'+Y(0)+'" y2="'+Y(0)+'"/><text x="'+(X(0)-6)+'" y="'+(Y(0)+3.5)+'" text-anchor="end">$0</text>';
+  [f(1),f(0)].forEach(function(v){if(Math.abs(Y(v)-Y(0))>12)s+='<text x="'+(X(0)-6)+'" y="'+(Y(v)+3.5)+'" text-anchor="end">'+usd(v)+'</text>'});
+  [0,.25,.5,.75,1].forEach(function(t){s+='<text x="'+X(t)+'" y="'+(H-8)+'" text-anchor="middle">'+(t*100)+'%</text>'});
+  s+='<line class="ln" x1="'+X(0)+'" y1="'+Y(f(0))+'" x2="'+X(1)+'" y2="'+Y(f(1))+'"/>';
+  if(isNum(m.be)&&m.be>=0&&m.be<=1)s+='<line class="be" x1="'+X(m.be)+'" x2="'+X(m.be)+'" y1="'+Y(0)+'" y2="'+T+'"/>';
+  var gx=X(m.gem),gy=Y(f(m.gem)),right=m.gem>.6;
+  s+='<circle class="mk" cx="'+gx+'" cy="'+gy+'" r="5"/><text class="here" x="'+(gx+(right?-9:9))+'" y="'+(gy+(f(m.gem)>0?15:-8))+'" text-anchor="'+(right?"end":"start")+'">'+pc(m.gem)+' gems → '+usd(f(m.gem),{sign:true})+'</text>';
+  return s+'</svg>';
+}
+function renderDrawer(){
+  var d=$("#drawer"),sc=$("#scrim"),c=scr.sel?SCREEN.filter(function(x){return x.id===scr.sel})[0]:null;
+  d.hidden=!c;sc.hidden=!c;document.body.style.overflow=c?"hidden":"";
+  if(!c){d.innerHTML="";return}
+  var m=scrCompute(c,SA),A=SA,h='<div class="drawer-hd">'+slabCell(c)+'<button class="drawer-x" type="button" id="drawer-x" aria-label="Close">×</button></div><div class="drawer-bd">';
+  h+='<div class="drawer-top">'+vpill(m.verdict)+(m.verdict.why?'<span class="small">'+esc(m.verdict.why)+'</span>':"")+'<span class="small muted" style="margin-left:auto">'+esc(c.sport||"")+' · as of '+esc(shortDate(c.asOf))+'</span></div>';
+  if(m.hasData){
+    var showM=isNum(m.margin)&&isNum(m.be)&&Math.abs(m.be)<=1;
+    h+='<div class="duo">'+
+      '<div class="tile"><div class="v '+sgn(m.profit)+'">'+usd(m.profit,{sign:true})+'</div><div class="k">Expected profit per card</div></div>'+
+      '<div class="tile"><div class="v '+sgn(m.roi)+'">'+pc(m.roi,0,true)+'</div><div class="k">Expected ROI</div></div>'+
+      '<div class="tile"><div class="v '+sgn(m.up10)+'">'+usd(m.up10,{sign:true})+'</div><div class="k">If it comes back a 10</div></div>'+
+      '<div class="tile"><div class="v '+sgn(m.down9)+'">'+usd(m.down9,{sign:true})+'</div><div class="k">If it misses</div></div>'+
+      '<div class="tile"><div class="v">'+pc(m.gem,1)+'</div><div class="k">Gem rate, '+(m.gemSource==="Pop"?"from the pop":"assumed")+'</div></div>'+
+      '<div class="tile"><div class="v">'+beTxt(m,1)+'</div><div class="k">Break-even gem rate</div></div></div>';
+    h+='<div class="dsec"><p class="eyebrow">Safety margin '+(showM?ptsf(m.margin):"n/a")+' · PSA 10 is '+(isNum(m.mult)?m.mult.toFixed(1)+"x":"—")+' raw</p><div class="math">'+
+      '<div><span>Raw price</span><span>'+usd(c.raw,{dec:2})+'</span></div>'+
+      '<div><span>Grading fee and shipping</span><span>'+usd(A.fee+A.ship,{dec:2})+'</span></div>'+
+      '<div class="sum"><span>All-in per attempt</span><span>'+usd(m.allIn,{dec:2})+'</span></div>'+
+      '<div><span>Net if it 10s<small>PSA 10 '+usd(c.psa10,{price:true})+', less a '+pc(A.haircut)+' sell-date haircut and '+pc(A.sellFee)+' fee</small></span><span>'+usd(m.net10,{dec:2})+'</span></div>'+
+      '<div><span>Net if it misses<small>PSA 9 '+usd(c.psa9,{price:true})+' at '+pc(A.missReal)+', less the fee</small></span><span>'+usd(m.netMiss,{dec:2})+'</span></div>'+
+      '<div class="sum"><span>Expected value<small>'+pc(m.gem,1)+' × net 10 + '+pc(1-m.gem,1)+' × net miss</small></span><span>'+usd(m.ev,{dec:2})+'</span></div></div></div>';
+  }else{
+    h+='<p class="note">No sold prices for this card yet, so it can\'t be priced.</p>';
+  }
+  var p10=isNum(c.pop10)?c.pop10:0,p9=isNum(c.pop9)?c.pop9:0,pt=isNum(c.popTotal)?c.popTotal:0;
+  if(pt){
+    var p8=Math.max(0,pt-p10-p9);
+    h+='<div class="dsec"><p class="eyebrow">PSA population · '+intf(pt)+' graded</p><div class="popbar" role="img" aria-label="PSA 10 '+intf(p10)+', PSA 9 '+intf(p9)+', PSA 8 or lower '+intf(p8)+'"><div class="p10" style="flex:'+p10+'"></div><div class="p9" style="flex:'+p9+'"></div><div class="p8" style="flex:'+p8+'"></div></div>'+
+      '<div class="popkey"><span><i style="background:var(--ink)"></i>10 · '+intf(p10)+' ('+pc(p10/pt)+')</span><span><i style="background:var(--ink-3)"></i>9 · '+intf(p9)+' ('+pc(p9/pt)+')</span><span><i style="background:var(--line)"></i>8 or lower · '+intf(p8)+' ('+pc(p8/pt)+')</span></div></div>';
+  }else{
+    h+='<p class="note">No PSA population on file. The gem rate is a '+pc(A.assumedGem)+' placeholder until one is.</p>';
+  }
+  if(m.hasData){
+    h+='<div class="dsec"><p class="eyebrow">Expected profit by gem rate</p>'+sensSvg(m)+'</div>';
+    var gate=function(ok,t){return '<li class="'+(ok?"ok":"no")+'"><b>'+(ok?"✓":"✕")+'</b><span>'+t+'</span></li>'};
+    h+='<div class="dsec"><p class="eyebrow">Gates</p><ul class="gates">'+
+      gate(m.realOK,"Real PSA 10 sales"+(c.compType==="Real"?"":" (this price is an estimate)"))+
+      gate(m.priceOK,"Price floor: PSA 10 "+usd(c.psa10,{price:true})+" against a "+usd(A.minPrice)+" minimum")+
+      gate(m.liqOK,"Liquidity: "+intf(c.psa10Sales90)+" PSA 10 sales in 90 days against a minimum of "+A.minSales)+
+      gate(m.profit>0,"Positive expected value: "+usd(m.profit,{sign:true})+" per attempt")+
+      gate(m.gemSource==="Pop","Gem rate from a real population")+
+      gate(m.margOK,"Safety margin: "+(isNum(m.margin)&&isNum(m.be)&&Math.abs(m.be)<=1?ptsf(m.margin):"n/a")+" against a minimum of +"+Math.round(A.minMargin*100)+" pts")+'</ul></div>';
+  }
+  h+='<div class="dsec"><p class="eyebrow">Market data</p><dl class="stat-list"><dt>Raw</dt><dd>'+usd(c.raw,{price:true})+' · '+intf(c.rawSales30)+' sales / 30d</dd><dt>PSA 10</dt><dd>'+usd(c.psa10,{price:true})+' · '+intf(c.psa10Sales90)+' sales / 90d</dd><dt>PSA 9</dt><dd>'+usd(c.psa9,{price:true})+'</dd></dl></div>';
+  if(c.note)h+='<div class="dsec"><p class="eyebrow">Desk note</p><p class="note">'+esc(c.note)+'</p></div>';
+  h+='<div class="dsec"><p class="small muted">Source: '+esc(c.src||"n/a")+'</p><a class="small" target="_blank" rel="noopener" href="'+ebayUrl([c.year,c.set,c.player,"#"+c.cardNo,"PSA 10"].join(" "))+'">Check live PSA 10 sold listings on eBay</a></div>';
+  d.innerHTML=h+'</div>';
+  $(".drawer-bd",d).scrollTop=0;
+}
+function shortDate(s){if(!s)return "—";var d=parseDay(s);return MONTHS[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear()}
+function openScr(id){scr.sel=id;if($('[data-view="screener"]').hidden)show("screener");renderDrawer();var x=$("#drawer-x");if(x)x.focus()}
+function closeScr(){scr.sel=null;renderDrawer()}
+function syncAsm(){
+  ASM_FIELDS.forEach(function(f){var el=$("#asm-"+f[0]);if(!el||document.activeElement===el)return;var v=SA[f[0]];if(f[1]==="bool")el.checked=!!v;else el.value=f[1]==="pct"?String(Math.round(v*1000)/10):String(v)});
+}
+function asmChanged(){
+  ASM_FIELDS.forEach(function(f){var el=$("#asm-"+f[0]);if(!el)return;if(f[1]==="bool"){SA[f[0]]=el.checked;return}var v=parseFloat(el.value);if(!isFinite(v)||v<0)return;SA[f[0]]=f[1]==="pct"?Math.min(100,v)/100:v});
+  try{localStorage.setItem("wl-asm",JSON.stringify(SA))}catch(e){}
+  renderScreener();syncCalcToAsm();
+}
+function syncCalcToAsm(){
+  $("#calc-fee").value=(SA.fee+SA.ship).toFixed(2);$("#calc-sell").value=String(Math.round(SA.sellFee*1000)/10);
+  renderCalc();
+}
+
+/* ---------- pre-grader ---------- */
+// Everything runs in the browser on a downscaled copy of the photo; corner crops come from the full-size image.
+var PG={front:null,back:null};
+var GRADE_LABEL={10:"GEM MINT",9:"MINT",8:"NM-MT",7:"NEAR MINT",6:"EX-MT",5:"EXCELLENT",4:"VG-EX",3:"VERY GOOD"};
+function pgSide(name){return PG[name]}
+function pgLoad(name,file){
+  if(!file||!/^image\//.test(file.type))return;
+  var url=URL.createObjectURL(file),img=new Image();
+  img.onload=function(){
+    URL.revokeObjectURL(url);
+    var full=document.createElement("canvas");full.width=img.naturalWidth;full.height=img.naturalHeight;
+    var fctx=full.getContext("2d",{willReadFrequently:true});fctx.drawImage(img,0,0);
+    var scale=Math.min(1,900/Math.max(img.naturalWidth,img.naturalHeight));
+    var small=document.createElement("canvas");small.width=Math.max(1,Math.round(img.naturalWidth*scale));small.height=Math.max(1,Math.round(img.naturalHeight*scale));
+    var sctx=small.getContext("2d",{willReadFrequently:true});sctx.drawImage(img,0,0,small.width,small.height);
+    var side={name:name,full:full,fctx:fctx,small:small,scale:scale,w:small.width,h:small.height,data:sctx.getImageData(0,0,small.width,small.height).data,drag:null,manual:false};
+    PG[name]=side;
+    pgDetect(side);
+    $("#pg-drop-"+name).hidden=true;$("#pg-stage-"+name).hidden=false;$("#pg-tools-"+name).hidden=false;$("#pg-readout-"+name).hidden=false;$("#pg-corners-"+name).hidden=false;
+    $('[data-pg-clear="'+name+'"]').hidden=false;
+    pgRender(side);pgResult();
+  };
+  img.onerror=function(){URL.revokeObjectURL(url)};
+  img.src=url;
+}
+function pgClear(name){
+  PG[name]=null;$("#pg-file-"+name).value="";
+  $("#pg-drop-"+name).hidden=false;$("#pg-stage-"+name).hidden=true;$("#pg-tools-"+name).hidden=true;$("#pg-readout-"+name).hidden=true;$("#pg-corners-"+name).hidden=true;
+  $('[data-pg-clear="'+name+'"]').hidden=true;$("#pg-corners-"+name).innerHTML="";
+  pgResult();
+}
+function pxDist(d,i,c){return Math.abs(d[i]-c[0])+Math.abs(d[i+1]-c[1])+Math.abs(d[i+2]-c[2])}
+function medianColor(samples){
+  if(!samples.length)return [0,0,0];
+  var out=[];for(var k=0;k<3;k++){var a=samples.map(function(s){return s[k]}).sort(function(x,y){return x-y});out.push(a[a.length>>1])}
+  return out;
+}
+function otsu(hist,total){
+  var sum=0;for(var i=0;i<256;i++)sum+=i*hist[i];
+  var sumB=0,wB=0,best=0,thr=0;
+  for(var t=0;t<256;t++){wB+=hist[t];if(!wB)continue;var wF=total-wB;if(!wF)break;sumB+=t*hist[t];var mB=sumB/wB,mF=(sum-sumB)/wF,v=wB*wF*(mB-mF)*(mB-mF);if(v>best){best=v;thr=t}}
+  return thr;
+}
+function pgDetect(side){
+  var w=side.w,h=side.h,d=side.data,i,x,y;
+  // background: median of a frame around the image edge
+  var band=Math.max(2,Math.round(Math.min(w,h)*.02)),samples=[];
+  for(y=0;y<h;y+=2)for(x=0;x<w;x+=2){if(x<band||x>=w-band||y<band||y>=h-band){i=(y*w+x)*4;samples.push([d[i],d[i+1],d[i+2]])}}
+  var bg=medianColor(samples);side.bg=bg;
+  // distance-from-background map with an Otsu threshold
+  var dist=new Uint8Array(w*h),hist=new Uint32Array(256);
+  for(y=0;y<h;y++)for(x=0;x<w;x++){i=(y*w+x)*4;var v=Math.min(255,Math.round(pxDist(d,i,bg)/3));dist[y*w+x]=v;hist[v]++}
+  var thr=Math.max(14,otsu(hist,w*h));side.bgThr=thr;
+  var rows=new Float32Array(h),cols=new Float32Array(w);
+  for(y=0;y<h;y++)for(x=0;x<w;x++){if(dist[y*w+x]>thr){rows[y]++;cols[x]++}}
+  var ot=-1,ob=-1,ol=-1,orr=-1;
+  for(y=0;y<h;y++){if(rows[y]/w>.25){ot=y;break}}
+  for(y=h-1;y>=0;y--){if(rows[y]/w>.25){ob=y;break}}
+  for(x=0;x<w;x++){if(cols[x]/h>.25){ol=x;break}}
+  for(x=w-1;x>=0;x--){if(cols[x]/h>.25){orr=x;break}}
+  var found=ot>=0&&ob>ot+h*.2&&ol>=0&&orr>ol+w*.2;
+  if(found){
+    var pr=0,pc=0;for(y=0;y<h;y++)pr=Math.max(pr,rows[y]);for(x=0;x<w;x++)pc=Math.max(pc,cols[x]);
+    var lim=4;while(lim-->0&&cols[ol]<pc*.85)ol++;lim=4;while(lim-->0&&cols[orr]<pc*.85)orr--;lim=4;while(lim-->0&&rows[ot]<pr*.85)ot++;lim=4;while(lim-->0&&rows[ob]<pr*.85)ob--;
+  }
+  if(!found){ol=Math.round(w*.1);orr=Math.round(w*.9);ot=Math.round(h*.1);ob=Math.round(h*.9)}
+  side.found=found;
+  var g={ol:ol,or:orr,ot:ot,ob:ob};
+  // border color: band just inside the outer edge
+  var cw=orr-ol,ch=ob-ot,b1=Math.max(2,Math.round(Math.min(cw,ch)*.015)),b2=Math.max(b1+2,Math.round(Math.min(cw,ch)*.04));
+  samples=[];
+  for(y=ot+b1;y<=ob-b1;y+=2)for(x=ol+b1;x<=orr-b1;x+=2){var inL=x<ol+b2,inR=x>orr-b2,inT=y<ot+b2,inB=y>ob-b2;if(inL||inR||inT||inB){i=(y*w+x)*4;samples.push([d[i],d[i+1],d[i+2]])}}
+  var border=medianColor(samples);side.border=border;
+  // inner edges: walk inward along the central band until the color leaves the border color for good
+  function profile(axis,from,dir,len){
+    var out=[],k;
+    for(k=0;k<len;k++){
+      var p=from+dir*k,sum=0,n=0;
+      if(axis==="x"){for(y=ot+Math.round(ch*.3);y<=ob-Math.round(ch*.3);y+=2){i=(y*w+p)*4;sum+=pxDist(d,i,border);n++}}
+      else{for(x=ol+Math.round(cw*.3);x<=orr-Math.round(cw*.3);x+=2){i=(p*w+x)*4;sum+=pxDist(d,i,border);n++}}
+      out.push(n?sum/n:0);
+    }
+    return out;
+  }
+  function firstStep(prof){
+    var peak=0;for(var k=0;k<prof.length;k++)peak=Math.max(peak,prof[k]);
+    var t=Math.max(50,peak*.35);
+    for(k=0;k<prof.length-3;k++){if(prof[k]>t&&prof[k+1]>t&&prof[k+2]>t&&prof[k+3]>t)return k}
+    return -1;
+  }
+  var reach=Math.round(Math.min(cw,ch)*.35),inner=true;
+  var sL=firstStep(profile("x",ol+b1,1,reach)),sR=firstStep(profile("x",orr-b1,-1,reach)),sT=firstStep(profile("y",ot+b1,1,reach)),sB=firstStep(profile("y",ob-b1,-1,reach));
+  var minB=Math.round(Math.min(cw,ch)*.012);
+  if(sL<0||sR<0||sT<0||sB<0||sL+b1<minB||sR+b1<minB||sT+b1<minB||sB+b1<minB){inner=false;g.il=ol+Math.round(cw*.06);g.ir=orr-Math.round(cw*.06);g.it=ot+Math.round(ch*.06);g.ib=ob-Math.round(ch*.06)}
+  else{g.il=ol+b1+sL;g.ir=orr-b1-sR;g.it=ot+b1+sT;g.ib=ob-b1-sB}
+  side.innerFound=inner;side.g=g;side.dist=dist;side.manual=false;
+  pgMeasure(side);
+}
+function pgRefine(side){
+  // outer edges at full resolution: first column/row where at least half the middle band is card
+  var g=side.g,s=1/side.scale,F=side.full,ctx=side.fctx,bg=side.bg,thr3=side.bgThr*3;
+  function frac(x0,y0,w,h){var fd=ctx.getImageData(x0,y0,w,h).data,n=0,c=0;for(var i=0;i<fd.length;i+=4){n++;if(pxDist(fd,i,bg)>thr3)c++}return n?c/n:0}
+  var cw=g.or-g.ol,ch=g.ob-g.ot,my0=Math.round((g.ot+ch*.2)*s),mh=Math.max(1,Math.round(ch*.6*s)),mx0=Math.round((g.ol+cw*.2)*s),mw=Math.max(1,Math.round(cw*.6*s));
+  var gf={ol:Math.round(g.ol*s),or:Math.round(g.or*s),ot:Math.round(g.ot*s),ob:Math.round(g.ob*s)},span=Math.ceil(3*s)+1,k;
+  if(!side.manual){
+    for(k=-span;k<=span;k++){var x=gf.ol+k;if(x>=0&&x<F.width&&frac(x,my0,1,mh)>.5){gf.ol=x;break}}
+    for(k=-span;k<=span;k++){x=gf.or-k;if(x>=0&&x<F.width&&frac(x,my0,1,mh)>.5){gf.or=x;break}}
+    for(k=-span;k<=span;k++){var y=gf.ot+k;if(y>=0&&y<F.height&&frac(mx0,y,mw,1)>.5){gf.ot=y;break}}
+    for(k=-span;k<=span;k++){y=gf.ob-k;if(y>=0&&y<F.height&&frac(mx0,y,mw,1)>.5){gf.ob=y;break}}
+  }
+  side.gf=gf;
+}
+function pgMeasure(side){
+  var g=side.g,d=side.data,w=side.w,dist=side.dist,thr=side.bgThr;
+  pgRefine(side);
+  var lb=g.il-g.ol,rb=g.or-g.ir,tb=g.it-g.ot,bb=g.ob-g.ib;
+  side.lr=lb+rb>0?lb/(lb+rb)*100:50;side.tb=tb+bb>0?tb/(tb+bb)*100:50;
+  // corners and edges, measured on the small copy against the background threshold
+  var cw=g.or-g.ol,ch=g.ob-g.ot,c=Math.max(8,Math.round(Math.min(cw,ch)*.09));
+  var borderLum=(side.border[0]*.3+side.border[1]*.59+side.border[2]*.11),colored=borderLum<200;
+  function region(X0,Y0,X1,Y1){ // full-resolution coordinates
+    X0=Math.max(0,X0);Y0=Math.max(0,Y0);X1=Math.min(side.full.width,X1);Y1=Math.min(side.full.height,Y1);
+    if(X1<=X0||Y1<=Y0)return {bg:0,white:0};
+    var fd=side.fctx.getImageData(X0,Y0,X1-X0,Y1-Y0).data,n=(X1-X0)*(Y1-Y0),bgN=0,whiteN=0,i,bg=side.bg,thrW=Math.min(thr,25);
+    for(i=0;i<fd.length;i+=4){
+      if(pxDist(fd,i,bg)/3<=thrW)bgN++;
+      else if(colored){var lum=fd[i]*.3+fd[i+1]*.59+fd[i+2]*.11,sat=Math.max(fd[i],fd[i+1],fd[i+2])-Math.min(fd[i],fd[i+1],fd[i+2]);if(lum>borderLum+60&&sat<40)whiteN++}
+    }
+    return {bg:bgN/n,white:whiteN/n};
+  }
+  // every card corner is rounded by design, so the cleanest corner sets the baseline and only wear beyond it counts
+  var gf=side.gf,C=Math.round(c/side.scale),in1=Math.max(1,Math.round(.3/side.scale)),s1=1/side.scale;
+  function cSize(bw,bh){if(!side.innerFound)return C;var m=Math.round(Math.min(bw,bh)*s1);return Math.max(Math.round(C*.45),Math.min(C,m))}
+  var cTL=cSize(g.il-g.ol,g.it-g.ot),cTR=cSize(g.or-g.ir,g.it-g.ot),cBL=cSize(g.il-g.ol,g.ob-g.ib),cBR=cSize(g.or-g.ir,g.ob-g.ib);
+  var cs=[["TL",gf.ol+in1,gf.ot+in1,gf.ol+cTL,gf.ot+cTL],["TR",gf.or-cTR,gf.ot+in1,gf.or-in1,gf.ot+cTR],["BL",gf.ol+in1,gf.ob-cBL,gf.ol+cBL,gf.ob-in1],["BR",gf.or-cBR,gf.ob-cBR,gf.or-in1,gf.ob-in1]];
+  var regs=cs.map(function(k){return region(k[1],k[2],k[3],k[4])}),base=Math.min(.16,Math.min.apply(null,regs.map(function(r){return r.bg})));
+  side.corners=cs.map(function(k,idx){var r=regs[idx];return {name:k[0],fx:k[0]==="TL"||k[0]==="BL"?gf.ol:gf.or-C,fy:k[0]==="TL"||k[0]==="TR"?gf.ot:gf.ob-C,fsize:C,score:Math.max(0,Math.min(100,Math.round(100-Math.max(0,r.bg-base)*300-r.white*250))),bg:r.bg,white:r.white}});
+  side.measured=side.found||side.manual;
+  var E=Math.max(3,Math.round(Math.min(gf.or-gf.ol,gf.ob-gf.ot)*.012)),S=Math.round(Math.min(gf.or-gf.ol,gf.ob-gf.ot)*.09);
+  var es=[["Top",gf.ol+S,gf.ot+in1,gf.or-S,gf.ot+in1+E],["Bottom",gf.ol+S,gf.ob-in1-E,gf.or-S,gf.ob-in1],["Left",gf.ol+in1,gf.ot+S,gf.ol+in1+E,gf.ob-S],["Right",gf.or-in1-E,gf.ot+S,gf.or-in1,gf.ob-S]];
+  side.edges=es.map(function(k){var r=region(k[1],k[2],k[3],k[4]);return {name:k[0],score:Math.max(0,Math.min(100,Math.round(100-r.bg*400-r.white*200)))}});
+  side.cornerScore=Math.round(side.corners.reduce(function(s,k){return s+k.score},0)/4);
+  side.edgeScore=Math.round(side.edges.reduce(function(s,k){return s+k.score},0)/4);
+}
+function pgRender(side){
+  var cv=$("#pg-canvas-"+side.name),ctx=cv.getContext("2d"),g=side.g,w=side.w,h=side.h;
+  cv.width=w;cv.height=h;ctx.drawImage(side.small,0,0);
+  ctx.lineWidth=Math.max(1.5,w/400);
+  ctx.strokeStyle="#E3A92B";ctx.setLineDash([]);ctx.strokeRect(g.ol+.5,g.ot+.5,g.or-g.ol,g.ob-g.ot);
+  ctx.strokeStyle="#8fe4ff";ctx.setLineDash([6,4]);ctx.strokeRect(g.il+.5,g.it+.5,g.ir-g.il,g.ib-g.it);
+  ctx.setLineDash([]);
+  // grab handles at the midpoints
+  var hs=Math.max(5,w/90);ctx.fillStyle="#E3A92B";
+  [[g.ol,(g.ot+g.ob)/2],[g.or,(g.ot+g.ob)/2],[(g.ol+g.or)/2,g.ot],[(g.ol+g.or)/2,g.ob]].forEach(function(p){ctx.fillRect(p[0]-hs/2,p[1]-hs/2,hs,hs)});
+  ctx.fillStyle="#8fe4ff";
+  [[g.il,(g.it+g.ib)/2],[g.ir,(g.it+g.ib)/2],[(g.il+g.ir)/2,g.it],[(g.il+g.ir)/2,g.ib]].forEach(function(p){ctx.fillRect(p[0]-hs/2,p[1]-hs/2,hs,hs)});
+  var lrW=Math.max(side.lr,100-side.lr),tbW=Math.max(side.tb,100-side.tb);
+  $("#pg-readout-"+side.name).innerHTML=
+    '<div class="tile"><div class="v">'+Math.round(side.lr)+'/'+Math.round(100-side.lr)+'</div><div class="k">Left / right'+(side.innerFound?"":" · guides not found, drag them")+'</div></div>'+
+    '<div class="tile"><div class="v">'+Math.round(side.tb)+'/'+Math.round(100-side.tb)+'</div><div class="k">Top / bottom</div></div>'+
+    '<div class="tile"><div class="v">'+(side.measured?side.cornerScore+'<span class="muted" style="font-size:1rem">/100</span>':"\u2014")+'</div><div class="k">Corner sharpness</div></div>'+
+    '<div class="tile"><div class="v">'+(side.measured?side.edgeScore+'<span class="muted" style="font-size:1rem">/100</span>':"\u2014")+'</div><div class="k">Edge condition</div></div>';
+  var host=$("#pg-corners-"+side.name);
+  host.innerHTML=side.corners.map(function(k){return '<div class="corner"><canvas width="120" height="120" data-corner="'+k.name+'"></canvas><span>'+k.name+' <b>'+k.score+'</b></span></div>'}).join("");
+  side.corners.forEach(function(k){
+    var cc=host.querySelector('[data-corner="'+k.name+'"]').getContext("2d");
+    cc.imageSmoothingEnabled=false;
+    cc.drawImage(side.full,k.fx,k.fy,k.fsize,k.fsize,0,0,120,120);
+  });
+}
+function pgNearest(side,px,py){
+  var g=side.g,cands=[["ol",Math.abs(px-g.ol)],["or",Math.abs(px-g.or)],["il",Math.abs(px-g.il)],["ir",Math.abs(px-g.ir)],["ot",Math.abs(py-g.ot)],["ob",Math.abs(py-g.ob)],["it",Math.abs(py-g.it)],["ib",Math.abs(py-g.ib)]];
+  cands.sort(function(a,b){return a[1]-b[1]});
+  return cands[0][1]<=Math.max(8,side.w/50)?cands[0][0]:null;
+}
+function pgPointer(side,ev){
+  var cv=$("#pg-canvas-"+side.name),r=cv.getBoundingClientRect();
+  return {x:(ev.clientX-r.left)*side.w/r.width,y:(ev.clientY-r.top)*side.h/r.height};
+}
+function pgBind(name){
+  var cv=$("#pg-canvas-"+name);
+  cv.addEventListener("pointerdown",function(ev){var s=PG[name];if(!s)return;var p=pgPointer(s,ev),k=pgNearest(s,p.x,p.y);if(!k)return;s.drag=k;cv.setPointerCapture(ev.pointerId);ev.preventDefault()});
+  cv.addEventListener("pointermove",function(ev){var s=PG[name];if(!s||!s.drag)return;var p=pgPointer(s,ev),g=s.g,k=s.drag,v=/l|r/.test(k)?Math.round(p.x):Math.round(p.y);
+    v=Math.max(0,Math.min(/l|r/.test(k)?s.w-1:s.h-1,v));
+    if(k==="ol"&&v<g.il-2)g.ol=v;else if(k==="or"&&v>g.ir+2)g.or=v;else if(k==="il"&&v>g.ol+1&&v<g.ir-2)g.il=v;else if(k==="ir"&&v<g.or-1&&v>g.il+2)g.ir=v;
+    else if(k==="ot"&&v<g.it-2)g.ot=v;else if(k==="ob"&&v>g.ib+2)g.ob=v;else if(k==="it"&&v>g.ot+1&&v<g.ib-2)g.it=v;else if(k==="ib"&&v<g.ob-1&&v>g.it+2)g.ib=v;
+    s.manual=true;s.innerFound=true;pgMeasure(s);pgRender(s);pgResult()});
+  cv.addEventListener("pointerup",function(ev){var s=PG[name];if(s)s.drag=null});
+  cv.addEventListener("pointercancel",function(){var s=PG[name];if(s)s.drag=null});
+  var drop=$("#pg-drop-"+name);
+  drop.addEventListener("dragover",function(e){e.preventDefault();drop.classList.add("over")});
+  drop.addEventListener("dragleave",function(){drop.classList.remove("over")});
+  drop.addEventListener("drop",function(e){e.preventDefault();drop.classList.remove("over");if(e.dataTransfer.files[0])pgLoad(name,e.dataTransfer.files[0])});
+  $("#pg-file-"+name).addEventListener("change",function(e){if(e.target.files[0])pgLoad(name,e.target.files[0])});
+}
+function centeringCap(worst,isBack){
+  if(isBack)return worst<=75?10:worst<=90?9:4;
+  return worst<=60?10:worst<=65?9:worst<=70?8:worst<=75?7:worst<=80?6:worst<=85?5:4;
+}
+function wearCap(score){return score>=97?10:score>=93?9:score>=88?8:score>=82?7:score>=75?6:score>=65?5:4}
+function pgResult(){
+  var f=PG.front,b=PG.back;
+  $("#pg-result-empty").hidden=!!f;$("#pg-grade").hidden=!f;$("#pg-actions").hidden=!f;$("#pg-conf").hidden=!f;
+  if(!f){$("#pg-notes").innerHTML="";return}
+  var rows=[],notes=[],caps=[];
+  function add(k,v,cap){rows.push({k:k,v:v,cap:cap});caps.push(cap)}
+  var fw=Math.max(f.lr,100-f.lr,f.tb,100-f.tb);
+  add("Centering, front",Math.round(f.lr)+"/"+Math.round(100-f.lr)+" · "+Math.round(f.tb)+"/"+Math.round(100-f.tb),centeringCap(fw,false));
+  if(b){var bw=Math.max(b.lr,100-b.lr,b.tb,100-b.tb);add("Centering, back",Math.round(b.lr)+"/"+Math.round(100-b.lr)+" · "+Math.round(b.tb)+"/"+Math.round(100-b.tb),centeringCap(bw,true))}
+  var sides=[f].concat(b?[b]:[]).filter(function(s){return s.measured});
+  if(sides.length){
+    var cornerScore=Math.min.apply(null,sides.map(function(s){return s.cornerScore})),edgeScore=Math.min.apply(null,sides.map(function(s){return s.edgeScore}));
+    add("Corners",cornerScore+"/100",wearCap(cornerScore));
+    add("Edges",edgeScore+"/100",wearCap(edgeScore));
+  }else{add("Corners","Not measured",10);add("Edges","Not measured",10)}
+  var sCap=10;$$("#pg-surface input:checked").forEach(function(el){sCap=Math.min(sCap,+el.dataset.cap)});
+  add("Surface",sCap===10?"Nothing flagged":"Flagged",sCap);
+  var grade=Math.min.apply(null,caps);
+  $("#pg-grade-num").childNodes[0].nodeValue=String(grade);$("#pg-grade-label").textContent=GRADE_LABEL[grade]||"";
+  $("#pg-breakdown").innerHTML=rows.map(function(r){return '<span class="k">'+r.k+'</span><span class="v">'+r.v+'</span><span class="cap'+(r.cap===grade?" limit":"")+'">'+(r.cap>=10?"10 ok":"caps at "+r.cap)+'</span>'}).join("");
+  // notes
+  var worstF=[["left/right",Math.max(f.lr,100-f.lr)],["top/bottom",Math.max(f.tb,100-f.tb)]].sort(function(a,b){return b[1]-a[1]})[0];
+  if(worstF[1]>60)notes.push("Front centering is "+Math.round(worstF[1])+"/"+Math.round(100-worstF[1])+" "+worstF[0]+". PSA 10 needs 60/40 or better on the front; 9 allows 65/35.");
+  else notes.push("Front centering is within PSA 10 range.");
+  if(b){var worstB=Math.max(b.lr,100-b.lr,b.tb,100-b.tb);if(worstB>75)notes.push("Back centering is "+Math.round(worstB)+"/"+Math.round(100-worstB)+". PSA 10 needs 75/25 or better on the back.")}
+  else notes.push("No back photo. PSA grades the back too, so add one for a fuller read.");
+  var weak=f.corners.slice().sort(function(a,b){return a.score-b.score})[0];
+  if(f.measured&&weak.score<93)notes.push("Weakest front corner is "+weak.name+" at "+weak.score+"/100. Check it with a loupe for rounding or whitening.");
+  if(!f.innerFound&&!f.manual)notes.push("The inner border wasn't found on the front. Drag the dashed lines to the edge of the picture area for a real centering read.");
+  if(!f.found)notes.push("The card's outer edges weren't found on the front. Use a plain background that contrasts with the border, or drag the gold lines to the card's edges.");
+  if(sCap<10)notes.push("Surface flags cap the grade at "+sCap+".");
+  $("#pg-notes").innerHTML=notes.map(function(n){return "<li>"+esc(n)+"</li>"}).join("");
+  // confidence
+  var cardPx=(f.g.or-f.g.ol)/f.scale,conf="High",cls="pill pill-up";
+  if(!f.found||!(f.innerFound||f.manual)){conf="Low";cls="pill pill-down"}
+  else if(cardPx<700||!b||(b&&(!b.found||!(b.innerFound||b.manual)))){conf="Medium";cls="pill pill-gold"}
+  var cp=$("#pg-conf");cp.className=cls;cp.textContent=conf+" confidence";
+  PG.report="Wax Ledger pre-grade\nEstimated grade: PSA "+grade+" "+(GRADE_LABEL[grade]||"")+" ("+conf.toLowerCase()+" confidence)\n"+rows.map(function(r){return r.k+": "+r.v+" (cap "+r.cap+")"}).join("\n")+"\n"+notes.join("\n")+"\nthewaxledger.com · not affiliated with PSA";
+}
+function pgCopy(){
+  var note=$("#pg-copy-note"),t=PG.report||"";
+  try{navigator.clipboard.writeText(t).then(function(){note.textContent="Report copied."},function(){note.textContent="Copy blocked here. Select the text on this panel and press Ctrl+C."})}catch(e){note.textContent="Copy blocked here. Select the text on this panel and press Ctrl+C."}
+}
+pgBind("front");pgBind("back");
+$("#pg-surface").addEventListener("change",pgResult);
+$("#pg-surface").addEventListener("submit",function(e){e.preventDefault()});
+$("#pg-copy").addEventListener("click",pgCopy);
+document.addEventListener("click",function(e){
+  var t=e.target.closest("[data-pg-clear]");if(t){pgClear(t.dataset.pgClear);return}
+  t=e.target.closest("[data-pg-redetect]");if(t){var s=PG[t.dataset.pgRedetect];if(s){pgDetect(s);pgRender(s);pgResult()}}
+});
+window.__pg={detect:pgDetect,PG:PG};
+
+/* ---------- events ---------- */
+document.addEventListener("click",function(e){
+  var t=e.target.closest("[data-scr]");
+  if(t){openScr(t.getAttribute("data-scr"));return}
+  if(e.target.id==="scrim"||e.target.closest("#drawer-x")){closeScr();return}
+  t=e.target.closest("[data-sfilter]");if(t){scr.filter=t.dataset.sfilter;renderScreener();return}
+  if(e.target.id==="asm-reset"){Object.keys(ASM_DEFAULTS).forEach(function(k){SA[k]=ASM_DEFAULTS[k]});try{localStorage.removeItem("wl-asm")}catch(err){}syncAsm();renderScreener();syncCalcToAsm();return}
+  t=e.target.closest("[data-card]");
+  if(t){pickCard(t.dataset.card);if($('[data-view="comps"]').hidden)show("comps");return}
+  t=e.target.closest("[data-grade]");if(t){state.grade=t.dataset.grade;renderComps();return}
+  t=e.target.closest("[data-sport]");if(t){state.sport=t.dataset.sport;renderReleases();return}
+  t=e.target.closest("[data-tsport]");if(t){state.tsport=t.dataset.tsport;renderTrending();return}
+  t=e.target.closest("[data-plan]");
+  if(t){$("#plan-note").textContent="Checkout isn't connected in this preview, so the "+t.dataset.plan+" plan can't be started yet. Nothing was charged.";return}
+});
+$("#hero-search").addEventListener("submit",function(e){e.preventDefault();var q=$("#hero-q").value;$("#comp-q").value=q;show("comps");searchComps(q)});
+$("#comp-search").addEventListener("submit",function(e){e.preventDefault();searchComps($("#comp-q").value)});
+$("#nl-form").addEventListener("submit",function(e){e.preventDefault();$("#nl-note").textContent="Signups aren't connected in this preview. Your email was not saved."});
+$("#calc").addEventListener("submit",function(e){e.preventDefault()});
+$("#calc").addEventListener("input",renderCalc);
+$("#upcoming-only").addEventListener("change",renderReleases);
+$("#scr-sport").addEventListener("change",function(e){scr.sport=e.target.value;renderScreener()});
+$("#asm-form").addEventListener("submit",function(e){e.preventDefault()});
+$("#asm-form").addEventListener("input",asmChanged);
+document.addEventListener("keydown",function(e){
+  if(e.key==="Escape"&&scr.sel){closeScr();return}
+  if((e.key==="Enter"||e.key===" ")&&e.target.matches&&e.target.matches("tr[data-scr],.row-scr,g[data-scr]")){e.preventDefault();openScr(e.target.getAttribute("data-scr"))}
+});
+var resizeTimer;
+window.addEventListener("resize",function(){clearTimeout(resizeTimer);resizeTimer=setTimeout(function(){if(!$('[data-view="comps"]').hidden&&!$("#comp-panel").hidden)renderComps();if(!$('[data-view="screener"]').hidden)renderScatter()},150)});
+
+/* ---------- boot ---------- */
+syncAsm();$("#calc-fee").value=(SA.fee+SA.ship).toFixed(2);$("#calc-sell").value=String(Math.round(SA.sellFee*1000)/10);
+renderMarket();renderComps();loadCalcFromCard();renderScreener();renderReleases();renderTrending();renderReviews();
+var start=location.hash.slice(1);
+if(VIEWS.indexOf(start)<0){try{start=localStorage.getItem("wl-view")||"market"}catch(e){start="market"}}
+show(start,true);
+window.__wl={gradeMath:gradeMath,scrRows:scrRows};
+})();
+</script>
+
+</body>
+</html>
