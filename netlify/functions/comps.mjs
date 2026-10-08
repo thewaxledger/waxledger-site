@@ -21,11 +21,17 @@ export function normalizeQuery(q) {
 
 function cents(v) { return typeof v === "number" && v > 0 ? Math.round(v) / 100 : null; }
 
+// "Basketball Cards 1986 Fleer" -> set "1986 Fleer Basketball"
+export function cleanSet(c) {
+  const m = String(c || "").match(/^(\w+) Cards (.+)$/);
+  return m ? m[2] + " " + m[1] : String(c || "");
+}
+
 export function shapeProduct(p) {
   return {
     id: String(p.id),
     name: p["product-name"] || "",
-    set: p["console-name"] || "",
+    set: cleanSet(p["console-name"]),
     sport: p.genre || "",
     released: p["release-date"] || "",
     prices: {
@@ -52,10 +58,6 @@ export async function handle(req, deps) {
   const q = normalizeQuery(url.searchParams.get("q"));
   const id = (url.searchParams.get("id") || "").replace(/\D/g, "");
   if (url.searchParams.has("ping")) return json({ configured: !!token });
-  if (url.searchParams.get("fields") && token) { // diagnostic: field names and values upstream returns for one product (no token echoed)
-    const r = await fetchFn(UPSTREAM + "/product?id=" + encodeURIComponent(url.searchParams.get("fields").replace(/\D/g, "")) + "&t=" + encodeURIComponent(token));
-    const b = await r.json(); delete b.t; return json(b);
-  }
   if (url.searchParams.has("recent")) {
     const index = (await store.get("index", { type: "json" })) || { items: [], n: 0 };
     return json({ status: "ok", n: index.n || index.items.length, items: index.items.slice(0, 24) });
@@ -135,7 +137,7 @@ export async function handle(req, deps) {
     }
     try {
       const body = await upstream("/products?q=" + encodeURIComponent(q));
-      list = (body.products || []).map(p => ({ id: String(p.id), name: p["product-name"] || "", set: p["console-name"] || "" }));
+      list = (body.products || []).map(p => ({ id: String(p.id), name: p["product-name"] || "", set: cleanSet(p["console-name"]) }));
     } catch (e) { list = []; }
     const matches = list.filter(m => m.id !== best.id).slice(0, 19);
     await saveProduct(best);
