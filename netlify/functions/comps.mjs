@@ -52,6 +52,10 @@ export async function handle(req, deps) {
   const q = normalizeQuery(url.searchParams.get("q"));
   const id = (url.searchParams.get("id") || "").replace(/\D/g, "");
   if (url.searchParams.has("ping")) return json({ configured: !!token });
+  if (url.searchParams.get("fields") && token) { // diagnostic: field names and values upstream returns for one product (no token echoed)
+    const r = await fetchFn(UPSTREAM + "/product?id=" + encodeURIComponent(url.searchParams.get("fields").replace(/\D/g, "")) + "&t=" + encodeURIComponent(token));
+    const b = await r.json(); delete b.t; return json(b);
+  }
   if (url.searchParams.has("recent")) {
     const index = (await store.get("index", { type: "json" })) || { items: [], n: 0 };
     return json({ status: "ok", n: index.n || index.items.length, items: index.items.slice(0, 24) });
