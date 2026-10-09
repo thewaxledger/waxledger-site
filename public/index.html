@@ -509,6 +509,7 @@ details.method summary{cursor:pointer;font-weight:600;font-size:1rem}
 .bst-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
 .bst-gallery a{display:block;aspect-ratio:3/4;border-radius:6px;overflow:hidden;background:#0b1424;border:1px solid var(--line)}
 .bst-gallery img{width:100%;height:100%;object-fit:contain}
+.bst-deal{border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--surface-2);display:flex;flex-direction:column;gap:10px}
 .bst-facts{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 16px;font-size:13.5px;margin:0}
 .bst-facts dt{color:var(--ink-3)}.bst-facts dd{margin:0;overflow-wrap:anywhere}
 .bst-text{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;color:var(--ink-2);margin:0}
@@ -2464,20 +2465,38 @@ function bstOpen(id){
     if(l.photos.length)h+='<div class="bst-gallery">'+l.photos.map(function(p){var u="/api/bst?photo="+encodeURIComponent(p);return '<a href="'+u+'" target="_blank" rel="noopener"><img alt="Listing photo" src="'+u+'"></a>'}).join("")+'</div>';
     h+='<dl class="bst-facts">'+facts.map(function(f){return "<dt>"+f[0]+"</dt><dd>"+esc(f[1])+"</dd>"}).join("")+'</dl>';
     if(l.details)h+='<p class="bst-text">'+esc(l.details)+'</p>';
-    h+='<div class="bst-actions">';
+    var acts='<div class="bst-actions">';
     if(l.mine||BST.me.admin){
-      if(open)h+='<button class="btn btn-sm" type="button" data-bst-status="sold" data-id="'+esc(l.id)+'">Mark '+(l.type==="buy"?"found":"sold")+'</button><button class="btn btn-sm" type="button" data-bst-status="closed" data-id="'+esc(l.id)+'">Close</button>';
-      else h+='<button class="btn btn-sm" type="button" data-bst-status="open" data-id="'+esc(l.id)+'">Reopen</button>';
-      h+='<button class="btn btn-sm" type="button" data-bst-delete="'+esc(l.id)+'">Delete</button>';
+      if(open)acts+='<button class="btn btn-sm" type="button" data-bst-status="sold" data-id="'+esc(l.id)+'">Mark '+(l.type==="buy"?"found":"sold")+'</button><button class="btn btn-sm" type="button" data-bst-status="closed" data-id="'+esc(l.id)+'">Close</button>';
+      else acts+='<button class="btn btn-sm" type="button" data-bst-status="open" data-id="'+esc(l.id)+'">Reopen</button>';
+      acts+='<button class="btn btn-sm" type="button" data-bst-delete="'+esc(l.id)+'">Delete</button>';
     }
-    if(!l.mine)h+='<button class="btn btn-sm" type="button" data-bst-report="'+esc(l.id)+'">Report</button>';
-    h+='</div>';
-    if(!l.mine&&open)h+='<form class="stack-sm" data-bst-msg="'+esc(l.id)+'"><p class="eyebrow">Message '+esc(l.seller.name)+' privately</p><textarea maxlength="1500" rows="3" placeholder="Offer, questions, payment or shipping details" required></textarea><p class="small muted">We email it to them with your email address as the reply-to, so they can answer you directly.</p><div class="linkrow"><button class="btn btn-gold btn-sm" type="submit">Send privately</button><span class="form-note" aria-live="polite"></span></div></form>';
+    if(!l.mine)acts+='<button class="btn btn-sm" type="button" data-bst-report="'+esc(l.id)+'">Report</button>';
+    acts+='</div>';
+    if(l.mine||BST.me.admin)h+=acts;
+    if(l.mine&&l.offers&&l.offers.length){
+      h+='<p class="eyebrow">Offers received</p><ul class="bst-replies">'+l.offers.slice().reverse().map(function(o){return '<li><b>'+esc(o.name)+'</b><time>'+bstAgo(o.at)+'</time><div class="bst-text">'+(o.kind==="buy"?"Will buy at your asking price, $"+esc(bstMoney(o.amount)):"Offered $"+esc(bstMoney(o.amount)))+(o.note?" · "+esc(o.note):"")+'<br><span class="small muted">Reply by email: '+esc(o.email)+'</span></div></li>'}).join("")+'</ul>';
+    }
+    if(!l.mine&&open){
+      var canBuy=l.type==="sell"&&l.price&&Number(String(l.price).replace(/,/g,""))>0;
+      h+='<div class="bst-deal" id="bst-deal">';
+      if(l.myOffer)h+='<p class="small muted">You '+(l.myOffer.kind==="buy"?"asked to buy at $"+esc(bstMoney(l.myOffer.amount)):"offered $"+esc(bstMoney(l.myOffer.amount)))+' '+bstAgo(l.myOffer.at)+'. The seller has your email.</p>';
+      h+='<div class="linkrow">';
+      if(canBuy)h+='<button class="btn btn-gold btn-sm" type="button" data-bst-deal="buy" data-id="'+esc(l.id)+'">Buy for $'+esc(l.price)+'</button>';
+      if(l.type==="sell")h+='<button class="btn btn-sm" type="button" data-bst-deal="offer" data-id="'+esc(l.id)+'">Make offer</button>';
+      h+='<button class="btn btn-sm" type="button" data-bst-deal="message" data-id="'+esc(l.id)+'">Message '+(l.type==="sell"?"seller":"lister")+'</button></div>';
+      h+='<form class="stack-sm" data-bst-buy="'+esc(l.id)+'" hidden><p class="bst-text">Tell '+esc(l.seller.name)+' you\'ll take it at <b>$'+esc(l.price)+'</b>? They get your email to arrange payment and shipping. Nothing is charged here; pay them directly, ideally PayPal Goods &amp; Services.</p><div class="linkrow"><button class="btn btn-gold btn-sm" type="submit">Yes, I\'ll take it</button><button class="btn btn-sm" type="button" data-bst-deal="none">Cancel</button><span class="form-note" aria-live="polite"></span></div></form>';
+      h+='<form class="stack-sm" data-bst-offer="'+esc(l.id)+'" hidden><p class="eyebrow">Make an offer</p><div class="bst-form-row"><input type="text" inputmode="decimal" placeholder="Offer in $" aria-label="Offer amount" required style="flex:0 1 140px"><input type="text" maxlength="500" placeholder="Note (optional): condition questions, shipping, trade sweeteners" aria-label="Note"></div><p class="small muted">The seller gets your offer and your email, and replies to you directly. One standing offer per listing; a new one replaces it.</p><div class="linkrow"><button class="btn btn-gold btn-sm" type="submit">Send offer</button><button class="btn btn-sm" type="button" data-bst-deal="none">Cancel</button><span class="form-note" aria-live="polite"></span></div></form>';
+      h+='<form class="stack-sm" data-bst-msg="'+esc(l.id)+'" hidden><p class="eyebrow">Message '+esc(l.seller.name)+' privately</p><textarea maxlength="1500" rows="3" placeholder="Questions, payment or shipping details" required></textarea><p class="small muted">We email it to them with your email address as the reply-to, so they can answer you directly.</p><div class="linkrow"><button class="btn btn-gold btn-sm" type="submit">Send privately</button><button class="btn btn-sm" type="button" data-bst-deal="none">Cancel</button><span class="form-note" aria-live="polite"></span></div></form>';
+      h+='</div>';
+    }
+    if(!(l.mine||BST.me.admin))h+=acts;
     h+='<p class="eyebrow">Replies</p><ul class="bst-replies">'+(l.replies.length?l.replies.map(function(r){return '<li class="'+(r.seller?"seller":"")+'"><b>'+esc(r.name)+(r.seller?" · lister":"")+'</b><time>'+bstAgo(r.at)+'</time><div class="bst-text">'+esc(r.text)+'</div></li>'}).join(""):'<li class="muted">No replies yet.</li>')+'</ul>';
     if(open)h+='<form class="stack-sm" data-bst-reply="'+esc(l.id)+'"><textarea maxlength="600" rows="2" placeholder="Reply publicly" required></textarea><div class="linkrow"><button class="btn btn-sm" type="submit">Post reply</button><span class="form-note" aria-live="polite"></span></div></form>';
     $("#bst-detail-body").innerHTML=h;
   });
 }
+function bstMoney(n){n=Number(n)||0;return n.toLocaleString("en-US",{minimumFractionDigits:n%1?2:0,maximumFractionDigits:2})}
 function bstShrink(file){
   return new Promise(function(res,rej){
     var url=URL.createObjectURL(file),img=new Image();
@@ -2522,9 +2541,18 @@ function bstBind(){
     t=e.target.closest("[data-close]");if(t){var d=t.closest("dialog");if(d)d.close();return}
     t=e.target.closest("[data-bst-status]");if(t){api("/api/bst",{action:"status",id:t.dataset.id,status:t.dataset.bstStatus}).then(function(){bstOpen(t.dataset.id);bstLoad()});return}
     t=e.target.closest("[data-bst-delete]");if(t){if(t.dataset.confirm){api("/api/bst",{action:"delete",id:t.dataset.bstDelete}).then(function(){$("#bst-detail").close();bstLoad()})}else{t.dataset.confirm="1";t.textContent="Tap again to delete"}return}
+    t=e.target.closest("[data-bst-deal]");if(t){var box=t.closest("#bst-deal"),which=t.dataset.bstDeal;if(box){box.querySelectorAll("form").forEach(function(f){f.hidden=!(which!=="none"&&f.hasAttribute("data-bst-"+(which==="message"?"msg":which)))});var fi=box.querySelector("form:not([hidden]) input,form:not([hidden]) textarea");if(fi)fi.focus()}return}
     t=e.target.closest("[data-bst-report]");if(t){if(t.dataset.confirm){api("/api/bst",{action:"report",id:t.dataset.bstReport,reason:"Reported from listing"}).then(function(){t.textContent="Reported. Thanks.";t.disabled=true})}else{t.dataset.confirm="1";t.textContent="Tap again to report"}return}
   });
   document.addEventListener("submit",function(e){
+    var d=e.target.closest("[data-bst-buy],[data-bst-offer]");
+    if(d){e.preventDefault();var isBuy=d.hasAttribute("data-bst-buy"),did=d.getAttribute(isBuy?"data-bst-buy":"data-bst-offer"),dn=d.querySelector(".form-note"),ins=d.querySelectorAll("input");
+      dn.style.color="";dn.textContent="Sending…";
+      api("/api/bst",isBuy?{action:"buy",id:did}:{action:"offer",id:did,amount:ins[0].value,note:ins[1].value}).then(function(j){
+        if(j.status!=="ok"){dn.textContent=j.error;dn.style.color="var(--down)";return}
+        dn.textContent=isBuy?"Sent. The seller has your email and will reply to arrange payment.":"Offer sent. The seller will reply to your email.";
+        setTimeout(function(){bstOpen(did)},1200);
+      });return}
     var f=e.target.closest("[data-bst-reply],[data-bst-msg]");if(!f)return;e.preventDefault();
     var isMsg=f.hasAttribute("data-bst-msg"),id=f.getAttribute(isMsg?"data-bst-msg":"data-bst-reply"),ta=f.querySelector("textarea"),note=f.querySelector(".form-note");
     note.textContent="Sending…";

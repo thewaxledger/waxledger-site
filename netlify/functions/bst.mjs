@@ -5,6 +5,9 @@
 // POST /api/bst {action:"create", type, title, details, price, wants, grade, shipping, photos:[dataURL]}
 // POST /api/bst {action:"reply", id, text}
 // POST /api/bst {action:"message", id, text}          -> emails the lister; reply-to is the sender's email
+// POST /api/bst {action:"buy", id}                    -> "I'll take it at the asking price": recorded on the listing and emailed to the lister
+// POST /api/bst {action:"offer", id, amount, note}    -> a dollar offer: recorded on the listing and emailed to the lister
+// Money never moves through the site; buyer and seller settle directly (PayPal G&S or similar).
 // POST /api/bst {action:"status", id, status}         -> owner/admin: open | sold | closed
 // POST /api/bst {action:"delete", id}                 -> owner/admin
 // POST /api/bst {action:"report", id, reason}
@@ -12,13 +15,15 @@ import { json, bad, rid, clean, currentMember, bump, sendMail, liveDeps } from "
 
 export const config = { path: "/api/bst" };
 const TYPES = ["sell", "buy", "trade"], MAX_PHOTOS = 4, MAX_PHOTO_BYTES = 900 * 1024, LIST_MAX = 300;
-const LIMITS = { create: 8, reply: 60, message: 20, report: 20 };
+const LIMITS = { create: 8, reply: 60, message: 20, report: 20, buy: 10, offer: 20 };
 
 function pub(l, me) {
   return {
     id: l.id, type: l.type, title: l.title, details: l.details, price: l.price, wants: l.wants, grade: l.grade, shipping: l.shipping,
     photos: l.photos, status: l.status, created: l.created, updated: l.updated, replies: (l.replies || []).length,
-    seller: { name: l.name, x: l.x, since: l.since }, mine: me && l.uid === me.uid, reported: me && me.admin ? (l.reports || []).length : undefined
+    seller: { name: l.name, x: l.x, since: l.since }, mine: me && l.uid === me.uid, reported: me && me.admin ? (l.reports || []).length : undefined,
+    offers: me && l.uid === me.uid ? (l.offers || []).map(o => ({ id: o.id, name: o.name, email: o.email, kind: o.kind, amount: o.amount, note: o.note, at: o.at })) : undefined,
+    myOffer: me ? ((l.offers || []).filter(o => o.uid === me.uid).map(o => ({ kind: o.kind, amount: o.amount, at: o.at })).pop() || null) : undefined
   };
 }
 
@@ -98,6 +103,33 @@ export async function handle(req, deps) {
       await sendMail(deps, { to: l.email, replyTo: me.email, subject: `Wax Ledger: ${me.name} about "${l.title}"`, text: `${me.name}${me.x ? " (@" + me.x + " on X)" : ""} sent you a private message about your listing "${l.title}":\n\n${text}\n\nReply to this email to answer them directly. Their email address is ${me.email}.\n\nTrade safely: use PayPal Goods & Services or another method with buyer protection, ship with tracking, and report anything suspicious from the listing.\n${deps.site}/#trade` });
     } catch (e) { return bad("Couldn't send the message right now. Try again shortly.", 503); }
     return json({ status: "ok" });
+  }
+  if (a === "buy" || a === "offer") {
+    if (owner) return bad("That's your listing.");
+    if (l.status !== "open") return bad("This listing is no longer open.");
+    if (l.type !== "sell") return bad("Offers are for cards listed for sale. Reply or message the lister instead.");
+    let amount;
+    if (a === "buy") {
+      amount = Number(String(l.price || "").replace(/,/g, ""));
+      if (!(amount > 0)) return bad("This listing has no asking price. Make an offer instead.");
+    } else {
+      amount = Number(String(b.amount == null ? "" : b.amount).replace(/[^\d.]/g, ""));
+      if (!(amount > 0) || amount > 1e6) return bad("Enter an offer amount in dollars.");
+      amount = Math.round(amount * 100) / 100;
+    }
+    const note = a === "offer" ? clean(b.note, 500) : "";
+    l.offers = (l.offers || []).filter(o => o.uid !== me.uid); // one standing offer per member; a new one replaces it
+    l.offers.push({ id: rid(6), uid: me.uid, name: me.name, email: me.email, kind: a, amount, note, at: now }); l.updated = now;
+    await deps.board.setJSON(key, l);
+    const money = "$" + amount.toLocaleString("en-US", { minimumFractionDigits: amount % 1 ? 2 : 0, maximumFractionDigits: 2 });
+    const subject = a === "buy" ? `Wax Ledger: ${me.name} wants to buy "${l.title}" at ${money}` : `Wax Ledger: ${money} offer from ${me.name} on "${l.title}"`;
+    const body = (a === "buy"
+      ? `${me.name}${me.x ? " (@" + me.x + " on X)" : ""} clicked Buy on your listing "${l.title}" and will take it at your asking price of ${money}.`
+      : `${me.name}${me.x ? " (@" + me.x + " on X)" : ""} offered ${money} for your listing "${l.title}".` + (note ? `\n\nTheir note: ${note}` : ""))
+      + `\n\nReply to this email to accept or counter; it goes straight to them at ${me.email}. Agree on payment (PayPal Goods & Services is the safe default), ship with tracking, then mark the listing sold on the board.\n\nOffers on this listing: ${deps.site}/#trade`;
+    try { await sendMail(deps, { to: l.email, replyTo: me.email, subject, text: body }); }
+    catch (e) { return bad("Saved your " + (a === "buy" ? "purchase request" : "offer") + ", but the email to the seller failed. They'll still see it on the listing.", 503); }
+    return json({ status: "ok", amount });
   }
   if (a === "status") {
     if (!owner && !me.admin) return bad("Only the lister can change that.", 403);
