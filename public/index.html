@@ -450,7 +450,20 @@ details.method summary{cursor:pointer;font-weight:600;font-size:1rem}
 .pg-co td{padding:6px 0;border-bottom:1px solid var(--line)}
 .pg-co td.mono{font-family:var(--mono)}
 .pg-co th:not(:first-child),.pg-co td:not(:first-child){text-align:right}
-.pg-notes{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-size:13.5px;color:var(--ink-2)}
+.pg-dissect{display:flex;flex-direction:column;gap:12px}
+.dx{border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;font-size:13.5px}
+.dx-head{display:flex;gap:6px 12px;align-items:center;flex-wrap:wrap}
+.dx-head b{font-size:14.5px}
+.dx-head .dx-sum{color:var(--ink-2);font-family:var(--mono);font-size:12px;flex:1 1 auto}
+.dx .cap{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:99px;background:var(--surface-2);color:var(--ink-2);white-space:nowrap}
+.dx .cap.limit{background:var(--down-bg);color:var(--down)}
+.dx p{margin:0;color:var(--ink-2)}
+.dx p b{color:var(--ink)}
+.dx-tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+.dx-tbl th{text-align:left;font-family:var(--mono);font-weight:500;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding:3px 0;border-bottom:1px solid var(--line)}
+.dx-tbl td{padding:4px 0;border-bottom:1px solid var(--line-2)}
+.dx-tbl td.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.dx-tbl th:not(:first-child),.dx-tbl td:not(:first-child){text-align:right}
 .pg-empty{color:var(--ink-3);font-size:14px;margin:0}
 .checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px}
 @media (max-width:560px){.checks{grid-template-columns:1fr}}
@@ -791,7 +804,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
   <div class="view-head">
     <p class="eyebrow">Pre-Grading Tool</p>
     <h2>Grade it before PSA does</h2>
-    <p class="lede">Upload a photo of the front and back. The tool finds the card even in a tilted or off-angle shot, straightens it to a flat 2.5 × 3.5 frame, measures centering to a tenth of a percent, traces every edge and corner, scans the surface for line and speck candidates, and maps the result to PSA, BGS, SGC, CGC and TAG. It runs in your browser, so your photos never leave your device.</p>
+    <p class="lede">Upload a photo of the front and back. The tool finds the card even in a tilted or off-angle shot, straightens it to a flat 2.5 × 3.5 frame, measures centering to a tenth of a percent, traces every edge and corner, scans the surface for line and speck candidates, and maps the result to PSA, BGS, SGC, CGC and TAG, with a full dissection of why the card lands where it does. It runs in your browser, so your photos never leave your device.</p>
   </div>
 
   <p class="lockbar" id="pg-limit" hidden></p>
@@ -831,7 +844,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
       <div id="pg-verdict" hidden></div>
       <div class="breakdown" id="pg-breakdown"></div>
       <table class="pg-co" id="pg-co" hidden></table>
-      <ul class="pg-notes" id="pg-notes"></ul>
+      <div class="pg-dissect" id="pg-dissect" hidden></div>
       <div class="linkrow" id="pg-actions" hidden><button class="btn" type="button" id="pg-copy">Copy report</button><span class="form-note" id="pg-copy-note" aria-live="polite"></span></div>
       <p class="small muted">Centering and border widths are measured from the straightened photo. Corner and edge scores estimate wear from the photo and are not any company's scale. The surface scan flags candidates to inspect, not confirmed flaws. Company thresholds other than PSA's are compiled from published standards and rounded. Not affiliated with PSA, BGS, SGC, CGC or TAG.</p>
     </div>
@@ -2004,7 +2017,9 @@ function pgMeasure(side){
     for(t=0;t<r.dev.length;t++){var inward=r.dev[t]!==null&&r.dev[t]-med>nickTol;if(inward){if(!run)runStart=t;run++}else{if(run>=3)nicks.push({at:e[4]+runStart,len:run});run=0}}
     if(run>=3)nicks.push({at:e[4]+runStart,len:run});
     var nickMm=nicks.reduce(function(s,n){return s+n.len},0)/ppm,missing=1-vals.length/r.dev.length;
-    var score=100-Math.max(0,roughMm-roughFloor)*400-Math.min(40,nickMm*25+nicks.length*5)-r.white*250-missing*80;
+    // Phone photos add jpeg noise to every edge trace, so roughness only counts past 1.5x the pixel floor and nicks are weighted
+    // for what a grader would see at arm's length, not every single-pixel step.
+    var score=100-Math.max(0,roughMm-roughFloor*1.5)*250-Math.min(30,nickMm*18+nicks.length*3)-r.white*180-missing*50;
     return {name:e[0],axis:e[1],fixed:e[2],from:e[4],to:e[5],score:Math.round(clamp(score,0,100)),roughMm:roughMm,nicks:nicks,nickMm:nickMm,white:r.white,med:med,devAll:r.dev};
   });
   // corners: the sharp corner is where the two traced edges meet locally; background area inside the corner box gives the
@@ -2023,7 +2038,8 @@ function pgMeasure(side){
     return {name:cc[0],x:Math.min(cx,cx+dx*(c-1)),y:Math.min(cy,cy+dy*(c-1)),size:c,radMm:rad,fuzzMm:fz/ppm,bg:n?bgN/n:0,white:n?whiteN/n:0,box:box};
   });
   var baseR=Math.min(3.2,Math.min.apply(null,corners.map(function(k){return k.radMm})));
-  corners.forEach(function(k){var ex=Math.max(0,k.radMm-baseR),score=100-ex*22-Math.max(0,k.fuzzMm-.2)*60-k.white*150;k.excessMm=ex;k.score=Math.round(clamp(score,0,100))});
+  // Softness under 0.35 mm is focus and jpeg, not wear; a corner only loses points for rounding beyond the sharpest corner on the card.
+  corners.forEach(function(k){var ex=Math.max(0,k.radMm-baseR),score=100-ex*16-Math.max(0,k.fuzzMm-.35)*40-k.white*120;k.excessMm=ex;k.score=Math.round(clamp(score,0,100))});
   side.corners=corners;
   side.cornerScore=Math.round(corners.reduce(function(s,k){return s+k.score},0)/4);
   side.edgeScore=Math.round(side.edges.reduce(function(s,k){return s+k.score},0)/4);
@@ -2208,33 +2224,48 @@ function pgBind(name){
   $("#pg-cam-"+name).addEventListener("change",function(e){if(e.target.files[0])pgLoad(name,e.target.files[0])});
 }
 /* --- grading --- */
+// Wear scores (0-100) map to the grade they support. Phone photos soften corners and edges, so the bands are deliberately
+// forgiving: a score in the low 90s is usually a sharp corner shot at arm's length, not a worn one. The blended score leans
+// on the average of all corners (or edges) but keeps the worst one in view, the way a grader takes in the whole card and
+// then the worst flaw.
+var PG_TOL_FRONT=1.5,PG_TOL_BACK=2; // centering tolerance from a phone photo, in split points
 function wearCap(score,half){
-  if(half)return score>=98?10:score>=95?9.5:score>=91?9:score>=87?8.5:score>=82?8:score>=75?7:score>=55?6:5;
-  return score>=97?10:score>=93?9:score>=88?8:score>=82?7:score>=75?6:score>=55?5:4;
+  if(half)return score>=94?10:score>=90?9.5:score>=85?9:score>=80?8.5:score>=74?8:score>=66?7:score>=55?6:5;
+  return score>=92?10:score>=85?9:score>=77?8:score>=68?7:score>=58?6:score>=45?5:4;
 }
-function centerCap(co,wf,wb){var t=CO_CENTER[co];for(var i=0;i<t.length;i++){if(wf<=t[i][1]+1e-9&&(wb==null||wb<=t[i][2]+1e-9))return t[i][0]}return co==="PSA"?3:6}
+function wearBlend(list){var avg=list.reduce(function(s,k){return s+k.score},0)/list.length,min=Math.min.apply(null,list.map(function(k){return k.score}));return Math.round(avg*.65+min*.35)}
+function centerCap(co,wf,wb){var t=CO_CENTER[co];for(var i=0;i<t.length;i++){if(wf<=t[i][1]+PG_TOL_FRONT&&(wb==null||wb<=t[i][2]+PG_TOL_BACK))return t[i][0]}return co==="PSA"?3:6}
 function worstSplit(s){return Math.max(s.lr,100-s.lr,s.tb,100-s.tb)}
+function splitTxt(v){return fmt1(v)+"/"+fmt1(100-v)}
+function gradeWord(g){return (g===8||g===8.5?"an ":"a ")+g}
+function capTxt(cap,grade){return cap>=10?"10 ok":"caps at "+cap}
+function wearWord(s){return s>=92?"gem-level":s>=85?"mint-level":s>=77?"near-mint":s>=68?"lightly handled":"worn"}
 function pgResult(){
   var f=PG.front,b=PG.back;
-  $("#pg-result-empty").hidden=!!f;$("#pg-grade").hidden=!f;$("#pg-actions").hidden=!f;$("#pg-conf").hidden=!f;$("#pg-verdict").hidden=!f;$("#pg-co").hidden=!f;
-  if(!f){$("#pg-notes").innerHTML="";$("#pg-breakdown").innerHTML="";pgMath();return}
+  $("#pg-result-empty").hidden=!!f;$("#pg-grade").hidden=!f;$("#pg-actions").hidden=!f;$("#pg-conf").hidden=!f;$("#pg-verdict").hidden=!f;$("#pg-co").hidden=!f;$("#pg-dissect").hidden=!f;
+  if(!f){$("#pg-dissect").innerHTML="";$("#pg-breakdown").innerHTML="";pgMath();return}
   var wf=worstSplit(f),wb=b?worstSplit(b):null,sides=[f].concat(b?[b]:[]);
-  var cornerScore=Math.min.apply(null,sides.map(function(s){return s.cornerScore})),edgeScore=Math.min.apply(null,sides.map(function(s){return s.edgeScore}));
+  var allC=[],allE=[];sides.forEach(function(s){allC=allC.concat(s.corners.map(function(k){k.side=s.name;return k}));allE=allE.concat(s.edges.map(function(e){e.side=s.name;return e}))});
+  var cornerScore=wearBlend(allC),edgeScore=wearBlend(allE);
   var sCap=10,flags=[];$$("#pg-surface input[data-cap]:checked").forEach(function(el){sCap=Math.min(sCap,+el.dataset.cap);flags.push(el.parentNode.querySelector("span").firstChild.textContent)});
-  var scanLines=sides.reduce(function(n,s){return n+s.scan.lines.length},0),scanSpecks=sides.reduce(function(n,s){return n+s.scan.specks.length},0),useScan=$("#pg-s-usescan").checked;
-  if(useScan){if(scanLines)sCap=Math.min(sCap,9);if(scanSpecks>=6)sCap=Math.min(sCap,8)}
+  var scanLines=sides.reduce(function(n,s){return n+s.scan.lines.length},0),scanSpecks=sides.reduce(function(n,s){return n+s.scan.specks.length},0),scanGlare=sides.reduce(function(n,s){return n+s.scan.glare.length},0),useScan=$("#pg-s-usescan").checked;
+  var scanCap=10;if(useScan){if(scanLines)scanCap=9;if(scanSpecks>=6)scanCap=Math.min(scanCap,8)}
+  sCap=Math.min(sCap,scanCap);
   var subs={center:centerCap("PSA",wf,wb),corners:wearCap(cornerScore),edges:wearCap(edgeScore),surface:sCap};
   var grade=Math.min(subs.center,subs.corners,subs.edges,subs.surface);
   $("#pg-grade-num").childNodes[0].nodeValue=String(grade);$("#pg-grade-label").textContent=GRADE_LABEL[grade]||"";
   $("#pg-subs").innerHTML=[["Centering",subs.center],["Corners",subs.corners],["Edges",subs.edges],["Surface",subs.surface]].map(function(r){return '<div class="sub'+(r[1]===grade&&grade<10?" limit":"")+'"><b>'+r[1]+'</b><span>'+r[0]+'</span></div>'}).join("");
-  // gem chance
-  var p=wf<=55?.95:wf<=58?.85:wf<=60?.65:wf<=62?.35:wf<=65?.12:.03;
-  if(b)p*=wb<=70?1:wb<=75?.85:wb<=80?.4:.1;
-  function wp(s){return s>=99?.95:s>=97?.8:s>=95?.55:s>=93?.3:s>=90?.15:.05}
-  p*=wp(cornerScore)*wp(edgeScore);p*=sCap>=10?.85:sCap>=9?.25:.02;
-  var qual=sides.map(function(s){return s.quality});if(qual.indexOf("Retake")>=0)p*=.6;else if(qual.indexOf("Usable")>=0)p*=.85;
-  p=clamp(p,.01,.9);
-  var verdict=grade>=10?["Submit","pill-up","Predicted 10. Worth a grading fee if the comps support it."]:grade===9?["Consider","pill-gold","Predicted 9. Grade it only if a 9 still sells for more than raw plus fees."]:["Sell raw","pill-down","Predicted "+grade+". Grading rarely adds value here. Sell or keep it raw."];
+  // gem chance as a product of named factors, so the dissection can show where it comes from
+  var fac=[];
+  fac.push(["front centering "+splitTxt(wf),wf<=55?.95:wf<=58?.9:wf<=60?.8:wf<=61.5?.6:wf<=63?.4:wf<=65?.22:.08]);
+  if(b)fac.push(["back centering "+splitTxt(wb),wb<=70?1:wb<=75?.9:wb<=77?.7:wb<=80?.45:.12]);
+  function wp(s){return s>=97?.95:s>=94?.88:s>=91?.78:s>=88?.62:s>=84?.45:s>=78?.28:.12}
+  fac.push(["corners "+cornerScore+"/100",wp(cornerScore)]);fac.push(["edges "+edgeScore+"/100",wp(edgeScore)]);
+  fac.push(["surface"+(sCap<10?" capped at "+sCap:" clean"),sCap>=10?.9:sCap>=9?.3:.03]);
+  var qual=sides.map(function(s){return s.quality}),pQ=qual.indexOf("Retake")>=0?.75:qual.indexOf("Usable")>=0?.92:1;
+  if(pQ<1)fac.push(["photo "+(qual.indexOf("Retake")>=0?"needs a retake":"usable, not ideal"),pQ]);
+  var p=clamp(fac.reduce(function(a,r){return a*r[1]},1),.02,.92);
+  var verdict=grade>=10?["Submit","pill-up","Predicted 10. Worth the grading fee if the comps support it."]:grade===9?["Worth a look","pill-gold","Predicted 9 with a real shot at a 10. Grade it if a PSA 9 covers the fee, or if the 10 is a big step up."]:grade===8?["Lean raw","pill-gold","Predicted 8. A slab adds value mainly on key cards; the dissection below shows what is holding it back."]:["Sell raw","pill-down","Predicted "+grade+". Grading rarely adds value here. Sell or keep it raw."];
   $("#pg-verdict").innerHTML='<div class="vd"><span class="pill '+verdict[1]+'">'+verdict[0]+'</span><b>'+Math.round(p*100)+'% gem chance</b><span class="muted">'+verdict[2]+'</span></div>';
   // breakdown rows
   var rows=[];
@@ -2242,37 +2273,72 @@ function pgResult(){
   if(b)rows.push(["Centering, back",Math.round(b.lr)+"/"+Math.round(100-b.lr)+" · "+Math.round(b.tb)+"/"+Math.round(100-b.tb),centerCap("PSA",0,wb)]);
   rows.push(["Corners",cornerScore+"/100",subs.corners]);rows.push(["Edges",edgeScore+"/100",subs.edges]);
   rows.push(["Surface",(flags.length?flags.join(", "):"Nothing flagged")+(scanLines||scanSpecks?" · scan: "+scanLines+" line"+(scanLines===1?"":"s")+", "+scanSpecks+" speck"+(scanSpecks===1?"":"s")+(useScan?"":" (not counted)"):""),subs.surface]);
-  $("#pg-breakdown").innerHTML=rows.map(function(r){return '<span class="k">'+r[0]+'</span><span class="v">'+esc(r[1])+'</span><span class="cap'+(r[2]===grade&&grade<10?" limit":"")+'">'+(r[2]>=10?"10 ok":"caps at "+r[2])+'</span>'}).join("");
+  $("#pg-breakdown").innerHTML=rows.map(function(r){return '<span class="k">'+r[0]+'</span><span class="v">'+esc(r[1])+'</span><span class="cap'+(r[2]===grade&&grade<10?" limit":"")+'">'+capTxt(r[2],grade)+'</span>'}).join("");
   // per-company table
-  var co=CO_LIST.map(function(c){var half=c!=="PSA",g=Math.min(centerCap(c,wf,wb),wearCap(cornerScore,half),wearCap(edgeScore,half),sCap);var cc=centerCap(c,wf,wb);return {co:c,grade:g,center:cc}});
+  var co=CO_LIST.map(function(c){var half=c!=="PSA",cc=centerCap(c,wf,wb),g=Math.min(cc,wearCap(cornerScore,half),wearCap(edgeScore,half),sCap);return {co:c,grade:g,center:cc}});
   $("#pg-co").innerHTML='<thead><tr><th>Company</th><th>Centering allows</th><th>Predicted</th></tr></thead><tbody>'+co.map(function(r){return '<tr><td>'+r.co+'</td><td class="mono">'+r.center+'</td><td class="mono"><b>'+r.grade+'</b></td></tr>'}).join("")+'</tbody>';
-  // notes
-  var notes=[];
-  var worstF=[["left/right",Math.max(f.lr,100-f.lr)],["top/bottom",Math.max(f.tb,100-f.tb)]].sort(function(a,c){return c[1]-a[1]})[0];
-  if(worstF[1]>60)notes.push("Front centering is "+fmt1(worstF[1])+"/"+fmt1(100-worstF[1])+" "+worstF[0]+". PSA 10 needs 60/40 or better on the front; 9 allows 65/35.");
-  else if(worstF[1]>55)notes.push("Front centering is "+fmt1(worstF[1])+"/"+fmt1(100-worstF[1])+" "+worstF[0]+": inside PSA's 60/40 for a 10, but outside the 55/45 that BGS and SGC want for their top grades.");
-  else notes.push("Front centering is "+fmt1(worstF[1])+"/"+fmt1(100-worstF[1])+", inside every company's top-grade range.");
-  if(b){if(wb>75)notes.push("Back centering is "+fmt1(wb)+"/"+fmt1(100-wb)+". PSA 10 needs 75/25 or better on the back.")}
-  else notes.push("No back photo. PSA grades the back too, so add one for a fuller read.");
-  var weak=f.corners.slice().sort(function(a,c){return a.score-c.score})[0];
-  if(weak.score<93)notes.push("Weakest front corner is "+weak.name+" at "+weak.score+"/100"+(weak.excessMm>.05?", about "+fmt1(weak.excessMm)+" mm more rounding than the cleanest corner":"")+(weak.white>.01?", with whitening":"")+". Check it with a loupe.");
-  var weakE=f.edges.slice().sort(function(a,c){return a.score-c.score})[0];
-  if(weakE.score<93)notes.push("Weakest front edge is the "+weakE.name.toLowerCase()+" at "+weakE.score+"/100"+(weakE.nicks.length?" with "+weakE.nicks.length+" nick"+(weakE.nicks.length>1?"s":"")+" totalling "+fmt1(weakE.nickMm)+" mm":"")+".");
-  sides.forEach(function(s){if(s.scan.lines.length)notes.push((s.name==="front"?"Front":"Back")+" surface scan found "+s.scan.lines.length+" straight line candidate"+(s.scan.lines.length>1?"s":"")+" (longest "+fmt1(Math.max.apply(null,s.scan.lines.map(function(l){return l.lenMm})))+" mm). Print lines look like this, but so do design elements. Check the Scan view.");
-    if(s.scan.specks.length>=6)notes.push((s.name==="front"?"Front":"Back")+" surface scan found "+s.scan.specks.length+" speck candidates in flat areas. Could be print dots, dust or sensor noise. Wipe the card and reshoot if unsure.")});
-  if(!f.innerFound&&!f.manualInner)notes.push("The picture edge wasn't found on the front (full-bleed design or low contrast). Drag the dashed lines to the edge of the picture area for a real centering read.");
-  if(!f.found)notes.push("The card's outline wasn't found on the front. Use a plain background that contrasts with the border, or drag the gold corners in the Photo view.");
-  if(f.keystone<.06&&(f.aspect<1.3||f.aspect>1.5))notes.push("The detected shape is "+fmt1(f.aspect)+":1, not a standard 1.4:1 card. Check the gold outline in the Photo view.");
-  sides.forEach(function(s){s.checks.filter(function(c){return c.state!=="ok"}).forEach(function(c){notes.push((s.name==="front"?"Front photo":"Back photo")+": "+c.tip)})});
-  if(sCap<10)notes.push("Surface caps the grade at "+sCap+".");
-  $("#pg-notes").innerHTML=notes.map(function(n){return "<li>"+esc(n)+"</li>"}).join("");
   // confidence
   var conf="High",cls="pill pill-up";
   if(qual.indexOf("Retake")>=0||!f.found||!(f.innerFound||f.manualInner)){conf="Low";cls="pill pill-down"}
   else if(qual.indexOf("Usable")>=0||!b||!f.refined){conf="Medium";cls="pill pill-gold"}
   var cp=$("#pg-conf");cp.className=cls;cp.textContent=conf+" confidence";
+  // ---- the dissection ----
+  var dx=[],txt=[];
+  function sec(name,sum,cap,parts){dx.push({name:name,sum:sum,cap:cap,parts:parts});txt.push(name.toUpperCase()+(cap!=null?" · "+capTxt(cap,grade):"")+"\n"+sum+"\n"+parts.map(function(q){return typeof q==="string"?q:q.rows.map(function(r){return r.join("  ")}).join("\n")}).join("\n"))}
+  // 1. centering
+  var bm=f.borderMm,worstF=[["left/right",Math.max(f.lr,100-f.lr),f.lr>=50?"left":"right"],["top/bottom",Math.max(f.tb,100-f.tb),f.tb>=50?"top":"bottom"]].sort(function(a,c){return c[1]-a[1]})[0];
+  var cParts=[];
+  cParts.push("<b>How it was measured.</b> The front was straightened to a 2.5 × 3.5 frame and the picture edge located on all four sides. Borders measure "+fmt1(bm.l)+" mm left, "+fmt1(bm.r)+" mm right, "+fmt1(bm.t)+" mm top and "+fmt1(bm.b)+" mm bottom, which gives "+splitTxt(f.lr)+" left/right and "+splitTxt(f.tb)+" top/bottom."+(f.innerFound||f.manualInner?"":" <b>The picture edge was not detected</b> (full-bleed design or low contrast), so these are placeholder guides: drag the dashed lines to the real picture edge for a true read."));
+  var inside10=wf<=60,inside10tol=wf<=60+PG_TOL_FRONT,inside9=wf<=65+PG_TOL_FRONT;
+  cParts.push("<b>Against the standard.</b> PSA allows 60/40 on the front for a 10 and 65/35 for a 9 (75/25 and 90/10 on the back). The front's worst axis is "+worstF[0]+" at "+splitTxt(worstF[1])+", heavier to the "+worstF[2]+": "+(inside10?fmt1(60-wf)+" points inside the 10 line.":inside10tol?fmt1(wf-60)+" points past the 10 line, which is within the ±"+PG_TOL_FRONT+"-point tolerance of a phone measurement, so it is given the benefit of the doubt.":inside9?fmt1(wf-60)+" points past the 10 line but inside the 9 line, so centering alone holds this at a 9.":fmt1(wf-65)+" points past the 9 line, which caps centering at "+subs.center+"."));
+  if(b)cParts.push("<b>Back.</b> "+splitTxt(b.lr)+" left/right, "+splitTxt(b.tb)+" top/bottom. The worst back axis is "+splitTxt(wb)+", "+(wb<=75+PG_TOL_BACK?"inside PSA's 75/25 for a 10.":wb<=90+PG_TOL_BACK?"outside 75/25 but inside 90/10, so the back holds the card to a 9.":"outside 90/10."));
+  else cParts.push("<b>Back.</b> No back photo, so the back is assumed to sit inside PSA's 75/25. Add it to confirm: a badly off-center back is the most common reason a clean-looking front comes back a 9.");
+  cParts.push("<b>Other companies.</b> At this centering BGS allows "+centerCap("BGS",wf,wb)+" (it wants 50/50 for a Pristine 10), SGC "+centerCap("SGC",wf,wb)+" (55/45 for a 10), CGC "+centerCap("CGC",wf,wb)+" and TAG "+centerCap("TAG",wf,wb)+".");
+  sec("Centering","Front "+splitTxt(f.lr)+" · "+splitTxt(f.tb)+(b?" · Back "+splitTxt(b.lr)+" · "+splitTxt(b.tb):""),subs.center,cParts);
+  // 2. corners
+  var cRows=allC.map(function(k){return [(sides.length>1?(k.side==="front"?"Front ":"Back "):"")+k.name,String(k.score),k.excessMm>.05?"+"+fmt1(k.excessMm)+" mm":"sharp",k.fuzzMm>.35?"soft":"crisp",k.white>.01?Math.round(k.white*100)+"%":"none"]});
+  var weak=allC.slice().sort(function(a,c){return a.score-c.score})[0],baseR=Math.min.apply(null,f.corners.map(function(k){return k.radMm}));
+  var kParts=[{head:["Corner","Score","Rounding","Focus","Whitening"],rows:cRows}];
+  kParts.push("<b>How it was measured.</b> Each corner is compared with the sharpest corner on the same card (radius about "+fmt1(baseR)+" mm here), so a design with naturally rounded corners is not penalised. Extra rounding is read from how much background shows inside the corner box, softness from the width of the card-to-background transition, and whitening from bright low-saturation pixels on a coloured border.");
+  kParts.push("<b>What it found.</b> The weakest corner is "+(sides.length>1?(weak.side==="front"?"front ":"back "):"")+weak.name+" at "+weak.score+"/100: "+(weak.excessMm>.05?"about "+fmt1(weak.excessMm)+" mm more rounding than the sharpest corner":"no extra rounding")+(weak.white>.01?", with "+Math.round(weak.white*100)+"% whitening along the border":"")+(weak.fuzzMm>.35?", and the photo is soft there, so part of that reading is focus rather than wear":"")+". The blended corner score is "+cornerScore+"/100, which reads as "+wearWord(cornerScore)+" and supports "+gradeWord(subs.corners)+".");
+  kParts.push(cornerScore>=92?"<b>Caveat.</b> Corners are the reading a grader can disagree with most: a loupe finds a touched corner a phone can't. Sharp in the photo means sharp enough to submit, not a guaranteed 10.":cornerScore>=85?"<b>Caveat.</b> A score in the high 80s is usually one slightly touched corner or a soft photo. Check "+weak.name+" under a loupe; if it is actually sharp, the corners support a 10.":"<b>Caveat.</b> Visible rounding or whitening on more than one corner is the kind of wear graders agree on. Expect the sub-grade to hold.");
+  sec("Corners",allC.map(function(k){return k.name+" "+k.score}).join(" · "),subs.corners,kParts);
+  // 3. edges
+  var eRows=allE.map(function(e){return [(sides.length>1?(e.side==="front"?"Front ":"Back "):"")+e.name,String(e.score),e.nicks.length?e.nicks.length+" ("+fmt1(e.nickMm)+" mm)":"none",Math.round(e.roughMm*1000)+" µm",e.white>.01?Math.round(e.white*100)+"%":"none"]});
+  var weakE=allE.slice().sort(function(a,c){return a.score-c.score})[0];
+  var eParts=[{head:["Edge","Score","Nicks","Roughness","Whitening"],rows:eRows}];
+  eParts.push("<b>How it was measured.</b> Every edge is traced pixel by pixel against the fitted card outline, corners excluded. A nick is a run of at least three pixels stepping inward past the noise floor; roughness is the typical wobble of the trace in microns (a thousandth of a millimetre); whitening is bright chipping on a coloured border.");
+  eParts.push("<b>What it found.</b> The weakest edge is the "+(sides.length>1?(weakE.side==="front"?"front ":"back "):"")+weakE.name.toLowerCase()+" at "+weakE.score+"/100"+(weakE.nicks.length?" with "+weakE.nicks.length+" nick"+(weakE.nicks.length>1?"s":"")+" totalling "+fmt1(weakE.nickMm)+" mm":", with no nicks")+(weakE.white>.01?" and "+Math.round(weakE.white*100)+"% whitening":"")+". The blended edge score is "+edgeScore+"/100, "+wearWord(edgeScore)+", supporting "+gradeWord(subs.edges)+".");
+  eParts.push(edgeScore>=92?"<b>Caveat.</b> Edges this clean rarely cost a grade. Chrome and foil stock can still hide chipping that only shows under angled light, so give the long edges one look before submitting.":"<b>Caveat.</b> Nicks under about 0.3 mm are often a shadow or a jpeg artifact. Rotate the card under a lamp: a real chip shows as a white fleck on coloured stock or a dent in the gloss.");
+  sec("Edges",allE.map(function(e){return e.name+" "+e.score}).join(" · "),subs.edges,eParts);
+  // 4. surface
+  var sParts=[];
+  sParts.push("<b>Your inspection.</b> "+(flags.length?"You flagged: "+flags.join(", ")+". That caps the surface at "+sCap+" because graders treat these as the flaws they are, however small.":"Nothing flagged. The surface sub-grade comes from your own look under angled light, so this assumes clean gloss, no print lines, no dents."));
+  sParts.push("<b>Photo scan.</b> "+(scanLines||scanSpecks||scanGlare?"The scan found "+scanLines+" straight-line candidate"+(scanLines===1?"":"s")+(scanLines?" (longest "+fmt1(Math.max.apply(null,sides.reduce(function(a,s){return a.concat(s.scan.lines.map(function(l){return l.lenMm}))},[0])))+" mm)":"")+", "+scanSpecks+" speck candidate"+(scanSpecks===1?"":"s")+" in flat areas and "+scanGlare+" glare spot"+(scanGlare===1?"":"s")+" that were masked out. "+(useScan?"These are being counted"+(scanCap<10?" and cap the surface at "+scanCap:"")+".":"They are shown in the Scan view but not counted, because busy designs produce false positives. Tick 'Count the surface scan's findings' if you can see them on the card."):"The scan found no line or speck candidates in the flat areas of the picture and no glare that needed masking."));
+  sParts.push("<b>Caveat.</b> Surface is the sub-grade a photo sees least and the one that most often turns a predicted 10 into a 9. Tilt the card under a lamp and look for print lines, scratches and dimples in the gloss before you pay a fee.");
+  sec("Surface",(flags.length?flags.join(", "):"Nothing flagged")+" · scan "+scanLines+" line"+(scanLines===1?"":"s")+", "+scanSpecks+" speck"+(scanSpecks===1?"":"s"),subs.surface,sParts);
+  // 5. photo quality
+  var qParts=[];
+  sides.forEach(function(s){var bad=s.checks.filter(function(c){return c.state!=="ok"});qParts.push("<b>"+(s.name==="front"?"Front":"Back")+" photo: "+s.quality+".</b> "+(bad.length?bad.map(function(c){return c.label+": "+c.tip}).join(" "):"Resolution, focus, lighting, framing and angle all pass, so every reading above can be trusted to within photo tolerance."))});
+  if(!f.found)qParts.push("The card's outline wasn't found on the front. Use a plain background that contrasts with the border, or drag the gold corners in the Photo view.");
+  if(f.keystone<.06&&(f.aspect<1.3||f.aspect>1.5))qParts.push("The detected shape is "+fmt1(f.aspect)+":1, not a standard 1.4:1 card. Check the gold outline in the Photo view.");
+  qParts.push("<b>Confidence: "+conf+".</b> "+(conf==="High"?"Both sides read cleanly with the picture edge found, so the estimate is as good as a photo gets.":conf==="Medium"?(b?"A reading is usable but not ideal":"No back photo")+", so treat the estimate as a range of one grade either way.":"A reading failed or the card outline needed guesses, so this estimate is a starting point. Reshoot and it will tighten up."));
+  sec("Photo quality",sides.map(function(s){return (s.name==="front"?"Front ":"Back ")+s.quality}).join(" · "),null,qParts);
+  // 6. bottom line
+  var lim=[["centering",subs.center],["corners",subs.corners],["edges",subs.edges],["surface",subs.surface]].filter(function(r){return r[1]===grade&&grade<10}).map(function(r){return r[0]});
+  var fix=[];
+  if(subs.center<10)fix.push("centering would need to read 60/40 or better on the front"+(b?" and 75/25 on the back":"")+" (it reads "+splitTxt(wf)+(b?" and "+splitTxt(wb):"")+")");
+  if(subs.corners<10)fix.push("the corners would need to read 92+ (they read "+cornerScore+"; check "+weak.name+" with a loupe, photo softness can mimic rounding)");
+  if(subs.edges<10)fix.push("the edges would need to read 92+ (they read "+edgeScore+")");
+  if(subs.surface<10)fix.push("the surface flags"+(flags.length?" ("+flags.join(", ")+")":"")+(useScan&&scanCap<10?" and the counted scan findings":"")+" would have to be absent: if they are not really there, untick them");
+  var bParts=[];
+  bParts.push(grade>=10?"<b>Nothing caps this card below a 10.</b> The "+Math.round(p*100)+"% gem chance is what a photo cannot rule out: a loupe-level corner touch, a print line in the gloss, or a grader's call on centering.":"<b>The grade is set by "+lim.join(" and ")+".</b> To reach a 10, "+fix.join("; ")+".");
+  bParts.push("<b>Gem chance "+Math.round(p*100)+"%</b> = "+fac.map(function(r){return r[0]+" ×"+r[1].toFixed(2)}).join(" · ")+". Each factor is a rough share of cards with that reading that come back a 10; multiplied together they give the chance this one does.");
+  bParts.push("<b>Across companies:</b> "+co.map(function(r){return r.co+" "+r.grade}).join(", ")+". "+(co.every(function(r){return r.grade===co[0].grade})?"The companies agree on this card.":co[1].grade<co[0].grade?"BGS and SGC are stricter on centering for their top grade, which is why they land lower here.":"The half-grades at the other companies let this card land a step higher than PSA's whole-number scale."));
+  sec("Bottom line","Predicted PSA "+grade+" · "+Math.round(p*100)+"% gem chance · "+conf.toLowerCase()+" confidence",null,bParts);
+  $("#pg-dissect").innerHTML=dx.map(function(d){return '<section class="dx"><div class="dx-head"><b>'+esc(d.name)+'</b><span class="dx-sum">'+esc(d.sum)+'</span>'+(d.cap!=null?'<span class="cap'+(d.cap===grade&&grade<10?" limit":"")+'">'+capTxt(d.cap,grade)+'</span>':'')+'</div>'+d.parts.map(function(q){if(typeof q==="string")return "<p>"+q+"</p>";return '<table class="dx-tbl"><thead><tr>'+q.head.map(function(h){return "<th>"+esc(h)+"</th>"}).join("")+'</tr></thead><tbody>'+q.rows.map(function(r){return "<tr>"+r.map(function(c,i){return '<td class="'+(i?"mono":"")+'">'+esc(c)+"</td>"}).join("")+"</tr>"}).join("")+'</tbody></table>'}).join("")+'</section>'}).join("");
   PG.gem=p;PG.grade=grade;
-  PG.report="Wax Ledger Pre-Grading Tool\nPredicted grade: PSA "+grade+" "+(GRADE_LABEL[grade]||"")+" · "+Math.round(p*100)+"% gem chance · "+conf.toLowerCase()+" confidence\nSub-grades: centering "+subs.center+", corners "+subs.corners+", edges "+subs.edges+", surface "+subs.surface+"\n"+rows.map(function(r){return r[0]+": "+r[1]+" (cap "+r[2]+")"}).join("\n")+"\nBy company: "+co.map(function(r){return r.co+" "+r.grade}).join(", ")+"\n"+notes.join("\n")+"\nthewaxledger.com · not affiliated with any grading company";
+  PG.report="Wax Ledger Pre-Grading Tool\nPredicted grade: PSA "+grade+" "+(GRADE_LABEL[grade]||"")+" · "+Math.round(p*100)+"% gem chance · "+conf.toLowerCase()+" confidence\nSub-grades: centering "+subs.center+", corners "+subs.corners+", edges "+subs.edges+", surface "+subs.surface+"\nBy company: "+co.map(function(r){return r.co+" "+r.grade}).join(", ")+"\n\n"+txt.join("\n\n").replace(/<[^>]+>/g,"")+"\n\nthewaxledger.com · not affiliated with any grading company";
   pgMath();
 }
 function pgMath(){
