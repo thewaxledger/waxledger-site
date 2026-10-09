@@ -546,7 +546,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
     <div class="hdr-auth"><button class="btn btn-sm" type="button" id="hdr-signin">Sign in</button><a class="btn btn-gold" id="hdr-pro" href="#membership" data-go="membership">Go Pro</a></div>
   </div>
 </header>
-<div class="preview-bar"><div class="wrap"><b>Beta</b><span>Movers and review scores are sample data. Comps are live values from SportsCardsPro; Raw-to-Gem Calculator prices and release dates are real, checked Oct 8, 2026.</span></div></div>
+<div class="preview-bar"><div class="wrap"><b>Beta</b><span>Movers and review scores are sample data. Comps are live values compiled from completed sales; Raw-to-Gem Calculator prices and release dates are real, checked Oct 8, 2026.</span></div></div>
 
 <main class="wrap">
 
@@ -626,7 +626,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
   <div class="view-head">
     <p class="eyebrow">Comps</p>
     <h2>Sold prices, not asking prices</h2>
-    <p class="lede">Search any card. Values are compiled from completed eBay sales by SportsCardsPro, by grade. The first search for a card adds it to the Ledger; after that it answers instantly, and it refreshes on its own.</p>
+    <p class="lede">Search any card. Values are compiled from completed eBay sales, by grade. The first search for a card adds it to the Ledger; after that it answers instantly, and it refreshes on its own.</p>
   </div>
   <div class="stack">
     <form class="search" id="comp-search">
@@ -651,7 +651,6 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
       <div class="linkrow">
         <span class="small muted" id="comp-source"></span>
         <a id="ebay-link" href="https://www.ebay.com/" target="_blank" rel="noopener">Sold listings on eBay</a>
-        <a id="scp-link" href="https://www.sportscardspro.com/" target="_blank" rel="noopener">Sales history on SportsCardsPro</a>
       </div>
     </div>
 
@@ -1265,7 +1264,6 @@ var COMPS={cache:{},recent:null,seq:0};
 var SUGGEST=CARDS.map(function(c){return {q:c.q,label:c.name.split(",")[0]}}).concat([{q:"Michael Jordan 1986 Fleer #57",label:"Michael Jordan RC"},{q:"Victor Wembanyama 2023 Prizm #136",label:"Wembanyama"},{q:"Shohei Ohtani 2018 Topps Chrome #150",label:"Ohtani RC"}]);
 function cardChips(el){el.innerHTML=SUGGEST.map(function(c){return '<button class="chip" type="button" data-q="'+esc(c.q)+'" aria-pressed="'+(state.q.toLowerCase()===c.q.toLowerCase())+'">'+esc(c.label)+'</button>'}).join("")}
 function ebayUrl(q){return "https://www.ebay.com/sch/i.html?_nkw="+encodeURIComponent(q)+"&LH_Sold=1&LH_Complete=1"}
-function scpUrl(q){return "https://www.sportscardspro.com/search-products?type=prices&q="+encodeURIComponent(q)}
 function compsApi(params){
   var qs=Object.keys(params).map(function(k){return k+"="+encodeURIComponent(params[k])}).join("&");
   return fetch("/api/comps?"+qs,{headers:{accept:"application/json"}}).then(function(r){return r.json()});
@@ -1325,8 +1323,8 @@ function renderProduct(j,q){
   $("#comp-matches-wrap").hidden=!ms.length;
   $("#comp-matches").innerHTML=ms.map(function(m){return '<button class="match" type="button" data-pick="'+esc(m.id)+'" data-pick-q="'+esc(q)+'"><b>'+esc(m.name)+'</b><span>'+esc(m.set)+'</span></button>'}).join("");
   var when=p.fetchedAt?new Date(p.fetchedAt):null;
-  $("#comp-source").textContent="Values by SportsCardsPro from completed eBay sales"+(when?" \u00b7 updated "+MONTHS[when.getMonth()]+" "+when.getDate():"")+(j.stale?" \u00b7 refresh pending":"");
-  $("#ebay-link").href=ebayUrl(p.name+" "+p.set);$("#scp-link").href=scpUrl(p.name+" "+p.set);
+  $("#comp-source").textContent="Values compiled from completed eBay sales"+(when?" \u00b7 updated "+MONTHS[when.getMonth()]+" "+when.getDate():"")+(j.stale?" \u00b7 refresh pending":"");
+  $("#ebay-link").href=ebayUrl(p.name+" "+p.set);
   cardChips($("#comp-chips"));cardChips($("#hero-chips"));
   loadCalcFromCard();
 }
@@ -1391,7 +1389,7 @@ function renderCalc(){
     "<dt>If it gems</dt><dd class='"+(r.hit10>=0?"up":"down")+"'>"+signed(r.hit10)+"</dd>"+
     "<dt>If it misses</dt><dd class='"+(r.miss>=0?"up":"down")+"'>"+signed(r.miss)+"</dd>"+
     "<dt>Expected profit at "+gem+"% gems</dt><dd class='"+(r.profit>=0?"up":"down")+"'>"+signed(r.profit)+"</dd>";
-  $("#calc-note").textContent="Uses the Raw-to-Gem Calculator's assumptions: the PSA 10 takes a "+pc(SA.haircut)+" sell-date haircut and a miss sells at "+pc(SA.missReal)+" of the PSA 9 price. The calculator is live. The prices it loads from the comp sheet are SportsCardsPro values.";
+  $("#calc-note").textContent="Uses the Raw-to-Gem Calculator's assumptions: the PSA 10 takes a "+pc(SA.haircut)+" sell-date haircut and a miss sells at "+pc(SA.missReal)+" of the PSA 9 price. The calculator is live. The prices it loads from the comp sheet are live comp values.";
 }
 
 /* ---------- releases ---------- */
