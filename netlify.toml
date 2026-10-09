@@ -5,3 +5,8 @@
 [functions]
   node_bundler = "esbuild"
 
+
+[[redirects]]
+  from = "/giveaway"
+  to = "/giveaway.html"
+  status = 200
