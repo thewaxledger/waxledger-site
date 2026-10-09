@@ -50,6 +50,8 @@ export function isAdmin(email, deps) {
 // Active Pro membership = any subscription for a customer with this email in an active-like state.
 export async function hasActiveMembership(email, deps) {
   if (isAdmin(email, deps)) return true;
+  // Complimentary members (creators, shops, partners) are granted by an admin and need no Stripe subscription.
+  try { const comp = await deps.users.get("comp/" + sha(normEmail(email)), { type: "json" }); if (comp && !comp.until || comp && comp.until > deps.now()) return true; } catch (e) {}
   if (!deps.stripeKey) throw new Error("stripe-not-configured");
   const auth = { headers: { authorization: "Bearer " + deps.stripeKey } };
   const cr = await deps.fetchFn("https://api.stripe.com/v1/customers?limit=20&email=" + encodeURIComponent(email), auth);

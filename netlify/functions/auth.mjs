@@ -5,6 +5,8 @@
 // POST /api/auth  {action:"checkout", session_id}     -> right after Stripe Checkout: signs the payer in so they can set a password
 // POST /api/auth  {action:"password", password}       -> sets or changes the signed-in member's password
 // POST /api/auth  {action:"profile", name, x}         -> sets display name and optional X handle
+// POST /api/auth  {action:"comp", email, grant, note}  -> admin: free Pro for an email (creators, shops); grant:false revokes
+// POST /api/auth  {action:"comps"}                    -> admin: list complimentary members
 // POST /api/auth  {action:"logout"}
 // GET  /api/auth                                      -> {member:{...}} or {member:null}
 // GET  /api/auth?config=1                             -> which settings are present (never their values)
@@ -127,6 +129,24 @@ export async function handle(req, deps) {
     return json({ status: "ok", name, x });
   }
 
+  if (action === "comp") {
+    // Admin: grant or revoke a complimentary Pro membership. {email, grant:true|false, note}
+    const m = await currentMember(req, deps);
+    if (!m || !m.admin) return bad("Admins only.", 403);
+    const email = normEmail(body.email);
+    if (!isEmail(email)) return bad("Enter a valid email address.");
+    const key = "comp/" + sha(email);
+    if (body.grant === false) { await deps.users.delete(key); return json({ status: "ok", email, comp: false }); }
+    await deps.users.setJSON(key, { email, note: clean(body.note, 120), by: m.email, at: now });
+    return json({ status: "ok", email, comp: true });
+  }
+  if (action === "comps") {
+    const m = await currentMember(req, deps);
+    if (!m || !m.admin) return bad("Admins only.", 403);
+    const { blobs } = await deps.users.list({ prefix: "comp/" });
+    const rows = (await Promise.all(blobs.map(b => deps.users.get(b.key, { type: "json" })))).filter(Boolean);
+    return json({ status: "ok", comps: rows.map(r => ({ email: r.email, note: r.note, at: r.at })) });
+  }
   if (action === "logout") {
     const tok = cookies(req).wl_session;
     if (tok) await deps.users.delete("session/" + sha(tok));

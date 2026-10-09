@@ -942,6 +942,16 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
       <span class="small muted" id="bst-who"></span>
       <button class="btn btn-sm" type="button" id="bst-logout">Sign out</button>
     </div>
+    <details class="method" id="bst-admin" hidden>
+      <summary>Admin: complimentary Pro memberships</summary>
+      <form class="bst-form-row" id="comp-form" style="margin-top:10px">
+        <input id="comp-email" type="email" placeholder="email@example.com" aria-label="Email to comp" required>
+        <input id="comp-note" maxlength="120" placeholder="Note (shop, creator, why)" aria-label="Note">
+        <button class="btn btn-gold btn-sm" type="submit">Grant free Pro</button>
+        <span class="form-note" id="comp-note-out" aria-live="polite"></span>
+      </form>
+      <ul class="bst-replies" id="comp-list" style="margin-top:10px"></ul>
+    </details>
     <details class="bst-rules"><summary>Trade safely: read before you deal</summary>
       <ul>
         <li>Pay with PayPal Goods &amp; Services or another method with buyer protection. Avoid Friends &amp; Family, Zelle, Venmo or Cash App with people you don't know.</li>
@@ -2432,9 +2442,14 @@ function bstInit(){
   if(!BST.me.name){authOpen("name");return}
   bstLoad();
 }
+function compList(){
+  api("/api/auth",{action:"comps"}).then(function(j){if(j.status!=="ok")return;
+    $("#comp-list").innerHTML=j.comps.length?j.comps.map(function(c){return '<li><b>'+esc(c.email)+'</b>'+(c.note?' · '+esc(c.note):'')+' <button class="btn btn-sm" type="button" data-comp-revoke="'+esc(c.email)+'">Revoke</button></li>'}).join(""):'<li class="muted">No complimentary members yet.</li>'});
+}
 function bstLoad(){
   $("#bst-gate").hidden=true;$("#bst-board").hidden=false;
   $("#bst-who").textContent="Signed in as "+BST.me.name+(BST.me.admin?" · admin":"");
+  $("#bst-admin").hidden=!BST.me.admin;if(BST.me.admin)compList();
   api("/api/bst").then(function(j){
     if(j._code===401||j.member===false){authRefresh();return}
     BST.listings=j.listings||[];bstRender();
@@ -2539,6 +2554,9 @@ function bstBind(){
   $("#bst-logout").addEventListener("click",authLogout);
   $("#bst-new").addEventListener("click",bstCompose);
   $("#bst-compose-form").addEventListener("submit",bstPost);
+  $("#comp-form").addEventListener("submit",function(e){e.preventDefault();var o=$("#comp-note-out");o.textContent="Saving…";
+    api("/api/auth",{action:"comp",email:$("#comp-email").value,note:$("#comp-note").value}).then(function(j){o.textContent=j.status==="ok"?"Granted. They sign in with 'First time here' to set a password.":(j.error||"Failed");if(j.status==="ok"){$("#comp-email").value="";$("#comp-note").value="";compList()}})});
+  document.addEventListener("click",function(e){var t=e.target.closest("[data-comp-revoke]");if(!t)return;api("/api/auth",{action:"comp",email:t.dataset.compRevoke,grant:false}).then(compList)});
   $("#bst-search").addEventListener("input",bstRender);$("#bst-showsold").addEventListener("change",bstRender);$("#bst-sort").addEventListener("change",bstRender);
   $("#bst-photo-input").addEventListener("change",function(e){
     var files=[].slice.call(e.target.files||[]).slice(0,4-BST.photos.length);e.target.value="";
