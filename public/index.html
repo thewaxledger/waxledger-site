@@ -931,6 +931,12 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
         <button type="button" data-f="trade" aria-pressed="false">Trading</button>
       </div>
       <input id="bst-search" type="search" placeholder="Search listings" aria-label="Search listings">
+      <select class="sel" id="bst-sort" aria-label="Sort listings">
+        <option value="new">Newest first</option>
+        <option value="price-asc">Price: low to high</option>
+        <option value="price-desc">Price: high to low</option>
+        <option value="old">Oldest first</option>
+      </select>
       <label class="check-row bst-sold"><input type="checkbox" id="bst-showsold"><span>Show sold &amp; closed</span></label>
       <button class="btn btn-gold" type="button" id="bst-new">New listing</button>
       <span class="small muted" id="bst-who"></span>
@@ -2441,6 +2447,13 @@ function bstRender(){
     if(!showDone&&l.status!=="open")return false;
     if(q&&(l.title+" "+l.details+" "+l.wants+" "+l.grade+" "+l.seller.name).toLowerCase().indexOf(q)<0)return false;
     return true});
+  var sort=$("#bst-sort").value,priceOf=function(l){var n=parseFloat(String(l.price||"").replace(/,/g,""));return isFinite(n)&&n>0?n:null};
+  rows.sort(function(a,b){
+    if(sort==="old")return a.created-b.created;
+    if(sort==="price-asc"||sort==="price-desc"){var pa=priceOf(a),pb=priceOf(b);
+      if(pa===null&&pb===null)return b.created-a.created;if(pa===null)return 1;if(pb===null)return -1; // unpriced (trades, open to offers) go last
+      return sort==="price-asc"?pa-pb:pb-pa}
+    return b.created-a.created});
   $("#bst-empty").hidden=rows.length>0;
   var label={sell:"Selling",buy:"Buying",trade:"Trading"};
   $("#bst-list").innerHTML=rows.map(function(l){
@@ -2526,7 +2539,7 @@ function bstBind(){
   $("#bst-logout").addEventListener("click",authLogout);
   $("#bst-new").addEventListener("click",bstCompose);
   $("#bst-compose-form").addEventListener("submit",bstPost);
-  $("#bst-search").addEventListener("input",bstRender);$("#bst-showsold").addEventListener("change",bstRender);
+  $("#bst-search").addEventListener("input",bstRender);$("#bst-showsold").addEventListener("change",bstRender);$("#bst-sort").addEventListener("change",bstRender);
   $("#bst-photo-input").addEventListener("change",function(e){
     var files=[].slice.call(e.target.files||[]).slice(0,4-BST.photos.length);e.target.value="";
     Promise.all(files.map(bstShrink)).then(function(ds){BST.photos=BST.photos.concat(ds).slice(0,4);bstPhotos()}).catch(function(){bstNote("#bst-compose-note","One of those files couldn't be read as an image.",true)});
