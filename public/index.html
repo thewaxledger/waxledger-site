@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Wax Ledger: sold comps, a grading screener on real sales, a pre-grading tool that runs in your browser, and the sports card release calendar.">
+<meta name="description" content="Wax Ledger: sold comps, a raw-to-gem calculator on real sales, a pre-grading tool that runs in your browser, and the sports card release calendar.">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Wax Ledger</title>
 <link rel="canonical" href="https://thewaxledger.com/">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Wax Ledger">
 <meta property="og:title" content="Wax Ledger">
-<meta property="og:description" content="Your one-stop sports card hub. Sold comps, a grading screener on real sales, a pre-grading tool that runs in your browser, and the release calendar.">
+<meta property="og:description" content="Your one-stop sports card hub. Sold comps, a raw-to-gem calculator on real sales, a pre-grading tool that runs in your browser, and the release calendar.">
 <meta property="og:url" content="https://thewaxledger.com/">
 <meta property="og:image" content="https://thewaxledger.com/og-image.png">
 <meta property="og:image:width" content="2400">
@@ -24,7 +24,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@thewaxledger">
 <meta name="twitter:title" content="Wax Ledger">
-<meta name="twitter:description" content="Your one-stop sports card hub. Sold comps, a grading screener on real sales, a pre-grading tool that runs in your browser, and the release calendar.">
+<meta name="twitter:description" content="Your one-stop sports card hub. Sold comps, a raw-to-gem calculator on real sales, a pre-grading tool that runs in your browser, and the release calendar.">
 <meta name="twitter:image" content="https://thewaxledger.com/og-image.png">
 </head>
 <body>
@@ -533,7 +533,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
     <nav class="nav" aria-label="Sections">
       <a href="#market" data-go="market">Market</a>
       <a href="#comps" data-go="comps">Comps</a>
-      <a href="#screener" data-go="screener">Screener</a>
+      <a href="#screener" data-go="screener">Raw-to-Gem Calculator</a>
       <a href="#pregrade" data-go="pregrade">Pre-Grading Tool</a>
       <a href="#trade" data-go="trade">Buy/Sell/Trade</a>
       <a href="#releases" data-go="releases">Releases</a>
@@ -544,7 +544,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
     <div class="hdr-auth"><button class="btn btn-sm" type="button" id="hdr-signin">Sign in</button><a class="btn btn-gold" id="hdr-pro" href="#membership" data-go="membership">Go Pro</a></div>
   </div>
 </header>
-<div class="preview-bar"><div class="wrap"><b>Beta</b><span>Movers and review scores are sample data. Comps are live values from SportsCardsPro; Screener prices and release dates are real, checked Oct 8, 2026.</span></div></div>
+<div class="preview-bar"><div class="wrap"><b>Beta</b><span>Movers and review scores are sample data. Comps are live values from SportsCardsPro; Raw-to-Gem Calculator prices and release dates are real, checked Oct 8, 2026.</span></div></div>
 
 <main class="wrap">
 
@@ -552,7 +552,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
 <section class="view" data-view="market">
   <div class="hero">
     <div class="hero-copy">
-      <p class="eyebrow">Sold comps · Grading screener · Pre-Grading Tool · Release calendar</p>
+      <p class="eyebrow">Sold comps · Raw-to-Gem Calculator · Pre-Grading Tool · Release calendar</p>
       <h1>Your one-stop sports card hub</h1>
       <p class="lede">Wax Ledger tracks sold prices, upcoming releases and the players moving the market, so every buy, sell and grading call starts from real sales.</p>
       <form class="search" id="hero-search">
@@ -681,7 +681,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
         <div class="meter-key"><span>Gold bar: your gem rate</span><span>Black mark: break-even</span></div>
         <dl class="stat-list" id="calc-out"></dl>
         <p class="small muted" id="calc-note"></p>
-        <a class="small" href="#screener" data-go="screener">See the ranked board in the Screener</a>
+        <a class="small" href="#screener" data-go="screener">See the ranked board in the Raw-to-Gem Calculator</a>
       </div>
     </form>
   </div>
@@ -690,7 +690,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
 <!-- SCREENER -->
 <section class="view" data-view="screener" hidden>
   <div class="view-head">
-    <p class="eyebrow">Screener</p>
+    <p class="eyebrow">Raw-to-Gem Calculator</p>
     <h2>Buy raw, grade, sell the slab</h2>
     <p class="lede">Every card is priced on both outcomes, a 10 and a miss, weighted by its real PSA gem rate and set against what one attempt costs. Cards that clear every gate are ranked by expected return.</p>
   </div>
@@ -753,7 +753,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
   </div>
   <div class="panel">
     <details class="method">
-      <summary>How the screener decides</summary>
+      <summary>How the Raw-to-Gem Calculator decides</summary>
       <div class="prose">
         <p>The question for every card is the same. If you buy it raw today and send it to PSA, what do you expect to clear once the slab comes back?</p>
         <h4>The math</h4>
@@ -1005,7 +1005,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
   <div class="view-head">
     <p class="eyebrow">Membership</p>
     <h2>One good buy pays for the year</h2>
-    <p class="lede">Start free with three lookups and the top Screener picks a day. Go Pro for unlimited comps, the full Screener, unlimited pre-grading and the members-only Buy/Sell/Trade board.</p>
+    <p class="lede">Start free with three lookups and the top Raw-to-Gem Calculator picks a day. Go Pro for unlimited comps, the full Raw-to-Gem Calculator, unlimited pre-grading and the members-only Buy/Sell/Trade board.</p>
   </div>
   <div class="plans">
     <div class="plan">
@@ -1013,7 +1013,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
       <ul class="facts">
         <li>Full release calendar</li>
         <li>Three comp lookups a day</li>
-        <li>Top three Screener picks</li>
+        <li>Top three Raw-to-Gem Calculator picks</li>
         <li>Pre-Grading Tool, three cards a day</li>
         <li>The free weekly newsletter (starts Oct 16)</li>
       </ul>
@@ -1024,7 +1024,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
       <ul class="facts">
         <li>Members-only Buy/Sell/Trade board, no selling fees</li>
         <li>Unlimited comp lookups, every grade</li>
-        <li>The full grading Screener, every card ranked by expected return</li>
+        <li>The full Raw-to-Gem Calculator, every card ranked by expected return</li>
         <li>Unlimited pre-grading</li>
         <li>Coming soon: price alerts, watchlist and saved reports</li>
       </ul>
@@ -1376,7 +1376,7 @@ function renderCalc(){
     "<dt>If it gems</dt><dd class='"+(r.hit10>=0?"up":"down")+"'>"+signed(r.hit10)+"</dd>"+
     "<dt>If it misses</dt><dd class='"+(r.miss>=0?"up":"down")+"'>"+signed(r.miss)+"</dd>"+
     "<dt>Expected profit at "+gem+"% gems</dt><dd class='"+(r.profit>=0?"up":"down")+"'>"+signed(r.profit)+"</dd>";
-  $("#calc-note").textContent="Uses the Screener's assumptions: the PSA 10 takes a "+pc(SA.haircut)+" sell-date haircut and a miss sells at "+pc(SA.missReal)+" of the PSA 9 price. The calculator is live. The prices it loads from the comp sheet are SportsCardsPro values.";
+  $("#calc-note").textContent="Uses the Raw-to-Gem Calculator's assumptions: the PSA 10 takes a "+pc(SA.haircut)+" sell-date haircut and a miss sells at "+pc(SA.missReal)+" of the PSA 9 price. The calculator is live. The prices it loads from the comp sheet are SportsCardsPro values.";
 }
 
 /* ---------- releases ---------- */
@@ -2256,7 +2256,7 @@ function pgMath(){
     '<div class="tile"><div class="v">'+(roi*100).toFixed(0)+'%</div><div class="k">Expected ROI on $'+allIn.toFixed(0)+' all-in</div></div>'+
     '<div class="tile"><div class="v">'+Math.round(clamp(be,0,1)*100)+'%</div><div class="k">Break-even gem rate vs '+Math.round(gem*100)+'% predicted</div></div>'+
     '<div class="tile"><div class="v">$'+ev.toFixed(0)+'</div><div class="k">Expected net back</div></div></div>'+
-    '<p class="small muted">Uses the Screener assumptions: $'+(SA.fee+SA.ship).toFixed(0)+' grading and shipping, '+Math.round(SA.sellFee*100)+'% selling fee, '+Math.round(SA.haircut*100)+'% haircut on the PSA 10 price by sell date, and a 9 realising '+Math.round(SA.missReal*100)+'% of its comp.</p>';
+    '<p class="small muted">Uses the Raw-to-Gem Calculator assumptions: $'+(SA.fee+SA.ship).toFixed(0)+' grading and shipping, '+Math.round(SA.sellFee*100)+'% selling fee, '+Math.round(SA.haircut*100)+'% haircut on the PSA 10 price by sell date, and a 9 realising '+Math.round(SA.missReal*100)+'% of its comp.</p>';
 }
 function pgCopy(){
   var note=$("#pg-copy-note"),t=PG.report||"";
