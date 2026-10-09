@@ -8,5 +8,10 @@
 
 [[redirects]]
   from = "/giveaway"
-  to = "/giveaway.html"
+  to = "/?giveaway=1"
+  status = 302
+
+[[redirects]]
+  from = "/giveaway-rules"
+  to = "/giveaway-rules.html"
   status = 200
