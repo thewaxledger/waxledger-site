@@ -757,8 +757,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
         <div class="asm-row"><label for="asm-assumedGem">Gem rate when the pop is missing (%)</label><input id="asm-assumedGem" type="number" min="0" max="100" step="1" inputmode="decimal"></div>
       </div>
       <div class="asm-group"><h4>Gates</h4>
-        <div class="asm-row"><label for="asm-minPrice">Minimum PSA 10 price ($)</label><input id="asm-minPrice" type="number" min="0" step="10" inputmode="decimal"></div>
-        <div class="asm-row"><label for="asm-minSales">Minimum PSA 10 sales per 90 days</label><input id="asm-minSales" type="number" min="0" step="1" inputmode="decimal"></div>
+                <div class="asm-row"><label for="asm-minSales">Minimum PSA 10 sales per 90 days</label><input id="asm-minSales" type="number" min="0" step="1" inputmode="decimal"></div>
         <div class="asm-row"><label for="asm-minMargin">Minimum safety margin (pts)</label><input id="asm-minMargin" type="number" min="0" max="100" step="1" inputmode="decimal"></div>
         <div class="asm-row"><label for="asm-requireReal">Require real PSA 10 comps</label><input id="asm-requireReal" type="checkbox"></div>
       </div>
@@ -785,7 +784,6 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
         <h4>The verdict ladder</h4>
         <ol>
           <li><strong>Skip</strong> if the PSA 10 price is a modeled estimate with no real sales behind it.</li>
-          <li><strong>Fail</strong> if the PSA 10 is under the price floor. Below it the fixed fee eats the spread.</li>
           <li><strong>Fail</strong> if there are too few PSA 10 sales in 90 days. Thin comps are prices you may not get.</li>
           <li><strong>Fail</strong> if expected profit is zero or negative.</li>
           <li><strong>Verify pop</strong> if the card is profitable but running on a placeholder gem rate.</li>
@@ -1463,8 +1461,8 @@ function renderReviews(){
 /* ---------- screener ---------- */
 // Snapshot of the Grading Screener board, Oct 8, 2026. Real sold comps and PSA pop counts.
 var SCREEN=[],SCREEN_META={member:false,total:0,clears:0,loaded:false};
-var ASM_DEFAULTS={fee:59.99,ship:10,sellFee:.13,haircut:.20,missReal:.85,assumedGem:.35,minPrice:250,minSales:25,minMargin:.10,requireReal:true};
-var ASM_FIELDS=[["fee","money"],["ship","money"],["sellFee","pct"],["haircut","pct"],["missReal","pct"],["assumedGem","pct"],["minPrice","money"],["minSales","int"],["minMargin","pct"],["requireReal","bool"]];
+var ASM_DEFAULTS={fee:59.99,ship:10,sellFee:.13,haircut:.20,missReal:.85,assumedGem:.35,minSales:25,minMargin:.10,requireReal:true};
+var ASM_FIELDS=[["fee","money"],["ship","money"],["sellFee","pct"],["haircut","pct"],["missReal","pct"],["assumedGem","pct"],["minSales","int"],["minMargin","pct"],["requireReal","bool"]];
 var SA={};Object.keys(ASM_DEFAULTS).forEach(function(k){SA[k]=ASM_DEFAULTS[k]});
 try{var savedAsm=JSON.parse(localStorage.getItem("wl-asm")||"null");if(savedAsm&&typeof savedAsm==="object")Object.keys(ASM_DEFAULTS).forEach(function(k){if(typeof savedAsm[k]===typeof ASM_DEFAULTS[k])SA[k]=savedAsm[k]})}catch(e){}
 var scr={filter:"grade",sport:"all",sel:null};
@@ -1492,13 +1490,11 @@ function scrCompute(c,A){
   r.be=(r.net10-r.netMiss)!==0?(r.allIn-r.netMiss)/(r.net10-r.netMiss):null;
   r.margin=r.be!=null?r.gem-r.be:null;
   r.down9=r.netMiss-r.allIn;r.up10=r.net10-r.allIn;
-  r.priceOK=p10>=A.minPrice;
   r.liqOK=(isNum(c.psa10Sales90)?c.psa10Sales90:0)>=A.minSales;
   r.realOK=!A.requireReal||c.compType==="Real";
   r.margOK=r.margin!=null&&r.margin>=A.minMargin;
   var v;
   if(!r.realOK)v={code:"SKIP",label:"Skip",why:"PSA 10 price is an estimate"};
-  else if(!r.priceOK)v={code:"FAIL",label:"Fail",why:"PSA 10 below the "+usd(A.minPrice)+" floor"};
   else if(!r.liqOK)v={code:"FAIL",label:"Fail",why:"Too few PSA 10 sales"};
   else if(r.profit<=0)v={code:"FAIL",label:"Fail",why:"Negative expected value"};
   else if(r.gemSource!=="Pop")v={code:"CANDIDATE",label:"Verify pop",why:"Profitable on a placeholder gem rate"};
@@ -1689,7 +1685,6 @@ function renderDrawer(){
     var gate=function(ok,t){return '<li class="'+(ok?"ok":"no")+'"><b>'+(ok?"✓":"✕")+'</b><span>'+t+'</span></li>'};
     h+='<div class="dsec"><p class="eyebrow">Gates</p><ul class="gates">'+
       gate(m.realOK,"Real PSA 10 sales"+(c.compType==="Real"?"":" (this price is an estimate)"))+
-      gate(m.priceOK,"Price floor: PSA 10 "+usd(c.psa10,{price:true})+" against a "+usd(A.minPrice)+" minimum")+
       gate(m.liqOK,"Liquidity: "+intf(c.psa10Sales90)+" PSA 10 sales in 90 days against a minimum of "+A.minSales)+
       gate(m.profit>0,"Positive expected value: "+usd(m.profit,{sign:true})+" per attempt")+
       gate(m.gemSource==="Pop","Gem rate from a real population")+
