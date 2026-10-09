@@ -24,6 +24,25 @@ export const normEmail = e => String(e || "").trim().toLowerCase();
 export const isEmail = e => /^[^\s@]{1,64}@[^\s@]{1,190}\.[a-z]{2,}$/i.test(e);
 export const clean = (s, max) => String(s == null ? "" : s).replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g, "").trim().slice(0, max);
 
+// Passwords: scrypt with a per-user salt. Only the salt and hash are stored.
+const SCRYPT = { N: 16384, r: 8, p: 1 };
+export function hashPassword(password) {
+  const s = crypto.randomBytes(16).toString("hex");
+  return { v: 1, s, h: crypto.scryptSync(String(password), s, 64, SCRYPT).toString("hex") };
+}
+export function checkPassword(password, rec) {
+  if (!rec || !rec.s || !rec.h) return false;
+  const a = crypto.scryptSync(String(password), rec.s, 64, SCRYPT), b = Buffer.from(rec.h, "hex");
+  return a.length === b.length && crypto.timingSafeEqual(a, b);
+}
+export function passwordProblem(pw) {
+  pw = String(pw == null ? "" : pw);
+  if (pw.length < 8) return "Use at least 8 characters.";
+  if (pw.length > 72) return "Keep it under 72 characters.";
+  if (!/\S/.test(pw)) return "Pick a real password.";
+  return "";
+}
+
 export function isAdmin(email, deps) {
   return (deps.adminEmails || []).map(normEmail).includes(normEmail(email));
 }

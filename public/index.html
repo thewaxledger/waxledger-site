@@ -522,6 +522,7 @@ details.method summary{cursor:pointer;font-weight:600;font-size:1rem}
 .lockbar{display:flex;justify-content:space-between;align-items:center;gap:10px 18px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--gold);border-radius:8px;padding:12px 16px;font-size:13.5px;margin:0 0 16px}
 .lockbar b{font-weight:600;margin-right:4px}
 .auth-dialog{width:min(520px,calc(100vw - 32px))}
+.auth-stack{flex-direction:column;align-items:stretch}.auth-stack input{flex:0 0 auto}.auth-stack .btn-sm{align-self:flex-start}
 footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-3);font-size:12.5px}
 .foot{display:flex;justify-content:space-between;gap:16px 40px;flex-wrap:wrap}
 .foot p{max-width:70ch}
@@ -979,16 +980,28 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
 
 <dialog class="bst-dialog auth-dialog" id="auth-dlg" aria-labelledby="auth-title">
   <div class="stack-sm">
-    <div class="panel-head"><div><p class="eyebrow" id="auth-eyebrow">Members sign in</p><h3 id="auth-title">Sign in with your Pro email</h3></div><button class="btn btn-sm" type="button" data-close>Close</button></div>
-    <p class="muted" id="auth-body">We'll email you a 6-digit code. No password needed.</p>
-    <form class="bst-form-row" id="auth-email-form">
+    <div class="panel-head"><div><p class="eyebrow" id="auth-eyebrow">Members sign in</p><h3 id="auth-title">Sign in to Wax Ledger Pro</h3></div><button class="btn btn-sm" type="button" data-close>Close</button></div>
+    <p class="muted" id="auth-body">Use the email you subscribed with.</p>
+    <form class="bst-form-row auth-stack" id="auth-login-form">
+      <input id="auth-login-email" type="email" autocomplete="username" placeholder="you@example.com" aria-label="Email" required>
+      <input id="auth-login-pw" type="password" autocomplete="current-password" placeholder="Password" aria-label="Password" required>
+      <button class="btn btn-gold" type="submit" id="auth-login-btn">Sign in</button>
+      <button class="btn btn-sm" type="button" id="auth-forgot">First time here or forgot your password?</button>
+    </form>
+    <form class="bst-form-row" id="auth-email-form" hidden>
       <input id="auth-email" type="email" autocomplete="email" placeholder="you@example.com" aria-label="Email" required>
       <button class="btn btn-gold" type="submit" id="auth-email-btn">Email me a code</button>
+      <button class="btn btn-sm" type="button" id="auth-to-login">Back to sign in</button>
     </form>
     <form class="bst-form-row" id="auth-code-form" hidden>
       <input id="auth-code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="6-digit code" aria-label="Sign-in code" required>
-      <button class="btn btn-gold" type="submit">Sign in</button>
+      <button class="btn btn-gold" type="submit">Continue</button>
       <button class="btn btn-sm" type="button" id="auth-back">Use a different email</button>
+    </form>
+    <form class="bst-form-row auth-stack" id="auth-pw-form" hidden>
+      <input id="auth-pw" type="password" autocomplete="new-password" minlength="8" maxlength="72" placeholder="New password (8+ characters)" aria-label="New password" required>
+      <input id="auth-pw2" type="password" autocomplete="new-password" minlength="8" maxlength="72" placeholder="Type it again" aria-label="Confirm password" required>
+      <button class="btn btn-gold" type="submit">Save password</button>
     </form>
     <form class="bst-form-row" id="auth-name-form" hidden>
       <input id="auth-name" maxlength="24" placeholder="Display name" aria-label="Display name" required>
@@ -1174,7 +1187,7 @@ function saleDate(daysAgo){var t=today0();t.setDate(t.getDate()-daysAgo);return 
 /* ---------- checkout ---------- */
 // Stripe-hosted checkout and billing pages. Free plan buttons have no link.
 var CHECKOUT={monthly:"https://buy.stripe.com/bJeeV65z565XgzTcpC3wQ02",annual:"https://buy.stripe.com/14AbIU7HdfGx6Zjahu3wQ03",portal:"https://billing.stripe.com/p/login/4gMbIUbXtgKB6Zj75i3wQ00"};
-(function(){try{if(/[?&]welcome=pro/.test(location.search))document.addEventListener("DOMContentLoaded",function(){var n=document.getElementById("plan-note");if(n)n.textContent="Welcome to Wax Ledger Pro. Your receipt is on its way to your inbox."})}catch(e){}})();
+(function(){try{var qs=location.search;if(/[?&]welcome=pro/.test(qs))document.addEventListener("DOMContentLoaded",function(){var n=document.getElementById("plan-note");if(n)n.textContent=/[?&]session_id=/.test(qs)?"Welcome to Wax Ledger Pro. Choose a password to finish setting up your account. Your receipt is on its way.":"Welcome to Wax Ledger Pro. Your receipt is on its way. Click Sign in, then 'First time here' to set your password."})}catch(e){}})();
 
 /* ---------- router ---------- */
 var VIEWS=["market","comps","screener","pregrade","trade","releases","trending","reviews","membership"];
@@ -2280,15 +2293,19 @@ window.__pg={run:pgRun,PG:PG};
 // One sign-in for every Pro feature. The server decides access (Screener feed, comps limit, board); the page only reflects it.
 var AUTH={me:null,ready:false,offline:false,email:""};
 function authStep(st){
-  var t={email:["Members sign in","Sign in with your Pro email","We'll email you a 6-digit code. No password needed."],
+  var t={login:["Members sign in","Sign in to Wax Ledger Pro","Use the email you subscribed with."],
+    email:["Set or reset your password","We'll email you a 6-digit code","Enter the email you subscribed with. The code lets you choose a password."],
     code:["Check your email","Enter the 6-digit code","We sent it to "+AUTH.email+". It expires in 15 minutes."],
+    setpw:["Almost there","Choose a password","You'll use it with "+(AUTH.email||"your email")+" to sign in from now on."],
     name:["One more step","Pick a display name","Other members see this on Buy/Sell/Trade listings and replies. Add your X handle if you want people to check your trade history there."],
     notmember:["Pro members only","That email isn't on a Pro membership","Use the email you subscribed with, or join Pro to unlock everything."],
     offline:["Pro members only","Sign-in runs on thewaxledger.com","This preview can't reach it."]}[st];
   $("#auth-eyebrow").textContent=t[0];$("#auth-title").textContent=t[1];$("#auth-body").textContent=t[2];
-  $("#auth-email-form").hidden=!(st==="email"||st==="notmember");$("#auth-code-form").hidden=st!=="code";$("#auth-name-form").hidden=st!=="name";$("#auth-join").hidden=st!=="notmember";
+  $("#auth-login-form").hidden=st!=="login";$("#auth-email-form").hidden=!(st==="email"||st==="notmember");$("#auth-code-form").hidden=st!=="code";
+  $("#auth-pw-form").hidden=st!=="setpw";$("#auth-name-form").hidden=st!=="name";$("#auth-join").hidden=st!=="notmember";
 }
-function authOpen(st){var d=$("#auth-dlg");authStep(st||"email");$("#auth-note").textContent="";if(!d.open)d.showModal();var f=$(st==="name"?"#auth-name":st==="code"?"#auth-code":"#auth-email");if(f)f.focus()}
+function authOpen(st){var d=$("#auth-dlg");st=st||"login";authStep(st);$("#auth-note").textContent="";if(!d.open)d.showModal();
+  var f=$({name:"#auth-name",code:"#auth-code",setpw:"#auth-pw",email:"#auth-email",notmember:"#auth-email"}[st]||"#auth-login-email");if(f)f.focus()}
 function authNote(m,bad){var n=$("#auth-note");n.textContent=m||"";n.style.color=bad?"var(--down)":""}
 function authRefresh(){
   return api("/api/auth").then(function(j){AUTH.me=j.member||null;AUTH.offline=false}).catch(function(){AUTH.me=null;AUTH.offline=true}).then(function(){AUTH.ready=true;authChanged()});
@@ -2300,8 +2317,28 @@ function authChanged(){
   if(!$('[data-view="trade"]').hidden)bstInit();
 }
 function authLogout(){api("/api/auth",{action:"logout"}).then(authRefresh)}
+// After a sign-in: ask for whatever is still missing (password, then display name), otherwise close.
+function authNext(j){
+  authNote("");
+  if(j.needsPassword){authStep("setpw");$("#auth-pw").focus();return} // refresh after the password is saved, so views don't reopen the dialog mid-step
+  if(j.needsName){authStep("name");$("#auth-name").focus();authRefresh();return}
+  $("#auth-dlg").close();authRefresh();
+}
 function authBind(){
-  $("#hdr-signin").addEventListener("click",function(){if(AUTH.me)authLogout();else authOpen("email")});
+  $("#hdr-signin").addEventListener("click",function(){if(AUTH.me)authLogout();else authOpen("login")});
+  $("#auth-login-form").addEventListener("submit",function(e){
+    e.preventDefault();AUTH.email=$("#auth-login-email").value.trim();var pw=$("#auth-login-pw").value;
+    authNote("Signing in…");$("#auth-login-btn").disabled=true;
+    api("/api/auth",{action:"login",email:AUTH.email,password:pw}).then(function(j){
+      $("#auth-login-btn").disabled=false;$("#auth-login-pw").value="";
+      if(j.status==="ok"){authNext(j);return}
+      if(j.status==="no_password"){$("#auth-email").value=AUTH.email;authStep("email");authNote("No password on this email yet. We'll email you a code so you can set one.");return}
+      if(j.status==="not_member"){authStep("notmember");authNote("");return}
+      authNote(j.error||"Something went wrong.",true);
+    }).catch(function(){$("#auth-login-btn").disabled=false;authStep("offline")});
+  });
+  $("#auth-forgot").addEventListener("click",function(){$("#auth-email").value=$("#auth-login-email").value;authStep("email");authNote("");$("#auth-email").focus()});
+  $("#auth-to-login").addEventListener("click",function(){authStep("login");authNote("");$("#auth-login-email").focus()});
   $("#auth-email-form").addEventListener("submit",function(e){
     e.preventDefault();AUTH.email=$("#auth-email").value.trim();authNote("Checking…");$("#auth-email-btn").disabled=true;
     api("/api/auth",{action:"start",email:AUTH.email}).then(function(j){
@@ -2312,15 +2349,22 @@ function authBind(){
     }).catch(function(){$("#auth-email-btn").disabled=false;authStep("offline")});
   });
   $("#auth-code-form").addEventListener("submit",function(e){
-    e.preventDefault();authNote("Signing in…");
+    e.preventDefault();authNote("Checking…");
     api("/api/auth",{action:"verify",email:AUTH.email,code:$("#auth-code").value}).then(function(j){
       if(j.status!=="ok"){authNote(j.error,true);return}
-      authNote("");$("#auth-code").value="";
-      if(j.needsName){authStep("name");$("#auth-name").focus();authRefresh();return}
-      $("#auth-dlg").close();authRefresh();
+      $("#auth-code").value="";authNext(j);
     });
   });
   $("#auth-back").addEventListener("click",function(){authStep("email")});
+  $("#auth-pw-form").addEventListener("submit",function(e){
+    e.preventDefault();var a=$("#auth-pw").value,b=$("#auth-pw2").value;
+    if(a!==b){authNote("Those passwords don't match.",true);return}
+    authNote("Saving…");
+    api("/api/auth",{action:"password",password:a}).then(function(j){
+      if(j.status!=="ok"){authNote(j.error,true);return}
+      $("#auth-pw").value="";$("#auth-pw2").value="";authNext(j);
+    });
+  });
   $("#auth-name-form").addEventListener("submit",function(e){
     e.preventDefault();
     api("/api/auth",{action:"profile",name:$("#auth-name").value,x:$("#auth-x").value}).then(function(j){
@@ -2328,7 +2372,16 @@ function authBind(){
       $("#auth-dlg").close();authRefresh();
     });
   });
-  document.addEventListener("click",function(e){if(e.target.closest("[data-signin]"))authOpen("email")});
+  document.addEventListener("click",function(e){if(e.target.closest("[data-signin]"))authOpen("login")});
+  // Back from Stripe Checkout: sign the payer in and ask them to choose a password.
+  var sid=(location.search.match(/[?&]session_id=(cs_[A-Za-z0-9_]+)/)||[])[1];
+  if(sid){
+    try{history.replaceState(null,"",location.pathname+"?welcome=pro"+location.hash)}catch(err){}
+    api("/api/auth",{action:"checkout",session_id:sid}).then(function(j){
+      if(j.status!=="ok"){authOpen("email");authNote(j.error||"Sign in with a code to finish setting up.",true);return}
+      AUTH.email=j.email||"";show("membership");authOpen(j.needsPassword?"setpw":j.needsName?"name":"login");if(!j.needsPassword&&!j.needsName)$("#auth-dlg").close();authRefresh();
+    }).catch(function(){});
+  }
 }
 // Screener feed: Pro members get the full board, everyone else the top 3.
 function loadScreener(){
@@ -2355,7 +2408,7 @@ function pgLimitNote(blocked){
 }
 
 /* ---------- buy / sell / trade ---------- */
-// Members sign in with an emailed code (/api/auth); the board lives at /api/bst. Photos are shrunk in the browser before upload.
+// Members sign in with email and password (/api/auth); the board lives at /api/bst. Photos are shrunk in the browser before upload.
 var BST={me:null,email:"",listings:[],filter:"all",type:"sell",photos:[],loaded:false,busy:false};
 function api(path,body){
   var opt=body?{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body),credentials:"same-origin"}:{credentials:"same-origin"};
