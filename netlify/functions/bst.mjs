@@ -11,6 +11,7 @@
 // POST /api/bst {action:"status", id, status}         -> owner/admin: open | sold | closed
 // POST /api/bst {action:"delete", id}                 -> owner/admin
 // POST /api/bst {action:"report", id, reason}
+// POST /api/bst {action:"import", items:[{title, price, details, image, grade, shipping, source}]}  -> admin only, up to 8 per call
 import { json, bad, rid, clean, currentMember, bump, sendMail, liveDeps } from "../lib/members.mjs";
 
 export const config = { path: "/api/bst" };
@@ -79,6 +80,34 @@ export async function handle(req, deps) {
     const l = { id, type, title, details, price, wants, grade, shipping, photos: ids, status: "open", created: now, updated: now, uid: me.uid, email: me.email, name: me.name, x: me.x, since: me.since, replies: [], reports: [] };
     await deps.board.setJSON("l/" + id, l);
     return json({ status: "ok", listing: pub(l, me) });
+  }
+
+  if (a === "import") {
+    // Admin only: bring listings over from another marketplace. Photos are fetched server-side from the image CDN.
+    if (!me.admin) return bad("Admins only.", 403);
+    const items = Array.isArray(b.items) ? b.items.slice(0, 8) : [], results = [];
+    for (const it of items) {
+      const title = clean(it.title, 90), price = clean(it.price, 20).replace(/[^\d.,]/g, ""), details = clean(it.details, 1500), src = String(it.image || "");
+      if (title.length < 4) { results.push({ title, ok: false, error: "No title" }); continue; }
+      const ids = [];
+      if (/^https:\/\/i\.ebayimg\.com\//.test(src)) {
+        for (const size of ["1600", "1200", "800"]) {
+          const u = src.replace(/s-l\d+\.\w+$/, "s-l" + size + ".jpg");
+          try {
+            const r = await deps.fetchFn(u, { headers: { "user-agent": "Mozilla/5.0 (WaxLedger import)" } });
+            if (!r.ok || !/jpe?g/i.test(r.headers.get("content-type") || "")) continue;
+            const buf = Buffer.from(await r.arrayBuffer());
+            if (buf.length > MAX_PHOTO_BYTES || buf.length < 1000) continue;
+            const pid = rid(12); await deps.photos.set("p/" + pid, buf); ids.push(pid); break;
+          } catch (e) {}
+        }
+      }
+      const id = new Date(now).toISOString().replace(/[-:.TZ]/g, "") + "-" + rid(5);
+      const l = { id, type: "sell", title, details, price, wants: "", grade: clean(it.grade, 40), shipping: clean(it.shipping, 80), photos: ids, status: "open", created: now, updated: now, uid: me.uid, email: me.email, name: me.name, x: me.x, since: me.since, replies: [], reports: [], source: clean(it.source, 200) };
+      await deps.board.setJSON("l/" + id, l);
+      results.push({ id, title, ok: true, photo: ids.length > 0 });
+    }
+    return json({ status: "ok", results });
   }
 
   const id = clean(b.id, 40).replace(/[^\w-]/g, ""), key = "l/" + id;
