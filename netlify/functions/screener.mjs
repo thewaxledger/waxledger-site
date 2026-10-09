@@ -26,7 +26,7 @@ export async function handle(req, deps) {
   const me = await currentMember(req, deps);
   const ranked = SCREEN.map(c => ({ c, s: score(c) }));
   const grade = ranked.filter(r => r.s.code === "GRADE").sort((a, b) => b.s.roi - a.s.roi);
-  const meta = { total: SCREEN.length, clears: grade.length, asOf: "2026-10-08" };
+  const meta = { total: SCREEN.length, clears: grade.length, asOf: "2026-10-09" };
   if (me) return json({ status: "ok", member: true, ...meta, cards: SCREEN }, 200, { "cache-control": "private, no-store" });
   return json({ status: "ok", member: false, ...meta, cards: grade.slice(0, 3).map(r => r.c) });
 }
