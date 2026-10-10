@@ -844,7 +844,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
       <div class="breakdown" id="pg-breakdown"></div>
       <table class="pg-co" id="pg-co" hidden></table>
       <div class="pg-dissect" id="pg-dissect" hidden></div>
-      <div class="linkrow" id="pg-actions" hidden><button class="btn" type="button" id="pg-copy">Copy report</button><span class="form-note" id="pg-copy-note" aria-live="polite"></span></div>
+      <div class="linkrow" id="pg-actions" hidden><button class="btn" type="button" id="pg-copy">Copy report</button><button class="btn" type="button" id="pg-share">Share image</button><span class="form-note" id="pg-copy-note" aria-live="polite"></span></div>
       <p class="small muted">Centering and border widths are measured from the straightened photo. Corner and edge scores estimate wear from the photo and are not any company's scale. The surface scan flags candidates to inspect, not confirmed flaws. Company thresholds other than PSA's are compiled from published standards and rounded. Not affiliated with PSA, BGS, SGC, CGC or TAG.</p>
     </div>
     <div class="pg-col">
@@ -1713,6 +1713,7 @@ function renderDrawer(){
   if(!c){d.innerHTML="";return}
   var m=scrCompute(c,SA),A=SA,h='<div class="drawer-hd">'+slabCell(c)+'<button class="drawer-x" type="button" id="drawer-x" aria-label="Close">×</button></div><div class="drawer-bd">';
   h+='<div class="drawer-top">'+vpill(m.verdict)+(m.verdict.why?'<span class="small">'+esc(m.verdict.why)+'</span>':"")+'<span class="small muted" style="margin-left:auto">'+esc(c.sport||"")+' · as of '+esc(shortDate(c.asOf))+'</span></div>';
+  h+='<div class="linkrow"><button class="btn btn-sm" type="button" id="drawer-share">Share the math</button><span class="form-note" id="drawer-share-note" aria-live="polite"></span></div>';
   if(m.hasData){
     var showM=isNum(m.margin)&&isNum(m.be)&&Math.abs(m.be)<=1;
     h+='<div class="duo">'+
@@ -2338,6 +2339,7 @@ function pgResult(){
   if(qual.indexOf("Retake")>=0||!f.found||!(f.innerFound||f.manualInner)){conf="Low";cls="pill pill-down"}
   else if(qual.indexOf("Usable")>=0||!b||!f.refined){conf="Medium";cls="pill pill-gold"}
   var cp=$("#pg-conf");cp.className=cls;cp.textContent=conf+" confidence";
+  PG.share={grade:grade,subs:subs,p:p,verdict:verdict[0],conf:conf,front:splitTxt(wf),back:b?splitTxt(wb):"",corners:cornerScore,edges:edgeScore,flags:flags};
   // ---- the dissection ----
   var dx=[],txt=[];
   function sec(name,sum,cap,parts){dx.push({name:name,sum:sum,cap:cap,parts:parts});txt.push(name.toUpperCase()+(cap!=null?" · "+capTxt(cap,grade):"")+"\n"+sum+"\n"+parts.map(function(q){return typeof q==="string"?q:q.rows.map(function(r){return r.join("  ")}).join("\n")}).join("\n"))}
@@ -2419,6 +2421,48 @@ $("#pg-surface").addEventListener("submit",function(e){e.preventDefault()});
 $("#pg-math").addEventListener("input",pgMath);
 $("#pg-math").addEventListener("submit",function(e){e.preventDefault()});
 $("#pg-copy").addEventListener("click",pgCopy);
+$("#pg-share").addEventListener("click",function(){if(PG.share)shareGradeCard(PG.share)});
+/* ---------- share images (watermarked PNGs for X / Instagram) ---------- */
+function shareImage(canvas,name,text,noteSel){
+  canvas.toBlob(function(blob){
+    if(!blob)return;
+    var file;try{file=new File([blob],name,{type:"image/png"})}catch(e){}
+    if(file&&navigator.canShare&&navigator.canShare({files:[file]})){navigator.share({files:[file],text:text}).catch(function(){})}
+    else{var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},2000);if(noteSel){var n=$(noteSel);if(n)n.textContent="Image saved. Post it with the card photo."}}
+  },"image/png");
+}
+function shareCanvas(w,h){var c=document.createElement("canvas");c.width=w;c.height=h;var x=c.getContext("2d");x.fillStyle="#0F1B2D";x.fillRect(0,0,w,h);x.fillStyle="#E3A92B";x.fillRect(0,0,w,14);return [c,x]}
+function shareFonts(){return (document.fonts&&document.fonts.load?Promise.all([document.fonts.load('800 80px "Barlow Condensed"'),document.fonts.load('600 32px "Instrument Sans"'),document.fonts.load('500 28px "JetBrains Mono"')]).catch(function(){}):Promise.resolve())}
+function shareFoot(x,w,h,line){x.fillStyle="#E3A92B";x.font='800 40px "Barlow Condensed","Arial Narrow",sans-serif';x.fillText("WAX LEDGER",60,h-70);x.fillStyle="#AAB6C8";x.font='500 24px "JetBrains Mono",Menlo,monospace';x.textAlign="right";x.fillText("thewaxledger.com · "+line,w-60,h-70);x.textAlign="left"}
+function shareGradeCard(d){
+  shareFonts().then(function(){
+    var r=shareCanvas(1080,1080),c=r[0],x=r[1];
+    x.fillStyle="#AAB6C8";x.font='500 28px "JetBrains Mono",Menlo,monospace';x.fillText("PRE-GRADING TOOL · "+d.conf.toUpperCase()+" CONFIDENCE",60,90);
+    x.fillStyle="#FFFFFF";x.font='800 300px "Barlow Condensed","Arial Narrow",sans-serif';x.fillText(String(d.grade),60,380);
+    x.font='800 64px "Barlow Condensed","Arial Narrow",sans-serif';x.fillText(("PREDICTED PSA "+d.grade).toUpperCase(),60,460);
+    x.fillStyle="#E3A92B";x.font='600 40px "Instrument Sans",system-ui,sans-serif';x.fillText(Math.round(d.p*100)+"% gem chance · "+d.verdict,60,525);
+    var rows=[["Centering",d.subs.center,d.front+(d.back?" / "+d.back:"")],["Corners",d.subs.corners,d.corners+"/100"],["Edges",d.subs.edges,d.edges+"/100"],["Surface",d.subs.surface,d.flags.length?d.flags.slice(0,2).join(", "):"clean"]];
+    rows.forEach(function(rw,i){var y=640+i*78;x.fillStyle="#2A374D";x.fillRect(60,y-46,960,64);x.fillStyle="#FFFFFF";x.font='600 34px "Instrument Sans",system-ui,sans-serif';x.fillText(rw[0],84,y);x.font='500 30px "JetBrains Mono",Menlo,monospace';x.fillStyle="#AAB6C8";x.fillText(String(rw[2]).slice(0,34),330,y);x.fillStyle=rw[1]<d.grade||rw[1]===d.grade&&d.grade<10?"#EDB840":"#4FC78E";x.font='800 44px "Barlow Condensed","Arial Narrow",sans-serif';x.textAlign="right";x.fillText(String(rw[1]),996,y+4);x.textAlign="left"});
+    shareFoot(x,1080,1080,"free in your browser");
+    shareImage(c,"wax-ledger-pregrade.png","Predicted PSA "+d.grade+" from the Wax Ledger Pre-Grading Tool. thewaxledger.com","#pg-copy-note");
+  });
+}
+function shareMathCard(cd,m){
+  shareFonts().then(function(){
+    var r=shareCanvas(1200,675),c=r[0],x=r[1],name=(cd.player+" · "+cd.year+" "+cd.set+" #"+cd.cardNo+" "+cd.parallel).toUpperCase();
+    x.fillStyle="#AAB6C8";x.font='500 24px "JetBrains Mono",Menlo,monospace';x.fillText("RAW-TO-GEM CALCULATOR · AS OF "+String(cd.asOf||"").toUpperCase(),60,80);
+    x.fillStyle="#FFFFFF";x.font='800 50px "Barlow Condensed","Arial Narrow",sans-serif';
+    var words=name.split(" "),line="",y=140;words.forEach(function(wd){var t=line?line+" "+wd:wd;if(x.measureText(t).width>1080){x.fillText(line,60,y);y+=54;line=wd}else line=t});x.fillText(line,60,y);
+    var v=m.verdict,col=v.code==="GRADE"?"#4FC78E":v.code==="MARGINAL"?"#EDB840":"#F2877A";
+    x.fillStyle=col;x.font='800 64px "Barlow Condensed","Arial Narrow",sans-serif';x.fillText(v.label.toUpperCase(),60,y+66);
+    x.fillStyle="#AAB6C8";x.font='600 26px "Instrument Sans",system-ui,sans-serif';x.fillText(String(v.why||"").slice(0,78),60,y+104);
+    var cells=[["RAW",usd(cd.raw)],["PSA 10 · "+(cd.psa10Sales90||0)+" SALES / 90D",usd(cd.psa10)],["PSA 9",usd(cd.psa9)],["GEM RATE (PSA POP)",pc(m.gem)],["ALL-IN, ONE ATTEMPT",usd(m.allIn)],["EXPECTED PROFIT",usd(m.profit,{sign:true})]];
+    cells.forEach(function(ce,i){var cx=60+(i%3)*370,cy=y+164+Math.floor(i/3)*105;x.fillStyle="#2A374D";x.fillRect(cx,cy-36,350,90);x.fillStyle="#AAB6C8";x.font='500 19px "JetBrains Mono",Menlo,monospace';x.fillText(ce[0],cx+18,cy-6);x.fillStyle=i===5?col:"#FFFFFF";x.font='800 40px "Barlow Condensed","Arial Narrow",sans-serif';x.fillText(ce[1],cx+18,cy+38)});
+    shareFoot(x,1200,675,"grading math on 100+ cards");
+    shareImage(c,"wax-ledger-"+cd.id+".png",cd.player+" "+cd.year+" "+cd.set+" #"+cd.cardNo+": "+v.label+" per the Wax Ledger Raw-to-Gem Calculator. thewaxledger.com","#drawer-share-note");
+  });
+}
+document.addEventListener("click",function(e){var t=e.target.closest("#drawer-share");if(t){var c=SCREEN.filter(function(x){return x.id===scr.sel})[0];if(c)shareMathCard(c,scrCompute(c,SA))}});
 document.addEventListener("click",function(e){
   var t=e.target.closest("[data-pg-clear]");if(t){pgClear(t.dataset.pgClear);return}
   t=e.target.closest("[data-pg-redetect]");if(t){var s=PG[t.dataset.pgRedetect];if(s){s.rot=0;s.manualInner=false;pgRun(s);pgRender(s);pgResult()}return}
@@ -2795,6 +2839,6 @@ renderMarket();cardChips($("#hero-chips"));cardChips($("#comp-chips"));renderCal
 var start=viewOf(location.hash);
 if(VIEWS.indexOf(start)<0){try{start=localStorage.getItem("wl-view")||"market"}catch(e){start="market"}}
 show(start,true);
-window.__wl={gradeMath:gradeMath,scrRows:scrRows};
+window.__wl={gradeMath:gradeMath,scrRows:scrRows,shareGradeCard:shareGradeCard};
 })();
 </script>
