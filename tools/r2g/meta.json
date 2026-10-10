@@ -1,0 +1,515 @@
+{
+ "acuna-2018-tc-193": {
+  "id": "acuna-2018-topps-chrome-193-base",
+  "player": "Ronald Acuna Jr.",
+  "year": "2018",
+  "set": "Topps Chrome",
+  "cardNo": "193",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "jrod-2022-tc-222": {
+  "id": "rodriguez-2022-topps-chrome-222-sp",
+  "player": "Julio Rodriguez",
+  "year": "2022",
+  "set": "Topps Chrome",
+  "cardNo": "222",
+  "parallel": "SP photo variation RC",
+  "sport": "Baseball"
+ },
+ "harper-2012-tu-us183": {
+  "id": "harper-2012-topps-update-us183-base",
+  "player": "Bryce Harper",
+  "year": "2012",
+  "set": "Topps Update",
+  "cardNo": "US183",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "alonso-2019-tc-204": {
+  "id": "alonso-2019-topps-chrome-204-base",
+  "player": "Pete Alonso",
+  "year": "2019",
+  "set": "Topps Chrome",
+  "cardNo": "204",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "betts-2014-tu-us26": {
+  "id": "betts-2014-topps-update-us26-base",
+  "player": "Mookie Betts",
+  "year": "2014",
+  "set": "Topps Update",
+  "cardNo": "US26",
+  "parallel": "Base RC (batting)",
+  "sport": "Baseball"
+ },
+ "betts-2014-tcu-us20": {
+  "id": "betts-2014-topps-chrome-update-us20-base",
+  "player": "Mookie Betts",
+  "year": "2014",
+  "set": "Topps Chrome Update",
+  "cardNo": "US-20",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "betts-2014-tcu": {
+  "id": "betts-2014-topps-chrome-update-mb46-base",
+  "player": "Mookie Betts",
+  "year": "2014",
+  "set": "Topps Chrome Update (Mega Box)",
+  "cardNo": "MB-46",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "judge-2017-topps-287": {
+  "id": "judge-2017-topps-287-base",
+  "player": "Aaron Judge",
+  "year": "2017",
+  "set": "Topps",
+  "cardNo": "287",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "judge-2017-tu-us99": {
+  "id": "judge-2017-topps-update-us99-base",
+  "player": "Aaron Judge",
+  "year": "2017",
+  "set": "Topps Update",
+  "cardNo": "US99",
+  "parallel": "Rookie Debut RC",
+  "sport": "Baseball"
+ },
+ "acuna-2017-bcp127": {
+  "id": "acuna-2017-bowman-chrome-prospects-bcp127-1st",
+  "player": "Ronald Acuna Jr.",
+  "year": "2017",
+  "set": "Bowman Chrome Prospects",
+  "cardNo": "BCP127",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "harper-2011-bcp111": {
+  "id": "harper-2011-bowman-chrome-prospects-bcp111-1st",
+  "player": "Bryce Harper",
+  "year": "2011",
+  "set": "Bowman Chrome Prospects",
+  "cardNo": "BCP111",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "vlad-2016-bcp55": {
+  "id": "guerrero-2016-bowman-chrome-prospects-bcp55-1st",
+  "player": "Vladimir Guerrero Jr.",
+  "year": "2016",
+  "set": "Bowman Chrome Prospects",
+  "cardNo": "BCP55",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "tatis-2016-bcp17": {
+  "id": "tatis-2016-bowman-chrome-prospects-bcp17-1st",
+  "player": "Fernando Tatis Jr.",
+  "year": "2016",
+  "set": "Bowman Chrome Prospects",
+  "cardNo": "BCP17",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "skenes-2023-bdc14": {
+  "id": "skenes-2023-bowman-draft-chrome-bdc14-1st",
+  "player": "Paul Skenes",
+  "year": "2023",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "BDC-14",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "skenes-2023-bdc14-ref": {
+  "id": "skenes-2023-bowman-draft-chrome-bdc14-refractor",
+  "player": "Paul Skenes",
+  "year": "2023",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "BDC-14",
+  "parallel": "Refractor (1st Bowman)",
+  "sport": "Baseball"
+ },
+ "griffin-2024-bdc22": {
+  "id": "griffin-2024-bowman-draft-chrome-bdc22-1st",
+  "player": "Konnor Griffin",
+  "year": "2024",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "BDC-22",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "made-2025-bcp50": {
+  "id": "made-2025-bowman-chrome-prospects-bcp50-1st",
+  "player": "Jesus Made",
+  "year": "2025",
+  "set": "Bowman Chrome Prospects",
+  "cardNo": "BCP-50",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "walcott-2023-bcp189": {
+  "id": "walcott-2023-bowman-chrome-prospects-bcp189-1st",
+  "player": "Sebastian Walcott",
+  "year": "2023",
+  "set": "Bowman Chrome Prospects",
+  "cardNo": "BCP-189",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "salas-2023-bcp171": {
+  "id": "salas-2023-bowman-chrome-prospects-bcp171-1st",
+  "player": "Ethan Salas",
+  "year": "2023",
+  "set": "Bowman Chrome Prospects",
+  "cardNo": "BCP-171",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "chourio-2024-tc-161": {
+  "id": "chourio-2024-topps-chrome-161-base",
+  "player": "Jackson Chourio",
+  "year": "2024",
+  "set": "Topps Chrome",
+  "cardNo": "161",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "holliday-2024-tc-88": {
+  "id": "holliday-2024-topps-chrome-88-base",
+  "player": "Jackson Holliday",
+  "year": "2024",
+  "set": "Topps Chrome",
+  "cardNo": "88",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "langford-2024-tc-122": {
+  "id": "langford-2024-topps-chrome-122-base",
+  "player": "Wyatt Langford",
+  "year": "2024",
+  "set": "Topps Chrome",
+  "cardNo": "122",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "yamamoto-2024-tc": {
+  "id": "yamamoto-2024-topps-chrome-18-base",
+  "player": "Yoshinobu Yamamoto",
+  "year": "2024",
+  "set": "Topps Chrome",
+  "cardNo": "18",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "merrill-2024-tc": {
+  "id": "merrill-2024-topps-chrome-207-base",
+  "player": "Jackson Merrill",
+  "year": "2024",
+  "set": "Topps Chrome",
+  "cardNo": "207",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "soto-2017-bcp180": {
+  "id": "soto-2017-bowman-chrome-prospects-bcp180-1st",
+  "player": "Juan Soto",
+  "year": "2017",
+  "set": "Bowman Chrome Prospects",
+  "cardNo": "BCP180",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "jrod-2019-bcp33": {
+  "id": "rodriguez-2019-bowman-chrome-prospects-bcp33-1st",
+  "player": "Julio Rodriguez",
+  "year": "2019",
+  "set": "Bowman Chrome Prospects",
+  "cardNo": "BCP-33",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "ohtani-2018-topps-700": {
+  "id": "ohtani-2018-topps-700-base",
+  "player": "Shohei Ohtani",
+  "year": "2018",
+  "set": "Topps Series 2",
+  "cardNo": "700",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "caminero-2024-tc": {
+  "id": "caminero-2024-topps-chrome-213-base",
+  "player": "Junior Caminero",
+  "year": "2024",
+  "set": "Topps Chrome",
+  "cardNo": "213",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "devries-2024-bcp": {
+  "id": "devries-2024-bowman-chrome-prospects-bcp179-1st",
+  "player": "Leo De Vries",
+  "year": "2024",
+  "set": "Bowman Chrome Prospects",
+  "cardNo": "BCP-179",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "chet-2022-prizm-266": {
+  "id": "holmgren-2022-panini-prizm-266-base",
+  "player": "Chet Holmgren",
+  "year": "2022-23",
+  "set": "Panini Prizm",
+  "cardNo": "266",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "chet-2022-prizm-266-silver": {
+  "id": "holmgren-2022-panini-prizm-266-silver",
+  "player": "Chet Holmgren",
+  "year": "2022-23",
+  "set": "Panini Prizm",
+  "cardNo": "266",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "amen-2023-prizm-150-silver": {
+  "id": "thompson-amen-2023-panini-prizm-150-silver",
+  "player": "Amen Thompson",
+  "year": "2023-24",
+  "set": "Panini Prizm",
+  "cardNo": "150",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "scoot-2023-prizm-141-silver": {
+  "id": "henderson-scoot-2023-panini-prizm-141-silver",
+  "player": "Scoot Henderson",
+  "year": "2023-24",
+  "set": "Panini Prizm",
+  "cardNo": "141",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "sga-2018-prizm-184-silver": {
+  "id": "gilgeous-alexander-2018-panini-prizm-184-silver",
+  "player": "Shai Gilgeous-Alexander",
+  "year": "2018",
+  "set": "Panini Prizm",
+  "cardNo": "184",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "mahomes-2017-donruss-327": {
+  "id": "mahomes-2017-donruss-327-base",
+  "player": "Patrick Mahomes II",
+  "year": "2017",
+  "set": "Panini Donruss",
+  "cardNo": "327",
+  "parallel": "Base RC",
+  "sport": "Football"
+ },
+ "jefferson-2020-prizm-398-silver": {
+  "id": "jefferson-2020-panini-prizm-398-silver",
+  "player": "Justin Jefferson",
+  "year": "2020",
+  "set": "Panini Prizm",
+  "cardNo": "398",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football"
+ },
+ "purdy-2022-prizm-353": {
+  "id": "purdy-2022-panini-prizm-353-base",
+  "player": "Brock Purdy",
+  "year": "2022",
+  "set": "Panini Prizm",
+  "cardNo": "353",
+  "parallel": "Base RC",
+  "sport": "Football"
+ },
+ "purdy-2022-prizm-353-silver": {
+  "id": "purdy-2022-panini-prizm-353-silver",
+  "player": "Brock Purdy",
+  "year": "2022",
+  "set": "Panini Prizm",
+  "cardNo": "353",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football"
+ },
+ "stroud-2023-prizm": {
+  "id": "stroud-2023-panini-prizm-339-base",
+  "player": "C.J. Stroud",
+  "year": "2023",
+  "set": "Panini Prizm",
+  "cardNo": "339",
+  "parallel": "Base RC",
+  "sport": "Football"
+ },
+ "stroud-2023-prizm-silver": {
+  "id": "stroud-2023-panini-prizm-339-silver",
+  "player": "C.J. Stroud",
+  "year": "2023",
+  "set": "Panini Prizm",
+  "cardNo": "339",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football"
+ },
+ "giannis-2013-prizm-290": {
+  "id": "giannis-2013-panini-prizm-290-base",
+  "player": "Giannis Antetokounmpo",
+  "year": "2013",
+  "set": "Panini Prizm",
+  "cardNo": "290",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "jokic-2015-prizm-335": {
+  "id": "jokic-2015-panini-prizm-335-base",
+  "player": "Nikola Jokic",
+  "year": "2015",
+  "set": "Panini Prizm",
+  "cardNo": "335",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "zion-2019-prizm-248-silver": {
+  "id": "zion-2019-panini-prizm-248-silver",
+  "player": "Zion Williamson",
+  "year": "2019",
+  "set": "Panini Prizm",
+  "cardNo": "248",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "haliburton-2020-prizm-262-silver": {
+  "id": "haliburton-2020-panini-prizm-262-silver",
+  "player": "Tyrese Haliburton",
+  "year": "2020",
+  "set": "Panini Prizm",
+  "cardNo": "262",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "maxey-2020-prizm-256-silver": {
+  "id": "maxey-2020-panini-prizm-256-silver",
+  "player": "Tyrese Maxey",
+  "year": "2020",
+  "set": "Panini Prizm",
+  "cardNo": "256",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "brunson-2018-prizm-250-silver": {
+  "id": "brunson-2018-panini-prizm-250-silver",
+  "player": "Jalen Brunson",
+  "year": "2018",
+  "set": "Panini Prizm",
+  "cardNo": "250",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "wemby-2023-prizm-136-silver": {
+  "id": "wembanyama-2023-panini-prizm-136-silver",
+  "player": "Victor Wembanyama",
+  "year": "2023",
+  "set": "Panini Prizm",
+  "cardNo": "136",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "trae-2018-prizm-78-silver": {
+  "id": "young-2018-panini-prizm-78-silver",
+  "player": "Trae Young",
+  "year": "2018",
+  "set": "Panini Prizm",
+  "cardNo": "78",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "mitchell-2017-prizm-117-silver": {
+  "id": "mitchell-2017-panini-prizm-117-silver",
+  "player": "Donovan Mitchell",
+  "year": "2017",
+  "set": "Panini Prizm",
+  "cardNo": "117",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "luka-2018-prizm-280-silver": {
+  "id": "doncic-2018-panini-prizm-280-silver",
+  "player": "Luka Doncic",
+  "year": "2018",
+  "set": "Panini Prizm",
+  "cardNo": "280",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "morant-2019-prizm-249-silver": {
+  "id": "morant-2019-panini-prizm-249-silver",
+  "player": "Ja Morant",
+  "year": "2019",
+  "set": "Panini Prizm",
+  "cardNo": "249",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "edwards-2020-prizm-258-silver": {
+  "id": "edwards-2020-panini-prizm-258-silver",
+  "player": "Anthony Edwards",
+  "year": "2020",
+  "set": "Panini Prizm",
+  "cardNo": "258",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "lamelo-2020-prizm-278-silver": {
+  "id": "ball-2020-panini-prizm-278-silver",
+  "player": "LaMelo Ball",
+  "year": "2020",
+  "set": "Panini Prizm",
+  "cardNo": "278",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "cade-2021-prizm-282-silver": {
+  "id": "cunningham-2021-panini-prizm-282-silver",
+  "player": "Cade Cunningham",
+  "year": "2021",
+  "set": "Panini Prizm",
+  "cardNo": "282",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "banchero-2022-prizm-249-silver": {
+  "id": "banchero-2022-panini-prizm-249-silver",
+  "player": "Paolo Banchero",
+  "year": "2022",
+  "set": "Panini Prizm",
+  "cardNo": "249",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "embiid-2014-prizm-253": {
+  "id": "embiid-2014-panini-prizm-253-base",
+  "player": "Joel Embiid",
+  "year": "2014",
+  "set": "Panini Prizm",
+  "cardNo": "253",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "jbrown-2016-prizm": {
+  "id": "brown-2016-panini-prizm-44-base",
+  "player": "Jaylen Brown",
+  "year": "2016",
+  "set": "Panini Prizm",
+  "cardNo": "44",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ }
+}

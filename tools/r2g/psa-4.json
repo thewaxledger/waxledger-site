@@ -1,0 +1,9 @@
+{
+ "sga-2018-prizm-184-silver": {"specId":"2681670","n10":29,"avg10":2290.98,"med10":2100,"min10":1494.68,"max10":2870.97,"n9":30,"avg9":378.83,"med9":384,"rawN":15,"rawMed":250,"rawLast":275,"rawOldest":"2026-09-10","pop10":731,"pop9":2554,"pop8":955,"popTotal":4821,"gemRate":15.16},
+ "mahomes-2017-donruss-327": {"specId":"2473397","n10":58,"avg10":1439.89,"med10":1380,"min10":1150,"max10":3871,"n9":151,"avg9":501.63,"med9":452,"rawN":15,"rawMed":215.38,"rawLast":190,"rawOldest":"2026-10-04","pop10":1741,"pop9":8068,"pop8":4323,"popTotal":16631,"gemRate":10.47},
+ "jefferson-2020-prizm-398-silver": {"specId":"4064221","n10":4,"avg10":653.25,"med10":675,"min10":588,"max10":675,"n9":13,"avg9":116.75,"med9":109.995,"rawN":15,"rawMed":73,"rawLast":80,"rawOldest":"2026-08-04","pop10":136,"pop9":522,"pop8":118,"popTotal":838,"gemRate":16.23},
+ "purdy-2022-prizm-353": {"specId":"8411861","n10":145,"avg10":97.92,"med10":120,"min10":49.99,"max10":189.87,"n9":47,"avg9":32.08,"med9":36,"rawN":15,"rawMed":19.99,"rawLast":19.99,"rawOldest":"2026-10-04","pop10":4473,"pop9":2807,"pop8":490,"popTotal":7937,"gemRate":56.36},
+ "purdy-2022-prizm-353-silver": {"specId":"8413098","n10":36,"avg10":737.97,"med10":850,"min10":541,"max10":910,"n9":19,"avg9":192.49,"med9":228.93,"rawN":15,"rawMed":160,"rawLast":249,"rawOldest":"2026-08-27","pop10":637,"pop9":515,"pop8":108,"popTotal":1311,"gemRate":48.59},
+ "stroud-2023-prizm": {"specId":"10222823","n10":165,"avg10":40.61,"med10":25.99,"min10":16.5,"max10":335,"n9":89,"avg9":15.33,"med9":14.25,"rawN":15,"rawMed":1.99,"rawLast":1.99,"rawOldest":"2026-09-25","pop10":7839,"pop9":9090,"pop8":791,"popTotal":17925,"gemRate":43.73},
+ "stroud-2023-prizm-silver": {"specId":"10229667","n10":144,"avg10":392.05,"med10":301,"min10":251.29,"max10":500,"n9":84,"avg9":75.9,"med9":47.59,"rawN":15,"rawMed":61,"rawLast":39.96,"rawOldest":"2026-09-08","pop10":2262,"pop9":3503,"pop8":302,"popTotal":6151,"gemRate":36.77}
+}

@@ -9,3 +9,10 @@ Source for [thewaxledger.com](https://thewaxledger.com). Netlify deploys `main` 
   "being connected".
 
 Daily upstream calls are capped at 1,500 (see `DAILY_CAP`) to protect the subscription.
+
+## Working on the site
+
+- `src/index.src.html` is the master page; `python3 tools/build.py` writes `public/index.html`.
+- `bash tools/test/run.sh` runs the stub server and the browser checks (needs Playwright + Chromium).
+- `tools/r2g/` holds the Raw-to-Gem research pipeline, `tools/reviews/` the Product Review inserts.
+- See `CLAUDE.md` for the release checklist and house rules.

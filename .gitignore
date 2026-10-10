@@ -1,2 +1,5 @@
 node_modules/
 .netlify/
+tools/test/out/
+tools/test/server.log
+tools/test/pid

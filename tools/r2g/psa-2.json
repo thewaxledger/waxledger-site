@@ -1,0 +1,13 @@
+{
+"soto-2017-bcp180":{"specId":null,"title":"2017 Bowman Chrome Prospects Juan Soto #BCP180","n10":15,"avg10":46.18,"med10":45,"n9":3,"med9":21.5,"rawN":14,"rawMed":4.895,"pop10":1022,"pop9":427,"popTotal":1490,"gemRate":68.59},
+"jrod-2019-bcp33":{"specId":null,"title":"2019 Bowman Prospects Chrome Julio Rodriguez #033","n10":103,"avg10":30.72,"med10":25,"n9":12,"med9":14.75,"rawN":15,"rawMed":3.36,"pop10":11863,"pop9":2597,"popTotal":14812,"gemRate":80.09},
+"ohtani-2018-topps-700":{"specId":null,"title":"2018 Topps Shohei Ohtani #700","n10":252,"avg10":851.85,"med10":705,"n9":262,"med9":227,"rawN":15,"rawMed":105.49,"pop10":11938,"pop9":10622,"popTotal":26794,"gemRate":44.55},
+"caminero-2024-tc":{"specId":null,"title":"2024 Topps Chrome Junior Caminero #213","n10":22,"avg10":104.9,"med10":105,"n9":10,"med9":25.035,"rawN":15,"rawMed":2,"pop10":365,"pop9":172,"popTotal":565,"gemRate":64.6},
+"dominguez-2024-tc":{"specId":null,"title":"2024 Topps Chrome Jasson Dominguez #089","n10":7,"avg10":11.95,"med10":11.59,"n9":0,"med9":null,"rawN":15,"rawMed":1.45,"pop10":529,"pop9":336,"popTotal":908,"gemRate":58.26},
+"devries-2024-bcp":{"specId":null,"title":"2024 Bowman Chrome Prospects Leo de Vries #BCP179","n10":5,"avg10":92.25,"med10":95,"n9":4,"med9":32.18,"rawN":15,"rawMed":6.99,"pop10":142,"pop9":343,"popTotal":708,"gemRate":20.06},
+"trout-2011-tu-us175":{"specId":null,"title":"2011 Topps Update Mike Trout #US175","n10":130,"avg10":1013.68,"med10":931,"n9":80,"med9":399.495,"rawN":15,"rawMed":286,"pop10":7116,"pop9":5788,"popTotal":16942,"gemRate":42},
+"chet-2022-prizm-266":{"specId":null,"title":"2022 Panini Prizm Chet Holmgren #266","n10":16,"avg10":30.43,"med10":33,"n9":8,"med9":11.075,"rawN":15,"rawMed":1,"pop10":1072,"pop9":1153,"popTotal":2503,"gemRate":42.83},
+"chet-2022-prizm-266-silver":{"specId":null,"title":"2022 Panini Prizm Chet Holmgren #266 Silver Prizm","n10":14,"avg10":181.65,"med10":180,"n9":14,"med9":25.5,"rawN":15,"rawMed":10.5,"pop10":695,"pop9":1195,"popTotal":2185,"gemRate":31.81},
+"amen-2023-prizm-150-silver":{"specId":null,"title":"2023 Panini Prizm Amen Thompson #150 Silver Prizm","n10":60,"avg10":258.7,"med10":300,"n9":28,"med9":39.47,"rawN":15,"rawMed":22,"pop10":1255,"pop9":1264,"popTotal":2969,"gemRate":42.27},
+"scoot-2023-prizm-141-silver":{"specId":null,"title":"2023 Panini Prizm Scoot Henderson #141 Silver Prizm","n10":23,"avg10":85.27,"med10":90,"n9":10,"med9":15,"rawN":15,"rawMed":6,"pop10":1043,"pop9":916,"popTotal":2230,"gemRate":46.77}
+}
