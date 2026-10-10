@@ -13,6 +13,14 @@ notes = json.load(open(os.path.join(HERE, "notes.json"))) if os.path.exists(os.p
 def r2(x):
     return None if x is None else round(float(x) * 100) / 100
 
+def as_of(d):
+    """Each pull records the day it was made; pulls from before Oct 10 carry no asOf and are Oct 9."""
+    return d.get("asOf") or AS_OF
+
+def nice(day):
+    t = datetime.date.fromisoformat(day)
+    return t.strftime("%b ") + str(t.day)
+
 def raw_sales_30(d):
     """PSA lists ungraded sales too; we pulled up to 15. Scale the span of those 15 to a 30-day rate."""
     n = d.get("rawN") or 0
@@ -21,7 +29,7 @@ def raw_sales_30(d):
     oldest = d.get("rawOldest")
     if not oldest or n < 15:
         return n if n < 15 else n  # fewer than 15 in the whole 90-day window: use the count as-is (per 90d, conservative)
-    days = (datetime.date.fromisoformat(AS_OF) - datetime.date.fromisoformat(oldest)).days or 1
+    days = (datetime.date.fromisoformat(as_of(d)) - datetime.date.fromisoformat(oldest)).days or 1
     return max(n, round(n * 30 / days))
 
 out = []
@@ -39,8 +47,8 @@ for key, m in meta.items():
     entry = {
         "id": m["id"], "player": m["player"], "year": m["year"], "set": m["set"], "cardNo": m["cardNo"], "parallel": m["parallel"], "sport": m["sport"],
         "raw": r2(rawp), "rawSales30": raw_sales_30(d), "psa10": r2(psa10), "psa10Sales90": n10, "compType": comp, "psa9": r2(psa9),
-        "pop10": d.get("pop10"), "pop9": d.get("pop9"), "popTotal": d.get("popTotal"), "asOf": AS_OF, "conf": conf, "order": order,
-        "note": notes.get(key, ""), "src": "PSA Auction Prices Realized, last 90 days (Oct 9, 2026); PSA pop report (Oct 9); raw = PSA-tracked ungraded eBay sales"
+        "pop10": d.get("pop10"), "pop9": d.get("pop9"), "popTotal": d.get("popTotal"), "asOf": as_of(d), "conf": conf, "order": order,
+        "note": notes.get(key, ""), "src": "PSA Auction Prices Realized, last 90 days (%s, 2026); PSA pop report (%s); raw = PSA-tracked ungraded eBay sales" % (nice(as_of(d)), nice(as_of(d)))
     }
     order += 1
     out.append(entry)

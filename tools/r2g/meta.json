@@ -511,5 +511,122 @@
   "cardNo": "44",
   "parallel": "Base RC",
   "sport": "Basketball"
+ },
+ "ohtani-2018-tc-150": {
+  "id": "ohtani-2018-topps-chrome-150-base",
+  "player": "Shohei Ohtani",
+  "year": "2018",
+  "set": "Topps Chrome",
+  "cardNo": "150",
+  "parallel": "Base RC (Pitching)",
+  "sport": "Baseball"
+ },
+ "judge-2017-tc-169": {
+  "id": "judge-2017-topps-chrome-169-base",
+  "player": "Aaron Judge",
+  "year": "2017",
+  "set": "Topps Chrome",
+  "cardNo": "169",
+  "parallel": "Base RC (Catching)",
+  "sport": "Baseball"
+ },
+ "witt-2022-tcu-usc176": {
+  "id": "witt-2022-topps-chrome-update-usc176-base",
+  "player": "Bobby Witt Jr.",
+  "year": "2022",
+  "set": "Topps Chrome Update",
+  "cardNo": "USC176",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "pca-2024-tcu-usc158": {
+  "id": "crow-armstrong-2024-topps-chrome-update-usc158-base",
+  "player": "Pete Crow-Armstrong",
+  "year": "2024",
+  "set": "Topps Chrome Update",
+  "cardNo": "USC158",
+  "parallel": "Base RC (Rookie Debut)",
+  "sport": "Baseball"
+ },
+ "banchero-2022-prizm-249": {
+  "id": "banchero-2022-panini-prizm-249-base",
+  "player": "Paolo Banchero",
+  "year": "2022-23",
+  "set": "Panini Prizm",
+  "cardNo": "249",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "pca-2024-s2-407": {
+  "id": "crow-armstrong-2024-topps-series-2-407-base",
+  "player": "Pete Crow-Armstrong",
+  "year": "2024",
+  "set": "Topps Series 2",
+  "cardNo": "407",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "sasaki-2025-tc-217": {
+  "id": "sasaki-2025-topps-chrome-217-base",
+  "player": "Roki Sasaki",
+  "year": "2025",
+  "set": "Topps Chrome",
+  "cardNo": "217",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "morant-2019-prizm-249": {
+  "id": "morant-2019-panini-prizm-249-base",
+  "player": "Ja Morant",
+  "year": "2019-20",
+  "set": "Panini Prizm",
+  "cardNo": "249",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "soto-2018-tcu-hmt55": {
+  "id": "soto-2018-topps-chrome-update-hmt55-base",
+  "player": "Juan Soto",
+  "year": "2018",
+  "set": "Topps Chrome Update",
+  "cardNo": "HMT55",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "hurts-2020-prizm-343": {
+  "id": "hurts-2020-panini-prizm-343-base",
+  "player": "Jalen Hurts",
+  "year": "2020",
+  "set": "Panini Prizm",
+  "cardNo": "343",
+  "parallel": "Base RC",
+  "sport": "Football"
+ },
+ "matthews-2016-ud-201": {
+  "id": "matthews-2016-upper-deck-series-1-201-young",
+  "player": "Auston Matthews",
+  "year": "2016-17",
+  "set": "Upper Deck Series 1",
+  "cardNo": "201",
+  "parallel": "Young Guns RC",
+  "sport": "Hockey"
+ },
+ "hutson-2024-ud-229": {
+  "id": "hutson-2024-upper-deck-series-1-229-young",
+  "player": "Lane Hutson",
+  "year": "2024-25",
+  "set": "Upper Deck Series 1",
+  "cardNo": "229",
+  "parallel": "Young Guns RC",
+  "sport": "Hockey"
+ },
+ "michkov-2024-ud-492": {
+  "id": "michkov-2024-upper-deck-series-2-492-young",
+  "player": "Matvei Michkov",
+  "year": "2024-25",
+  "set": "Upper Deck Series 2",
+  "cardNo": "492",
+  "parallel": "Young Guns RC",
+  "sport": "Hockey"
  }
 }
