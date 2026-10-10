@@ -38,3 +38,8 @@ out=head+s[i:j]+META+'\n</head>\n<body>\n'+s[:i]+s[j:]+'\n</body>\n</html>\n'
 import re
 out=re.sub(r'Preview build · (\w+ \d+, 2026)', r'Beta · \1', out).replace('<b>Preview build</b>','<b>Beta</b>')
 open(os.path.join(ROOT,'public/index.html'),'w').write(out); print('built public/index.html',len(out))
+# static, indexable pages from the same data
+import sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import pages
+m=re.search(r'Beta · (\w+ \d+, 2026)', out)
+print('static pages (cards, reviews, urls):', pages.build('Beta · '+m.group(1) if m else 'Beta'))

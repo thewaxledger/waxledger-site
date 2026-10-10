@@ -1128,7 +1128,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
   </div>
 </section>
 <footer><div class="wrap foot">
-  <p>Wax Ledger is an independent publication. It is not affiliated with eBay, PSA, Topps, Fanatics, Panini, Upper Deck or Leaf. Nothing here is financial advice.<br><a href="mailto:info@thewaxledger.com">info@thewaxledger.com</a> · <a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a> · <a href="/refunds.html">Refunds &amp; cancellation</a></p>
+  <p>Wax Ledger is an independent publication. It is not affiliated with eBay, PSA, Topps, Fanatics, Panini, Upper Deck or Leaf. Nothing here is financial advice.<br><a href="mailto:info@thewaxledger.com">info@thewaxledger.com</a> · <a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a> · <a href="/refunds.html">Refunds &amp; cancellation</a> · <a href="/grade/">Grading guides</a> · <a href="/reviews/">Reviews</a></p>
   <p class="mono">Preview build · Oct 10, 2026</p>
 </div></footer>
 
@@ -1257,7 +1257,7 @@ function show(name,keepScroll){
   $$(".nav a").forEach(function(a){if(a.dataset.go===name)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
   if(name==="comps")compsOnShow();
   if(name==="trade")bstInit();
-  if(name==="screener")renderScatter();
+  if(name==="screener"){renderScatter();scrOpenPending()}
   if(!keepScroll)window.scrollTo(0,0);
   try{localStorage.setItem("wl-view",name)}catch(e){}
   track(name);
@@ -1279,7 +1279,9 @@ document.addEventListener("click",function(e){
   var a=e.target.closest("[data-go]");
   if(a){show(a.dataset.go)}
 });
-window.addEventListener("hashchange",function(){show(location.hash.slice(1))});
+window.addEventListener("hashchange",function(){show(viewOf(location.hash))});
+// "#screener?card=<id>" opens that card once the board has loaded (static grading guides link here)
+function viewOf(hash){var h=(hash||"").replace(/^#/,""),q=h.indexOf("?");if(q<0)return h;var v=h.slice(0,q),m=/(?:^|[?&])card=([a-z0-9-]+)/.exec(h.slice(q));if(m)scr.pending=m[1];return v}
 
 /* ---------- market ---------- */
 function statusOf(dateStr){
@@ -1523,7 +1525,7 @@ var ASM_DEFAULTS={fee:59.99,ship:10,sellFee:.13,haircut:.20,missReal:.85,assumed
 var ASM_FIELDS=[["fee","money"],["ship","money"],["sellFee","pct"],["haircut","pct"],["missReal","pct"],["assumedGem","pct"],["minSales","int"],["minMargin","pct"],["requireReal","bool"]];
 var SA={};Object.keys(ASM_DEFAULTS).forEach(function(k){SA[k]=ASM_DEFAULTS[k]});
 try{var savedAsm=JSON.parse(localStorage.getItem("wl-asm")||"null");if(savedAsm&&typeof savedAsm==="object")Object.keys(ASM_DEFAULTS).forEach(function(k){if(typeof savedAsm[k]===typeof ASM_DEFAULTS[k])SA[k]=savedAsm[k]})}catch(e){}
-var scr={filter:"grade",sport:"all",sel:null};
+var scr={filter:"grade",sport:"all",sel:null,pending:null};
 function isNum(v){return typeof v==="number"&&isFinite(v)}
 function usd(v,o){o=o||{};if(!isNum(v))return "—";var d=o.dec!=null?o.dec:(o.price&&Math.abs(v)<50?2:0);return (v<0?"−":(o.sign?"+":""))+"$"+Math.abs(v).toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d})}
 function pc(v,d,sign){if(!isNum(v))return "—";return (v<0?"−":(sign?"+":""))+(Math.abs(v)*100).toFixed(d||0)+"%"}
@@ -1755,6 +1757,7 @@ function renderDrawer(){
   $(".drawer-bd",d).scrollTop=0;
 }
 function shortDate(s){if(!s)return "—";var d=parseDay(s);return MONTHS[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear()}
+function scrOpenPending(){if(!scr.pending||!SCREEN_META.loaded)return;var want=scr.pending;scr.pending=null;if(SCREEN.some(function(c){return c.id===want}))openScr(want)}
 function openScr(id){scr.sel=id;if($('[data-view="screener"]').hidden)show("screener");renderDrawer();var x=$("#drawer-x");if(x)x.focus()}
 function closeScr(){scr.sel=null;renderDrawer()}
 function syncAsm(){
@@ -2540,6 +2543,7 @@ function loadScreener(){
     if(j.status!=="ok")return;
     SCREEN=j.cards||[];SCREEN_META={member:!!j.member,total:j.total,clears:j.clears,loaded:true};
     $("#scr-sport").innerHTML="";renderScreener();
+    scrOpenPending();
   }).catch(function(){});
 }
 // Pre-Grading Tool: three new cards a day for free visitors. Runs in the browser, so this limit lives in the browser too.
@@ -2788,7 +2792,7 @@ window.addEventListener("resize",function(){clearTimeout(resizeTimer);resizeTime
 /* ---------- boot ---------- */
 syncAsm();$("#calc-fee").value=(SA.fee+SA.ship).toFixed(2);$("#calc-sell").value=String(Math.round(SA.sellFee*1000)/10);
 renderMarket();cardChips($("#hero-chips"));cardChips($("#comp-chips"));renderCalc();loadHeroLive();renderScreener();renderReleases();renderTrending();renderReviews();
-var start=location.hash.slice(1);
+var start=viewOf(location.hash);
 if(VIEWS.indexOf(start)<0){try{start=localStorage.getItem("wl-view")||"market"}catch(e){start="market"}}
 show(start,true);
 window.__wl={gradeMath:gradeMath,scrRows:scrRows};
