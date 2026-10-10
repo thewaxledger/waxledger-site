@@ -9,6 +9,11 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
 - `tools/build.py` — builds `public/index.html` from the master (adds `<head>` meta, OG tags, favicons, turns the
   "Preview build · <date>" label into "Beta · <date>"). Run `python3 tools/build.py` after every master edit.
 - `netlify/functions/` — `/api/comps` (SportsCardsPro, token in Netlify env), `/api/auth`, `/api/bst`, `/api/screener`.
+- `netlify/functions/hit.mjs` — `/api/hit`, first-party traffic counting (no cookies, no third party). The page sends a
+  beacon on load and on each tab switch (`track()` in the master); admins signed in on the device are not counted
+  (`wl-admin` flag in localStorage). `GET /api/hit?days=14` is admin-only and feeds the "Admin: site traffic" panel on
+  the Buy/Sell/Trade tab. Data lives in the `traffic` blob store, one JSON per day. `TRAFFIC_SALT` (optional Netlify env)
+  salts the daily visitor hash. Headless/bot user agents are skipped, so tests set a normal UA.
 - `netlify/lib/screen-data.mjs` — the Raw-to-Gem Calculator card data (default export, JSON array). Also mirrored into
   the page by `tools/r2g/integrate.py`.
 - `netlify/functions/screener.mjs` — `score()` is the server copy of the page's `scrCompute` model. Keep them identical.
@@ -21,8 +26,9 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
   `deep` object render the expandable "Full breakdown" and show "WAX SCORE / 10"; entries without are sample previews.
 - `tools/test/` — `run.sh` starts a stub API server on :8791 serving `public/` (in-memory members, mail, comps) and runs
   `smoke.cjs` (every view, desktop + phone, console errors, horizontal overflow), `rev.cjs` (Product Reviews render),
-  `scr.cjs` (member sign-in + Raw-to-Gem board). Screenshots land in `tools/test/out/` (ignored). The stub's
-  `/api/comps` returns 402 for non-members; that is expected noise.
+  `scr.cjs` (member sign-in + Raw-to-Gem board), `traffic.cjs` (visit counting and the admin panel), `panel.cjs`
+  (screenshot of the traffic panel). Screenshots land in `tools/test/out/` (ignored). The stub's `/api/comps` returns
+  402 for non-members; that is expected noise.
 
 ## Release checklist
 

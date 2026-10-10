@@ -9,5 +9,7 @@ STATUS=0
 node smoke.cjs || STATUS=1
 node rev.cjs || STATUS=1
 node scr.cjs || STATUS=1
+node traffic.cjs || STATUS=1
+node panel.cjs || STATUS=1
 kill $PID 2>/dev/null
 exit $STATUS

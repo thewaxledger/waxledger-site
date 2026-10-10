@@ -224,6 +224,12 @@ tr:last-child td{border-bottom:0}
 @media (max-width:640px){.row-trend{grid-template-columns:26px minmax(0,1fr) 70px}.row-trend .spark,.row-trend .sport{display:none}}
 
 /* reviews */
+.traffic-wrap{overflow-x:auto}
+.traffic{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px}
+.traffic th,.traffic td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;white-space:nowrap}
+.traffic th{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+.traffic .num{text-align:right;font-family:var(--mono)}
+.traffic td:nth-child(4),.traffic td:nth-child(5){white-space:normal;color:var(--ink-2)}
 .review-deep{border-top:1px solid var(--line);padding-top:12px;font-size:13.5px;color:var(--ink-2)}
 .review-deep summary{cursor:pointer;font-weight:600;color:var(--ink);list-style:none;display:flex;gap:8px;align-items:baseline}
 .review-deep summary::-webkit-details-marker{display:none}
@@ -949,6 +955,12 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
       </form>
       <ul class="bst-replies" id="comp-list" style="margin-top:10px"></ul>
     </details>
+    <details class="method" id="traffic-admin" hidden>
+      <summary>Admin: site traffic, last 14 days</summary>
+      <p class="small muted" style="margin:10px 0 8px">Counted by the site itself: no cookies, no third party. A visitor is one device per day. Your own visits while signed in as admin are not counted.</p>
+      <div class="traffic-wrap"><table class="traffic" id="traffic-table"><thead><tr><th>Day</th><th class="num">Visitors</th><th class="num">Views</th><th>Top tabs</th><th>Sources</th><th>Phone</th></tr></thead><tbody></tbody></table></div>
+      <p class="small muted" id="traffic-total" style="margin-top:8px"></p>
+    </details>
     <details class="bst-rules"><summary>Trade safely: read before you deal</summary>
       <ul>
         <li>Pay with PayPal Goods &amp; Services or another method with buyer protection. Avoid Friends &amp; Family, Zelle, Venmo or Cash App with people you don't know.</li>
@@ -1216,6 +1228,20 @@ function show(name,keepScroll){
   if(name==="screener")renderScatter();
   if(!keepScroll)window.scrollTo(0,0);
   try{localStorage.setItem("wl-view",name)}catch(e){}
+  track(name);
+}
+/* ---------- traffic (first-party, no cookies) ---------- */
+var TRACK={last:null,first:true};
+function track(view){
+  if(view===TRACK.last)return;TRACK.last=view;
+  try{if(localStorage.getItem("wl-admin")==="1")return}catch(e){}
+  var q="";try{q=new URLSearchParams(location.search).get("utm_source")||""}catch(e){}
+  var p=JSON.stringify({v:view,r:document.referrer||"",w:window.innerWidth<760?"m":"d",s:TRACK.first?1:0,q:q});
+  TRACK.first=false;
+  try{
+    if(navigator.sendBeacon&&navigator.sendBeacon("/api/hit",new Blob([p],{type:"application/json"})))return;
+    fetch("/api/hit",{method:"POST",headers:{"content-type":"application/json"},body:p,keepalive:true,credentials:"same-origin"}).catch(function(){});
+  }catch(e){}
 }
 document.addEventListener("click",function(e){
   var a=e.target.closest("[data-go]");
@@ -2385,7 +2411,7 @@ function authOpen(st){var d=$("#auth-dlg");st=st||"login";authStep(st);$("#auth-
   var f=$({name:"#auth-name",code:"#auth-code",setpw:"#auth-pw",email:"#auth-email",notmember:"#auth-email"}[st]||"#auth-login-email");if(f)f.focus()}
 function authNote(m,bad){var n=$("#auth-note");n.textContent=m||"";n.style.color=bad?"var(--down)":""}
 function authRefresh(){
-  return api("/api/auth").then(function(j){AUTH.me=j.member||null;AUTH.offline=false}).catch(function(){AUTH.me=null;AUTH.offline=true}).then(function(){AUTH.ready=true;authChanged()});
+  return api("/api/auth").then(function(j){AUTH.me=j.member||null;AUTH.offline=false;try{localStorage.setItem("wl-admin",AUTH.me&&AUTH.me.admin?"1":"0")}catch(e){}}).catch(function(){AUTH.me=null;AUTH.offline=true}).then(function(){AUTH.ready=true;authChanged()});
 }
 function authChanged(){
   var me=AUTH.me,b=$("#hdr-signin");
@@ -2503,6 +2529,15 @@ function bstInit(){
   if(!BST.me.name){authOpen("name");return}
   bstLoad();
 }
+function trafficLoad(){
+  api("/api/hit?days=14").then(function(j){if(j.status!=="ok")return;
+    var top=function(o,n){return Object.keys(o).sort(function(a,b){return o[b]-o[a]}).slice(0,n).map(function(k){return esc(k)+" "+o[k]}).join(", ")||"—"};
+    var rows=j.days.slice().reverse();
+    $("#traffic-table tbody").innerHTML=rows.map(function(d){var ph=(d.devices.m||0),dk=(d.devices.d||0),pct=ph+dk?Math.round(ph/(ph+dk)*100)+"%":"—";
+      return "<tr><td>"+d.day.slice(5)+'</td><td class="num">'+d.visitors+'</td><td class="num">'+d.views+"</td><td>"+top(d.tabs,3)+"</td><td>"+top(d.sources,3)+"</td><td>"+pct+"</td></tr>"}).join("");
+    $("#traffic-total").textContent="Last 14 days: "+j.totals.visitors+" visitor-days, "+j.totals.views+" tab views, "+j.totals.loads+" page loads.";
+  });
+}
 function compList(){
   api("/api/auth",{action:"comps"}).then(function(j){if(j.status!=="ok")return;
     $("#comp-list").innerHTML=j.comps.length?j.comps.map(function(c){return '<li><b>'+esc(c.email)+'</b>'+(c.note?' · '+esc(c.note):'')+' <button class="btn btn-sm" type="button" data-comp-revoke="'+esc(c.email)+'">Revoke</button></li>'}).join(""):'<li class="muted">No complimentary members yet.</li>'});
@@ -2510,7 +2545,7 @@ function compList(){
 function bstLoad(){
   $("#bst-gate").hidden=true;$("#bst-board").hidden=false;
   $("#bst-who").textContent="Signed in as "+BST.me.name+(BST.me.admin?" · admin":"");
-  $("#bst-admin").hidden=!BST.me.admin;if(BST.me.admin)compList();
+  $("#bst-admin").hidden=!BST.me.admin;$("#traffic-admin").hidden=!BST.me.admin;if(BST.me.admin){compList();trafficLoad()}
   api("/api/bst").then(function(j){
     if(j._code===401||j.member===false){authRefresh();return}
     BST.listings=j.listings||[];bstRender();
