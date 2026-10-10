@@ -14,6 +14,16 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
   (`wl-admin` flag in localStorage). `GET /api/hit?days=14` is admin-only and feeds the "Admin: site traffic" panel on
   the Buy/Sell/Trade tab. Data lives in the `traffic` blob store, one JSON per day. `TRAFFIC_SALT` (optional Netlify env)
   salts the daily visitor hash. Headless/bot user agents are skipped, so tests set a normal UA.
+- `netlify/functions/newsletter.mjs` — `/api/newsletter`, the free weekly "Raw-to-Gem Friday" list. Sign-up band above the
+  footer on every view and on the static pages; addresses in the `newsletter` blob store; one-click unsubscribe link in
+  every email; admin panel on the B/S/T tab lists subscribers and sends an issue (test-to-me first). Issues are plain text.
+- `tools/pages.py` — static, indexable pages built by `tools/build.py` from the same data: `/grade/<id>/` for every
+  Raw-to-Gem card (numbers, verdict, one line of why; the full note and ranked board stay Pro), `/grade/`, `/reviews/<slug>/`
+  for each deep review, `/reviews/`, `static.css`, `sitemap.xml`, `robots.txt`. They are committed output; never hand-edit.
+  The app opens a card from `/#screener?card=<id>` (members).
+- Share images: "Share image" on a Pre-Grading result and "Share the math" in the Raw-to-Gem drawer render a watermarked
+  PNG (canvas) and use the Web Share sheet on phones, download elsewhere.
+- `tools/outreach-drafts-<date>.md` — post and message drafts. Nothing in there is posted or sent without Aidan's go.
 - `netlify/lib/screen-data.mjs` — the Raw-to-Gem Calculator card data (default export, JSON array). Also mirrored into
   the page by `tools/r2g/integrate.py`.
 - `netlify/functions/screener.mjs` — `score()` is the server copy of the page's `scrCompute` model. Keep them identical.
@@ -27,14 +37,15 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
 - `tools/test/` — `run.sh` starts a stub API server on :8791 serving `public/` (in-memory members, mail, comps) and runs
   `smoke.cjs` (every view, desktop + phone, console errors, horizontal overflow), `rev.cjs` (Product Reviews render),
   `scr.cjs` (member sign-in + Raw-to-Gem board), `traffic.cjs` (visit counting and the admin panel), `panel.cjs`
-  (screenshot of the traffic panel). Screenshots land in `tools/test/out/` (ignored). The stub's `/api/comps` returns
+  (screenshot of the traffic panel), `news.cjs` (newsletter), `pages.cjs` (static pages + deep link), `share.cjs`
+  (share images). `signin.cjs` signs a test member in through the site's own forms. Screenshots land in `tools/test/out/` (ignored). The stub's `/api/comps` returns
   402 for non-members; that is expected noise.
 
 ## Release checklist
 
 1. Edit `src/index.src.html` (and/or `netlify/**`).
 2. `python3 tools/build.py`
-3. `bash tools/test/run.sh` — must end with `SMOKE OK` and no page errors.
+3. `bash tools/test/run.sh` — every block must end OK (SMOKE, TRAFFIC, NEWS, PAGES, SHARE) with no page errors.
 4. Update the dates: the beta banner text ("checked <date>") and "Preview build · <date>" in the master, `asOf` in
    `screener.mjs` and `screen-data.mjs` entries you refreshed.
 5. Commit with a clear message and push `main`.
