@@ -529,6 +529,15 @@ details.method summary{cursor:pointer;font-weight:600;font-size:1rem}
 .lockbar b{font-weight:600;margin-right:4px}
 .auth-dialog{width:min(520px,calc(100vw - 32px))}
 .auth-stack{flex-direction:column;align-items:stretch}.auth-stack input{flex:0 0 auto}.auth-stack .btn-sm{align-self:flex-start}
+.news-band{border-top:1px solid var(--line);background:var(--surface);padding-block:30px}
+.news-wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,1fr);gap:20px 40px;align-items:center}
+@media (max-width:760px){.news-wrap{grid-template-columns:1fr}}
+.news-copy h2{margin:6px 0 8px;font-size:1.7rem}
+.news-copy p{margin:0;color:var(--ink-2);max-width:60ch}
+.news-form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:start}
+.news-form input[type=email]{min-width:0;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface-2);color:var(--ink);font:inherit}
+.news-form .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.news-form .news-note{grid-column:1/-1;margin:0}
 footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-3);font-size:12.5px}
 .foot{display:flex;justify-content:space-between;gap:16px 40px;flex-wrap:wrap}
 .foot p{max-width:70ch}
@@ -961,6 +970,18 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
       <div class="traffic-wrap"><table class="traffic" id="traffic-table"><thead><tr><th>Day</th><th class="num">Visitors</th><th class="num">Views</th><th>Top tabs</th><th>Sources</th><th>Phone</th></tr></thead><tbody></tbody></table></div>
       <p class="small muted" id="traffic-total" style="margin-top:8px"></p>
     </details>
+    <details class="method" id="news-admin" hidden>
+      <summary>Admin: newsletter</summary>
+      <p class="small muted" id="news-count" style="margin:10px 0 8px">Loading…</p>
+      <form class="auth-stack" id="news-send" style="margin-top:6px">
+        <input id="news-subject" maxlength="150" placeholder="Subject" aria-label="Subject" required>
+        <textarea id="news-text" rows="10" placeholder="Plain text. The unsubscribe line is added to every copy." aria-label="Issue text" required></textarea>
+        <label class="check-row"><input type="checkbox" id="news-test" checked><span>Send a test to me only</span></label>
+        <button class="btn btn-gold btn-sm" type="submit">Send</button>
+        <span class="form-note" id="news-send-note" aria-live="polite"></span>
+      </form>
+      <ul class="bst-replies" id="news-list" style="margin-top:10px"></ul>
+    </details>
     <details class="bst-rules"><summary>Trade safely: read before you deal</summary>
       <ul>
         <li>Pay with PayPal Goods &amp; Services or another method with buyer protection. Avoid Friends &amp; Family, Zelle, Venmo or Cash App with people you don't know.</li>
@@ -1095,6 +1116,17 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
 <div class="scrim" id="scrim" hidden></div>
 <aside class="drawer" id="drawer" hidden aria-label="Card detail"></aside>
 
+<section class="news-band" aria-label="Newsletter">
+  <div class="wrap news-wrap">
+    <div class="news-copy"><p class="eyebrow">Raw-to-Gem Friday</p><h2>Three cards that clear the grading math. Every Friday, free.</h2><p>Raw price, PSA 10 and PSA 9 comps, the real gem rate, and what one attempt nets. First issue Friday, October 16.</p></div>
+    <form class="news-form" id="news-form" novalidate>
+      <input type="text" name="hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input id="news-email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" aria-label="Email address" required>
+      <button class="btn btn-gold" type="submit" id="news-btn">Sign up</button>
+      <p class="small muted news-note" id="news-note" aria-live="polite">One email a week. Unsubscribe with one click.</p>
+    </form>
+  </div>
+</section>
 <footer><div class="wrap foot">
   <p>Wax Ledger is an independent publication. It is not affiliated with eBay, PSA, Topps, Fanatics, Panini, Upper Deck or Leaf. Nothing here is financial advice.<br><a href="mailto:info@thewaxledger.com">info@thewaxledger.com</a> · <a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a> · <a href="/refunds.html">Refunds &amp; cancellation</a></p>
   <p class="mono">Preview build · Oct 10, 2026</p>
@@ -2420,6 +2452,22 @@ function authChanged(){
   if(!$('[data-view="trade"]').hidden)bstInit();
 }
 function authLogout(){api("/api/auth",{action:"logout"}).then(authRefresh)}
+/* ---------- newsletter ---------- */
+(function(){
+  var f=$("#news-form");if(!f)return;
+  try{if(localStorage.getItem("wl-news")==="1"){$("#news-note").textContent="You're on the list. First issue Friday, October 16.";$("#news-email").hidden=true;$("#news-btn").hidden=true}}catch(e){}
+  f.addEventListener("submit",function(e){
+    e.preventDefault();var em=$("#news-email").value.trim(),n=$("#news-note"),b=$("#news-btn");
+    if(!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(em)){n.textContent="That doesn't look like an email address.";return}
+    b.disabled=true;n.textContent="Signing you up…";
+    api("/api/newsletter",{action:"subscribe",email:em,src:TRACK.last||"site",hp:f.elements.hp.value}).then(function(j){
+      b.disabled=false;
+      if(j.status!=="ok"){n.textContent=j.error||"Something went wrong. Try again in a minute.";return}
+      n.textContent=j.already?"You're already on the list. First issue Friday, October 16.":"You're on the list. Check your inbox for a welcome note.";
+      $("#news-email").hidden=true;b.hidden=true;try{localStorage.setItem("wl-news","1")}catch(e){}
+    });
+  });
+})();
 // After a sign-in: ask for whatever is still missing (password, then display name), otherwise close.
 function authNext(j){
   authNote("");
@@ -2529,6 +2577,19 @@ function bstInit(){
   if(!BST.me.name){authOpen("name");return}
   bstLoad();
 }
+function newsAdmin(){
+  api("/api/newsletter",{action:"list"}).then(function(j){if(j.status!=="ok")return;
+    $("#news-count").textContent=j.active+" active subscriber"+(j.active===1?"":"s")+(j.total>j.active?" ("+(j.total-j.active)+" unsubscribed)":"")+".";
+    $("#news-list").innerHTML=j.subscribers.slice(0,200).map(function(s){return '<li><b>'+esc(s.email)+'</b> <span class="muted">· '+new Date(s.since).toLocaleDateString()+(s.src?' · from '+esc(s.src):'')+'</span></li>'}).join("");
+  });
+  var f=$("#news-send");if(f&&!f.dataset.wired){f.dataset.wired="1";f.addEventListener("submit",function(e){e.preventDefault();
+    var test=$("#news-test").checked;if(!test&&!confirm("Send this issue to every active subscriber?"))return;
+    bstNote("#news-send-note","Sending…");
+    api("/api/newsletter",{action:"send",subject:$("#news-subject").value,text:$("#news-text").value,test:test}).then(function(j){
+      bstNote("#news-send-note",j.status==="ok"?("Sent "+j.sent+(j.failed?", failed "+j.failed:"")+(j.test?" (test)":"")+"."):(j.error||"Failed."),j.status!=="ok");
+    });
+  })}
+}
 function trafficLoad(){
   api("/api/hit?days=14").then(function(j){if(j.status!=="ok")return;
     var top=function(o,n){return Object.keys(o).sort(function(a,b){return o[b]-o[a]}).slice(0,n).map(function(k){return esc(k)+" "+o[k]}).join(", ")||"—"};
@@ -2545,7 +2606,7 @@ function compList(){
 function bstLoad(){
   $("#bst-gate").hidden=true;$("#bst-board").hidden=false;
   $("#bst-who").textContent="Signed in as "+BST.me.name+(BST.me.admin?" · admin":"");
-  $("#bst-admin").hidden=!BST.me.admin;$("#traffic-admin").hidden=!BST.me.admin;if(BST.me.admin){compList();trafficLoad()}
+  $("#bst-admin").hidden=!BST.me.admin;$("#traffic-admin").hidden=!BST.me.admin;$("#news-admin").hidden=!BST.me.admin;if(BST.me.admin){compList();trafficLoad();newsAdmin()}
   api("/api/bst").then(function(j){
     if(j._code===401||j.member===false){authRefresh();return}
     BST.listings=j.listings||[];bstRender();

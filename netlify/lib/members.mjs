@@ -112,6 +112,7 @@ export async function liveDeps() {
     board: getStore({ name: "bst", consistency: "strong" }),
     photos: getStore({ name: "bst-photos", consistency: "strong" }),
     traffic: getStore({ name: "traffic", consistency: "strong" }), salt: env("TRAFFIC_SALT"),
+    news: getStore({ name: "newsletter", consistency: "strong" }),
     fetchFn: fetch, now: () => Date.now(), mailer,
     stripeKey: env("STRIPE_KEY"),
     adminEmails: env("ADMIN_EMAILS").split(",").map(s => s.trim()).filter(Boolean),
