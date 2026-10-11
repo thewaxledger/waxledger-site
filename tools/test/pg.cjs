@@ -14,6 +14,7 @@ const SCENE = (opts) => new Promise((res) => {
   const pad = 40, cc = document.createElement('canvas'); cc.width = cw + 2 * pad + (opts.rimRight || 0); cc.height = ch + 2 * pad; const c = cc.getContext('2d');
   c.fillStyle = opts.mat; c.fillRect(0, 0, cc.width, cc.height); c.translate(pad, pad);
   if (opts.rim) { c.fillStyle = opts.rim; c.fillRect(-10, -10, cw + 20 + opts.rimRight, ch + 20); }
+  if (opts.glint) { c.fillStyle = '#8c8c8c'; c.beginPath(); c.moveTo(-pad, -pad); c.lineTo(cw * .45, -pad); c.lineTo(-pad, ch * .35); c.closePath(); c.fill(); } // a lit holder corner stuck to the card's top-left
   c.fillStyle = opts.border; c.fillRect(0, 0, cw, ch);
   const bl = opts.bl * ppm, br = opts.br * ppm, bt = opts.bt * ppm, bb = opts.bb * ppm;
   const g = c.createLinearGradient(bl, bt, cw - br, ch - bb); g.addColorStop(0, '#5a7fb8'); g.addColorStop(1, '#2b3a5c');
@@ -21,13 +22,14 @@ const SCENE = (opts) => new Promise((res) => {
   c.fillStyle = '#e8d5a8'; c.beginPath(); c.arc(cw / 2, ch * .42, cw * .18, 0, Math.PI * 2); c.fill();
   c.fillStyle = '#c0392b'; c.fillRect(cw * .3, ch * .55, cw * .4, ch * .3);
   c.fillStyle = '#ffffff'; c.font = 'bold 48px sans-serif'; c.fillText('PLAYER', cw * .3, ch * .9);
+  for (let i = 0; i < 60000; i++) { c.fillStyle = 'rgba(' + (Math.random() < .5 ? '0,0,0' : '255,255,255') + ',' + (Math.random() * 0.25) + ')'; c.fillRect(bl + Math.random() * (cw - bl - br), bt + Math.random() * (ch - bt - bb), 2, 2); } // print grain
   x.save(); x.translate(W / 2, H / 2); x.rotate((opts.rot || 0) * Math.PI / 180);
   if (opts.key) { // keystone: each row of the card canvas drawn narrower towards the top
     for (let r = 0; r < cc.height; r++) { const sc = 1 - opts.key * (1 - r / cc.height); x.drawImage(cc, 0, r, cc.width, 1, -cc.width * sc / 2, r - cc.height / 2, cc.width * sc, 1.02); }
   } else x.drawImage(cc, -cc.width / 2, -cc.height / 2);
   x.restore();
   cv.toBlob((b) => { const f = new File([b], 'scene.jpg', { type: 'image/jpeg' }); window.__wl.pgLoad('back', f);
-    setTimeout(() => { const s = window.__wl.pgState('back'); res({ lr: s.lr, tb: s.tb, bm: s.borderMm, fix: s.aspectFix, aspect: s.aspect, found: s.found, innerFound: s.innerFound,
+    setTimeout(() => { const s = window.__wl.pgState('back'); res({ lr: s.lr, tb: s.tb, bm: s.borderMm, fix: s.aspectFix, es: s.edgeSearch, holder: s.holderSides, aspect: s.aspect, found: s.found, innerFound: s.innerFound,
       checks: s.checks.map((c) => c.label + ':' + c.state), quality: s.quality }); }, 400); }, 'image/jpeg', 0.92);
 });
 (async () => {
@@ -43,8 +45,8 @@ const SCENE = (opts) => new Promise((res) => {
   expect('plain: outline check ok', r.checks.some((c) => c === 'Card outline:ok'));
   // 2. toploader rim: 60 px of grey rim on the right of the card
   r = await p.evaluate(SCENE, { mat: '#262626', border: '#f2f2f2', bl: 2, br: 2, bt: 2, bb: 2, rot: 2, rim: '#8a8a8a', rimRight: 60 });
-  console.log('   rim:  ', JSON.stringify({ lr: r.lr.toFixed(1), tb: r.tb.toFixed(1), bm: r.bm, fix: r.fix && r.fix.sides, aspect: r.aspect.toFixed(3) }));
-  expect('rim: outline re-fitted on the right', !!r.fix && /right in/.test(r.fix.sides.join(',')));
+  console.log('   rim:  ', JSON.stringify({ lr: r.lr.toFixed(1), tb: r.tb.toFixed(1), bm: r.bm, fix: r.fix && r.fix.sides, es: r.es, aspect: r.aspect.toFixed(3) }));
+  expect('rim: outline re-fitted on the right', /right in/.test(((r.fix && r.fix.sides) || []).concat(r.es || []).join(',')));
   expect('rim: borders back to 2 mm, 50/50', near(r.bm.r, 2, .4) && near(r.lr, 50, 4));
   expect('rim: outline check warns', r.checks.some((c) => c === 'Card outline re-fitted:warn'));
   // 3. black border on a black mat: the outer edge is invisible, the tool must say so
@@ -62,7 +64,11 @@ const SCENE = (opts) => new Promise((res) => {
   // 6. a chrome card: 1 mm silver pinstripe border, dark mat, toploader rim showing 70 px on the right, slight tilt
   r = await p.evaluate(SCENE, { mat: '#1e1e1e', border: '#c4c4c4', bl: 1, br: 1, bt: 1, bb: 1, rot: 1.5, rim: '#9a9a9a', rimRight: 70 });
   console.log('   chrome:', JSON.stringify({ lr: r.lr.toFixed(1), tb: r.tb.toFixed(1), bm: r.bm, fix: r.fix && r.fix.sides, aspect: r.aspect.toFixed(3) }));
-  expect('chrome in toploader: re-fitted, 1 mm borders within 0.35, 50/50 within 5', !!r.fix && near(r.bm.l, 1, .35) && near(r.bm.r, 1, .35) && near(r.lr, 50, 5) && near(r.tb, 50, 5));
+  expect('chrome in toploader: re-fitted, 1 mm borders within 0.35, 50/50 within 5', !!(r.fix || r.es) && near(r.bm.l, 1, .35) && near(r.bm.r, 1, .35) && near(r.lr, 50, 5) && near(r.tb, 50, 5));
+  // 7. a bright wedge on the top-left corner (a holder corner catching the light): the first outline runs diagonally
+  r = await p.evaluate(SCENE, { mat: '#262626', border: '#f2f2f2', bl: 2, br: 2, bt: 2, bb: 2, rot: 2, glint: true });
+  console.log('   glint:', JSON.stringify({ lr: r.lr.toFixed(1), tb: r.tb.toFixed(1), bm: r.bm, fix: r.fix && r.fix.sides, es: r.es, aspect: r.aspect.toFixed(3) }));
+  expect('corner glint: outline back on the card, 2 mm borders within 0.4, 50/50 within 4', near(r.bm.l, 2, .4) && near(r.bm.t, 2, .4) && near(r.lr, 50, 4) && near(r.tb, 50, 4));
   expect('no page errors', errs.length === 0); if (errs.length) console.log(errs);
   await b.close(); console.log(bad ? 'PG FAILED' : 'PG OK'); process.exit(bad ? 1 : 0);
 })();
