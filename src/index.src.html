@@ -1914,7 +1914,7 @@ function pgClear(name){
   $('[data-pg-clear="'+name+'"]').hidden=true;$("#pg-corners-"+name).innerHTML="";$("#pg-quality-"+name).hidden=true;
   pgResult();
 }
-function pgRun(side){pgDetect(side);pgRefineQuad(side);pgRectify(side);pgMeasure(side)}
+function pgRun(side){pgDetect(side);pgRefineQuad(side);pgAspectFix(side);pgRectify(side);pgMeasure(side)}
 
 /* --- 1. find the card in the photo --- */
 function pgDetect(side){
@@ -2018,6 +2018,68 @@ function pgRefineQuad(side){
   }
   side.fquad=best;side.refined=okAll;
 }
+// A card is 2.5 x 3.5. When the fitted quad is not (a toploader or sleeve rim, a shadow or a mat seam stuck to one side,
+// or a dark border that merged with a dark surface), look along each side for the straight luminance edge that brings
+// the aspect back to 1.4: an edge-strength profile across offsets from the current side, inward and outward, where
+// strength is the share of sample points along the side that show a gradient at that offset. The pair of sides whose
+// candidates land closest to 1.4 wins, and each moved side is re-fitted on the gradient peaks. Nothing moves when the
+// quad is already right or when no candidate is convincing.
+function pgAspectFix(side){
+  side.aspectFix=null;
+  var q=side.fquad,fd=side.fd,fw=side.fw,fh=side.fh,i,k;
+  function len(a,b){return Math.hypot(b[0]-a[0],b[1]-a[1])}
+  var L=[len(q[0],q[1]),len(q[1],q[2]),len(q[2],q[3]),len(q[3],q[0])]; // top,right,bottom,left
+  var w0=(L[0]+L[2])/2,h0=(L[1]+L[3])/2,portrait=h0>=w0,target=portrait?CARD_RATIO:1/CARD_RATIO;
+  var keystone=Math.max(Math.abs(L[0]-L[2])/w0,Math.abs(L[1]-L[3])/h0),tol=.025+keystone*.3;
+  var err0=Math.abs(h0/w0-target)/target;side.aspectErr=err0;
+  if(err0<=tol||!side.found)return;
+  var short=Math.min(w0,h0),Rin=Math.round(short*.22),Rout=Math.round(short*.12),stepPx=Math.max(1.5,short*.003);
+  function lumAt(x,y){if(x<0)x=0;if(y<0)y=0;if(x>fw-1.001)x=fw-1.001;if(y>fh-1.001)y=fh-1.001;var x0=x|0,y0=y|0,fx=x-x0,fy=y-y0,i00=(y0*fw+x0)*4,i10=i00+4,i01=i00+fw*4,i11=i01+4;
+    return (lum(fd,i00)*(1-fx)+lum(fd,i10)*fx)*(1-fy)+(lum(fd,i01)*(1-fx)+lum(fd,i11)*fx)*fy}
+  var N=48,cands=[];
+  for(i=0;i<4;i++){
+    var A=q[i],B=q[(i+1)%4],ex=B[0]-A[0],ey=B[1]-A[1],ln=Math.hypot(ex,ey),ux=ex/ln,uy=ey/ln,nx=uy,ny=-ux; // n points outward
+    var prof=[],s;
+    for(s=-Rout;s<=Rin;s++){var hit=0;for(k=0;k<N;k++){var t=.08+.84*k/(N-1),px=A[0]+ex*t-nx*s,py=A[1]+ey*t-ny*s;
+      if(Math.abs(lumAt(px+nx*stepPx,py+ny*stepPx)-lumAt(px-nx*stepPx,py-ny*stepPx))>=18)hit++}prof.push(hit/N)}
+    var list=[];
+    for(s=1;s<prof.length-1;s++){var st=prof[s],off=s-Rout;if(st>=.55&&st>=prof[s-1]&&st>=prof[s+1]&&Math.abs(off)>=3)list.push({off:off,st:st})}
+    cands.push(list);
+  }
+  // combinations: each side keeps its place (offset 0) or moves to one candidate; score by aspect error, then by how little moved
+  var opts=cands.map(function(c){return [{off:0,st:1}].concat(c.slice(0,6))}),best=null;
+  opts[0].forEach(function(t){opts[1].forEach(function(r){opts[2].forEach(function(b){opts[3].forEach(function(l){
+    var w1=w0-l.off-r.off,h1=h0-t.off-b.off;if(w1<short*.5||h1<short*.5)return;
+    var e=Math.abs(h1/w1-target)/target,moved=Math.abs(t.off)+Math.abs(r.off)+Math.abs(b.off)+Math.abs(l.off),nm=(t.off?1:0)+(r.off?1:0)+(b.off?1:0)+(l.off?1:0);
+    var score=e*1000+nm*2+moved*.01;
+    if(e<=.015&&(!best||score<best.score))best={score:score,e:e,offs:[t.off,r.off,b.off,l.off],st:[t.st,r.st,b.st,l.st]}})})})});
+  if(!best)return;
+  // a rim that shows wide on one side usually shows thin on the others: follow it round. For each side that stayed put,
+  // take a nearby inward candidate whose excluded strip matches the colour of the strip excluded on a moved side.
+  function stripColor(i,off){var A=q[i],B=q[(i+1)%4],ex=B[0]-A[0],ey=B[1]-A[1],ln=Math.hypot(ex,ey),nx=ey/ln,ny=-ex/ln,r=[0,0,0],n=0;
+    for(k=0;k<24;k++){var t=.1+.8*k/23;for(var s=2;s<off-1;s+=2){var px=A[0]+ex*t-nx*s,py=A[1]+ey*t-ny*s;if(px<0||py<0||px>=fw-1||py>=fh-1)continue;var ii=((py|0)*fw+(px|0))*4;r[0]+=fd[ii];r[1]+=fd[ii+1];r[2]+=fd[ii+2];n++}}
+    return n?[r[0]/n,r[1]/n,r[2]/n]:null}
+  var rimCol=null;for(i=0;i<4;i++)if(best.offs[i]>3){rimCol=stripColor(i,best.offs[i]);break}
+  if(rimCol){for(i=0;i<4;i++){if(best.offs[i])continue;var pick=null;
+    cands[i].forEach(function(c){if(c.off>3&&c.off<=short*.05&&c.st>=.6&&!pick){var col=stripColor(i,c.off);if(col&&Math.abs(col[0]-rimCol[0])+Math.abs(col[1]-rimCol[1])+Math.abs(col[2]-rimCol[2])<60)pick=c}});
+    if(pick){var o2=best.offs.slice();o2[i]=pick.off;var w2=w0-o2[3]-o2[1],h2=h0-o2[0]-o2[2];if(Math.abs(h2/w2-target)/target<=.02)best.offs=o2}}}
+  // shift the chosen sides, then re-fit each on the gradient peaks within 3 px and intersect
+  var lines=[];
+  for(i=0;i<4;i++){
+    var A2=q[i],B2=q[(i+1)%4],ex2=B2[0]-A2[0],ey2=B2[1]-A2[1],ln2=Math.hypot(ex2,ey2),ux2=ex2/ln2,uy2=ey2/ln2,nx2=uy2,ny2=-ux2,off=best.offs[i];
+    if(!off){lines.push({p:A2,d:[ux2,uy2]});continue}
+    var pts=[];
+    for(k=0;k<56;k++){var tt=.06+.88*k/55,cx=A2[0]+ex2*tt-nx2*off,cy=A2[1]+ey2*tt-ny2*off,bg=0,bs=0,d2;
+      for(d2=-3;d2<=3;d2+=.5){var gv=Math.abs(lumAt(cx-nx2*d2+nx2*stepPx,cy-ny2*d2+ny2*stepPx)-lumAt(cx-nx2*d2-nx2*stepPx,cy-ny2*d2-ny2*stepPx));if(gv>bg){bg=gv;bs=d2}}
+      if(bg>=18)pts.push([cx-nx2*bs,cy-ny2*bs])}
+    var Lf=fitLine(pts);lines.push(Lf&&Lf.n>=12?Lf:{p:[A2[0]-nx2*off,A2[1]-ny2*off],d:[ux2,uy2]});
+  }
+  var nq=[intersect(lines[3],lines[0]),intersect(lines[0],lines[1]),intersect(lines[1],lines[2]),intersect(lines[2],lines[3])];
+  if(!quadValid(nq,q,fw,fh))return;
+  side.fquad=orderQuad(nq);
+  var names=["top","right","bottom","left"]; // quad sides run clockwise from the top-left corner, in photo orientation
+  side.aspectFix={offs:best.offs,sides:best.offs.map(function(o,j){return o?names[j]+(o>0?" in":" out")+" "+Math.round(o)+" px":null}).filter(Boolean),before:h0/w0,errBefore:err0};
+}
 /* --- 2. warp the card to a flat, straight frame --- */
 function pgRectify(side){
   var q=side.fquad.slice(),i;
@@ -2048,10 +2110,15 @@ function pgMeasure(side){
   function isCard(x,y){return pxDist(d,(y*W+x)*4,bg)>thr3}
   var bgLim=Math.min(thr3,75);
   function awayFromBg(x,y){if(x<2||y<2||x>=W-2||y>=H-2)return false;return pxDist(d,(y*W+x-2)*4,bg)>bgLim&&pxDist(d,(y*W+x+2)*4,bg)>bgLim&&pxDist(d,((y-2)*W+x)*4,bg)>bgLim&&pxDist(d,((y+2)*W+x)*4,bg)>bgLim}
-  // border colour from a band just inside the edge
-  var b1=Math.max(2,Math.round(cw*.015)),b2=Math.max(b1+2,Math.round(cw*.045)),samples=[];
-  for(y=T+b1;y<Bt-b1;y+=2)for(x=L+b1;x<Rr-b1;x+=2){if(x<L+b2||x>=Rr-b2||y<T+b2||y>=Bt-b2){i=(y*W+x)*4;samples.push([d[i],d[i+1],d[i+2]])}}
-  var border=medianColor(samples);side.border=border;
+  // border colour from a thin band just inside the edge (0.4 to 1.0 mm, so a 1 mm pinstripe border still reads as the
+  // border), per side, then the median of the four sides so one side that is all picture cannot tip it
+  var b1=Math.max(2,Math.round(cw*.006)),b2=Math.max(b1+2,Math.round(cw*.016)),sideCols=[],samples=[],lums=[];
+  [[L+b1,L+b2,T+b2,Bt-b2],[Rr-b2,Rr-b1,T+b2,Bt-b2],[L+b1,Rr-b1,T+b1,T+b2],[L+b1,Rr-b1,Bt-b2,Bt-b1]].forEach(function(r){var sm=[];
+    for(y=r[2];y<r[3];y+=2)for(x=r[0];x<r[1];x+=2){i=(y*W+x)*4;sm.push([d[i],d[i+1],d[i+2]]);lums.push(lum(d,i))}
+    samples=samples.concat(sm);sideCols.push(medianColor(sm))});
+  var border=medianColor(sideCols);side.border=border;
+  // spread of the band's luminance (robust): a printed border is flat, picture content is not
+  var lmed=medianOf(lums);side.bandStd=1.4826*medianOf(lums.map(function(v){return Math.abs(v-lmed)}));
   var borderLum=lum(border,0),colored=borderLum<200;side.colored=colored;
   // inner frame (picture edge): mean distance from the border colour along the central band, first sustained step
   function profile(axis,from,dir,len){var out=[],kk;for(kk=0;kk<len;kk++){var p=from+dir*kk,sum=0,n=0;
@@ -2215,6 +2282,18 @@ function pgPhotoCheck(side){
   // angle
   var ks=side.keystone*100,tilt=((side.tilt%90)+90)%90;if(tilt>45)tilt-=90;
   add("angle",ks<3&&Math.abs(tilt)<2?"Straight on":"Corrected "+(Math.abs(tilt)>=1?Math.abs(tilt).toFixed(0)+"° tilt":"")+(ks>=3?(Math.abs(tilt)>=1?", ":"")+ks.toFixed(0)+"% keystone":""),ks<10?"ok":ks<22?"warn":"bad",ks<10?"Straightened and flattened to a 2.5 × 3.5 frame.":ks<22?"Shot at an angle. The card has been flattened, but the far side has less detail, so corner and edge reads there are weaker.":"Steep angle. Shoot straight down so all four corners get equal detail.");
+  // card outline: did the gold outline land on the card's edge? Three tells: the outline had to be re-fitted to get a
+  // 2.5 x 3.5 shape, the straightened card is still the wrong shape, or every border measures near zero (the outline is
+  // sitting on the picture edge, which happens with a dark border on a dark surface).
+  var bmm=side.borderMm,thin=bmm.l<.45&&bmm.r<.45&&bmm.t<.45&&bmm.b<.45,aerr=side.aspectErr||0,aTol=.04+side.keystone*.3;
+  if(side.manualQuad)add("outline","Card outline set by hand","ok","You placed the gold outline. Borders and centering are measured from it.");
+  else if(side.aspectFix)add("outline","Card outline re-fitted","warn","The first outline was not card-shaped, so the "+side.aspectFix.sides.join(", ")+" edge"+(side.aspectFix.sides.length>1?"s were":" was")+" moved to the straight edge that makes a 2.5 × 3.5 card. A sleeve or toploader rim, a shadow or a mat seam usually causes this. Check the gold outline on the Photo tab.");
+  else if(aerr>aTol)add("outline","Card outline off","bad","The straightened card is "+Math.round(aerr*100)+"% away from 2.5 × 3.5, so the gold outline is not on the card's edge. Drag its corners on the Photo tab, or reshoot on a plain surface that contrasts with the border.");
+  else if(thin&&side.innerFound)add("outline","Card edge not found","bad","All four borders measure under 0.5 mm: the gold outline is on the picture edge, not the card edge, which happens with a dark border on a dark surface. Drag the corners on the Photo tab or reshoot on a lighter mat.");
+  else if(side.innerFound&&!side.manualInner&&(Math.max(bmm.l,bmm.r,bmm.t,bmm.b)>7||Math.abs(bmm.l-bmm.r)>5||Math.abs(bmm.t-bmm.b)>5))add("outline","Picture edge uncertain","warn","The dashed guides found borders of "+fmt1(bmm.l)+" / "+fmt1(bmm.r)+" / "+fmt1(bmm.t)+" / "+fmt1(bmm.b)+" mm (left / right / top / bottom), which is unusual for a card. Drag them to the picture edge, and check that the gold outline on the Photo tab is on the card's edge, not the picture's.");
+  else if(!side.innerFound&&!side.manualInner)add("outline","Picture edge not found","warn","The dashed guides could not find the picture edge, so the borders are placeholders: drag the guides to the picture edge. If the card has a dark border and sits on a dark surface, the gold outline may also be on the picture edge; check it on the Photo tab or reshoot on a light mat.");
+  else if(lum(side.bg,0)<60&&side.bandStd>40)add("outline","Card edge unverified","warn","Dark surface, and no printed border shows just inside the gold outline. If this card has a dark border, the outline is on the picture edge and the borders read wrong. Check the Photo tab, or reshoot on a light mat.");
+  else add("outline","Card outline","ok","The gold outline is card-shaped and sits on the card's edge.");
   var bad=checks.filter(function(c){return c.state==="bad"}).length,warn=checks.filter(function(c){return c.state==="warn"}).length;
   side.checks=checks;side.quality=bad?"Retake":warn?"Usable":"Good";
 }
@@ -2224,7 +2303,7 @@ function pgRender(side){
   var name=side.name,ov=side.tab;
   ["card","photo","scan"].forEach(function(t){$("#pg-"+t+"-"+name).hidden=t!==ov});
   $$("#pg-tabs-"+name+" button").forEach(function(b){b.classList.toggle("on",b.dataset.pgTab===ov)});
-  $("#pg-hint-"+name).textContent=ov==="photo"?"Drag a corner if the gold outline missed the card.":ov==="card"?"Drag a dashed line to correct the picture edge.":"Red: line candidates. Orange: specks. Yellow: glare. Blue: edge nicks.";
+  $("#pg-hint-"+name).textContent=ov==="photo"?"Gold outline = the card's edge. Drag a corner if it missed the card.":ov==="card"?"Gold = card edge (fix it on the Photo tab). Blue dashed = picture edge; drag it to correct the border read.":"Red: line candidates. Orange: specks. Yellow: glare. Blue: edge nicks.";
   if(ov==="photo")pgDrawPhoto(side);else if(ov==="card")pgDrawCard(side);else pgDrawScan(side);
   var q=$("#pg-quality-"+name);q.hidden=false;q.className="pill "+(side.quality==="Good"?"pill-up":side.quality==="Usable"?"pill-gold":"pill-down");q.textContent="Photo: "+side.quality;
   var bm=side.borderMm;
@@ -2360,7 +2439,7 @@ function pgResult(){
   // 1. centering
   var bm=f.borderMm,worstF=[["left/right",Math.max(f.lr,100-f.lr),f.lr>=50?"left":"right"],["top/bottom",Math.max(f.tb,100-f.tb),f.tb>=50?"top":"bottom"]].sort(function(a,c){return c[1]-a[1]})[0];
   var cParts=[];
-  cParts.push("<b>How it was measured.</b> The front was straightened to a 2.5 × 3.5 frame and the picture edge located on all four sides. Borders measure "+fmt1(bm.l)+" mm left, "+fmt1(bm.r)+" mm right, "+fmt1(bm.t)+" mm top and "+fmt1(bm.b)+" mm bottom, which gives "+splitTxt(f.lr)+" left/right and "+splitTxt(f.tb)+" top/bottom."+(f.innerFound||f.manualInner?"":" <b>The picture edge was not detected</b> (full-bleed design or low contrast), so these are placeholder guides: drag the dashed lines to the real picture edge for a true read."));
+  cParts.push("<b>How it was measured.</b> The front was straightened to a 2.5 × 3.5 frame and the picture edge located on all four sides. Borders measure "+fmt1(bm.l)+" mm left, "+fmt1(bm.r)+" mm right, "+fmt1(bm.t)+" mm top and "+fmt1(bm.b)+" mm bottom, which gives "+splitTxt(f.lr)+" left/right and "+splitTxt(f.tb)+" top/bottom."+(f.innerFound||f.manualInner?"":" <b>The picture edge was not detected</b> (full-bleed design or low contrast), so these are placeholder guides: drag the dashed lines to the real picture edge for a true read.")+(f.aspectFix&&!f.manualQuad?" The card outline was re-fitted ("+f.aspectFix.sides.join(", ")+") because the first outline was not card-shaped, which usually means a sleeve or toploader rim was caught; check the gold outline on the Photo tab.":""));
   var inside10=wf<=60,inside10tol=wf<=60+PG_TOL_FRONT,inside9=wf<=65+PG_TOL_FRONT;
   cParts.push("<b>Against the standard.</b> PSA allows 60/40 on the front for a 10 and 65/35 for a 9 (75/25 and 90/10 on the back). The front's worst axis is "+worstF[0]+" at "+splitTxt(worstF[1])+", heavier to the "+worstF[2]+": "+(inside10?fmt1(60-wf)+" points inside the 10 line.":inside10tol?fmt1(wf-60)+" points past the 10 line, which is within the ±"+PG_TOL_FRONT+"-point tolerance of a phone measurement, so it is given the benefit of the doubt.":inside9?fmt1(wf-60)+" points past the 10 line but inside the 9 line, so centering alone holds this at a 9.":fmt1(wf-65)+" points past the 9 line, which caps centering at "+subs.center+"."));
   if(b)cParts.push("<b>Back.</b> "+splitTxt(b.lr)+" left/right, "+splitTxt(b.tb)+" top/bottom. The worst back axis is "+splitTxt(wb)+", "+(wb<=75+PG_TOL_BACK?"inside PSA's 75/25 for a 10.":wb<=90+PG_TOL_BACK?"outside 75/25 but inside 90/10, so the back holds the card to a 9.":"outside 90/10."));
@@ -2853,6 +2932,6 @@ renderMarket();cardChips($("#hero-chips"));cardChips($("#comp-chips"));renderCal
 var start=viewOf(location.hash);
 if(VIEWS.indexOf(start)<0){try{start=localStorage.getItem("wl-view")||"market"}catch(e){start="market"}}
 show(start,true);
-window.__wl={gradeMath:gradeMath,scrRows:scrRows,shareGradeCard:shareGradeCard};
+window.__wl={gradeMath:gradeMath,scrRows:scrRows,shareGradeCard:shareGradeCard,pgLoad:pgLoad,pgState:function(n){return PG[n]}};
 })();
 </script>

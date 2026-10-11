@@ -21,6 +21,10 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
   Raw-to-Gem card (numbers, verdict, one line of why; the full note and ranked board stay Pro), `/grade/`, `/reviews/<slug>/`
   for each deep review, `/reviews/`, `static.css`, `sitemap.xml`, `robots.txt`. They are committed output; never hand-edit.
   The app opens a card from `/#screener?card=<id>` (members).
+- Pre-Grading detection (`pgDetect` → `pgRefineQuad` → `pgAspectFix` → `pgRectify` → `pgMeasure` in the master): the quad
+  is fitted on a background model, then re-fitted on luminance edges when it is not 2.5 × 3.5 (toploader rims, mat seams);
+  the border colour comes from a 0.4–1.0 mm band per side. The "Card outline" photo check reports re-fits and dark-on-dark
+  failures. Gold = card edge (Photo tab), blue dashed = picture edge (Card tab).
 - Share images: "Share image" on a Pre-Grading result and "Share the math" in the Raw-to-Gem drawer render a watermarked
   PNG (canvas) and use the Web Share sheet on phones, download elsewhere.
 - `tools/outreach-drafts-<date>.md` — post and message drafts. Nothing in there is posted or sent without Aidan's go.
@@ -46,14 +50,15 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
   `smoke.cjs` (every view, desktop + phone, console errors, horizontal overflow), `rev.cjs` (Product Reviews render),
   `scr.cjs` (member sign-in + Raw-to-Gem board), `traffic.cjs` (visit counting and the admin panel), `panel.cjs`
   (screenshot of the traffic panel), `news.cjs` (newsletter), `pages.cjs` (static pages + deep link), `share.cjs`
-  (share images). `signin.cjs` signs a test member in through the site's own forms. Screenshots land in `tools/test/out/` (ignored). The stub's `/api/comps` returns
+  (share images), `pg.cjs` (Pre-Grading detection on synthetic photos: plain, toploader rim, dark-on-dark, off-centre,
+  keystone, chrome pinstripe). `signin.cjs` signs a test member in through the site's own forms. Screenshots land in `tools/test/out/` (ignored). The stub's `/api/comps` returns
   402 for non-members; that is expected noise.
 
 ## Release checklist
 
 1. Edit `src/index.src.html` (and/or `netlify/**`).
 2. `python3 tools/build.py`
-3. `bash tools/test/run.sh` — every block must end OK (SMOKE, TRAFFIC, NEWS, PAGES, SHARE) with no page errors.
+3. `bash tools/test/run.sh` — every block must end OK (SMOKE, TRAFFIC, NEWS, PAGES, SHARE, PG) with no page errors.
 4. Update the dates: the beta banner text ("checked <date>") and "Preview build · <date>" in the master, `asOf` in
    `screener.mjs` and `screen-data.mjs` entries you refreshed.
 5. Commit with a clear message and push `main`.
