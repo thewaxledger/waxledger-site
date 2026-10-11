@@ -50,6 +50,8 @@ for key, m in meta.items():
         "pop10": d.get("pop10"), "pop9": d.get("pop9"), "popTotal": d.get("popTotal"), "asOf": as_of(d), "conf": conf, "order": order,
         "note": notes.get(key, ""), "src": "PSA Auction Prices Realized, last 90 days (%s, 2026); PSA pop report (%s); raw = PSA-tracked ungraded eBay sales" % (nice(as_of(d)), nice(as_of(d)))
     }
+    if d.get("rawSrc"):  # raw price cross-checked on eBay sold (see notes5.py)
+        entry["src"] = entry["src"].replace("raw = PSA-tracked ungraded eBay sales", "raw = " + d["rawSrc"])
     order += 1
     out.append(entry)
 print(json.dumps(out, ensure_ascii=False, indent=0))

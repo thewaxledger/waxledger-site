@@ -628,5 +628,365 @@
   "cardNo": "492",
   "parallel": "Young Guns RC",
   "sport": "Hockey"
+ },
+ "mahomes-2017-prizm-269-silver": {
+  "player": "Patrick Mahomes II",
+  "year": "2017",
+  "set": "Panini Prizm",
+  "cardNo": "269",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football",
+  "id": "mahomes-2017-panini-prizm-269-silver"
+ },
+ "burrow-2020-prizm-307-silver": {
+  "player": "Joe Burrow",
+  "year": "2020",
+  "set": "Panini Prizm",
+  "cardNo": "307",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football",
+  "id": "burrow-2020-panini-prizm-307-silver"
+ },
+ "herbert-2020-prizm-325-silver": {
+  "player": "Justin Herbert",
+  "year": "2020",
+  "set": "Panini Prizm",
+  "cardNo": "325",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football",
+  "id": "herbert-2020-panini-prizm-325-silver"
+ },
+ "hurts-2020-prizm-343-silver": {
+  "player": "Jalen Hurts",
+  "year": "2020",
+  "set": "Panini Prizm",
+  "cardNo": "343",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football",
+  "id": "hurts-2020-panini-prizm-343-silver"
+ },
+ "lamar-2018-prizm-212-silver": {
+  "player": "Lamar Jackson",
+  "year": "2018",
+  "set": "Panini Prizm",
+  "cardNo": "212",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football",
+  "id": "jackson-2018-panini-prizm-212-silver"
+ },
+ "tua-2020-prizm-339-silver": {
+  "player": "Tua Tagovailoa",
+  "year": "2020",
+  "set": "Panini Prizm",
+  "cardNo": "339",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football",
+  "id": "tagovailoa-2020-panini-prizm-339-silver"
+ },
+ "tua-2020-prizm-339": {
+  "player": "Tua Tagovailoa",
+  "year": "2020",
+  "set": "Panini Prizm",
+  "cardNo": "339",
+  "parallel": "Base RC",
+  "sport": "Football",
+  "id": "tagovailoa-2020-panini-prizm-339-base"
+ },
+ "tlaw-2021-prizm-331-silver": {
+  "player": "Trevor Lawrence",
+  "year": "2021",
+  "set": "Panini Prizm",
+  "cardNo": "331",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football",
+  "id": "lawrence-2021-panini-prizm-331-silver"
+ },
+ "tlaw-2021-prizm-331": {
+  "player": "Trevor Lawrence",
+  "year": "2021",
+  "set": "Panini Prizm",
+  "cardNo": "331",
+  "parallel": "Base RC",
+  "sport": "Football",
+  "id": "lawrence-2021-panini-prizm-331-base"
+ },
+ "caleb-2024-prizm-301-silver": {
+  "player": "Caleb Williams",
+  "year": "2024",
+  "set": "Panini Prizm",
+  "cardNo": "301",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football",
+  "id": "williams-2024-panini-prizm-301-silver"
+ },
+ "daniels-2024-prizm-347-silver": {
+  "player": "Jayden Daniels",
+  "year": "2024",
+  "set": "Panini Prizm",
+  "cardNo": "347",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football",
+  "id": "daniels-2024-panini-prizm-347-silver"
+ },
+ "maye-2024-prizm-329-silver": {
+  "player": "Drake Maye",
+  "year": "2024",
+  "set": "Panini Prizm",
+  "cardNo": "329",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football",
+  "id": "maye-2024-panini-prizm-329-silver"
+ },
+ "nix-2024-prizm-309-silver": {
+  "player": "Bo Nix",
+  "year": "2024",
+  "set": "Panini Prizm",
+  "cardNo": "309",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football",
+  "id": "nix-2024-panini-prizm-309-silver"
+ },
+ "jj-2024-prizm-400-silver": {
+  "player": "J.J. McCarthy",
+  "year": "2024",
+  "set": "Panini Prizm",
+  "cardNo": "400",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football",
+  "id": "mccarthy-2024-panini-prizm-400-silver"
+ },
+ "jj-2024-prizm-400": {
+  "player": "J.J. McCarthy",
+  "year": "2024",
+  "set": "Panini Prizm",
+  "cardNo": "400",
+  "parallel": "Base RC",
+  "sport": "Football",
+  "id": "mccarthy-2024-panini-prizm-400-base"
+ },
+ "penix-2024-prizm-378-silver": {
+  "player": "Michael Penix Jr.",
+  "year": "2024",
+  "set": "Panini Prizm",
+  "cardNo": "378",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football",
+  "id": "penix-2024-panini-prizm-378-silver"
+ },
+ "penix-2024-prizm-378": {
+  "player": "Michael Penix Jr.",
+  "year": "2024",
+  "set": "Panini Prizm",
+  "cardNo": "378",
+  "parallel": "Base RC",
+  "sport": "Football",
+  "id": "penix-2024-panini-prizm-378-base"
+ },
+ "byoung-2023-prizm-311-silver": {
+  "player": "Bryce Young",
+  "year": "2023",
+  "set": "Panini Prizm",
+  "cardNo": "311",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football",
+  "id": "young-2023-panini-prizm-311-silver"
+ },
+ "byoung-2023-prizm-311": {
+  "player": "Bryce Young",
+  "year": "2023",
+  "set": "Panini Prizm",
+  "cardNo": "311",
+  "parallel": "Base RC",
+  "sport": "Football",
+  "id": "young-2023-panini-prizm-311-base"
+ },
+ "richardson-2023-prizm-343-silver": {
+  "player": "Anthony Richardson",
+  "year": "2023",
+  "set": "Panini Prizm",
+  "cardNo": "343",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football",
+  "id": "richardson-2023-panini-prizm-343-silver"
+ },
+ "richardson-2023-prizm-343": {
+  "player": "Anthony Richardson",
+  "year": "2023",
+  "set": "Panini Prizm",
+  "cardNo": "343",
+  "parallel": "Base RC",
+  "sport": "Football",
+  "id": "richardson-2023-panini-prizm-343-base"
+ },
+ "love-2020-prizm-363-silver": {
+  "player": "Jordan Love",
+  "year": "2020",
+  "set": "Panini Prizm",
+  "cardNo": "363",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football",
+  "id": "love-2020-panini-prizm-363-silver"
+ },
+ "love-2020-prizm-363": {
+  "player": "Jordan Love",
+  "year": "2020",
+  "set": "Panini Prizm",
+  "cardNo": "363",
+  "parallel": "Base RC",
+  "sport": "Football",
+  "id": "love-2020-panini-prizm-363-base"
+ },
+ "dak-2016-prizm-231-silver": {
+  "player": "Dak Prescott",
+  "year": "2016",
+  "set": "Panini Prizm",
+  "cardNo": "231",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football",
+  "id": "prescott-2016-panini-prizm-231-silver"
+ },
+ "mahomes-2017-optic-177": {
+  "player": "Patrick Mahomes II",
+  "year": "2017",
+  "set": "Panini Donruss Optic",
+  "cardNo": "177",
+  "parallel": "Rated Rookie base",
+  "sport": "Football",
+  "id": "mahomes-2017-donruss-optic-177-rated"
+ },
+ "mahomes-2017-optic-177-holo": {
+  "player": "Patrick Mahomes II",
+  "year": "2017",
+  "set": "Panini Donruss Optic",
+  "cardNo": "177",
+  "parallel": "Rated Rookie Holo",
+  "sport": "Football",
+  "id": "mahomes-2017-donruss-optic-177-holo"
+ },
+ "burrow-2020-optic-151": {
+  "player": "Joe Burrow",
+  "year": "2020",
+  "set": "Panini Donruss Optic",
+  "cardNo": "151",
+  "parallel": "Rated Rookie base",
+  "sport": "Football",
+  "id": "burrow-2020-donruss-optic-151-rated"
+ },
+ "burrow-2020-optic-151-holo": {
+  "player": "Joe Burrow",
+  "year": "2020",
+  "set": "Panini Donruss Optic",
+  "cardNo": "151",
+  "parallel": "Rated Rookie Holo",
+  "sport": "Football",
+  "id": "burrow-2020-donruss-optic-151-holo"
+ },
+ "herbert-2020-optic-153": {
+  "player": "Justin Herbert",
+  "year": "2020",
+  "set": "Panini Donruss Optic",
+  "cardNo": "153",
+  "parallel": "Rated Rookie base",
+  "sport": "Football",
+  "id": "herbert-2020-donruss-optic-153-rated"
+ },
+ "herbert-2020-optic-153-holo": {
+  "player": "Justin Herbert",
+  "year": "2020",
+  "set": "Panini Donruss Optic",
+  "cardNo": "153",
+  "parallel": "Rated Rookie Holo",
+  "sport": "Football",
+  "id": "herbert-2020-donruss-optic-153-holo"
+ },
+ "burrow-2020-donruss-301": {
+  "player": "Joe Burrow",
+  "year": "2020",
+  "set": "Panini Donruss",
+  "cardNo": "301",
+  "parallel": "Rated Rookie base",
+  "sport": "Football",
+  "id": "burrow-2020-panini-donruss-301-rated"
+ },
+ "herbert-2020-donruss-303": {
+  "player": "Justin Herbert",
+  "year": "2020",
+  "set": "Panini Donruss",
+  "cardNo": "303",
+  "parallel": "Rated Rookie base",
+  "sport": "Football",
+  "id": "herbert-2020-panini-donruss-303-rated"
+ },
+ "allen-2018-optic-154-holo": {
+  "player": "Josh Allen",
+  "year": "2018",
+  "set": "Panini Donruss Optic",
+  "cardNo": "154",
+  "parallel": "Rated Rookie Holo",
+  "sport": "Football",
+  "id": "allen-2018-donruss-optic-154-holo"
+ },
+ "lamar-2018-optic-167-holo": {
+  "player": "Lamar Jackson",
+  "year": "2018",
+  "set": "Panini Donruss Optic",
+  "cardNo": "167",
+  "parallel": "Rated Rookie Holo",
+  "sport": "Football",
+  "id": "jackson-2018-donruss-optic-167-holo"
+ },
+ "caleb-2024-optic-201": {
+  "player": "Caleb Williams",
+  "year": "2024",
+  "set": "Panini Donruss Optic",
+  "cardNo": "201",
+  "parallel": "Rated Rookie base",
+  "sport": "Football",
+  "id": "williams-2024-donruss-optic-201-rated"
+ },
+ "caleb-2024-optic-201-holo": {
+  "player": "Caleb Williams",
+  "year": "2024",
+  "set": "Panini Donruss Optic",
+  "cardNo": "201",
+  "parallel": "Rated Rookie Holo",
+  "sport": "Football",
+  "id": "williams-2024-donruss-optic-201-holo"
+ },
+ "daniels-2024-optic-248": {
+  "player": "Jayden Daniels",
+  "year": "2024",
+  "set": "Panini Donruss Optic",
+  "cardNo": "248",
+  "parallel": "Rated Rookie base",
+  "sport": "Football",
+  "id": "daniels-2024-donruss-optic-248-rated"
+ },
+ "daniels-2024-optic-248-holo": {
+  "player": "Jayden Daniels",
+  "year": "2024",
+  "set": "Panini Donruss Optic",
+  "cardNo": "248",
+  "parallel": "Rated Rookie Holo",
+  "sport": "Football",
+  "id": "daniels-2024-donruss-optic-248-holo"
+ },
+ "stroud-2023-optic-244": {
+  "player": "C.J. Stroud",
+  "year": "2023",
+  "set": "Panini Donruss Optic",
+  "cardNo": "244",
+  "parallel": "Rated Rookie base",
+  "sport": "Football",
+  "id": "stroud-2023-donruss-optic-244-rated"
+ },
+ "stroud-2023-optic-244-holo": {
+  "player": "C.J. Stroud",
+  "year": "2023",
+  "set": "Panini Donruss Optic",
+  "cardNo": "244",
+  "parallel": "Rated Rookie Holo",
+  "sport": "Football",
+  "id": "stroud-2023-donruss-optic-244-holo"
  }
 }
