@@ -31,6 +31,14 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
   key) + `meta.json` (card identity per key) + `notes.json` (prose note per key, required) → `build.py` → entries →
   `integrate.py` (appends/replaces by id in screen-data.mjs, sets `asOf`). `model.py` prints the verdict per card.
   `candidates.js` is the candidate list used in the browser when pulling PSA data.
+  `pull.js` is the browser-side pull: load it on a psacard.com page in the browser pane, then `srch(query)` finds the specId
+  and `pull(specId)` returns one `psa-N.json` entry. Its header lists the PSA endpoints and their quirks. Pull a few cards
+  per call and copy the results out as you go: the pane can drop mid-run and the page state goes with it.
+  Spec IDs found Oct 11 and not yet pulled in full: Skenes USC88 12100378, Kurtz 15000056, Henderson 9161725, SGA Prizm
+  2676839, Bailey Chrome 14982055, Acuna US250 2652951, Guerrero 2800015, Tatis 2806015, Soto US300 2652939, Wembanyama
+  Prizm 10279296; new candidates with 25+ PSA 10 sales in 90 days: Makar 2981756 (50), Jack Hughes 2866588 (92),
+  Kaprizov 4662740 (79), MacKinnon 1986819 (30), Demidov 14669416 (106). PSA has no spec yet for the Flagg Chrome
+  Update #151 cards.
 - `tools/reviews/` — the scripts that inserted each Product Review (template for new ones). A review is an entry in
   `var REVIEWS=[...]` in the master, marked with a `/* slug */` comment so the script is idempotent. Entries with a
   `deep` object render the expandable "Full breakdown" and show "WAX SCORE / 10"; entries without are sample previews.
