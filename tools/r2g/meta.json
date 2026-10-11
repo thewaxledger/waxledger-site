@@ -988,5 +988,194 @@
   "parallel": "Rated Rookie Holo",
   "sport": "Football",
   "id": "stroud-2023-donruss-optic-244-holo"
+ },
+ "wemby-2023-optic-225": {
+  "id": "wembanyama-2023-donruss-optic-225-rated",
+  "player": "Victor Wembanyama",
+  "year": "2023-24",
+  "set": "Donruss Optic",
+  "cardNo": "225",
+  "parallel": "Rated Rookie base",
+  "sport": "Basketball"
+ },
+ "wemby-2023-optic-225-holo": {
+  "id": "wembanyama-2023-donruss-optic-225-holo",
+  "player": "Victor Wembanyama",
+  "year": "2023-24",
+  "set": "Donruss Optic",
+  "cardNo": "225",
+  "parallel": "Rated Rookie Holo",
+  "sport": "Basketball"
+ },
+ "wemby-2023-donruss-220": {
+  "id": "wembanyama-2023-panini-donruss-220-rated",
+  "player": "Victor Wembanyama",
+  "year": "2023-24",
+  "set": "Panini Donruss",
+  "cardNo": "220",
+  "parallel": "Rated Rookie base",
+  "sport": "Basketball"
+ },
+ "wemby-2023-hoops-277": {
+  "id": "wembanyama-2023-nba-hoops-277-base",
+  "player": "Victor Wembanyama",
+  "year": "2023-24",
+  "set": "NBA Hoops",
+  "cardNo": "277",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "wemby-2023-pdp-002": {
+  "id": "wembanyama-2023-prizm-draft-picks-2-base",
+  "player": "Victor Wembanyama",
+  "year": "2023-24",
+  "set": "Prizm Draft Picks",
+  "cardNo": "2",
+  "parallel": "Base",
+  "sport": "Basketball"
+ },
+ "wemby-2023-pdp-002-silver": {
+  "id": "wembanyama-2023-prizm-draft-picks-2-silver",
+  "player": "Victor Wembanyama",
+  "year": "2023-24",
+  "set": "Prizm Draft Picks",
+  "cardNo": "2",
+  "parallel": "Silver Prizm",
+  "sport": "Basketball"
+ },
+ "wemby-2023-select-087": {
+  "id": "wembanyama-2023-panini-select-87-concourse",
+  "player": "Victor Wembanyama",
+  "year": "2023-24",
+  "set": "Panini Select",
+  "cardNo": "87",
+  "parallel": "Concourse base RC",
+  "sport": "Basketball"
+ },
+ "wemby-2023-select-087-silver": {
+  "id": "wembanyama-2023-panini-select-87-concourse-silver",
+  "player": "Victor Wembanyama",
+  "year": "2023-24",
+  "set": "Panini Select",
+  "cardNo": "87",
+  "parallel": "Concourse Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "wemby-2023-tc-001": {
+  "id": "wembanyama-2023-topps-chrome-1-base",
+  "player": "Victor Wembanyama",
+  "year": "2023-24",
+  "set": "Topps Chrome",
+  "cardNo": "1",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "wemby-2023-tc-001-refractor": {
+  "id": "wembanyama-2023-topps-chrome-1-refractor",
+  "player": "Victor Wembanyama",
+  "year": "2023-24",
+  "set": "Topps Chrome",
+  "cardNo": "1",
+  "parallel": "Refractor (unnumbered)",
+  "sport": "Basketball"
+ },
+ "wemby-2023-mosaic-238": {
+  "id": "wembanyama-2023-panini-mosaic-238-base",
+  "player": "Victor Wembanyama",
+  "year": "2023-24",
+  "set": "Panini Mosaic",
+  "cardNo": "238",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "wemby-2023-mosaic-238-silver": {
+  "id": "wembanyama-2023-panini-mosaic-238-silver",
+  "player": "Victor Wembanyama",
+  "year": "2023-24",
+  "set": "Panini Mosaic",
+  "cardNo": "238",
+  "parallel": "Silver RC",
+  "sport": "Basketball"
+ },
+ "flagg-2025-topps-201": {
+  "id": "flagg-2025-topps-201-base",
+  "player": "Cooper Flagg",
+  "year": "2025-26",
+  "set": "Topps",
+  "cardNo": "201",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "flagg-2024-bcu-016": {
+  "id": "flagg-2024-bowman-chrome-university-16-base",
+  "player": "Cooper Flagg",
+  "year": "2024-25",
+  "set": "Bowman Chrome University",
+  "cardNo": "16",
+  "parallel": "Base",
+  "sport": "Basketball"
+ },
+ "flagg-2024-bcu-016-refractor": {
+  "id": "flagg-2024-bowman-chrome-university-16-refractor",
+  "player": "Cooper Flagg",
+  "year": "2024-25",
+  "set": "Bowman Chrome University",
+  "cardNo": "16",
+  "parallel": "Refractor (unnumbered)",
+  "sport": "Basketball"
+ },
+ "flagg-2025-topps-now-draft-0d1": {
+  "id": "flagg-2025-topps-now-draft-d1",
+  "player": "Cooper Flagg",
+  "year": "2025",
+  "set": "Topps Now Draft",
+  "cardNo": "D-1",
+  "parallel": "Draft night card",
+  "sport": "Basketball"
+ },
+ "harper-2025-topps-202": {
+  "id": "harper-2025-topps-202-base",
+  "player": "Dylan Harper",
+  "year": "2025-26",
+  "set": "Topps",
+  "cardNo": "202",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "harper-2024-bcu-022": {
+  "id": "harper-2024-bowman-chrome-university-22-base",
+  "player": "Dylan Harper",
+  "year": "2024-25",
+  "set": "Bowman Chrome University",
+  "cardNo": "22",
+  "parallel": "Base",
+  "sport": "Basketball"
+ },
+ "pca-2020-bd-72-chrome-refractor": {
+  "id": "crow-armstrong-2020-bowman-draft-chrome-bd72-refractor",
+  "player": "Pete Crow-Armstrong",
+  "year": "2020",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "BD-72",
+  "parallel": "1st Bowman Refractor (unnumbered)",
+  "sport": "Baseball"
+ },
+ "pca-2020-bd-72-chrome": {
+  "id": "crow-armstrong-2020-bowman-draft-chrome-bd72-base",
+  "player": "Pete Crow-Armstrong",
+  "year": "2020",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "BD-72",
+  "parallel": "1st Bowman Chrome base",
+  "sport": "Baseball"
+ },
+ "pca-2020-bd-72-paper": {
+  "id": "crow-armstrong-2020-bowman-draft-bd72-paper",
+  "player": "Pete Crow-Armstrong",
+  "year": "2020",
+  "set": "Bowman Draft",
+  "cardNo": "BD-72",
+  "parallel": "1st Bowman paper",
+  "sport": "Baseball"
  }
 }

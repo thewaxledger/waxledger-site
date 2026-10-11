@@ -3,3 +3,4 @@ node_modules/
 tools/test/out/
 tools/test/server.log
 tools/test/pid
+tools/r2g/__pycache__/
