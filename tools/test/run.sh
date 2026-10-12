@@ -16,6 +16,7 @@ node traffic.cjs || STATUS=1
 node panel.cjs || STATUS=1
 node news.cjs || STATUS=1
 node pages.cjs || STATUS=1
+node filt.cjs || STATUS=1
 node share.cjs; node pg.cjs || STATUS=1
 kill $PID 2>/dev/null; rm -f pid
 exit $STATUS

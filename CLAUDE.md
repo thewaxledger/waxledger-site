@@ -70,7 +70,7 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
 - `tools/test/` — `run.sh` starts a stub API server on :8791 serving `public/` (in-memory members, mail, comps) and runs
   `smoke.cjs` (every view, desktop + phone, console errors, horizontal overflow), `rev.cjs` (Product Reviews render),
   `scr.cjs` (member sign-in + Raw-to-Gem board), `traffic.cjs` (visit counting and the admin panel), `panel.cjs`
-  (screenshot of the traffic panel), `news.cjs` (newsletter), `pages.cjs` (static pages + deep link), `share.cjs`
+  (screenshot of the traffic panel), `news.cjs` (newsletter), `pages.cjs` (static pages + deep link), `filt.cjs` (Raw-to-Gem column sort and filter dropdowns, desktop + phone), `share.cjs`
   (share images), `pg.cjs` (Pre-Grading detection on synthetic photos: plain, toploader rim, dark-on-dark, off-centre,
   keystone, chrome pinstripe in a toploader, lit holder corner). `signin.cjs` signs a test member in through the site's own forms. Screenshots land in `tools/test/out/` (ignored). The stub's `/api/comps` returns
   402 for non-members; that is expected noise.
@@ -79,7 +79,7 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
 
 1. Edit `src/index.src.html` (and/or `netlify/**`).
 2. `python3 tools/build.py`
-3. `bash tools/test/run.sh` — every block must end OK (SMOKE, TRAFFIC, NEWS, PAGES, SHARE, PG) with no page errors.
+3. `bash tools/test/run.sh` — every block must end OK (SMOKE, TRAFFIC, NEWS, PAGES, FILT, SHARE, PG) with no page errors.
 4. Update the dates: the beta banner text ("checked <date>") and "Preview build · <date>" in the master, `asOf` in
    `screener.mjs` and `screen-data.mjs` entries you refreshed.
 5. Commit with a clear message and push `main`.

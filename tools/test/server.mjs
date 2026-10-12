@@ -18,7 +18,7 @@ function store() {
     delete: async k => { m.delete(k); }, list: async ({ prefix }) => ({ blobs: [...m.keys()].filter(k => k.startsWith(prefix || "")).map(key => ({ key })) }), _m: m
   };
 }
-const MEMBERS = new Set(["pro@example.com", "pro2@example.com", "pro3@example.com"]);
+const MEMBERS = new Set(["pro@example.com", "pro2@example.com", "pro3@example.com", "pro4@example.com"]);
 const mail = [];
 const deps = {
   users: store(), board: store(), photos: store(), traffic: store(), salt: "local", news: store(), now: () => Date.now(), site: "http://localhost:8791",
