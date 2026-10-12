@@ -1429,5 +1429,41 @@
   "cardNo": "205",
   "parallel": "Young Guns RC",
   "sport": "Hockey"
+ },
+ "schaefer-2025-ud-451-yg": {
+  "id": "schaefer-2025-upper-deck-series-2-451-young-guns",
+  "player": "Matthew Schaefer",
+  "year": "2025-26",
+  "set": "Upper Deck Series 2",
+  "cardNo": "451",
+  "parallel": "Young Guns RC",
+  "sport": "Hockey"
+ },
+ "misa-2025-ud-487-yg": {
+  "id": "misa-2025-upper-deck-series-2-487-young-guns",
+  "player": "Michael Misa",
+  "year": "2025-26",
+  "set": "Upper Deck Series 2",
+  "cardNo": "487",
+  "parallel": "Young Guns RC",
+  "sport": "Hockey"
+ },
+ "clark-2024-prizm-wnba-22": {
+  "id": "clark-2024-panini-prizm-wnba-22-base",
+  "player": "Caitlin Clark",
+  "year": "2024",
+  "set": "Panini Prizm WNBA",
+  "cardNo": "22",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "dart-2025-donruss-400": {
+  "id": "dart-2025-panini-donruss-400-rated",
+  "player": "Jaxson Dart",
+  "year": "2025",
+  "set": "Panini Donruss",
+  "cardNo": "400",
+  "parallel": "Rated Rookie base",
+  "sport": "Football"
  }
 }
