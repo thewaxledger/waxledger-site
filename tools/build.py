@@ -14,16 +14,16 @@ META='''
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Wax Ledger">
 <meta property="og:title" content="Wax Ledger">
-<meta property="og:description" content="Your one-stop sports card hub. Sold comps, a raw-to-gem calculator on real sales, a pre-grading tool that runs in your browser, and the release calendar.">
+<meta property="og:description" content="Not all rookie cards are held equal. Know the value before you buy: sold comps, a Raw-to-Gem Calculator on real PSA sales, a Pre-Grading Tool that runs in your browser, and the release calendar.">
 <meta property="og:url" content="https://thewaxledger.com/">
 <meta property="og:image" content="https://thewaxledger.com/og-image.png">
 <meta property="og:image:width" content="2400">
 <meta property="og:image:height" content="1260">
-<meta property="og:image:alt" content="Wax Ledger logo with the tagline Your one-stop sports card hub">
+<meta property="og:image:alt" content="Wax Ledger logo with the tagline Not all rookie cards are held equal. Know the value before you buy.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@thewaxledger">
 <meta name="twitter:title" content="Wax Ledger">
-<meta name="twitter:description" content="Your one-stop sports card hub. Sold comps, a raw-to-gem calculator on real sales, a pre-grading tool that runs in your browser, and the release calendar.">
+<meta name="twitter:description" content="Not all rookie cards are held equal. Know the value before you buy: sold comps, a Raw-to-Gem Calculator on real PSA sales, a Pre-Grading Tool that runs in your browser, and the release calendar.">
 <meta name="twitter:image" content="https://thewaxledger.com/og-image.png">'''
 head='''<!doctype html>
 <html lang="en">
