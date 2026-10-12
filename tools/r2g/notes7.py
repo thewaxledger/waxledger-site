@@ -25,6 +25,7 @@ LEAD = {
  "pca-2020-bd-72-chrome-refractor": "1st Bowman Chrome Refractor (unnumbered), the chase version of the BD-72. The PSA 10 is sliding: the 40-sale median is $750, the last 15 sales (Sep 27 to Oct 8) median $615 and the latest printed $465, so the math here uses $615.",
  "pca-2020-bd-72-chrome": "1st Bowman Chrome base. Same slide as the Refractor: 40-sale median $369, last 15 sales median $315, latest $255; the math uses $315.",
  "pca-2020-bd-72-paper": "1st Bowman paper base.",
+ "flagg-2025-bowman-brr1-red": "Chrome Rookie Red variation from 2025-26 Bowman Basketball (about 1 in 20 hobby packs), the short print that carries the product. PSA catalogues it as '2025 Bowman #BRR-1 Chrome-Rookie Red RC Variation'. New enough that only 243 have been graded.",
 }
 CLOSE = {
  "wemby-2023-optic-225": "Gem rate 48% against a 51% break-even: a wash, with real liquidity (98 PSA 10 sales in 90 days). Fails on expected value by $2. Buy raw under $12 and it is marginal.",
@@ -48,5 +49,6 @@ CLOSE = {
  "pca-2020-bd-72-chrome-refractor": "A 70% gem rate against a 27% break-even, 155 PSA 10 sales in 90 days, and a $200 PSA 9 that holds a miss to about –$76. Grade it, but price the 10 at $500 to $600, not the $750 from a month ago: at the $465 latest sale the expected value is still about +$50. Raw at $154 on eBay (71 sales); above $200 the edge thins fast.",
  "pca-2020-bd-72-chrome": "Gem rate 63% against a 6% break-even: the $125 PSA 9 nearly covers the $100 all-in by itself. Grade it. Liquid (121 PSA 10 sales in 90 days) and cheap to try; buy raw under $35.",
  "pca-2020-bd-72-paper": "A $120 PSA 10 at a 65% gem rate against a $42 PSA 9 cannot quite cover the $77 all-in. Fails on expected value by $12. The Chrome versions are where the grade pays.",
+ "flagg-2025-bowman-brr1-red": "On paper the math is thin but positive: a 17.7% gem rate against a 12% break-even, about +$30 a try, with the $204 PSA 9 (14 sales) limiting a miss to about –$74. It fails the liquidity floor: 7 PSA 10 sales in 90 days, none since Sep 15, from a PSA 10 pop of 43. The raw is the most-traded part of the market (15 PSA-tracked raw sales in the last week, drifting from $165 to $140), which means a lot of people are about to submit it, and the pop will grow much faster than the 10 price. A 1-in-6 gem rate on a card that already sells raw at $150 is a buy-the-9 proposition, not a grade: wait for the 10 to show weekly sales and for the gem rate to settle past 25%.",
 }
 write_notes("psa-7.json", LEAD, CLOSE, "Oct 11")

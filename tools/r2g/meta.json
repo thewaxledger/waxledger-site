@@ -1177,5 +1177,14 @@
   "cardNo": "BD-72",
   "parallel": "1st Bowman paper",
   "sport": "Baseball"
+ },
+ "flagg-2025-bowman-brr1-red": {
+  "id": "flagg-2025-bowman-basketball-brr-1-chrome",
+  "player": "Cooper Flagg",
+  "year": "2025-26",
+  "set": "Bowman Basketball",
+  "cardNo": "BRR-1",
+  "parallel": "Chrome Rookie Red RC Variation",
+  "sport": "Basketball"
  }
 }

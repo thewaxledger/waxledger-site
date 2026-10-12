@@ -617,5 +617,30 @@
   "popTotal": 611,
   "gemRate": 64.81,
   "asOf": "2026-10-11"
+ },
+ "flagg-2025-bowman-brr1-red": {
+  "specId": "15910267",
+  "n10": 7,
+  "avg10": 1065.28,
+  "med10": 1080,
+  "min10": 967,
+  "max10": 1195,
+  "latest10": 1100,
+  "n9": 14,
+  "avg9": 216.13,
+  "med9": 204.44,
+  "rawN": 15,
+  "rawMed": 155,
+  "rawLast": 140.5,
+  "rawOldest": "2026-10-05",
+  "pop10": 43,
+  "pop9": 109,
+  "pop8": 55,
+  "popTotal": 243,
+  "gemRate": 17.7,
+  "asOf": "2026-10-11",
+  "rawPsa": 137.5,
+  "rawNPsa": 15,
+  "rawSrc": "eBay sold listings, raw/ungraded only (Oct 11, 13 sales Sep 14 to Oct 11)"
  }
 }
