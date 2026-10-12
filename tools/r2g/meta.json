@@ -1420,5 +1420,14 @@
   "cardNo": "151",
   "parallel": "Refractor (unnumbered)",
   "sport": "Basketball"
+ },
+ "demidov-2025-ud-205": {
+  "id": "demidov-2025-upper-deck-series-1-205-young-guns",
+  "player": "Ivan Demidov",
+  "year": "2025-26",
+  "set": "Upper Deck Series 1",
+  "cardNo": "205",
+  "parallel": "Young Guns RC",
+  "sport": "Hockey"
  }
 }
