@@ -1402,5 +1402,23 @@
   "cardNo": "370",
   "parallel": "Silver Prizm RC",
   "sport": "Football"
+ },
+ "flagg-2025-tcu-151": {
+  "id": "flagg-2025-topps-chrome-update-151-base",
+  "player": "Cooper Flagg",
+  "year": "2025-26",
+  "set": "Topps Chrome Update",
+  "cardNo": "151",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "flagg-2025-tcu-151-ref": {
+  "id": "flagg-2025-topps-chrome-update-151-refractor",
+  "player": "Cooper Flagg",
+  "year": "2025-26",
+  "set": "Topps Chrome Update",
+  "cardNo": "151",
+  "parallel": "Refractor (unnumbered)",
+  "sport": "Basketball"
  }
 }

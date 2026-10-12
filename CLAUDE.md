@@ -50,6 +50,12 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
   `refresh.py psa-N.json key=boardId ...` updates a card already on the board in place (numbers + one dated sentence)
   without replacing its note; use it instead of giving an existing card a second id. Check `screen-data.mjs` for the
   player before adding, the daily review adds cards too.
+  2025-26 Topps Chrome Basketball has two releases with the same rookies: Topps Chrome (#251 Flagg, #252 Harper,
+  #253 Edgecombe, #254 Knueppel, #255 Bailey; white jerseys) and Topps Chrome Update (#151-#155, different photos,
+  Knueppel in the yellow jersey). PSA specs are separate (Update was catalogued in Oct 2026, pops still tiny), but
+  sellers title both the same way, so raw prices must come from eBay listings whose titles carry the card number
+  (`rawStrict` in the pane: require #254, exclude "update" and #154, and the Basketball Refractor / Skylight parallels).
+  PSA's own raw tracking mixes the two (it had the #154 Refractor's $13 on the #254 spec).
   Model blind spot: the miss is priced as a PSA 9 at 85%. For cards where most misses come back 8 or lower (vintage:
   Griffey 1989 UD #1 is 3% gem, 25% nine, 35% eight) that overstates the miss value, so such cards are left off the
   board until the model prices the full grade distribution (Aidan's call).
