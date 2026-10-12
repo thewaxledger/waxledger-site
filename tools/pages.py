@@ -13,7 +13,7 @@ import json, os, re, html, datetime
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUB = os.path.join(ROOT, "public")
 SITE = "https://thewaxledger.com"
-A = dict(fee=59.99, ship=10, sellFee=.13, haircut=.20, missReal=.85, assumedGem=.35, minSales=25, minMargin=.10)
+A = dict(fee=59.99, ship=10, sellFee=.13, haircut=.20, missReal=.85, assumedGem=.35, minSales=25, minThin=10, minMargin=.10)
 
 esc = lambda s: html.escape(str(s if s is not None else ""), quote=True)
 
@@ -60,6 +60,7 @@ def compute(c):
              up10=net10 - all_in, down9=net_miss - all_in, margin=(gem - be) if be is not None else None)
     sales = c.get("psa10Sales90") or 0
     if c.get("compType") != "Real": r["code"], r["label"], r["why"] = "SKIP", "Skip", "The PSA 10 price is an estimate, not real sales."
+    elif sales < A["minSales"] and sales >= A["minThin"] and profit > 0 and gem_pop is not None: r["code"], r["label"], r["why"] = "THIN", "Thin market", f"Profitable on paper, but only {sales} PSA 10 sales in 90 days: a slab may take weeks to sell."
     elif sales < A["minSales"]: r["code"], r["label"], r["why"] = "FAIL", "Fail", f"Only {sales} PSA 10 sales in 90 days, under the 25-sale minimum."
     elif profit <= 0: r["code"], r["label"], r["why"] = "FAIL", "Fail", "Negative expected value after the fee, shipping and selling costs."
     elif gem_pop is None: r["code"], r["label"], r["why"] = "CANDIDATE", "Verify pop", "Profitable on a placeholder gem rate; the real population is not in yet."
@@ -83,7 +84,7 @@ h2{font-family:var(--display);font-weight:700;font-size:1.35rem;margin:26px 0 10
 .lede{color:var(--ink-2);font-size:1.05rem;max-width:70ch;margin:0 0 18px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:14px 0}
 .verdict{display:inline-block;font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.06em;padding:5px 10px;border-radius:6px;text-transform:uppercase}
-.v-GRADE{background:var(--up-bg);color:var(--up)}.v-MARGINAL{background:#FFF3D6;color:#765000}.v-FAIL,.v-SKIP,.v-NODATA{background:var(--down-bg);color:var(--down)}.v-CANDIDATE{background:var(--surface-2);color:var(--ink-2)}
+.v-GRADE{background:var(--up-bg);color:var(--up)}.v-MARGINAL,.v-THIN{background:#FFF3D6;color:#765000}.v-FAIL,.v-SKIP,.v-NODATA{background:var(--down-bg);color:var(--down)}.v-CANDIDATE{background:var(--surface-2);color:var(--ink-2)}
 .tbl{overflow-x:auto;-webkit-overflow-scrolling:touch}table{width:100%;border-collapse:collapse;font-size:14.5px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}@media (max-width:600px){table{font-size:13px}th,td{padding:7px 6px}}th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:500}td.num,th.num{text-align:right;font-family:var(--mono);white-space:nowrap}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}.grid a{display:block;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px;text-decoration:none;color:var(--ink)}.grid a small{display:block;color:var(--ink-3);font-size:12.5px;margin-top:3px}
 .pro{border:1px solid var(--gold);background:var(--surface);border-radius:10px;padding:18px 20px;margin:22px 0}.pro h2{margin-top:0}.pro ul{margin:8px 0 14px;padding-left:18px;color:var(--ink-2)}

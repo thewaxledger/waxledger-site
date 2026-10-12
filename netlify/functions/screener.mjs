@@ -4,7 +4,7 @@ import { json, currentMember, liveDeps } from "../lib/members.mjs";
 import SCREEN from "../lib/screen-data.mjs";
 
 export const config = { path: "/api/screener" };
-const A = { fee: 59.99, ship: 10, sellFee: .13, haircut: .20, missReal: .85, assumedGem: .35, minSales: 25, minMargin: .10, requireReal: true };
+const A = { fee: 59.99, ship: 10, sellFee: .13, haircut: .20, missReal: .85, assumedGem: .35, minSales: 25, minThin: 10, minMargin: .10, requireReal: true };
 const num = v => typeof v === "number" && isFinite(v);
 
 export function score(c) {
@@ -14,7 +14,7 @@ export function score(c) {
   const profit = gem * net10 + (1 - gem) * netMiss - allIn, roi = profit / allIn, be = net10 - netMiss ? (allIn - netMiss) / (net10 - netMiss) : null;
   let code = "GRADE";
   if (A.requireReal && c.compType !== "Real") code = "SKIP";
-  else if ((num(c.psa10Sales90) ? c.psa10Sales90 : 0) < A.minSales) code = "FAIL";
+  else if ((num(c.psa10Sales90) ? c.psa10Sales90 : 0) < A.minSales) code = (c.psa10Sales90 >= A.minThin && profit > 0 && gemPop != null) ? "THIN" : "FAIL";
   else if (profit <= 0) code = "FAIL";
   else if (gemPop == null) code = "CANDIDATE";
   else if (be == null || gem - be < A.minMargin) code = "MARGINAL";

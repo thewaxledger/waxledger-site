@@ -7,7 +7,7 @@ def score(c):
     ev=gem*net10+(1-gem)*netMiss; profit=ev-allIn; roi=profit/allIn; be=(allIn-netMiss)/(net10-netMiss) if net10!=netMiss else None
     code='GRADE'
     if c['compType']!='Real': code='SKIP'
-    elif (c.get('psa10Sales90') or 0)<A['minSales']: code='FAIL liq'
+    elif (c.get('psa10Sales90') or 0)<A['minSales']: code='THIN' if (c.get('psa10Sales90') or 0)>=10 and profit>0 and c.get('pop10') else 'FAIL liq'
     elif profit<=0: code='FAIL EV'
     elif be is None or gem-be<A['minMargin']: code='MARGINAL'
     return dict(code=code,gem=gem,allIn=allIn,net10=net10,netMiss=netMiss,ev=ev,profit=profit,roi=roi,be=be,down=netMiss-allIn,up=net10-allIn)

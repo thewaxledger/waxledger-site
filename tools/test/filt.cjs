@@ -36,6 +36,10 @@ const lastCode = async (p, email) => { const m = await (await p.request.get(B + 
   expect('dropdown "Highest to lowest" sorts profit (' + r.length + ')', r.length > 41 && r.every((x, i) => i === 0 || isNaN(x) || isNaN(r[i - 1]) || r[i - 1] >= x));
   await p.click('#scr-head [data-sreset]'); await p.waitForTimeout(200);
   expect('reset clears filters and sort', (await rows()).length >= base && await p.evaluate(() => ![...document.querySelectorAll('#scr-head select')].some(s => s.value)));
+  await p.click('[data-sfilter="thin"]'); await p.waitForTimeout(200);
+  const th = await p.evaluate(() => [...document.querySelectorAll('#scr-body tr')].map(tr => ({ n10: +tr.querySelectorAll('td')[5].innerText.replace(/,/g, ''), v: tr.querySelectorAll('td')[11].innerText, id: tr.dataset.scr })));
+  expect('Thin market chip: 10-24 sales, all Thin market, Murakami Red in it (' + th.length + ')', th.length > 0 && th.every(x => /thin market/i.test(x.v) && x.n10 >= 10 && x.n10 < 25) && th.some(x => /murakami-2026-bowman-paper-9/.test(x.id))); if (!th.every(x => /thin market/i.test(x.v))) console.log(JSON.stringify(th.slice(0, 3)));
+  await p.click('[data-sfilter="all"]'); await p.waitForTimeout(200);
   await p.screenshot({ path: 'out/filters-desk.png' });
   // phone
   await p.setViewportSize({ width: 390, height: 844 }); await p.waitForTimeout(300);

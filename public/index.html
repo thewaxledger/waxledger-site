@@ -1579,7 +1579,7 @@ function reviewDeep(d){
 /* ---------- screener ---------- */
 // Snapshot of the Grading Screener board, Oct 8, 2026. Real sold comps and PSA pop counts.
 var SCREEN=[],SCREEN_META={member:false,total:0,clears:0,loaded:false};
-var ASM_DEFAULTS={fee:59.99,ship:10,sellFee:.13,haircut:.20,missReal:.85,assumedGem:.35,minSales:25,minMargin:.10,requireReal:true};
+var ASM_DEFAULTS={fee:59.99,ship:10,sellFee:.13,haircut:.20,missReal:.85,assumedGem:.35,minSales:25,minThin:10,minMargin:.10,requireReal:true};
 var ASM_FIELDS=[["fee","money"],["ship","money"],["sellFee","pct"],["haircut","pct"],["missReal","pct"],["assumedGem","pct"],["minSales","int"],["minMargin","pct"],["requireReal","bool"]];
 var SA={};Object.keys(ASM_DEFAULTS).forEach(function(k){SA[k]=ASM_DEFAULTS[k]});
 try{var savedAsm=JSON.parse(localStorage.getItem("wl-asm")||"null");if(savedAsm&&typeof savedAsm==="object")Object.keys(ASM_DEFAULTS).forEach(function(k){if(typeof savedAsm[k]===typeof ASM_DEFAULTS[k])SA[k]=savedAsm[k]})}catch(e){}
@@ -1613,15 +1613,15 @@ function scrCompute(c,A){
   r.margOK=r.margin!=null&&r.margin>=A.minMargin;
   var v;
   if(!r.realOK)v={code:"SKIP",label:"Skip",why:"PSA 10 price is an estimate"};
-  else if(!r.liqOK)v={code:"FAIL",label:"Fail",why:"Too few PSA 10 sales"};
+  else if(!r.liqOK){var n10=isNum(c.psa10Sales90)?c.psa10Sales90:0;v=(n10>=A.minThin&&r.profit>0&&r.gemSource==="Pop")?{code:"THIN",label:"Thin market",why:"Profitable, but only "+n10+" PSA 10 sales in 90 days"}:{code:"FAIL",label:"Fail",why:"Too few PSA 10 sales"}}
   else if(r.profit<=0)v={code:"FAIL",label:"Fail",why:"Negative expected value"};
   else if(r.gemSource!=="Pop")v={code:"CANDIDATE",label:"Verify pop",why:"Profitable on a placeholder gem rate"};
   else if(!r.margOK)v={code:"MARGINAL",label:"Marginal",why:"Thin safety margin"};
   else v={code:"GRADE",label:"Grade",why:""};
   r.verdict=v;return r;
 }
-var VORDER={GRADE:0,MARGINAL:1,CANDIDATE:2,FAIL:3,SKIP:4,NODATA:5};
-var VPILL={GRADE:"pill pill-up",MARGINAL:"pill pill-gold",CANDIDATE:"pill pill-gold",FAIL:"pill pill-down",SKIP:"pill",NODATA:"pill"};
+var VORDER={GRADE:0,MARGINAL:1,CANDIDATE:2,THIN:3,FAIL:4,SKIP:5,NODATA:6};
+var VPILL={GRADE:"pill pill-up",MARGINAL:"pill pill-gold",CANDIDATE:"pill pill-gold",THIN:"pill pill-gold",FAIL:"pill pill-down",SKIP:"pill",NODATA:"pill"};
 function scrRows(){
   var out=SCREEN.map(function(c){return {c:c,m:scrCompute(c,SA)}});
   out.sort(function(a,b){
@@ -1650,7 +1650,7 @@ var SFILT={
  gem:{label:"Gem rate",get:function(r){return r.m.hasData?r.m.gem:null},opts:[["","All"],[".7-","70%+"],[".5-","50%+"],[".3-","30%+"],["0-.3","Under 30%"]]},
  profit:{label:"Profit",get:function(r){return r.m.hasData?r.m.profit:null},opts:[["","All"],["0.005-","Positive"],["50-","+$50 or more"],["100-","+$100 or more"],["500-","+$500 or more"],["-0","Negative"]]},
  roi:{label:"ROI",get:function(r){return r.m.hasData?r.m.roi:null},opts:[["","All"],["0.00001-","Positive"],[".25-","25%+"],[".5-","50%+"],["1-","100%+"],["-0","Negative"]]},
- verdict:{label:"Verdict",opts:[["","All"],["GRADE","Grade"],["NEAR","Marginal or verify pop"],["LIQ","Fail: too few PSA 10 sales"],["EV","Fail: negative EV"],["SKIP","Skip: estimate"]]}
+ verdict:{label:"Verdict",opts:[["","All"],["GRADE","Grade"],["NEAR","Marginal or verify pop"],["THIN","Thin market (10 to 24 sales)"],["LIQ","Fail: too few PSA 10 sales"],["EV","Fail: negative EV"],["SKIP","Skip: estimate"]]}
 };
 var SSORT={raw:"Raw",psa10:"PSA 10",psa9:"PSA 9",n10:"10s sold",gem:"Gem",be:"Break-even",margin:"Margin",profit:"Profit",roi:"ROI"};
 function sortVal(r,k){var m=r.m,c=r.c;
@@ -1659,7 +1659,7 @@ function sortVal(r,k){var m=r.m,c=r.c;
   if(!m.hasData)return null;
   return isNum(m[k])?m[k]:null}
 function inRange(v,spec){if(!isNum(v))return false;var p=spec.split("-"),lo=p[0]===""?-Infinity:+p[0],hi=p[1]===""?Infinity:+p[1];return v>=lo&&v<hi}
-function verdictKey(m){var v=m.verdict;if(v.code==="GRADE")return "GRADE";if(v.code==="MARGINAL"||v.code==="CANDIDATE")return "NEAR";if(v.code==="SKIP"||v.code==="NODATA")return "SKIP";return /sales/.test(v.why)?"LIQ":"EV"}
+function verdictKey(m){var v=m.verdict;if(v.code==="GRADE")return "GRADE";if(v.code==="MARGINAL"||v.code==="CANDIDATE")return "NEAR";if(v.code==="THIN")return "THIN";if(v.code==="SKIP"||v.code==="NODATA")return "SKIP";return /sales/.test(v.why)?"LIQ":"EV"}
 function colFiltered(r){
   for(var k in scr.f){var val=scr.f[k];if(!val)continue;
     if(k==="verdict"){if(verdictKey(r.m)!==val)return false;continue}
@@ -1685,6 +1685,7 @@ function inFilter(r){
   if(!colFiltered(r))return false;
   if(scr.filter==="grade"&&code!=="GRADE")return false;
   if(scr.filter==="near"&&code!=="MARGINAL"&&code!=="CANDIDATE")return false;
+  if(scr.filter==="thin"&&code!=="THIN")return false;
   if(scr.filter==="fail"&&["FAIL","SKIP","NODATA"].indexOf(code)<0)return false;
   if(scr.sport!=="all"&&r.c.sport!==scr.sport)return false;
   return true;
@@ -1706,8 +1707,9 @@ function renderScreener(){
     '<div class="tile"><div class="v">'+(g.length?usd(cap):"—")+'</div><div class="k">Capital to try one of each</div></div>'+
     '<div class="tile"><div class="v">'+(g.length?usd(prof,{sign:true}):"—")+'</div><div class="k">'+(g.length&&cap?"Expected profit, "+pc(prof/cap)+" on capital":"Expected profit")+'</div></div>';
   var counts={all:rs.length,grade:g.length,near:rs.filter(function(r){return r.m.verdict.code==="MARGINAL"||r.m.verdict.code==="CANDIDATE"}).length};
-  counts.fail=rs.length-counts.grade-counts.near;
-  $("#scr-chips").innerHTML=[["all","All"],["grade","Clears"],["near","Near miss"],["fail","Fails"]].map(function(d){
+  counts.thin=rs.filter(function(r){return r.m.verdict.code==="THIN"}).length;
+  counts.fail=rs.length-counts.grade-counts.near-counts.thin;
+  $("#scr-chips").innerHTML=[["all","All"],["grade","Clears"],["near","Near miss"],["thin","Thin market"],["fail","Fails"]].map(function(d){
     return '<button class="chip" type="button" data-sfilter="'+d[0]+'" aria-pressed="'+(scr.filter===d[0])+'">'+d[1]+'<span class="n">'+counts[d[0]]+'</span></button>';
   }).join("");
   var sel=$("#scr-sport");
@@ -1721,7 +1723,7 @@ function renderScreener(){
   renderScrHead();
   $("#scr-empty").hidden=vis.length>0;
   $("#scr-body").innerHTML=vis.map(function(r){
-    var c=r.c,m=r.m,dim=["GRADE","MARGINAL","CANDIDATE"].indexOf(m.verdict.code)<0;
+    var c=r.c,m=r.m,dim=["GRADE","MARGINAL","CANDIDATE","THIN"].indexOf(m.verdict.code)<0;
     var showM=isNum(m.margin)&&isNum(m.be)&&Math.abs(m.be)<=1;
     return '<tr data-scr="'+c.id+'" tabindex="0"'+(dim?' class="dim"':"")+'>'+
       '<td class="rank'+(r.rank===1?" top":"")+'">'+(r.rank||"")+'</td><td>'+slabCell(c)+'</td>'+
@@ -1773,7 +1775,7 @@ function renderScatter(){
   var lbl="",pts="";
   plotted.forEach(function(r){
     var c=r.c,m=r.m,cx=X(m.gem),cy=Y(m.be),code=m.verdict.code;
-    var cls=code==="GRADE"?"grade":(code==="MARGINAL"||code==="CANDIDATE"?"mid":"fail");
+    var cls=code==="GRADE"?"grade":(code==="MARGINAL"||code==="CANDIDATE"||code==="THIN"?"mid":"fail");
     pts+='<g class="pt '+cls+'" data-scr="'+c.id+'" tabindex="0" role="button" aria-label="'+esc(c.player+" "+c.year+" "+c.set+" #"+c.cardNo)+'"><title>'+esc(c.player+", "+c.year+" "+c.set+" #"+c.cardNo+" "+(c.parallel||"")+": gem "+pc(m.gem,1)+", break-even "+pc(m.be,1)+", expected profit "+usd(m.profit,{sign:true})+", "+m.verdict.label)+'</title><circle class="hit" cx="'+cx+'" cy="'+cy+'" r="13"/><circle class="mk" cx="'+cx+'" cy="'+cy+'" r="5"/></g>';
     var txt=shortName(c),w=est(txt),hh=13;
     var cands=[[cx+10,cy+4,"start"],[cx-10,cy+4,"end"],[cx,cy-11,"middle"],[cx,cy+19,"middle"],[cx+10,cy-9,"start"],[cx+10,cy+17,"start"],[cx-10,cy-9,"end"],[cx-10,cy+17,"end"],[cx,cy-23,"middle"],[cx,cy+31,"middle"],[cx+10,cy-21,"start"],[cx-10,cy-21,"end"],[cx+10,cy+29,"start"],[cx-10,cy+29,"end"]];
@@ -2724,7 +2726,7 @@ function shareMathCard(cd,m){
     x.fillStyle="#AAB6C8";x.font='500 24px "JetBrains Mono",Menlo,monospace';x.fillText("RAW-TO-GEM CALCULATOR · AS OF "+String(cd.asOf||"").toUpperCase(),60,80);
     x.fillStyle="#FFFFFF";x.font='800 50px "Barlow Condensed","Arial Narrow",sans-serif';
     var words=name.split(" "),line="",y=140;words.forEach(function(wd){var t=line?line+" "+wd:wd;if(x.measureText(t).width>1080){x.fillText(line,60,y);y+=54;line=wd}else line=t});x.fillText(line,60,y);
-    var v=m.verdict,col=v.code==="GRADE"?"#4FC78E":v.code==="MARGINAL"?"#EDB840":"#F2877A";
+    var v=m.verdict,col=v.code==="GRADE"?"#4FC78E":(v.code==="MARGINAL"||v.code==="THIN")?"#EDB840":"#F2877A";
     x.fillStyle=col;x.font='800 64px "Barlow Condensed","Arial Narrow",sans-serif';x.fillText(v.label.toUpperCase(),60,y+66);
     x.fillStyle="#AAB6C8";x.font='600 26px "Instrument Sans",system-ui,sans-serif';x.fillText(String(v.why||"").slice(0,78),60,y+104);
     var cells=[["RAW",usd(cd.raw)],["PSA 10 · "+(cd.psa10Sales90||0)+" SALES / 90D",usd(cd.psa10)],["PSA 9",usd(cd.psa9)],["GEM RATE (PSA POP)",pc(m.gem)],["ALL-IN, ONE ATTEMPT",usd(m.allIn)],["EXPECTED PROFIT",usd(m.profit,{sign:true})]];
