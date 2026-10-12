@@ -1161,7 +1161,7 @@
   "sport": "Baseball"
  },
  "pca-2020-bd-72-chrome": {
-  "id": "crow-armstrong-2020-bowman-draft-chrome-bd72-base",
+  "id": "crow-armstrong-2020-bowman-draft-chrome-bd-72-1st",
   "player": "Pete Crow-Armstrong",
   "year": "2020",
   "set": "Bowman Draft Chrome",
@@ -1170,12 +1170,12 @@
   "sport": "Baseball"
  },
  "pca-2020-bd-72-paper": {
-  "id": "crow-armstrong-2020-bowman-draft-bd72-paper",
+  "id": "crow-armstrong-2020-bowman-draft-bd-72-1st",
   "player": "Pete Crow-Armstrong",
   "year": "2020",
   "set": "Bowman Draft",
   "cardNo": "BD-72",
-  "parallel": "1st Bowman paper",
+  "parallel": "1st Bowman (paper)",
   "sport": "Baseball"
  },
  "flagg-2025-bowman-brr1-red": {
@@ -1258,5 +1258,149 @@
   "cardNo": "493",
   "parallel": "Young Guns RC",
   "sport": "Hockey"
+ },
+ "luka-2018-optic-177": {
+  "id": "doncic-2018-donruss-optic-177-rated",
+  "player": "Luka Doncic",
+  "year": "2018-19",
+  "set": "Donruss Optic",
+  "cardNo": "177",
+  "parallel": "Rated Rookie base",
+  "sport": "Basketball"
+ },
+ "luka-2018-optic-177-holo": {
+  "id": "doncic-2018-donruss-optic-177-holo",
+  "player": "Luka Doncic",
+  "year": "2018-19",
+  "set": "Donruss Optic",
+  "cardNo": "177",
+  "parallel": "Rated Rookie Holo",
+  "sport": "Basketball"
+ },
+ "hali-2020-prizm-262": {
+  "id": "haliburton-2020-panini-prizm-262-base",
+  "player": "Tyrese Haliburton",
+  "year": "2020-21",
+  "set": "Panini Prizm",
+  "cardNo": "262",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "giannis-2013-hoops-275": {
+  "id": "giannis-2013-nba-hoops-275-base",
+  "player": "Giannis Antetokounmpo",
+  "year": "2013-14",
+  "set": "NBA Hoops",
+  "cardNo": "275",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "tatum-2017-prizm-16-silver": {
+  "id": "tatum-2017-panini-prizm-16-silver",
+  "player": "Jayson Tatum",
+  "year": "2017-18",
+  "set": "Panini Prizm",
+  "cardNo": "16",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "booker-2015-prizm-308": {
+  "id": "booker-2015-panini-prizm-308-base",
+  "player": "Devin Booker",
+  "year": "2015-16",
+  "set": "Panini Prizm",
+  "cardNo": "308",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "booker-2015-prizm-308-silver": {
+  "id": "booker-2015-panini-prizm-308-silver",
+  "player": "Devin Booker",
+  "year": "2015-16",
+  "set": "Panini Prizm",
+  "cardNo": "308",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball"
+ },
+ "mackinnon-2013-ud-238": {
+  "id": "mackinnon-2013-upper-deck-238-young-guns",
+  "player": "Nathan MacKinnon",
+  "year": "2013-14",
+  "set": "Upper Deck Series 1",
+  "cardNo": "238",
+  "parallel": "Young Guns RC",
+  "sport": "Hockey"
+ },
+ "crosby-2005-ud-201": {
+  "id": "crosby-2005-upper-deck-201-young-guns",
+  "player": "Sidney Crosby",
+  "year": "2005-06",
+  "set": "Upper Deck Series 1",
+  "cardNo": "201",
+  "parallel": "Young Guns RC",
+  "sport": "Hockey"
+ },
+ "ovechkin-2005-ud-443": {
+  "id": "ovechkin-2005-upper-deck-443-young-guns",
+  "player": "Alexander Ovechkin",
+  "year": "2005-06",
+  "set": "Upper Deck Series 2",
+  "cardNo": "443",
+  "parallel": "Young Guns RC",
+  "sport": "Hockey"
+ },
+ "draisaitl-2014-ud-223": {
+  "id": "draisaitl-2014-upper-deck-223-young-guns",
+  "player": "Leon Draisaitl",
+  "year": "2014-15",
+  "set": "Upper Deck Series 1",
+  "cardNo": "223",
+  "parallel": "Young Guns RC",
+  "sport": "Hockey"
+ },
+ "qhughes-2019-ud-249": {
+  "id": "hughes-quinn-2019-upper-deck-249-young-guns",
+  "player": "Quinn Hughes",
+  "year": "2019-20",
+  "set": "Upper Deck Series 1",
+  "cardNo": "249",
+  "parallel": "Young Guns RC",
+  "sport": "Hockey"
+ },
+ "trout-2011-bcd-101": {
+  "id": "trout-2011-bowman-chrome-draft-101-base",
+  "player": "Mike Trout",
+  "year": "2011",
+  "set": "Bowman Chrome Draft",
+  "cardNo": "101",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "bazzana-2024-bdc1": {
+  "id": "bazzana-2024-bowman-draft-chrome-bdc1-1st",
+  "player": "Travis Bazzana",
+  "year": "2024",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "BDC-1",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "mhj-2024-prizm-silver": {
+  "id": "harrison-2024-panini-prizm-375-silver",
+  "player": "Marvin Harrison Jr.",
+  "year": "2024",
+  "set": "Panini Prizm",
+  "cardNo": "375",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football"
+ },
+ "nabers-2024-prizm-silver": {
+  "id": "nabers-2024-panini-prizm-370-silver",
+  "player": "Malik Nabers",
+  "year": "2024",
+  "set": "Panini Prizm",
+  "cardNo": "370",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football"
  }
 }

@@ -43,6 +43,16 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
   `pull.js` is the browser-side pull: load it on a psacard.com page in the browser pane, then `srch(query)` finds the specId
   and `pull(specId)` returns one `psa-N.json` entry. Its header lists the PSA endpoints and their quirks. Pull a few cards
   per call and copy the results out as you go: the pane can drop mid-run and the page state goes with it.
+  When the APR search (`/auctionprices/search?q=`) does not list a card, the pop-report search does: on any psacard.com
+  page with jQuery, `$.ajax({url:'https://www.collectorsuniverse.com/specsearch/search/psaformatted',dataType:'jsonp',
+  data:{term:'2025 bowman brr-1 cooper flagg',includePopOnly:true,mandatoryAdditionalTerms:''}})` returns
+  `[{specid, description}]`; the same specId then works with `getPopulationSummary` and `getSalesBySpecId`.
+  `refresh.py psa-N.json key=boardId ...` updates a card already on the board in place (numbers + one dated sentence)
+  without replacing its note; use it instead of giving an existing card a second id. Check `screen-data.mjs` for the
+  player before adding, the daily review adds cards too.
+  Model blind spot: the miss is priced as a PSA 9 at 85%. For cards where most misses come back 8 or lower (vintage:
+  Griffey 1989 UD #1 is 3% gem, 25% nine, 35% eight) that overstates the miss value, so such cards are left off the
+  board until the model prices the full grade distribution (Aidan's call).
   Spec IDs found Oct 11 and not yet pulled in full: Skenes USC88 12100378, Kurtz 15000056, Henderson 9161725, SGA Prizm
   2676839, Bailey Chrome 14982055, Acuna US250 2652951, Guerrero 2800015, Tatis 2806015, Soto US300 2652939, Wembanyama
   Prizm 10279296; new candidates with 25+ PSA 10 sales in 90 days: Makar 2981756 (50), Jack Hughes 2866588 (92),
