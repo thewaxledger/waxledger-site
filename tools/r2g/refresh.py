@@ -33,6 +33,6 @@ for arg in sys.argv[2:]:
     c.update({"raw": round(raw * 100) / 100, "psa10": round(psa10 * 100) / 100, "psa9": round(psa9 * 100) / 100, "psa10Sales90": d["n10"], "compType": "Real",
               "pop10": d["pop10"], "pop9": d["pop9"], "popTotal": d["popTotal"], "asOf": day, "conf": "H" if d["n10"] >= 25 else "M"})
     c["note"] += sent
-    c["src"] += f"; PSA APR + pop ({nice})" + (f"; raw = {d['rawSrc']}" if d.get("rawSrc") else "")
+    if f"({nice}, " not in c["src"]: c["src"] += f"; PSA APR + pop ({nice})" + (f"; raw = {d['rawSrc']}" if d.get("rawSrc") else "")
     print("refreshed", bid, "10", money(psa10), "n10", d["n10"], "raw", money(raw), "EV", signed(ev - allIn))
 open(DATA, "w").write(head + "export default " + json.dumps(cards, ensure_ascii=False, separators=(",", ":")) + ";\n")

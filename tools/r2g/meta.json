@@ -1186,5 +1186,77 @@
   "cardNo": "BRR-1",
   "parallel": "Chrome Rookie Red RC Variation",
   "sport": "Basketball"
+ },
+ "soto-2018-tcu-hmt98": {
+  "id": "soto-2018-topps-chrome-update-hmt98-debut",
+  "player": "Juan Soto",
+  "year": "2018",
+  "set": "Topps Chrome Update",
+  "cardNo": "HMT98",
+  "parallel": "Rookie Debut RC",
+  "sport": "Baseball"
+ },
+ "langford-2023-bdc106": {
+  "id": "langford-2023-bowman-draft-chrome-bdc106-1st",
+  "player": "Wyatt Langford",
+  "year": "2023",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "BDC-106",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "clark-2023-bdc76": {
+  "id": "clark-2023-bowman-draft-chrome-bdc76-1st",
+  "player": "Max Clark",
+  "year": "2023",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "BDC-76",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "hughes-2019-ud-201": {
+  "id": "hughes-2019-upper-deck-201-young-guns",
+  "player": "Jack Hughes",
+  "year": "2019-20",
+  "set": "Upper Deck Series 1",
+  "cardNo": "201",
+  "parallel": "Young Guns RC",
+  "sport": "Hockey"
+ },
+ "carroll-2023-tc-95": {
+  "id": "carroll-2023-topps-chrome-95-base",
+  "player": "Corbin Carroll",
+  "year": "2023",
+  "set": "Topps Chrome",
+  "cardNo": "95",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "kaprizov-2020-ud-451": {
+  "id": "kaprizov-2020-upper-deck-451-young-guns",
+  "player": "Kirill Kaprizov",
+  "year": "2020-21",
+  "set": "Upper Deck Series 1",
+  "cardNo": "451",
+  "parallel": "Young Guns RC",
+  "sport": "Hockey"
+ },
+ "jeanty-2025-donruss-305": {
+  "id": "jeanty-2025-panini-donruss-305-rated",
+  "player": "Ashton Jeanty",
+  "year": "2025",
+  "set": "Panini Donruss",
+  "cardNo": "305",
+  "parallel": "Rated Rookie base",
+  "sport": "Football"
+ },
+ "makar-2019-ud-493": {
+  "id": "makar-2019-upper-deck-493-young-guns",
+  "player": "Cale Makar",
+  "year": "2019-20",
+  "set": "Upper Deck Series 2",
+  "cardNo": "493",
+  "parallel": "Young Guns RC",
+  "sport": "Hockey"
  }
 }
