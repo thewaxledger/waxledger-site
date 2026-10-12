@@ -1465,5 +1465,95 @@
   "cardNo": "400",
   "parallel": "Rated Rookie base",
   "sport": "Football"
+ },
+ "misi-2026-t-10": {
+  "id": "misiorowski-2026-topps-10-base",
+  "player": "Jacob Misiorowski",
+  "year": "2026",
+  "set": "Topps",
+  "cardNo": "10",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "schl-2026-t-111": {
+  "id": "schlittler-2026-topps-111-base",
+  "player": "Cam Schlittler",
+  "year": "2026",
+  "set": "Topps",
+  "cardNo": "111",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "schl-2025-bcp166": {
+  "id": "schlittler-2025-bowman-chrome-prospects-bcp166-1st",
+  "player": "Cam Schlittler",
+  "year": "2025",
+  "set": "Bowman Chrome Prospects",
+  "cardNo": "BCP-166",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "depaula-2023-bcp111": {
+  "id": "depaula-2023-bowman-chrome-prospects-bcp111-1st",
+  "player": "Josue De Paula",
+  "year": "2023",
+  "set": "Bowman Chrome Prospects",
+  "cardNo": "BCP-111",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "cam-2023-bcp61": {
+  "id": "caminero-2023-bowman-chrome-prospects-bcp61-1st",
+  "player": "Junior Caminero",
+  "year": "2023",
+  "set": "Bowman Chrome Prospects",
+  "cardNo": "BCP-61",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "anthony-2023-bcp71": {
+  "id": "anthony-2023-bowman-chrome-prospects-bcp71-1st",
+  "player": "Roman Anthony",
+  "year": "2023",
+  "set": "Bowman Chrome Prospects",
+  "cardNo": "BCP-71",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "rice-2025-t-337": {
+  "id": "rice-2025-topps-337-base",
+  "player": "Ben Rice",
+  "year": "2025",
+  "set": "Topps",
+  "cardNo": "337",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "rice-2024-bcp186": {
+  "id": "rice-2024-bowman-chrome-prospects-bcp186-1st",
+  "player": "Ben Rice",
+  "year": "2024",
+  "set": "Bowman Chrome Prospects",
+  "cardNo": "BCP-186",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "rice-2025-tc-139": {
+  "id": "rice-2025-topps-chrome-139-base",
+  "player": "Ben Rice",
+  "year": "2025",
+  "set": "Topps Chrome",
+  "cardNo": "139",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "misi-2022-bdc132": {
+  "id": "misiorowski-2022-bowman-draft-chrome-bdc132-1st",
+  "player": "Jacob Misiorowski",
+  "year": "2022",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "BDC-132",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
  }
 }
