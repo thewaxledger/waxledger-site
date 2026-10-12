@@ -1638,7 +1638,9 @@ function colFiltered(r){
   return true}
 function anyColFilter(){for(var k in scr.f)if(scr.f[k])return true;return false}
 function fselHTML(k,mob){var d=SFILT[k],v=scr.f[k]||"";
-  return '<select class="fsel'+(v?" on":"")+'" data-sf="'+k+'" aria-label="Filter '+d.label+'">'+d.opts.map(function(o){return '<option value="'+o[0]+'"'+(o[0]===v?" selected":"")+'>'+(mob&&!o[0]?d.label+": all":o[1])+'</option>'}).join("")+'</select>'}
+  var opts=d.opts;if(k!=="verdict")opts=[opts[0],["sort:-1","Highest to lowest"],["sort:1","Lowest to highest"]].concat(opts.slice(1));
+  if(!v&&scr.sort.k===k)v="sort:"+scr.sort.dir;
+  return '<select class="fsel'+(v?" on":"")+'" data-sf="'+k+'" aria-label="Filter or sort '+d.label+'">'+opts.map(function(o){return '<option value="'+o[0]+'"'+(o[0]===v?" selected":"")+'>'+(mob&&!o[0]?d.label+": all":o[1])+'</option>'}).join("")+'</select>'}
 function sortTh(k,cls){var on=scr.sort.k===k;
   return '<th class="num'+(cls?" "+cls:"")+'"'+(on?' aria-sort="'+(scr.sort.dir<0?"descending":"ascending")+'"':"")+'><button type="button" class="sortb" data-ssort="'+k+'" aria-pressed="'+on+'">'+SSORT[k]+'<span class="arr">'+(on?(scr.sort.dir<0?"▼":"▲"):"▼")+'</span></button></th>'}
 function renderScrHead(){
@@ -3068,7 +3070,7 @@ $("#upcoming-only").addEventListener("change",renderReleases);
 $("#scr-sport").addEventListener("change",function(e){scr.sport=e.target.value;renderScreener()});
 document.addEventListener("change",function(e){
   var t=e.target;
-  if(t.matches&&t.matches("select[data-sf]")){scr.f[t.dataset.sf]=t.value;if(t.value)scr.filter="all";var k=t.dataset.sf,inMob=!!t.closest("#scr-mfilters");renderScreener();var nb=document.querySelector((inMob?"#scr-mfilters ":"#scr-head ")+'select[data-sf="'+k+'"]');if(nb)nb.focus();return}
+  if(t.matches&&t.matches("select[data-sf]")){if(/^sort:/.test(t.value)){scr.sort={k:t.dataset.sf,dir:+t.value.split(":")[1]};scr.f[t.dataset.sf]="";scr.filter="all"}else{if(scr.sort.k===t.dataset.sf&&!t.value)scr.sort={k:"",dir:-1};scr.f[t.dataset.sf]=t.value;if(t.value)scr.filter="all"}var k=t.dataset.sf,inMob=!!t.closest("#scr-mfilters");renderScreener();var nb=document.querySelector((inMob?"#scr-mfilters ":"#scr-head ")+'select[data-sf="'+k+'"]');if(nb)nb.focus();return}
   if(t.id==="scr-msort"){var p=t.value.split(":");scr.sort=p[0]?{k:p[0],dir:+p[1]}:{k:"",dir:-1};if(scr.sort.k&&scr.filter==="grade")scr.filter="all";renderScreener()}
 });
 $("#asm-form").addEventListener("submit",function(e){e.preventDefault()});

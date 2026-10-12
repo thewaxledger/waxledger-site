@@ -31,6 +31,10 @@ const lastCode = async (p, email) => { const m = await (await p.request.get(B + 
   r = await rows();
   expect('second click sorts ascending', r.every((x, i) => i === 0 || r[i - 1].roi <= x.roi));
   await p.click('#scr-head [data-sreset]'); await p.waitForTimeout(200);
+  await p.selectOption('#scr-head select[data-sf="profit"]', 'sort:-1'); await p.waitForTimeout(200);
+  r = await p.evaluate(() => [...document.querySelectorAll('#scr-body tr')].map(tr => +tr.querySelectorAll('td')[9].innerText.replace(/[−]/g, '-').replace(/[$,+]/g, '')));
+  expect('dropdown "Highest to lowest" sorts profit (' + r.length + ')', r.length > 41 && r.every((x, i) => i === 0 || isNaN(x) || isNaN(r[i - 1]) || r[i - 1] >= x));
+  await p.click('#scr-head [data-sreset]'); await p.waitForTimeout(200);
   expect('reset clears filters and sort', (await rows()).length >= base && await p.evaluate(() => ![...document.querySelectorAll('#scr-head select')].some(s => s.value)));
   await p.screenshot({ path: 'out/filters-desk.png' });
   // phone
