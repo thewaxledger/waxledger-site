@@ -546,10 +546,10 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
 
 <header class="site-head">
   <div class="wrap head-row">
-    <a class="brand" href="#market" data-go="market"><svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true"><rect x="12" y="4" width="76" height="92" rx="9" fill="var(--label)" stroke="var(--ink)" stroke-width="4"/><rect x="19" y="11" width="62" height="24" rx="3" fill="var(--card-ink)"/><rect x="24" y="16" width="16" height="4.5" rx="2.25" fill="#F3F5F7" opacity=".9"/><rect x="24" y="25" width="11" height="4.5" rx="2.25" fill="#F3F5F7" opacity=".55"/><rect x="19" y="41" width="62" height="48" rx="3" fill="var(--card-ink)"/><g transform="translate(50 65) scale(0.46) translate(-50 -50)"><circle cx="50" cy="50" r="46" fill="#E3A92B"/><g transform="translate(51 50) scale(0.95) translate(-50 -50)"><polyline points="12,40 22,66 32,51 42,69 55,28" fill="none" stroke="#0F1B2D" stroke-width="9" stroke-linejoin="miter" stroke-linecap="round"/><circle cx="55" cy="28" r="6" fill="#0F1B2D" stroke="#E3A92B" stroke-width="3"/><polyline points="74,36 65,68 80,68" fill="none" stroke="#0F1B2D" stroke-width="9" stroke-linejoin="miter" stroke-linecap="round"/></g></g></svg>Wax Ledger</a>
+    <a class="brand" href="#screener" data-go="screener"><svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true"><rect x="12" y="4" width="76" height="92" rx="9" fill="var(--label)" stroke="var(--ink)" stroke-width="4"/><rect x="19" y="11" width="62" height="24" rx="3" fill="var(--card-ink)"/><rect x="24" y="16" width="16" height="4.5" rx="2.25" fill="#F3F5F7" opacity=".9"/><rect x="24" y="25" width="11" height="4.5" rx="2.25" fill="#F3F5F7" opacity=".55"/><rect x="19" y="41" width="62" height="48" rx="3" fill="var(--card-ink)"/><g transform="translate(50 65) scale(0.46) translate(-50 -50)"><circle cx="50" cy="50" r="46" fill="#E3A92B"/><g transform="translate(51 50) scale(0.95) translate(-50 -50)"><polyline points="12,40 22,66 32,51 42,69 55,28" fill="none" stroke="#0F1B2D" stroke-width="9" stroke-linejoin="miter" stroke-linecap="round"/><circle cx="55" cy="28" r="6" fill="#0F1B2D" stroke="#E3A92B" stroke-width="3"/><polyline points="74,36 65,68 80,68" fill="none" stroke="#0F1B2D" stroke-width="9" stroke-linejoin="miter" stroke-linecap="round"/></g></g></svg>Wax Ledger</a>
     <nav class="nav" aria-label="Sections">
-      <a href="#market" data-go="market">Market</a>
       <a href="#screener" data-go="screener">Raw-to-Gem Calculator</a>
+      <a href="#market" data-go="market">Market</a>
       <a href="#pregrade" data-go="pregrade">Pre-Grading Tool</a>
       <a href="#trade" data-go="trade">Buy/Sell/Trade</a>
       <a href="#comps" data-go="comps">Comps</a>
@@ -1267,7 +1267,7 @@ var CHECKOUT={monthly:"https://buy.stripe.com/bJeeV65z565XgzTcpC3wQ02",annual:"h
 /* ---------- router ---------- */
 var VIEWS=["market","comps","screener","pregrade","trade","releases","trending","reviews","membership"];
 function show(name,keepScroll){
-  if(VIEWS.indexOf(name)<0)name="market";
+  if(VIEWS.indexOf(name)<0)name="screener";
   $$("[data-view]").forEach(function(v){v.hidden=v.dataset.view!==name});
   $$(".nav a").forEach(function(a){if(a.dataset.go===name)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
   if(name==="comps")compsOnShow();
@@ -3023,7 +3023,7 @@ window.addEventListener("resize",function(){clearTimeout(resizeTimer);resizeTime
 syncAsm();$("#calc-fee").value=(SA.fee+SA.ship).toFixed(2);$("#calc-sell").value=String(Math.round(SA.sellFee*1000)/10);
 renderMarket();cardChips($("#hero-chips"));cardChips($("#comp-chips"));renderCalc();loadHeroLive();renderScreener();renderReleases();renderTrending();renderReviews();
 var start=viewOf(location.hash);
-if(VIEWS.indexOf(start)<0){try{start=localStorage.getItem("wl-view")||"market"}catch(e){start="market"}}
+if(VIEWS.indexOf(start)<0){try{start=localStorage.getItem("wl-view")||"screener"}catch(e){start="screener"}}
 show(start,true);
 window.__wl={gradeMath:gradeMath,scrRows:scrRows,shareGradeCard:shareGradeCard,pgLoad:pgLoad,pgState:function(n){return PG[n]}};
 })();
