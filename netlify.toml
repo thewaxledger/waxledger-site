@@ -13,7 +13,8 @@
 
 [[redirects]]
   # MLB postseason offer (Oct 2026): the monthly Pro checkout with the WORLDSERIES code prefilled.
-  # Needs "Allow promotion codes" on the monthly Payment Link in Stripe and a promotion code WORLDSERIES ($3 off).
+  # Stripe (set up Oct 13): coupon "World Series: Pro $5/month for 3 months" ($3 off, repeating 3 months), promotion
+  # code WORLDSERIES expiring Nov 1, 2026 11:59 PM ET; the monthly Payment Link already allows promotion codes.
   from = "/worldseries"
   to = "https://buy.stripe.com/bJeeV65z565XgzTcpC3wQ02?prefilled_promo_code=WORLDSERIES"
   status = 302
