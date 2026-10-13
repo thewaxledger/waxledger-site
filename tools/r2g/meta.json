@@ -1555,5 +1555,185 @@
   "cardNo": "BDC-132",
   "parallel": "1st Bowman Chrome",
   "sport": "Baseball"
+ },
+ "harper-auto": {
+  "id": "harper-2025-topps-chrome-tcar-dh-rookie-auto",
+  "player": "Dylan Harper",
+  "year": "2025-26",
+  "set": "Topps Chrome",
+  "cardNo": "TCAR-DH",
+  "parallel": "Chrome Rookie Autograph (unnumbered)",
+  "sport": "Basketball"
+ },
+ "flagg-auto": {
+  "id": "flagg-2025-topps-chrome-tcar-cf-rookie-auto",
+  "player": "Cooper Flagg",
+  "year": "2025-26",
+  "set": "Topps Chrome",
+  "cardNo": "TCAR-CF",
+  "parallel": "Chrome Rookie Autograph (unnumbered)",
+  "sport": "Basketball"
+ },
+ "knueppel-auto": {
+  "id": "knueppel-2025-topps-chrome-tcar-kk-rookie-auto",
+  "player": "Kon Knueppel",
+  "year": "2025-26",
+  "set": "Topps Chrome",
+  "cardNo": "TCAR-KK",
+  "parallel": "Chrome Rookie Autograph (unnumbered)",
+  "sport": "Basketball"
+ },
+ "harper-252-xfractor": {
+  "id": "harper-2025-topps-chrome-252-xfractor",
+  "player": "Dylan Harper",
+  "year": "2025-26",
+  "set": "Topps Chrome",
+  "cardNo": "252",
+  "parallel": "X-Fractor (unnumbered)",
+  "sport": "Basketball"
+ },
+ "harper-252-pulsar": {
+  "id": "harper-2025-topps-chrome-252-pulsar",
+  "player": "Dylan Harper",
+  "year": "2025-26",
+  "set": "Topps Chrome",
+  "cardNo": "252",
+  "parallel": "Pulsar Refractor (unnumbered)",
+  "sport": "Basketball"
+ },
+ "harper-252-bball": {
+  "id": "harper-2025-topps-chrome-252-basketball-refractor",
+  "player": "Dylan Harper",
+  "year": "2025-26",
+  "set": "Topps Chrome",
+  "cardNo": "252",
+  "parallel": "Basketball Refractor (unnumbered)",
+  "sport": "Basketball"
+ },
+ "flagg-251-prism": {
+  "id": "flagg-2025-topps-chrome-251-prism",
+  "player": "Cooper Flagg",
+  "year": "2025-26",
+  "set": "Topps Chrome",
+  "cardNo": "251",
+  "parallel": "Prism Refractor (unnumbered)",
+  "sport": "Basketball"
+ },
+ "flagg-251-pulsar": {
+  "id": "flagg-2025-topps-chrome-251-pulsar",
+  "player": "Cooper Flagg",
+  "year": "2025-26",
+  "set": "Topps Chrome",
+  "cardNo": "251",
+  "parallel": "Pulsar Refractor (unnumbered)",
+  "sport": "Basketball"
+ },
+ "flagg-251-bball": {
+  "id": "flagg-2025-topps-chrome-251-basketball-refractor",
+  "player": "Cooper Flagg",
+  "year": "2025-26",
+  "set": "Topps Chrome",
+  "cardNo": "251",
+  "parallel": "Basketball Refractor (unnumbered)",
+  "sport": "Basketball"
+ },
+ "edge-253-bball": {
+  "id": "edgecombe-2025-topps-chrome-253-basketball-refractor",
+  "player": "VJ Edgecombe",
+  "year": "2025-26",
+  "set": "Topps Chrome",
+  "cardNo": "253",
+  "parallel": "Basketball Refractor (unnumbered)",
+  "sport": "Basketball"
+ },
+ "edge-253-prism": {
+  "id": "edgecombe-2025-topps-chrome-253-prism",
+  "player": "VJ Edgecombe",
+  "year": "2025-26",
+  "set": "Topps Chrome",
+  "cardNo": "253",
+  "parallel": "Prism Refractor (unnumbered)",
+  "sport": "Basketball"
+ },
+ "misi-auto": {
+  "id": "misiorowski-2022-bowman-draft-chrome-cda-jmi-auto",
+  "player": "Jacob Misiorowski",
+  "year": "2022",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "CDA-JMI",
+  "parallel": "Draft Pick Autograph (unnumbered)",
+  "sport": "Baseball"
+ },
+ "misi-auto-ref": {
+  "id": "misiorowski-2022-bowman-draft-chrome-cda-jmi-auto-refractor",
+  "player": "Jacob Misiorowski",
+  "year": "2022",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "CDA-JMI",
+  "parallel": "Draft Pick Autograph Refractor /499",
+  "sport": "Baseball"
+ },
+ "misi-auto-blue": {
+  "id": "misiorowski-2022-bowman-draft-chrome-cda-jmi-auto-blue",
+  "player": "Jacob Misiorowski",
+  "year": "2022",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "CDA-JMI",
+  "parallel": "Draft Pick Autograph Blue Refractor /150",
+  "sport": "Baseball"
+ },
+ "pca-cda": {
+  "id": "crow-armstrong-2020-bowman-draft-chrome-cda-pc-auto",
+  "player": "Pete Crow-Armstrong",
+  "year": "2020",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "CDA-PC",
+  "parallel": "Draft Pick Autograph (unnumbered)",
+  "sport": "Baseball"
+ },
+ "pca-cda-ref": {
+  "id": "crow-armstrong-2020-bowman-draft-chrome-cda-pc-auto-refractor",
+  "player": "Pete Crow-Armstrong",
+  "year": "2020",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "CDA-PC",
+  "parallel": "Draft Pick Autograph Refractor /499",
+  "sport": "Baseball"
+ },
+ "pca-cda-purple": {
+  "id": "crow-armstrong-2020-bowman-draft-chrome-cda-pc-auto-purple",
+  "player": "Pete Crow-Armstrong",
+  "year": "2020",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "CDA-PC",
+  "parallel": "Draft Pick Autograph Purple Refractor /250",
+  "sport": "Baseball"
+ },
+ "pca-ra": {
+  "id": "crow-armstrong-2024-topps-chrome-ra-pc-rookie-auto",
+  "player": "Pete Crow-Armstrong",
+  "year": "2024",
+  "set": "Topps Chrome",
+  "cardNo": "RA-PC",
+  "parallel": "Rookie Autograph (unnumbered)",
+  "sport": "Baseball"
+ },
+ "pca-ra-ref": {
+  "id": "crow-armstrong-2024-topps-chrome-ra-pc-rookie-auto-refractor",
+  "player": "Pete Crow-Armstrong",
+  "year": "2024",
+  "set": "Topps Chrome",
+  "cardNo": "RA-PC",
+  "parallel": "Rookie Autograph Refractor /499",
+  "sport": "Baseball"
+ },
+ "wemby-prizm-green": {
+  "id": "wembanyama-2023-panini-prizm-136-green",
+  "player": "Victor Wembanyama",
+  "year": "2023-24",
+  "set": "Panini Prizm",
+  "cardNo": "136",
+  "parallel": "Green Prizm RC (unnumbered)",
+  "sport": "Basketball"
  }
 }
