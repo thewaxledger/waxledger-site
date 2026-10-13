@@ -1735,5 +1735,50 @@
   "cardNo": "136",
   "parallel": "Green Prizm RC (unnumbered)",
   "sport": "Basketball"
+ },
+ "carlsson-2023-ud-468": {
+  "id": "carlsson-2023-upper-deck-series-2-468-young-guns",
+  "player": "Leo Carlsson",
+  "year": "2023-24",
+  "set": "Upper Deck Series 2",
+  "cardNo": "468",
+  "parallel": "Young Guns RC",
+  "sport": "Hockey"
+ },
+ "fantilli-2023-ud-711": {
+  "id": "fantilli-2023-upper-deck-extended-711-young-guns",
+  "player": "Adam Fantilli",
+  "year": "2023-24",
+  "set": "Upper Deck Extended Series",
+  "cardNo": "711",
+  "parallel": "Young Guns RC",
+  "sport": "Hockey"
+ },
+ "pettersson-2018-ud-248": {
+  "id": "pettersson-2018-upper-deck-series-1-248-young-guns",
+  "player": "Elias Pettersson",
+  "year": "2018-19",
+  "set": "Upper Deck Series 1",
+  "cardNo": "248",
+  "parallel": "Young Guns RC",
+  "sport": "Hockey"
+ },
+ "murray-2019-prizm-301": {
+  "id": "murray-2019-panini-prizm-301-base",
+  "player": "Kyler Murray",
+  "year": "2019",
+  "set": "Panini Prizm",
+  "cardNo": "301",
+  "parallel": "Base RC",
+  "sport": "Football"
+ },
+ "jefferson-2020-prizm-398": {
+  "id": "jefferson-2020-panini-prizm-398-base",
+  "player": "Justin Jefferson",
+  "year": "2020",
+  "set": "Panini Prizm",
+  "cardNo": "398",
+  "parallel": "Base RC",
+  "sport": "Football"
  }
 }
