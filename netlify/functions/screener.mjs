@@ -14,7 +14,7 @@ export function score(c) {
   const profit = gem * net10 + (1 - gem) * netMiss - allIn, roi = profit / allIn, be = net10 - netMiss ? (allIn - netMiss) / (net10 - netMiss) : null;
   let code = "GRADE";
   if (A.requireReal && c.compType !== "Real") code = "SKIP";
-  else if ((num(c.psa10Sales90) ? c.psa10Sales90 : 0) < A.minSales) code = (c.psa10Sales90 >= A.minThin && profit > 0 && gemPop != null) ? "THIN" : "FAIL";
+  else if ((num(c.psa10Sales90) ? c.psa10Sales90 : 0) < A.minSales && c.waiveSales !== true) code = (c.psa10Sales90 >= A.minThin && profit > 0 && gemPop != null) ? "THIN" : "FAIL";
   else if (profit <= 0) code = "FAIL";
   else if (gemPop == null) code = "CANDIDATE";
   else if (be == null || gem - be < A.minMargin) code = "MARGINAL";

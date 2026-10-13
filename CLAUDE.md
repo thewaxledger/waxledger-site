@@ -89,7 +89,8 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
 fee 59.99, ship 10, sellFee .13, haircut .20, missReal .85, assumedGem .35, minSales 25, minThin 10, minMargin .10, requireReal.
 Verdicts: SKIP (estimate comps) → THIN ("Thin market": 10–24 PSA 10 sales in 90 days, profit > 0, gem rate from the pop;
 added Oct 12 at Aidan's request) → FAIL (fewer than 10 PSA 10 sales, 10–24 without a profit, or profit ≤ 0) → CANDIDATE (no pop) →
-MARGINAL (gem rate minus break-even under 10 pts) → GRADE. There is **no minimum PSA 10 price** (removed Oct 9, 2026
+MARGINAL (gem rate minus break-even under 10 pts) → GRADE. A card with `waiveSales: true` in screen-data.mjs skips the
+sales floor entirely (Aidan's call, per card; the note must say so). There is **no minimum PSA 10 price** (removed Oct 9, 2026
 at Aidan's request; it was a search guideline, not a rule).
 
 ## Data sources and their quirks

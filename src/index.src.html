@@ -1578,7 +1578,7 @@ function scrCompute(c,A){
   r.be=(r.net10-r.netMiss)!==0?(r.allIn-r.netMiss)/(r.net10-r.netMiss):null;
   r.margin=r.be!=null?r.gem-r.be:null;
   r.down9=r.netMiss-r.allIn;r.up10=r.net10-r.allIn;
-  r.liqOK=(isNum(c.psa10Sales90)?c.psa10Sales90:0)>=A.minSales;
+  r.liqOK=(isNum(c.psa10Sales90)?c.psa10Sales90:0)>=A.minSales||c.waiveSales===true;
   r.realOK=!A.requireReal||c.compType==="Real";
   r.margOK=r.margin!=null&&r.margin>=A.minMargin;
   var v;

@@ -59,9 +59,10 @@ def compute(c):
     r.update(gem=gem, gemPop=gem_pop, allIn=all_in, net10=net10, netMiss=net_miss, ev=ev, profit=profit, roi=profit / all_in, be=be,
              up10=net10 - all_in, down9=net_miss - all_in, margin=(gem - be) if be is not None else None)
     sales = c.get("psa10Sales90") or 0
+    waived = c.get("waiveSales") is True  # the volume floor is waived on this card (Aidan's call; said in the note)
     if c.get("compType") != "Real": r["code"], r["label"], r["why"] = "SKIP", "Skip", "The PSA 10 price is an estimate, not real sales."
-    elif sales < A["minSales"] and sales >= A["minThin"] and profit > 0 and gem_pop is not None: r["code"], r["label"], r["why"] = "THIN", "Thin market", f"Profitable on paper, but only {sales} PSA 10 sales in 90 days: a slab may take weeks to sell."
-    elif sales < A["minSales"]: r["code"], r["label"], r["why"] = "FAIL", "Fail", f"Only {sales} PSA 10 sales in 90 days, under the 25-sale minimum."
+    elif not waived and sales < A["minSales"] and sales >= A["minThin"] and profit > 0 and gem_pop is not None: r["code"], r["label"], r["why"] = "THIN", "Thin market", f"Profitable on paper, but only {sales} PSA 10 sales in 90 days: a slab may take weeks to sell."
+    elif not waived and sales < A["minSales"]: r["code"], r["label"], r["why"] = "FAIL", "Fail", f"Only {sales} PSA 10 sales in 90 days, under the 25-sale minimum."
     elif profit <= 0: r["code"], r["label"], r["why"] = "FAIL", "Fail", "Negative expected value after the fee, shipping and selling costs."
     elif gem_pop is None: r["code"], r["label"], r["why"] = "CANDIDATE", "Verify pop", "Profitable on a placeholder gem rate; the real population is not in yet."
     elif be is None or gem - be < A["minMargin"]: r["code"], r["label"], r["why"] = "MARGINAL", "Marginal", f"Gem rate {pct(gem)} is within 10 points of the {pct(be)} break-even."
