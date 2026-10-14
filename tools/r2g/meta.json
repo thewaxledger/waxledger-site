@@ -1780,5 +1780,50 @@
   "cardNo": "398",
   "parallel": "Base RC",
   "sport": "Football"
+ },
+ "lamb-2020-prizm-334": {
+  "id": "lamb-2020-panini-prizm-334-base",
+  "player": "CeeDee Lamb",
+  "year": "2020",
+  "set": "Panini Prizm",
+  "cardNo": "334",
+  "parallel": "Base RC",
+  "sport": "Football"
+ },
+ "bowers-2024-prizm-315": {
+  "id": "bowers-2024-panini-prizm-315-base",
+  "player": "Brock Bowers",
+  "year": "2024",
+  "set": "Panini Prizm",
+  "cardNo": "315",
+  "parallel": "Base RC",
+  "sport": "Football"
+ },
+ "robert-2020-tc-60": {
+  "id": "robert-2020-topps-chrome-60-base",
+  "player": "Luis Robert Jr.",
+  "year": "2020",
+  "set": "Topps Chrome",
+  "cardNo": "60",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "chase-2021-prizm-337": {
+  "id": "chase-2021-panini-prizm-337-base",
+  "player": "Ja'Marr Chase",
+  "year": "2021",
+  "set": "Panini Prizm",
+  "cardNo": "337",
+  "parallel": "Base RC",
+  "sport": "Football"
+ },
+ "taylor-2020-prizm-332": {
+  "id": "taylor-2020-panini-prizm-332-base",
+  "player": "Jonathan Taylor",
+  "year": "2020",
+  "set": "Panini Prizm",
+  "cardNo": "332",
+  "parallel": "Base RC",
+  "sport": "Football"
  }
 }

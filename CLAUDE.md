@@ -61,9 +61,14 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
   board until the model prices the full grade distribution (Aidan's call).
   Spec IDs found Oct 11 and not yet pulled in full: Skenes USC88 12100378, Kurtz 15000056, Henderson 9161725, SGA Prizm
   2676839, Bailey Chrome 14982055, Acuna US250 2652951, Guerrero 2800015, Tatis 2806015, Soto US300 2652939, Wembanyama
-  Prizm 10279296; new candidates with 25+ PSA 10 sales in 90 days: Makar 2981756 (50), Jack Hughes 2866588 (92),
-  Kaprizov 4662740 (79), MacKinnon 1986819 (30), Demidov 14669416 (106). PSA has no spec yet for the Flagg Chrome
-  Update #151 cards.
+  Prizm 10279296. The Makar / Jack Hughes / Kaprizov / MacKinnon / Demidov hockey cards found Oct 11 are on the board.
+  Checked Oct 14 and left off for volume (PSA 10 sales in 90 days): Arozarena 2020 Topps Chrome #49 3451435 (47, but a
+  $10 PSA 10), Caminero 2024 Topps Chrome #213 11374827 (18), Volpe 2023 Topps Chrome #4 9161727 (17), Derrick Henry
+  2016 Prizm #298 2366808 (16), Garrett Wilson 2022 Prizm #309 8411814 (3), Odunze 2024 Prizm #385 12496754 (2).
+  PSA has no spec yet for the Flagg Chrome Update #151 cards.
+  `pull.js` returns `latest10`; refresh.py and r2gnotes.py read that key. integrate.py replaces every meta.json card from
+  build.py, so a note edited on the board by hand (refresh.py sentences included) must be copied back into notes.json
+  first or the next integrate run reverts it.
 - `tools/reviews/` — the scripts that inserted each Product Review (template for new ones). A review is an entry in
   `var REVIEWS=[...]` in the master, marked with a `/* slug */` comment so the script is idempotent. Entries with a
   `deep` object render the expandable "Full breakdown" and show "WAX SCORE / 10"; entries without are sample previews.

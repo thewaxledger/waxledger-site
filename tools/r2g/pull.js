@@ -50,7 +50,7 @@ window.pull = async (specId) => {
   const cnt = (k) => (pop[k] ? pop[k].totalCount : 0); const pr = (a) => a.map((x) => x.salePrice);
   return {
     specId, n10: g(10).quantity || 0, avg10: r2(g(10).averagePrice), med10: r2(med(pr(s10))), min10: g(10).minimumPrice ?? null, max10: g(10).maximumPrice ?? null,
-    last10: s10[0] ? s10[0].salePrice : null, medN10: s10.length, old10: s10.length ? s10.at(-1).saleDate.slice(0, 10) : null, new10: s10.length ? s10[0].saleDate.slice(0, 10) : null,
+    latest10: s10[0] ? s10[0].salePrice : null, medN10: s10.length, old10: s10.length ? s10.at(-1).saleDate.slice(0, 10) : null, new10: s10.length ? s10[0].saleDate.slice(0, 10) : null,
     n9: g(9).quantity || 0, avg9: r2(g(9).averagePrice), med9: r2(med(pr(s9))), medN9: s9.length,
     rawN: raw.length, rawMed: r2(med(pr(raw))), rawLast: raw[0] ? raw[0].salePrice : null, rawOldest: raw.length ? raw.at(-1).saleDate.slice(0, 10) : null,
     rawMin: raw.length ? Math.min(...pr(raw)) : null, rawMax: raw.length ? Math.max(...pr(raw)) : null,
