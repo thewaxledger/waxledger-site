@@ -20,6 +20,12 @@
   status = 302
 
 [[redirects]]
+  # Raw-to-Gem Friday sign-up: the home page scrolled to the newsletter box (see "newsletter" in the master).
+  from = "/friday"
+  to = "/?news=1"
+  status = 302
+
+[[redirects]]
   from = "/giveaway-rules"
   to = "/giveaway-rules.html"
   status = 200

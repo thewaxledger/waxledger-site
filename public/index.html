@@ -2780,6 +2780,8 @@ function authLogout(){api("/api/auth",{action:"logout"}).then(authRefresh)}
 (function(){
   var f=$("#news-form");if(!f)return;
   try{if(localStorage.getItem("wl-news")==="1"){$("#news-note").textContent="You're on the list. First issue Friday, October 16.";$("#news-email").hidden=true;$("#news-btn").hidden=true}}catch(e){}
+  // thewaxledger.com/friday lands here (/?news=1): bring the sign-up box into view; focus it on desktop only (a phone keyboard would cover it)
+  if(/[?&]news=1\b/.test(location.search))setTimeout(function(){var band=document.querySelector(".news-band");if(band)band.scrollIntoView({behavior:"smooth",block:"center"});if(!$("#news-email").hidden&&matchMedia("(min-width:761px)").matches)$("#news-email").focus({preventScroll:true})},700);
   f.addEventListener("submit",function(e){
     e.preventDefault();var em=$("#news-email").value.trim(),n=$("#news-note"),b=$("#news-btn");
     if(!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(em)){n.textContent="That doesn't look like an email address.";return}
