@@ -70,7 +70,12 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
   Gibbs 2023 Prizm #331 10222815 (10), Bijan 2023 Prizm #305 10222790 (9), Castle 2024 Prizm #234 12967097 (9),
   2025 Prizm base rookies (Ward #352 15118082: 9, Sanders #302 15118032: 6, Hunter #301 15118031: 1, Jeanty #315
   15118045; spec = 15117730 + card number), Curry 2009 Topps #321 1699202 (10, 5% gem). Mahomes 2017 Prizm #269
-  6036052 returns an empty APR summary. The PSA APR search misses most base cards; the pop-report search works on
+  6036052 returns an empty APR summary. Also left off Oct 15: Brunson 2018 Prizm #250 base 2692960 (13), Curry 2009
+  Topps Chrome #101 889317 (4). On the board since Oct 15: Ohtani 2018 Bowman #49 2558288, Ohtani 2018 Topps Chrome
+  Update HMT1 2659442, Zion 2019 Prizm #248 base 2879876, De La Cruz 2024 Topps Chrome #44 11374656 (psa-18.json).
+  Three daily-review sessions ran on Oct 15 in parallel and pushed on top of each other; a run that finds main moved
+  under it should reset to origin/main and re-apply only what is new (new psa-N batch, review text, news), never
+  force-push. The PSA APR search misses most base cards; the pop-report search works on
   https://www.psacard.com/pop (that page has jQuery), one term at a time with a pause, and errors on some terms.
   build.py keeps the newest pull per key across psa-*.json (by asOf), so a refresh pull in a new file wins over an
   old one in psa-2.json.

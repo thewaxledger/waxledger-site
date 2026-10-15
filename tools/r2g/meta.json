@@ -1879,5 +1879,41 @@
   "cardNo": "138",
   "parallel": "Base RC",
   "sport": "Basketball"
+ },
+ "ohtani-2018-bowman-49": {
+  "id": "ohtani-2018-bowman-49-base",
+  "player": "Shohei Ohtani",
+  "year": "2018",
+  "set": "Bowman",
+  "cardNo": "49",
+  "parallel": "Base RC (paper)",
+  "sport": "Baseball"
+ },
+ "ohtani-2018-tcu-hmt1": {
+  "id": "ohtani-2018-topps-chrome-update-hmt1-base",
+  "player": "Shohei Ohtani",
+  "year": "2018",
+  "set": "Topps Chrome Update",
+  "cardNo": "HMT1",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "zion-2019-prizm-248": {
+  "id": "zion-2019-panini-prizm-248-base",
+  "player": "Zion Williamson",
+  "year": "2019-20",
+  "set": "Panini Prizm",
+  "cardNo": "248",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "elly-2024-tc-44": {
+  "id": "delacruz-2024-topps-chrome-44-base",
+  "player": "Elly De La Cruz",
+  "year": "2024",
+  "set": "Topps Chrome",
+  "cardNo": "44",
+  "parallel": "Base RC",
+  "sport": "Baseball"
  }
 }
