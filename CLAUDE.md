@@ -66,6 +66,14 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
   $10 PSA 10), Caminero 2024 Topps Chrome #213 11374827 (18), Volpe 2023 Topps Chrome #4 9161727 (17), Derrick Henry
   2016 Prizm #298 2366808 (16), Garrett Wilson 2022 Prizm #309 8411814 (3), Odunze 2024 Prizm #385 12496754 (2).
   PSA has no spec yet for the Flagg Chrome Update #151 cards.
+  Checked Oct 15 and left off for volume: Nacua 2023 Prizm #357 10222841 (23), De La Cruz 2023 BCP-65 8589333 (23),
+  Gibbs 2023 Prizm #331 10222815 (10), Bijan 2023 Prizm #305 10222790 (9), Castle 2024 Prizm #234 12967097 (9),
+  2025 Prizm base rookies (Ward #352 15118082: 9, Sanders #302 15118032: 6, Hunter #301 15118031: 1, Jeanty #315
+  15118045; spec = 15117730 + card number), Curry 2009 Topps #321 1699202 (10, 5% gem). Mahomes 2017 Prizm #269
+  6036052 returns an empty APR summary. The PSA APR search misses most base cards; the pop-report search works on
+  https://www.psacard.com/pop (that page has jQuery), one term at a time with a pause, and errors on some terms.
+  build.py keeps the newest pull per key across psa-*.json (by asOf), so a refresh pull in a new file wins over an
+  old one in psa-2.json.
   `pull.js` returns `latest10`; refresh.py and r2gnotes.py read that key. integrate.py replaces every meta.json card from
   build.py, so a note edited on the board by hand (refresh.py sentences included) must be copied back into notes.json
   first or the next integrate run reverts it.

@@ -8,7 +8,7 @@ P = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath
 s = open(P).read()
 
 REVIEW = {
- "kind": "Review", "n": "2026 Topps Chrome Formula 1", "when": "Releases Oct 15 · presale prices", "score": "4.8",
+ "kind": "Review", "n": "2026 Topps Chrome Formula 1", "when": "Out Oct 15 · presale prices", "score": "4.8",
  "facts": [
   "Hobby: 20 packs of 4 (80 cards) with one autograph, four Prism Refractors and three or more numbered parallels. $469.99 at Topps' Sep 15 presale, $479.99 on release day; $948 median on eBay presale (12 boxes sold Oct 1 to 12, $900 to $1,000)",
   "Mega box: 6 packs of 7, $209 median on eBay presale (21 sold Oct 3 to 12). Value box: 28 cards, $71 median (47 sold Oct 1 to 13)",

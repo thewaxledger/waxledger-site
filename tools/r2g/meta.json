@@ -1825,5 +1825,32 @@
   "cardNo": "332",
   "parallel": "Base RC",
   "sport": "Football"
+ },
+ "wood-2022-bcp108": {
+  "id": "wood-2022-bowman-chrome-prospects-bcp108-1st",
+  "player": "James Wood",
+  "year": "2022",
+  "set": "Bowman Chrome Prospects",
+  "cardNo": "BCP-108",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "holliday-2022-bdc168": {
+  "id": "holliday-2022-bowman-draft-chrome-bdc168-1st",
+  "player": "Jackson Holliday",
+  "year": "2022",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "BDC-168",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "caglianone-2024-bdc8": {
+  "id": "caglianone-2024-bowman-draft-chrome-bdc8-1st",
+  "player": "Jac Caglianone",
+  "year": "2024",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "BDC-8",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
  }
 }

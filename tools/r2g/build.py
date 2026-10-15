@@ -6,7 +6,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 AS_OF = "2026-10-09"
 raw = {}
 for f in sorted(glob.glob(os.path.join(HERE, "psa-*.json"))):
-    raw.update(json.load(open(f)))
+    for k, v in json.load(open(f)).items():  # the newest pull wins (pulls without asOf are Oct 9)
+        if k not in raw or (v.get("asOf") or "2026-10-09") >= (raw[k].get("asOf") or "2026-10-09"):
+            raw[k] = v
 meta = json.load(open(os.path.join(HERE, "meta.json")))
 notes = json.load(open(os.path.join(HERE, "notes.json"))) if os.path.exists(os.path.join(HERE, "notes.json")) else {}
 

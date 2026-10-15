@@ -7,7 +7,7 @@ P = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath
 s = open(P).read()
 
 REVIEW = {
- "kind": "Review", "n": "2026 Topps Update Series Baseball", "when": "Releases Oct 14 · presale prices", "score": "5.4",
+ "kind": "Review", "n": "2026 Topps Update Series Baseball", "when": "Out Oct 14 · presale prices", "score": "5.4",
  "facts": [
   "Hobby: 20 packs of 12 with one autograph or relic. $109.99 at Topps' Sep 14 presale (sold out); $180 median on eBay presale (29 boxes sold Oct 1 to 12, $165 to $250)",
   "Jumbo: 10 packs of 40 with one autograph and one relic, $319 median (41 sold Sep 14 to Oct 11). Hobby cases $2,025 median (13 sold), about $169 a box",
