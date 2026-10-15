@@ -7,17 +7,17 @@ P = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath
 s = open(P).read()
 
 REVIEW = {
- "kind": "Review", "n": "2026 Topps Update Series Baseball", "when": "Out Oct 14 · presale prices", "score": "5.4",
+ "kind": "Review", "n": "2026 Topps Update Series Baseball", "when": "Out now · prices Oct 15", "score": "5.4",
  "facts": [
-  "Hobby: 20 packs of 12 with one autograph or relic. $109.99 at Topps' Sep 14 presale (sold out); $180 median on eBay presale (29 boxes sold Oct 1 to 12, $165 to $250)",
-  "Jumbo: 10 packs of 40 with one autograph and one relic, $319 median (41 sold Sep 14 to Oct 11). Hobby cases $2,025 median (13 sold), about $169 a box",
+  "Hobby: 20 packs of 12 with one autograph or relic. $109.99 at Topps' Sep 14 presale (sold out); $178 median on eBay in the first two days after release (34 boxes sold Oct 14 to 15, most $160 to $200); $180 in presale",
+  "Jumbo: 10 packs of 40 with one autograph and one relic, $325 median (15 sold Oct 14 to 15), $319 in presale. Hobby cases $2,025 median (13 sold), about $169 a box",
   "350 cards, US1 to US350: 85 rookie cards, 40 Rookie Debut cards, 195 veterans, 16 Veteran Combos, 14 Season Highlights",
   "Rookie cards: Konnor Griffin US1, Kevin McGonigle US7, JJ Wetherholt US50, Travis Bazzana US75. Rookie Debut: Munetaka Murakami US350, Roman Anthony US194",
   "About two numbered parallels per hobby box. 1952 Rookie Variations fall 1 in 5,952 hobby packs, about one every 25 cases"
  ],
  "bars": [["Rookie class", 8.5], ["Hit quality", 5.0], ["Print run", 3.5], ["Price vs. value", 4.5]],
  "deep": {
-  "lede": "Written Oct 12, two days before release. The checklist and odds are published, so the shape of the product is known. Box prices below are real presale sales from eBay sold listings. Single-card prices are not a market yet: some retail product reached buyers early and a few dozen singles sold between Oct 8 and Oct 12, one to four sales per card. Those are listed as individual sales, not medians, and the full price tables will be added once hobby boxes open. The short version: the rookie class is the same one that carries Allen & Ginter and Bowman Chrome this year, the base cards will be printed in very large numbers, and the hobby box is selling for about $70 over what Topps charged.",
+  "lede": "Written Oct 12, two days before release; box and base-rookie prices updated Oct 15 from the first two days of eBay sold listings (Oct 14 to 15). The checklist and odds are published, so the shape of the product is known. The base rookies now have medians with counts. Parallels, autographs and relics are still one to four sales each and are listed as individual sales, not medians. The short version: the rookie class is the same one that carries Allen & Ginter and Bowman Chrome this year, the base cards will be printed in very large numbers, and the hobby box is selling for about $70 over what Topps charged.",
   "sections": [
    {"h": "Tier 1 · The cards worth opening a hobby box for", "items": [
     {"c": "1952 Rookie Variations · 25 cards, short print", "p": "Prices pending. 1 in 5,952 hobby packs",
@@ -30,11 +30,11 @@ REVIEW = {
      "w": "One autograph or relic per hobby box, and most boxes get the relic. Chase signers named on the checklist include Griffin, McGonigle and Wetherholt among rookies and Mike Trout, Ronald Acuña Jr. and Pete Crow-Armstrong among veterans. Jumbo boxes guarantee one of each."}
    ]},
    {"h": "Tier 2 · Rookies: which card is the rookie card", "items": [
-    {"c": "Konnor Griffin · US1 RC and US255 Rookie Debut", "p": "Early sales, Oct 8 to 12: US1 base $2.50 and $3.25 · US255 Rookie Debut $5 · retail Orange/Black Foil $6 and $10 · Jack O'Lantern $6.99",
+    {"c": "Konnor Griffin · US1 RC and US255 Rookie Debut", "p": "US1 base $2.29 median (45 sales Oct 14 to 15, $0.99 to $9.99) · Gold /2026 $38, $39, $40, $75 (4 sales) · Black /75 $85 (1) · Orange Rainbow Foil /25 $325 (1) · retail Orange/Black Foil $5 to $20 (7 sales)",
      "w": "US1 is the card with the RC logo; US255 is the Rookie Debut, a second card that has historically sold for less. His Allen & Ginter base is $2.99 on 50 sales and this will be printed in larger numbers. Buy the numbered parallels or nothing."},
-    {"c": "Kevin McGonigle · US7 RC and US140 Rookie Debut", "p": "Early sales, Oct 8 to 12: US7 base $2.50, $12.50, $12.50 · US140 Rookie Debut $4 and $5 · Gold /2026 $100 (1) · All-Star Game insert $7",
-     "w": "Baseball America's Rookie of the Year (.278 with 18 home runs in 156 games). Three base sales between $2.50 and $12.50 show there is no settled price yet. Expect $2 to $4 once hobby cases are open."},
-    {"c": "Munetaka Murakami · US350 Rookie Debut", "p": "Early sales, Oct 8 to 12: US350 $3.95 and $4.50 · retail Holiday parallel $9.99 · Black Gold insert $15",
+    {"c": "Kevin McGonigle · US7 RC and US140 Rookie Debut", "p": "US7 base $3.49 median (51 sales Oct 14 to 15, $1.25 to $20) · Gold /2026 $50, $50, $50, $60 (4 sales Oct 14 to 15; one at $100 on Oct 11)",
+     "w": "Baseball America's Rookie of the Year (.278 with 18 home runs in 156 games). Fifty-one base sales in two days settled at $3.49, about a dollar over Griffin, and the Gold /2026 fell from $100 to $50 once boxes opened."},
+    {"c": "Munetaka Murakami · US350 Rookie Debut", "p": "US350 $2.22 median (12 sales Oct 14 to 15, $0.99 to $9.99) · retail Holiday parallel $9.99 (1, Oct 10) · Black Gold insert $15 (1, Oct 10)",
      "w": "Update has his Rookie Debut and two subset cards (US103, US246), not his base rookie card; that is #503 in the flagship set (PSA's catalog). The White Sox season ended in ALDS Game 5 on Oct 10. His 2026 Bowman Red RC Variation is the card with a graded market: PSA 10 $500 median on 19 sales in 90 days."},
     {"c": "JJ Wetherholt US50, Travis Bazzana US75, Justin Crawford US2, Carson Benge US3, Andrew Painter US63, Noah Schultz US105", "p": "Early sales: Wetherholt US50 $3 and $4.50. The rest pending",
      "w": "The second line of the class. Each also has a Rookie Debut card later in the set (Wetherholt US245, Bazzana US278). Base cards will be $1 to $3; the parallels numbered /250 and lower are the versions with a price."},
@@ -51,10 +51,10 @@ REVIEW = {
    ]}
   ],
   "avoid": [
-   "Paying $180 for a hobby box that Topps sold for $109.99. The 87 presale boxes sold on eBay since Sep 14 have a $175 median and the last 29 are at $180; there is no post-release price yet, and a presale premium of $70 over the Topps price is a lot to pay for one autograph or relic.",
+   "Paying $178 for a hobby box that Topps sold for $109.99. The 87 presale boxes sold on eBay since Sep 14 had a $175 median, and the first 34 boxes sold after release (Oct 14 to 15) are at $178, so release did not bring the price down. A premium of $70 over the Topps price is a lot to pay for one autograph or relic.",
    "Buying a box for the rookies. A hobby box holds 240 cards with about two numbered parallels, and the odds that either is Griffin, McGonigle, Wetherholt or Bazzana are about 1 in 44. The base rookies will cost less than a pack.",
    "Grading base rookies from this set at $59.99 a card. The 2018 Update base rookies of Ronald Acuña Jr. and Juan Soto, with 63% and 65% gem rates, sell for $35 and $39 in PSA 10 (197 and 221 sales in 90 days, PSA APR Oct 12); the Raw-to-Gem model puts the expected loss at $54 and $56 a card. The 2018 Ohtani US1 clears because a PSA 10 is $495. A flagship base rookie only pays for grading when the player becomes that.",
-   "Reading the early single sales above as prices. They come from a few retail boxes opened before release, one to four sales per card.",
+   "Reading the parallel, insert and relic prices above as market prices. The base rookies have 12 to 51 sales each; everything else is one to four sales from the first two days.",
    "Confusing Rookie Debut cards with rookie cards when buying lots. Griffin, McGonigle, Wetherholt and Bazzana have both in this set; check the card number."
   ],
   "notes": [
@@ -62,10 +62,10 @@ REVIEW = {
    "Formats: hobby (20 packs of 12 plus a five-card Silver Pack), jumbo (10 packs of 40, two Silver Packs), value box (6 packs of 12, $24.99 at Topps), hanger (59 cards), fat pack (36 cards), super box. Sandglitter parallels are jumbo-only, Diamante hanger-only, Holiday variations retail-only, Clear variations hobby-only.",
    "Checklist counts are from baseball.cards and Cardsmiths Breaks and agree with each other on the card numbers quoted here. Topps marks the checklist as subject to change.",
    "Topps does not publish a print run. Update is the third series of the flagship set and is sold in every format at mass retail; treat every unnumbered base card as unlimited.",
-   "Pending after release: medians with counts for the base rookies, the numbered parallels, 1952 Rookie Variations, autographs by signer and relics.",
+   "Updated Oct 15 with two days of post-release sales. Still pending: medians with counts for the numbered parallels, 1952 Rookie Variations, autographs by signer and relics.",
    "Verdict for now: a strong rookie checklist in the most heavily printed product of the year. At $109.99 a hobby box was a fair rip for set builders; at $180 it is a pass. Wait a week and buy the singles: numbered parallels of Griffin and McGonigle, and any 1952 Rookie Variation that lists before the market has a price for it."
   ],
-  "src": "Box prices: eBay sold listings, Sep 14 to Oct 12 (presale), medians with counts. Single-card prices: eBay sold listings, Oct 8 to 12, individual early sales only. Topps price and configuration: Topps.com and Checklist Insider. Checklist and odds: Checklist Insider, Cardsmiths Breaks, baseball.cards. 2018 Update comparison: PSA Auction Prices Realized and pop report, Oct 12. Player context: Baseball America, CBS Sports."
+  "src": "Box prices: eBay sold listings, Oct 14 to 15 (post-release) and Sep 14 to Oct 12 (presale), medians with counts, single boxes only. Base rookie prices: eBay sold listings, Oct 14 to 15, medians with counts. Parallel, insert and relic prices: eBay sold listings, Oct 8 to 15, individual sales. Topps price and configuration: Topps.com and Checklist Insider. Checklist and odds: Checklist Insider, Cardsmiths Breaks, baseball.cards. 2018 Update comparison: PSA Auction Prices Realized and pop report, Oct 12. Player context: Baseball America, CBS Sports."
  }
 }
 

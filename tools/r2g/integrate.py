@@ -17,7 +17,14 @@ for n in new:
     if not n["note"]:
         print("no note for", n["id"], file=sys.stderr); continue
     if n["id"] in byid:
-        n["order"] = byid[n["id"]]["order"]; byid[n["id"]].update(n); replaced += 1
+        old = byid[n["id"]]; n["order"] = old["order"]
+        if old["note"].startswith(n["note"]) and len(old["note"]) > len(n["note"]):
+            # the board note carries refresh.py sentences that notes.json does not; keep them, and the board's
+            # numbers if they are newer than this pull
+            n["note"] = old["note"]; n["src"] = old["src"]
+            if old.get("asOf", "") > n["asOf"]:
+                for k in ("raw", "rawSales30", "psa10", "psa10Sales90", "compType", "psa9", "pop10", "pop9", "popTotal", "asOf", "conf", "src"): n[k] = old[k]
+        old.update(n); replaced += 1
     else:
         maxorder += 1; n["order"] = maxorder; cards.append(n); byid[n["id"]] = n; added += 1
 # refresh the Trout entry from the PSA pull if present

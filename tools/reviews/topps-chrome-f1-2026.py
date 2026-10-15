@@ -8,9 +8,9 @@ P = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath
 s = open(P).read()
 
 REVIEW = {
- "kind": "Review", "n": "2026 Topps Chrome Formula 1", "when": "Out Oct 15 · presale prices", "score": "4.8",
+ "kind": "Review", "n": "2026 Topps Chrome Formula 1", "when": "Out now · prices Oct 15", "score": "4.8",
  "facts": [
-  "Hobby: 20 packs of 4 (80 cards) with one autograph, four Prism Refractors and three or more numbered parallels. $469.99 at Topps' Sep 15 presale, $479.99 on release day; $948 median on eBay presale (12 boxes sold Oct 1 to 12, $900 to $1,000)",
+  "Hobby: 20 packs of 4 (80 cards) with one autograph, four Prism Refractors and three or more numbered parallels. $469.99 at Topps' Sep 15 presale, $479.99 on release day; $850 median on eBay around release (10 boxes sold Oct 13 to 15, $775 to $1,049), down from $948 in presale (12 sold Oct 1 to 12)",
   "Mega box: 6 packs of 7, $209 median on eBay presale (21 sold Oct 3 to 12). Value box: 28 cards, $71 median (47 sold Oct 1 to 13)",
   "200-card base set: 22 F1 drivers, 22 F2, 27 F3, 17 F1 Academy, then cars, Grand Prix winners, legends, duos, team logos and team principals",
   "One rookie card on the checklist: Arvid Lindblad #12 (and his car card, #100). His F1 Debut Patch Autograph is a 1/1",
@@ -18,7 +18,7 @@ REVIEW = {
  ],
  "bars": [["Rookie class", 4.0], ["Hit quality", 6.5], ["Print run", 5.5], ["Price vs. value", 3.0]],
  "deep": {
-  "lede": "Written Oct 13, two days before the hobby release (Oct 15, 11am ET at Topps). The checklist and the box contents are published; pack odds are not, so nothing below is stated as a ratio unless Topps gave a per-box or per-case count. Box prices are real presale sales from eBay sold listings. Single-card prices are not a market yet: only First Day Issue boxes have been opened, and 18 cards sold between Oct 10 and Oct 13. Those are listed as individual sales, not medians. The short version: a hobby box costs about twice what Topps charged for it, it holds 80 cards and one autograph from a list of about 100 signers that runs from Verstappen to F3 and F1 Academy drivers, and the checklist has one rookie card.",
+  "lede": "Written Oct 13, two days before the hobby release (Oct 15, 11am ET at Topps); hobby box price updated Oct 15 ($850 median on 10 eBay sales Oct 13 to 15). The checklist and the box contents are published; pack odds are not, so nothing below is stated as a ratio unless Topps gave a per-box or per-case count. Box prices are real presale sales from eBay sold listings. Single-card prices are not a market yet: only First Day Issue boxes have been opened, and 18 cards sold between Oct 10 and Oct 13. Those are listed as individual sales, not medians. The short version: a hobby box costs about twice what Topps charged for it, it holds 80 cards and one autograph from a list of about 100 signers that runs from Verstappen to F3 and F1 Academy drivers, and the checklist has one rookie card.",
   "sections": [
    {"h": "Tier 1 · The cards worth opening a hobby box for", "items": [
     {"c": "Autographs of the title contenders · Chrome Autographs, Vuelta 1, Podium Triple Autographs", "p": "Prices pending. One early sale each: George Russell Molten Mercury auto /15 $2,299.99 (Oct 10) · Sergio Perez Molten Mercury auto /15 $1,100 (Oct 12)",
@@ -50,7 +50,7 @@ REVIEW = {
    ]}
   ],
   "avoid": [
-   "Paying $948 for a hobby box that Topps sold for $469.99 and will sell for $479.99 on Oct 15 at 11am ET. The 31 single boxes sold on eBay since Sep 15 have a $935 median and the last 12 are at $948. That is about $11.85 a card for 80 cards and one autograph. Try the Topps sale first.",
+   "Paying $850 for a hobby box that Topps sold for $469.99 and $479.99 on release day. The 31 single boxes sold on eBay in presale had a $935 median; the 10 sold Oct 13 to 15 are at $850. That is about $11.85 a card for 80 cards and one autograph. Try the Topps sale first.",
    "Reading the Molten Mercury sales as hobby prices. Every four-figure sale so far is a First Day Issue card numbered to 15.",
    "Buying a hobby box for Lindblad. One rookie card in a 200-card set, with three or more numbered parallels a box spread across the base set and the inserts. Buy the single after release.",
    "Assuming the autograph is a current F1 driver. The Chrome Autographs list has about 100 subjects; 22 drivers are on the grid, and the rest are F2, F3 and F1 Academy drivers, team principals and retired drivers.",
@@ -58,15 +58,15 @@ REVIEW = {
   ],
   "notes": [
    "Box contents (Topps Ripped): hobby is 20 packs of 4 with one autograph, four Prism Refractors and three or more numbered parallels, 12 boxes a case. Mega is 6 packs of 7 with eight Checker Flag parallels, two refractors and two retail inserts. Value is 28 cards (7 packs of 4 per Topps Ripped, 4 packs of 7 per Checklist Insider) with four black-and-white RayWave Refractors, two refractors and two retail inserts. First Day Issue is 20 packs of 4 with one Molten Mercury autograph /15, two Molten Mercury parallels /15 and three more numbered cards.",
-   "Presale box prices, eBay sold, single boxes only: hobby $900 median on 19 sales Sep 15 to 30 ($714 to $1,320) and $948 on 12 sales Oct 1 to 12. One sealed 12-box case sold for $11,694 on Sep 30, about $975 a box. Mega $181 median on 68 sales since Sep 15, $209 on the 21 since Oct 3 ($143 to $280). Value $71 on 47 sales Oct 1 to 13 ($60 to $120).",
+   "Presale box prices, eBay sold, single boxes only: hobby $900 median on 19 sales Sep 15 to 30 ($714 to $1,320) and $948 on 12 sales Oct 1 to 12. One sealed 12-box case sold for $11,694 on Sep 30, about $975 a box. Release week: hobby $850 median on 10 sales Oct 13 to 15 ($775 to $1,049). Mega $181 median on 68 sales since Sep 15, $209 on the 21 since Oct 3 ($143 to $280). Value $71 on 47 sales Oct 1 to 13 ($60 to $120).",
    "First Day Issue sold through a Topps Dutch auction on Sep 10 that opened at $2,000 and sold out at $1,600 (Checklist Insider). No sealed First Day Issue box showed up in eBay sold listings.",
    "Base set layout (Checklist Insider): F1 drivers #1 to #22, F2 #23 to #44, F3 #45 to #71, F1 Academy #72 to #88, F1 cars #89 to #110, Grand Prix winners #111 to #134, Driver of the Day #135 to #149, award winners #150 to #152, legends #153 to #167, duos #168 to #178, team logos #179 to #189, team principals #190 to #200. Norris #1, Piastri #2, Russell #3, Antonelli #4, Verstappen #5, Hadjar #6, Leclerc #7, Hamilton #8. Topps marks the checklist as subject to change.",
    "Parallels: Refractor, Pink /250, Aqua /199, Blue /150, Green /99, Purple /75, Gold /50, Orange /25, Full Grid /22, Black /10, Red /5, SuperFractor 1/1, printing plates. Hobby adds the Prism ladder, mega the Checker Flag ladder, value the RayWave ladder.",
    "Release dates for the other editions differ by source: Topps Ripped puts Hongbao on Oct 15 with hobby, Steel City lists Hongbao and Logofractor for Oct 29. Sapphire is Nov 12.",
    "The scores are a first read. Print run is scored in the middle because Topps has not published one and no pack odds are out to estimate it from. Pending after release: medians with counts for the top drivers' base, Prism and numbered parallels, the Lindblad rookie, autographs by signer and the case hits.",
-   "Verdict for now: at the Topps price a hobby box is a reasonable gamble on one autograph. At $948 it is a pass. Wait for hobby cases to open and buy singles."
+   "Verdict for now: at the Topps price a hobby box is a reasonable gamble on one autograph. At $850 it is a pass. Wait for hobby cases to open and buy singles."
   ],
-  "src": "Box prices: eBay sold listings, Sep 15 to Oct 13 (presale), medians with counts, single boxes only. Single-card prices: eBay sold listings, Oct 10 to 13, individual early sales from First Day Issue boxes. Topps prices, formats and checklist: Checklist Insider, Topps Ripped, Topps.com, Cardsmiths Breaks. Antonelli comparison: PSA Auction Prices Realized and pop report, Oct 13."
+  "src": "Box prices: eBay sold listings, Sep 15 to Oct 12 (presale) and Oct 13 to 15 (release), medians with counts, single boxes only. Single-card prices: eBay sold listings, Oct 10 to 13, individual early sales from First Day Issue boxes. Topps prices, formats and checklist: Checklist Insider, Topps Ripped, Topps.com, Cardsmiths Breaks. Antonelli comparison: PSA Auction Prices Realized and pop report, Oct 13."
  }
 }
 

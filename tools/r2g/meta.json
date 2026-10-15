@@ -1852,5 +1852,32 @@
   "cardNo": "BDC-8",
   "parallel": "1st Bowman Chrome",
   "sport": "Baseball"
+ },
+ "durant-2007-tc-131": {
+  "id": "durant-2007-topps-chrome-131-base",
+  "player": "Kevin Durant",
+  "year": "2007-08",
+  "set": "Topps Chrome",
+  "cardNo": "131",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "lebron-2003-tc-111": {
+  "id": "james-2003-topps-chrome-111-base",
+  "player": "LeBron James",
+  "year": "2003-04",
+  "set": "Topps Chrome",
+  "cardNo": "111",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "kobe-1996-tc-138": {
+  "id": "bryant-1996-topps-chrome-138-base",
+  "player": "Kobe Bryant",
+  "year": "1996-97",
+  "set": "Topps Chrome",
+  "cardNo": "138",
+  "parallel": "Base RC",
+  "sport": "Basketball"
  }
 }
