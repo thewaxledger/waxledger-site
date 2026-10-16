@@ -1915,5 +1915,32 @@
   "cardNo": "44",
   "parallel": "Base RC",
   "sport": "Baseball"
+ },
+ "acuna-2018-tcu-hmt25": {
+  "id": "acuna-2018-topps-chrome-update-hmt25-base",
+  "player": "Ronald Acuna Jr.",
+  "year": "2018",
+  "set": "Topps Chrome Update",
+  "cardNo": "HMT25",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "trae-2018-prizm-78": {
+  "id": "young-trae-2018-panini-prizm-78-base",
+  "player": "Trae Young",
+  "year": "2018-19",
+  "set": "Panini Prizm",
+  "cardNo": "78",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "mitchell-2017-prizm-117": {
+  "id": "mitchell-2017-panini-prizm-117-base",
+  "player": "Donovan Mitchell",
+  "year": "2017-18",
+  "set": "Panini Prizm",
+  "cardNo": "117",
+  "parallel": "Base RC",
+  "sport": "Basketball"
  }
 }
