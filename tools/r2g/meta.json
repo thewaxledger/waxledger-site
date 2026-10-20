@@ -1942,5 +1942,32 @@
   "cardNo": "117",
   "parallel": "Base RC",
   "sport": "Basketball"
+ },
+ "bowers-2024-prizm-315-silver": {
+  "id": "bowers-2024-panini-prizm-315-silver",
+  "player": "Brock Bowers",
+  "year": "2024",
+  "set": "Panini Prizm",
+  "cardNo": "315",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football"
+ },
+ "chase-2021-prizm-337-silver": {
+  "id": "chase-2021-panini-prizm-337-silver",
+  "player": "Ja'Marr Chase",
+  "year": "2021",
+  "set": "Panini Prizm",
+  "cardNo": "337",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football"
+ },
+ "morant-2019-optic-168": {
+  "id": "morant-2019-donruss-optic-168-base",
+  "player": "Ja Morant",
+  "year": "2019-20",
+  "set": "Panini Donruss Optic",
+  "cardNo": "168",
+  "parallel": "Rated Rookie base",
+  "sport": "Basketball"
  }
 }
