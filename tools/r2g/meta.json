@@ -1969,5 +1969,50 @@
   "cardNo": "168",
   "parallel": "Rated Rookie base",
   "sport": "Basketball"
+ },
+ "ohtani-2018-tu-us285": {
+  "id": "ohtani-2018-topps-update-us285-base",
+  "player": "Shohei Ohtani",
+  "year": "2018",
+  "set": "Topps Update",
+  "cardNo": "US285",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "lillard-2012-prizm-245": {
+  "id": "lillard-2012-panini-prizm-245-base",
+  "player": "Damian Lillard",
+  "year": "2012-13",
+  "set": "Panini Prizm",
+  "cardNo": "245",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "towns-2015-prizm-328": {
+  "id": "towns-2015-panini-prizm-328-base",
+  "player": "Karl-Anthony Towns",
+  "year": "2015-16",
+  "set": "Panini Prizm",
+  "cardNo": "328",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "tatis-2019-topps-410": {
+  "id": "tatis-2019-topps-410-base",
+  "player": "Fernando Tatis Jr.",
+  "year": "2019",
+  "set": "Topps",
+  "cardNo": "410",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "miller-2023-prizm-152": {
+  "id": "miller-2023-panini-prizm-152-base",
+  "player": "Brandon Miller",
+  "year": "2023-24",
+  "set": "Panini Prizm",
+  "cardNo": "152",
+  "parallel": "Base RC",
+  "sport": "Basketball"
  }
 }
