@@ -57,3 +57,29 @@ window.pull = async (specId) => {
     pop10: cnt('grade10'), pop9: cnt('grade9'), pop8: cnt('grade8'), popTotal: pop.total.totalCount, gemRate: pop.gemRate, asOf: TODAY,
   };
 };
+// Pop-report search (the APR search misses most base cards). JSONP, so it needs no jQuery; works on any psacard.com
+// page. Returns [{specid, description}]. One term at a time with a pause; some terms error (see CLAUDE.md).
+window.popSearch = (term) => new Promise((res, rej) => {
+  const cb = 'psacb' + Date.now() + Math.floor(Math.random() * 1e6); const s = document.createElement('script');
+  window[cb] = (d) => { delete window[cb]; s.remove(); res(Array.isArray(d) ? d : (d && d.d) || []); };
+  s.onerror = () => { delete window[cb]; s.remove(); rej(new Error('popSearch failed: ' + term)); };
+  s.src = 'https://www.collectorsuniverse.com/specsearch/search/psaformatted?callback=' + cb + '&term=' + encodeURIComponent(term) + '&includePopOnly=true&mandatoryAdditionalTerms=';
+  document.head.appendChild(s);
+});
+// Run a candidate list (candidates.js CANDS_NOV1 shape: key, term, must[], not[]): search, keep the first spec whose
+// description carries every `must` token and no `not` token, pull it. Returns {key: entry|{err}} and logs as it goes.
+// Call with a slice of 3 to 5 at a time and copy the result out: the pane can drop mid-run.
+window.runCands = async (list, pause = 1500) => {
+  const out = {};
+  for (const c of list) {
+    try {
+      const hits = await popSearch(c.term);
+      const ok = hits.filter((h) => { const d = (h.description || '').toLowerCase(); return (c.must || []).every((m) => d.includes(m)) && !(c.not || []).some((n) => d.includes(n)); });
+      if (!ok.length) { out[c.key] = { err: 'no spec', seen: hits.slice(0, 8).map((h) => h.specid + ' ' + h.description) }; console.log(c.key, 'no spec'); continue; }
+      const e = await pull(String(ok[0].specid)); e.desc = ok[0].description; out[c.key] = e;
+      console.log(c.key, ok[0].specid, ok[0].description, 'n10', e.n10, 'med10', e.med10, 'gem', e.gemRate);
+    } catch (err) { out[c.key] = { err: String(err) }; console.log(c.key, 'ERR', String(err)); }
+    await new Promise((r) => setTimeout(r, pause));
+  }
+  return out;
+};

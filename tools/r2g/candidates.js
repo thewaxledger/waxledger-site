@@ -89,3 +89,52 @@ window.CANDS=[
  {key:'schaefer-2025-ud',q:'2025 upper deck matthew schaefer young guns',must:['schaefer','young guns']},
  {key:'bedard-2023-ud-451-canvas',q:'2023 upper deck connor bedard canvas young guns',must:['bedard','canvas']},
 ];
+
+// Nov 1, 2026 batch: rookie / 1st Bowman cards not yet on the board. The APR search misses most base cards, so these
+// are pop-report search terms for popSearch() (window.popSearch in pull.js) on https://www.psacard.com/pop, one at a
+// time with a pause. `must` tokens are matched against the lowercase spec description. Card numbers: 2026 Topps Chrome
+// from hobbycardindex.com (Jul 22 to Oct 16 dollars traded: Murakami #274, Misiorowski #196, Anthony #225, Griffin #74,
+// McGonigle #16 lead the set); 2025 Bowman Draft Chrome from SportsCardsPro; 2025 Bowman Chrome from SportsCardsPro.
+window.CANDS_NOV1=[
+ // 2026 Topps Chrome rookies (released Jul 22, 2026; a full 90 days of PSA sales by Oct 20)
+ {key:'anthony-2026-tc-225',term:'2026 topps chrome 225 roman anthony',must:['2026 topps chrome','roman anthony','#225']},
+ {key:'misiorowski-2026-tc-196',term:'2026 topps chrome 196 jacob misiorowski',must:['2026 topps chrome','misiorowski','#196']},
+ {key:'murakami-2026-tc-274',term:'2026 topps chrome 274 munetaka murakami',must:['2026 topps chrome','murakami','#274']},
+ {key:'griffin-2026-tc-74',term:'2026 topps chrome 74 konnor griffin',must:['2026 topps chrome','konnor griffin','#74']},
+ {key:'mcgonigle-2026-tc-16',term:'2026 topps chrome 16 kevin mcgonigle',must:['2026 topps chrome','mcgonigle','#16']},
+ {key:'ogasawara-2026-tc-64',term:'2026 topps chrome 64 shinnosuke ogasawara',must:['2026 topps chrome','ogasawara','#64']},
+ {key:'basallo-2026-tc-7',term:'2026 topps chrome 7 samuel basallo',must:['2026 topps chrome','basallo','#7']},
+ {key:'caglianone-2026-tc-131',term:'2026 topps chrome 131 jac caglianone',must:['2026 topps chrome','caglianone','#131']},
+ {key:'schlittler-2026-tc-262',term:'2026 topps chrome 262 cam schlittler',must:['2026 topps chrome','schlittler','#262']},
+ {key:'okamoto-2026-tc-78',term:'2026 topps chrome 78 kazuma okamoto',must:['2026 topps chrome','okamoto','#78']},
+ {key:'wetherholt-2026-tc-119',term:'2026 topps chrome 119 jj wetherholt',must:['2026 topps chrome','wetherholt','#119']},
+ {key:'painter-2026-tc-160',term:'2026 topps chrome 160 andrew painter',must:['2026 topps chrome','painter','#160']},
+ {key:'burns-2026-tc-134',term:'2026 topps chrome 134 chase burns',must:['2026 topps chrome','chase burns','#134']},
+ // 2026 Topps Series 1 rookies (Feb 2026); Misiorowski #10 is on the board
+ {key:'anthony-2026-topps',term:'2026 topps roman anthony',must:['2026 topps','roman anthony'],not:['chrome','update','heritage','finest','gallery']},
+ {key:'murakami-2026-topps',term:'2026 topps munetaka murakami',must:['2026 topps','murakami'],not:['chrome','update','bowman','heritage']},
+ // 2025 Bowman Draft Chrome 1st Bowmans (Dec 2025)
+ {key:'willits-2025-bdc-1',term:'2025 bowman draft chrome bdc-1 eli willits',must:['2025 bowman draft','willits','#bdc-1']},
+ {key:'hernandez-2025-bdc-25',term:'2025 bowman draft chrome bdc-25 seth hernandez',must:['2025 bowman draft','seth hernandez','#bdc-25']},
+ {key:'holliday-2025-bdc',term:'2025 bowman draft chrome ethan holliday',must:['2025 bowman draft','ethan holliday']},
+ {key:'anderson-2025-bdc-3',term:'2025 bowman draft chrome bdc-3 kade anderson',must:['2025 bowman draft','kade anderson','#bdc-3']},
+ {key:'doyle-2025-bdc-12',term:'2025 bowman draft chrome bdc-12 liam doyle',must:['2025 bowman draft','doyle','#bdc-12']},
+ {key:'parker-2025-bdc-8',term:'2025 bowman draft chrome bdc-8 jojo parker',must:['2025 bowman draft','parker','#bdc-8']},
+ // 2025 Bowman Chrome 1st Bowmans (Sep 2025)
+ {key:'gonzalez-2025-bcp-153',term:'2025 bowman chrome prospects bcp-153 josuar gonzalez',must:['2025 bowman chrome','josuar gonzalez','#bcp-153']},
+ {key:'pena-2025-bcp-155',term:'2025 bowman chrome prospects bcp-155 elian pena',must:['2025 bowman chrome','elian pena','#bcp-155']},
+ {key:'mcgonigle-2025-bcp-79',term:'2025 bowman chrome prospects bcp-79 kevin mcgonigle',must:['2025 bowman chrome','mcgonigle','#bcp-79']},
+ {key:'rodriguez-2025-bcp-200',term:'2025 bowman chrome prospects bcp-200 rainiel rodriguez',must:['2025 bowman chrome','rainiel rodriguez','#bcp-200']},
+ // 2025 Topps Chrome / Chrome Update rookies (one year old)
+ {key:'crews-2025-tc',term:'2025 topps chrome dylan crews',must:['2025 topps chrome','dylan crews'],not:['update','sapphire']},
+ {key:'wood-2025-tc',term:'2025 topps chrome james wood',must:['2025 topps chrome','james wood'],not:['update','sapphire']},
+ {key:'campbell-2025-tc',term:'2025 topps chrome kristian campbell',must:['2025 topps chrome','kristian campbell'],not:['update','sapphire']},
+ {key:'rice-2025-tcu-usc138',term:'2025 topps chrome update usc138 ben rice',must:['2025 topps chrome update','ben rice','#usc138']},
+ {key:'baldwin-2025-tcu-usc96',term:'2025 topps chrome update usc96 drake baldwin',must:['2025 topps chrome update','baldwin','#usc96']},
+ // older 1st Bowmans of 2026 rookies
+ {key:'mcgonigle-2023-bdc',term:'2023 bowman draft chrome kevin mcgonigle',must:['2023 bowman draft','mcgonigle']},
+ {key:'basallo-2023-bcp',term:'2023 bowman chrome prospects samuel basallo',must:['2023 bowman chrome','basallo']},
+ {key:'kurtz-2024-bdc',term:'2024 bowman draft chrome nick kurtz',must:['2024 bowman draft','kurtz']},
+ {key:'eldridge-2023-bdc',term:'2023 bowman draft chrome bryce eldridge',must:['2023 bowman draft','eldridge']},
+ {key:'jenkins-2023-bdc',term:'2023 bowman draft chrome walker jenkins',must:['2023 bowman draft','walker jenkins']},
+];
