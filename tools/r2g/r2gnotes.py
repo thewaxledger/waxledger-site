@@ -4,7 +4,7 @@ entry with the site model; LEAD and CLOSE (per key) are written by hand. Used by
 """
 import json, os
 HERE = os.path.dirname(os.path.abspath(__file__))
-A = dict(fee=59.99, ship=10, sellFee=.13, haircut=.20, missReal=.85, assumedGem=.35, minSales=25, minMargin=.10)
+A = dict(fee=39.99, feeHigh=59.99, feeCap=500, ship=10, sellFee=.13, haircut=.20, missReal=.85, assumedGem=.35, minSales=25, minMargin=.10)
 
 def money(x, dec=0):
     if x is None: return "n/a"
@@ -24,7 +24,8 @@ def write_notes(datafile, LEAD, CLOSE, day):
         psa9 = d["med9"] if d["med9"] is not None else d["avg9"]
         raw = d["rawMed"]
         gem = d["pop10"] / d["popTotal"] if d.get("pop10") and d.get("popTotal") else A["assumedGem"]
-        allIn = raw + A["fee"] + A["ship"]; net10 = psa10 * (1 - A["haircut"]) * (1 - A["sellFee"]); netMiss = psa9 * A["missReal"] * (1 - A["sellFee"])
+        fee = A["feeHigh"] if psa10 > A["feeCap"] else A["fee"]  # PSA Value up to the $500 cap, Standard above
+        allIn = raw + fee + A["ship"]; net10 = psa10 * (1 - A["haircut"]) * (1 - A["sellFee"]); netMiss = psa9 * A["missReal"] * (1 - A["sellFee"])
         ev = gem * net10 + (1 - gem) * netMiss; profit = ev - allIn
         be = (allIn - netMiss) / (net10 - netMiss) if net10 != netMiss else None
         rng = f", range {money(d['min10'])}–{money(d['max10'])}" if d.get("min10") is not None else ""
@@ -36,7 +37,7 @@ def write_notes(datafile, LEAD, CLOSE, day):
         betxt = ("a 9 alone covers the all-in, so the break-even gem rate is 0%" if be is not None and be <= 0 else f"against a break-even gem rate of {pct(be)}" + (", which can't be reached" if be > 1 else "") if be is not None else "")
         body = (f"PSA APR ({day}): {d['n10']} PSA 10 sales in 90 days, median {money(psa10)}{rng}{latest}; PSA 9 {d['n9']} sales, median {money(psa9)}; {rawtxt}. "
                 f"PSA POP: 10={d['pop10']:,}, 9={d['pop9']:,}, 8={d['pop8']:,}, total {d['popTotal']:,} → {pct(gem)} gem, {betxt}. "
-                f"{money(allIn)} all-in: a 10 nets about {signed(net10 - allIn)}, a 9 nets {signed(netMiss - allIn)}, expected value {signed(profit)}.")
+                f"{money(allIn)} all-in at the {money(fee, 2)} fee: a 10 nets about {signed(net10 - allIn)}, a 9 nets {signed(netMiss - allIn)}, expected value {signed(profit)}.")
         N[key] = f"{lead} {body} {CLOSE[key]}"
 
     json.dump(N, open(os.path.join(HERE, "notes.json"), "w"), indent=1, ensure_ascii=False)

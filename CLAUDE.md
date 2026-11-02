@@ -111,7 +111,11 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
 
 ## Raw-to-Gem model (keep in sync between page and screener.mjs)
 
-fee 59.99, ship 10, sellFee .13, haircut .20, missReal .85, assumedGem .35, minSales 25, minThin 10, minMargin .10, requireReal.
+fee 39.99 (PSA Value, when the PSA 10 is at or under feeCap 500) / feeHigh 59.99 (PSA Standard, above it; `scrFee()` in the master,
+the same test in screener.mjs, pages.py, model.py, r2gnotes.py and refresh.py; changed Nov 1, 2026 at Aidan's request when PSA
+reopened Value at $39.99 with a $500 declared-value cap), ship 10, sellFee .13, haircut .20, missReal .85, assumedGem .35,
+minSales 25, minThin 10, minMargin .10, requireReal. Notes written before Nov 1 quote the $59.99 all-in in their prose; the
+board's numbers are computed live, and the glossary on the tab says so.
 Verdicts: SKIP (estimate comps) → THIN ("Thin market": 10–24 PSA 10 sales in 90 days, profit > 0, gem rate from the pop;
 added Oct 12 at Aidan's request) → FAIL (fewer than 10 PSA 10 sales, 10–24 without a profit, or profit ≤ 0) → CANDIDATE (no pop) →
 MARGINAL (gem rate minus break-even under 10 pts) → GRADE. A card with `waiveSales: true` in screen-data.mjs skips the

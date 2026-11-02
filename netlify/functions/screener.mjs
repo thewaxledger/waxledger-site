@@ -4,13 +4,14 @@ import { json, currentMember, liveDeps } from "../lib/members.mjs";
 import SCREEN from "../lib/screen-data.mjs";
 
 export const config = { path: "/api/screener" };
-const A = { fee: 59.99, ship: 10, sellFee: .13, haircut: .20, missReal: .85, assumedGem: .35, minSales: 25, minThin: 10, minMargin: .10, requireReal: true };
+const A = { fee: 39.99, feeHigh: 59.99, feeCap: 500, ship: 10, sellFee: .13, haircut: .20, missReal: .85, assumedGem: .35, minSales: 25, minThin: 10, minMargin: .10, requireReal: true };
 const num = v => typeof v === "number" && isFinite(v);
 
 export function score(c) {
   if (!(num(c.raw) && num(c.psa10) && num(c.psa9))) return { code: "NODATA" };
   const gemPop = num(c.pop10) && c.popTotal ? c.pop10 / c.popTotal : null, gem = gemPop != null ? gemPop : A.assumedGem;
-  const allIn = c.raw + A.fee + A.ship, net10 = c.psa10 * (1 - A.haircut) * (1 - A.sellFee), netMiss = c.psa9 * A.missReal * (1 - A.sellFee);
+  const fee = c.psa10 > A.feeCap ? A.feeHigh : A.fee; // PSA Value $39.99 up to the $500 cap, Standard $59.99 above (keep in sync with scrFee in the master)
+  const allIn = c.raw + fee + A.ship, net10 = c.psa10 * (1 - A.haircut) * (1 - A.sellFee), netMiss = c.psa9 * A.missReal * (1 - A.sellFee);
   const profit = gem * net10 + (1 - gem) * netMiss - allIn, roi = profit / allIn, be = net10 - netMiss ? (allIn - netMiss) / (net10 - netMiss) : null;
   let code = "GRADE";
   if (A.requireReal && c.compType !== "Real") code = "SKIP";

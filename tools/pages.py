@@ -13,7 +13,7 @@ import json, os, re, html, datetime
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUB = os.path.join(ROOT, "public")
 SITE = "https://thewaxledger.com"
-A = dict(fee=59.99, ship=10, sellFee=.13, haircut=.20, missReal=.85, assumedGem=.35, minSales=25, minThin=10, minMargin=.10)
+A = dict(fee=39.99, feeHigh=59.99, feeCap=500, ship=10, sellFee=.13, haircut=.20, missReal=.85, assumedGem=.35, minSales=25, minThin=10, minMargin=.10)
 
 esc = lambda s: html.escape(str(s if s is not None else ""), quote=True)
 
@@ -50,13 +50,14 @@ def compute(c):
         r["code"] = "NODATA"; return r
     gem_pop = (c["pop10"] / c["popTotal"]) if c.get("pop10") and c.get("popTotal") else None
     gem = gem_pop if gem_pop is not None else A["assumedGem"]
-    all_in = c["raw"] + A["fee"] + A["ship"]
+    fee = A["feeHigh"] if c["psa10"] > A["feeCap"] else A["fee"]  # PSA Value up to the $500 cap, Standard above
+    all_in = c["raw"] + fee + A["ship"]
     net10 = c["psa10"] * (1 - A["haircut"]) * (1 - A["sellFee"])
     net_miss = c["psa9"] * A["missReal"] * (1 - A["sellFee"])
     ev = gem * net10 + (1 - gem) * net_miss
     profit = ev - all_in
     be = (all_in - net_miss) / (net10 - net_miss) if net10 != net_miss else None
-    r.update(gem=gem, gemPop=gem_pop, allIn=all_in, net10=net10, netMiss=net_miss, ev=ev, profit=profit, roi=profit / all_in, be=be,
+    r.update(fee=fee, gem=gem, gemPop=gem_pop, allIn=all_in, net10=net10, netMiss=net_miss, ev=ev, profit=profit, roi=profit / all_in, be=be,
              up10=net10 - all_in, down9=net_miss - all_in, margin=(gem - be) if be is not None else None)
     sales = c.get("psa10Sales90") or 0
     waived = c.get("waiveSales") is True  # the volume floor is waived on this card (Aidan's call; said in the note)
@@ -160,7 +161,7 @@ def grade_page(c, m, related, stamp):
     math = ""
     if m.get("code") != "NODATA":
         math = f"""<h2>The math on one attempt</h2>
-<div class="tbl"><table><tr><td>All-in cost (raw + {usd(A['fee'])} grading + {usd(A['ship'])} shipping)</td><td class="num">{usd(m['allIn'])}</td></tr>
+<div class="tbl"><table><tr><td>All-in cost (raw + {usd(m['fee'])} grading + {usd(A['ship'])} shipping)</td><td class="num">{usd(m['allIn'])}</td></tr>
 <tr><td>If it gems: PSA 10 after a {int(A['haircut']*100)}% haircut and {int(A['sellFee']*100)}% selling fee</td><td class="num">{usd(m['up10'], True)}</td></tr>
 <tr><td>If it comes back a 9</td><td class="num">{usd(m['down9'], True)}</td></tr>
 <tr><td>Expected profit at a {pct(m['gem'])} gem rate</td><td class="num"><b>{usd(m['profit'], True)}</b></td></tr>
@@ -173,7 +174,7 @@ def grade_page(c, m, related, stamp):
 {math}
 {('<h2>About this card</h2><p>' + esc(first) + '</p>') if first else ''}
 <div class="pro"><h2>The full breakdown is for Pro members</h2><ul><li>The complete note on this card: what moves the price, what sends it back a 9, when to buy</li><li>The math at your own grading fee, shipping and sell price, with the break-even chart</li><li>All {{N}} cards on the board, ranked by expected return, refreshed from PSA sales and pop data</li><li>The Buy/Sell/Trade board and unlimited Pre-Grading Tool runs</li></ul><a class="btn btn-gold" href="/#membership">Go Pro: $8/month or $75/year</a> &nbsp; <a class="btn" href="/#screener?card={esc(c['id'])}">Open in the calculator</a></div>
-<p class="small muted">Sources: {esc(c.get('src',''))}. Data as of {esc(c['asOf'])}. Model: {usd(A['fee'])} grading fee, {usd(A['ship'])} shipping, {int(A['sellFee']*100)}% selling fee, {int(A['haircut']*100)}% haircut on the PSA 10 comp, PSA 9 realized at {int(A['missReal']*100)}%. Not financial advice.</p>
+<p class="small muted">Sources: {esc(c.get('src',''))}. Data as of {esc(c['asOf'])}. Model: {usd(A['fee'])} PSA Value grading fee when the PSA 10 is {usd(A['feeCap'])} or under, {usd(A['feeHigh'])} Standard above it, {usd(A['ship'])} shipping, {int(A['sellFee']*100)}% selling fee, {int(A['haircut']*100)}% haircut on the PSA 10 comp, PSA 9 realized at {int(A['missReal']*100)}%. Not financial advice.</p>
 <h2>Related cards</h2><div class="grid">{rel}</div>
 <p class="small"><a href="/grade/">All grading guides</a></p>
 """

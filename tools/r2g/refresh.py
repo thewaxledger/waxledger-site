@@ -6,7 +6,7 @@ import json, os, sys, datetime, re
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(os.path.dirname(HERE))
 DATA = os.path.join(SITE, "netlify/lib/screen-data.mjs")
-A = dict(fee=59.99, ship=10, sellFee=.13, haircut=.20, missReal=.85)
+A = dict(fee=39.99, feeHigh=59.99, feeCap=500, ship=10, sellFee=.13, haircut=.20, missReal=.85)
 
 def money(x, dec=0):
     s = f"{abs(x):,.{dec}f}"; return ("–$" if x < 0 else "$") + s
@@ -22,14 +22,15 @@ for arg in sys.argv[2:]:
         print("already refreshed", bid); continue
     psa10 = d["med10"] if d.get("med10") is not None else d["avg10"]; psa9 = d["med9"] if d.get("med9") is not None else d["avg9"]; raw = d["rawMed"]
     gem = d["pop10"] / d["popTotal"]
-    allIn = raw + A["fee"] + A["ship"]; net10 = psa10 * (1 - A["haircut"]) * (1 - A["sellFee"]); netMiss = psa9 * A["missReal"] * (1 - A["sellFee"])
+    fee = A["feeHigh"] if psa10 > A["feeCap"] else A["fee"]  # PSA Value up to the $500 cap, Standard above
+    allIn = raw + fee + A["ship"]; net10 = psa10 * (1 - A["haircut"]) * (1 - A["sellFee"]); netMiss = psa9 * A["missReal"] * (1 - A["sellFee"])
     ev = gem * net10 + (1 - gem) * netMiss
     rawtxt = (f"raw {money(raw)} on eBay sold ({d['rawSrc'].split('(')[1].rstrip(')')})" if d.get("rawSrc")
               else f"raw {money(raw, 2 if raw < 20 else 0)} median of {d['rawN']} PSA-tracked sales")
     n10txt = f"{d['n10']:,}" + ("+" if d["n10"] >= 1000 else "")
     sent = (f" PSA APR ({nice}): PSA 10 {n10txt} sales/90d, median {money(psa10)}, latest {money(d['latest10'])}; PSA 9 {d['n9']:,} sales, median {money(psa9)}; {rawtxt}. "
             f"PSA POP ({nice}): 10={d['pop10']:,}, 9={d['pop9']:,}, total {d['popTotal']:,} → {gem*100:.1f}% gem. "
-            f"{money(allIn)} all-in: a 10 nets about {signed(net10 - allIn)}, a 9 nets {signed(netMiss - allIn)}, expected value {signed(ev - allIn)}.")
+            f"{money(allIn)} all-in at the {money(fee, 2)} fee: a 10 nets about {signed(net10 - allIn)}, a 9 nets {signed(netMiss - allIn)}, expected value {signed(ev - allIn)}.")
     c.update({"raw": round(raw * 100) / 100, "psa10": round(psa10 * 100) / 100, "psa9": round(psa9 * 100) / 100, "psa10Sales90": d["n10"], "compType": "Real",
               "pop10": d["pop10"], "pop9": d["pop9"], "popTotal": d["popTotal"], "asOf": day, "conf": "H" if d["n10"] >= 25 else "M"})
     c["note"] += sent
