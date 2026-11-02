@@ -79,6 +79,13 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
   https://www.psacard.com/pop (that page has jQuery), one term at a time with a pause, and errors on some terms.
   build.py keeps the newest pull per key across psa-*.json (by asOf), so a refresh pull in a new file wins over an
   old one in psa-2.json.
+  Pop-report spec descriptions carry no `#`: "2026 Topps Chrome 225 Roman Anthony", "2025 Bowman Chrome Prospects
+  BCP153 Josuar Gonzalez", "2025 Bowman Draft Bdc-25 Seth Hernandez Chrome"; the base card is the shortest matching
+  description. `popSearch(term)` (JSONP, no jQuery) and `runCands(list)` in pull.js do the search-filter-pull loop; the
+  search is fuzzy and capped at 25, so put the card number in the term. PSA rate-limits (HTTP 429) after a few hundred
+  tRPC calls in a row; pause a second or two between pulls and wait a few minutes if it starts.
+  Nov 1 scan (psa-25.json): PSA has only 1 to 28 of each 2026 Topps Chrome base rookie in its pop (Murakami #274 the
+  most), so none has volume yet; Murakami 2026 Topps #503 had 8 PSA 10 sales ($150, 63% gem), re-check in December.
   `pull.js` returns `latest10`; refresh.py and r2gnotes.py read that key. integrate.py replaces every meta.json card from
   build.py, so a note edited on the board by hand (refresh.py sentences included) must be copied back into notes.json
   first or the next integrate run reverts it.

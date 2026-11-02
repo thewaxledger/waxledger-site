@@ -2014,5 +2014,50 @@
   "cardNo": "152",
   "parallel": "Base RC",
   "sport": "Basketball"
+ },
+ "anthony-2026-topps": {
+  "id": "anthony-2026-topps-189-base",
+  "player": "Roman Anthony",
+  "year": "2026",
+  "set": "Topps",
+  "cardNo": "189",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "hernandez-2025-bdc-25": {
+  "id": "hernandez-2025-bowman-draft-chrome-bdc-25-1st",
+  "player": "Seth Hernandez",
+  "year": "2025",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "BDC-25",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "mcgonigle-2025-bcp-79": {
+  "id": "mcgonigle-2025-bowman-chrome-prospects-bcp-79",
+  "player": "Kevin McGonigle",
+  "year": "2025",
+  "set": "Bowman Chrome Prospects",
+  "cardNo": "BCP-79",
+  "parallel": "Chrome Prospects (2nd-year Bowman, not his 1st)",
+  "sport": "Baseball"
+ },
+ "kurtz-2024-bdc-56": {
+  "id": "kurtz-2024-bowman-draft-chrome-bdc-56-1st",
+  "player": "Nick Kurtz",
+  "year": "2024",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "BDC-56",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "eldridge-2023-bdc-107": {
+  "id": "eldridge-2023-bowman-draft-chrome-bdc-107-1st",
+  "player": "Bryce Eldridge",
+  "year": "2023",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "BDC-107",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
  }
 }

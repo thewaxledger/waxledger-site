@@ -3,7 +3,7 @@ import json, subprocess, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(os.path.dirname(HERE))
 DATA = os.path.join(SITE, "netlify/lib/screen-data.mjs")
-AS_OF = "2026-10-22"  # the day of the newest pull; set this when you run a refresh
+AS_OF = "2026-11-01"  # the day of the newest pull; set this when you run a refresh
 import datetime
 NICE = datetime.date.fromisoformat(AS_OF).strftime("%b ") + str(datetime.date.fromisoformat(AS_OF).day)
 src = open(DATA).read()
