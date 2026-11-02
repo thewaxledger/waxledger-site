@@ -86,6 +86,13 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
   tRPC calls in a row; pause a second or two between pulls and wait a few minutes if it starts.
   Nov 1 scan (psa-25.json): PSA has only 1 to 28 of each 2026 Topps Chrome base rookie in its pop (Murakami #274 the
   most), so none has volume yet; Murakami 2026 Topps #503 had 8 PSA 10 sales ($150, 63% gem), re-check in December.
+  Bowman Sapphire at PSA (Nov 2 scan, psa-27.json): June Bowman Sapphire = "2025 Bowman Sapphire Edition Chrome Prospects
+  BCP79 Kevin Mcgonigle"; fall Chrome Sapphire = "2025 Bowman Chrome Sapphire Edition Prospects 153 Josuar Gonzalez";
+  Draft = "2024 Bowman Draft Sapphire Edition BDC22 Konnor Griffin"; football = "2025 Bowman University Chrome Sapphire
+  109 Fernando Mendoza". Sapphire raw is $20 to $100, so take raw from eBay sold (rawSrc), not PSA's tracking. Recent
+  Sapphire gem rates are low (Griffin 2025 BCP86 9%, Made 16%); only 2022-2024 Sapphire has 10+ PSA 10 sales a quarter.
+  Integrate gotcha (Nov 2): a refresh done in place without saving its pull to a psa-N.json is reverted by the next
+  integrate run (the Flagg BRR-1 and both PCA BD-72 refreshes were, and were restored by hand). Save every pull.
   `pull.js` returns `latest10`; refresh.py and r2gnotes.py read that key. integrate.py replaces every meta.json card from
   build.py, so a note edited on the board by hand (refresh.py sentences included) must be copied back into notes.json
   first or the next integrate run reverts it.

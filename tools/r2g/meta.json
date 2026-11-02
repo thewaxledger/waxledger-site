@@ -2059,5 +2059,104 @@
   "cardNo": "BDC-107",
   "parallel": "1st Bowman Chrome",
   "sport": "Baseball"
+ },
+ "sap-mcgonigle-2025": {
+  "id": "mcgonigle-2025-bowman-sapphire-bcp79",
+  "player": "Kevin McGonigle",
+  "year": "2025",
+  "set": "Bowman Sapphire Edition",
+  "cardNo": "BCP-79",
+  "parallel": "Chrome Prospects Sapphire (base)",
+  "sport": "Baseball"
+ },
+ "sap-caminero-2023": {
+  "id": "caminero-2023-bowman-sapphire-bcp61",
+  "player": "Junior Caminero",
+  "year": "2023",
+  "set": "Bowman Sapphire Edition",
+  "cardNo": "BCP-61",
+  "parallel": "Chrome Prospects Sapphire (base)",
+  "sport": "Baseball"
+ },
+ "sap-anthony-2023": {
+  "id": "anthony-2023-bowman-sapphire-bcp71",
+  "player": "Roman Anthony",
+  "year": "2023",
+  "set": "Bowman Sapphire Edition",
+  "cardNo": "BCP-71",
+  "parallel": "Chrome Prospects Sapphire (base)",
+  "sport": "Baseball"
+ },
+ "sap-wood-2022": {
+  "id": "wood-2022-bowman-sapphire-bcp108",
+  "player": "James Wood",
+  "year": "2022",
+  "set": "Bowman Sapphire Edition",
+  "cardNo": "BCP-108",
+  "parallel": "Chrome Prospects Sapphire (base)",
+  "sport": "Baseball"
+ },
+ "sap-griffin-2024d": {
+  "id": "griffin-2024-bowman-draft-sapphire-bdc22",
+  "player": "Konnor Griffin",
+  "year": "2024",
+  "set": "Bowman Draft Sapphire Edition",
+  "cardNo": "BDC-22",
+  "parallel": "1st Bowman Sapphire (base)",
+  "sport": "Baseball"
+ },
+ "sap-clark-2023d": {
+  "id": "clark-2023-bowman-draft-sapphire-bdc76",
+  "player": "Max Clark",
+  "year": "2023",
+  "set": "Bowman Draft Sapphire Edition",
+  "cardNo": "BDC-76",
+  "parallel": "1st Bowman Sapphire (base)",
+  "sport": "Baseball"
+ },
+ "sapu-mendoza-2025": {
+  "id": "mendoza-2025-bowman-university-chrome-sapphire-109",
+  "player": "Fernando Mendoza",
+  "year": "2025",
+  "set": "Bowman University Chrome Sapphire",
+  "cardNo": "109",
+  "parallel": "Sapphire (base, college)",
+  "sport": "Football"
+ },
+ "rk-gunnar-2019bdc": {
+  "id": "henderson-2019-bowman-draft-chrome-bdc22-1st",
+  "player": "Gunnar Henderson",
+  "year": "2019",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "BDC-22",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "rk-carroll-2019bdc": {
+  "id": "carroll-2019-bowman-draft-chrome-bdc125-1st",
+  "player": "Corbin Carroll",
+  "year": "2019",
+  "set": "Bowman Draft Chrome",
+  "cardNo": "BDC-125",
+  "parallel": "1st Bowman Chrome",
+  "sport": "Baseball"
+ },
+ "rk-julio-2022tcu": {
+  "id": "rodriguez-2022-topps-chrome-update-usc150-base",
+  "player": "Julio Rodriguez",
+  "year": "2022",
+  "set": "Topps Chrome Update",
+  "cardNo": "USC150",
+  "parallel": "Base RC",
+  "sport": "Baseball"
+ },
+ "rk-saquon-2018prizm": {
+  "id": "barkley-2018-panini-prizm-202-base",
+  "player": "Saquon Barkley",
+  "year": "2018",
+  "set": "Panini Prizm",
+  "cardNo": "202",
+  "parallel": "Base RC",
+  "sport": "Football"
  }
 }
