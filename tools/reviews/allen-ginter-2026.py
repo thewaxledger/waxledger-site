@@ -5,9 +5,9 @@ P = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath
 s = open(P).read()
 
 REVIEW = {
- "kind": "Review", "n": "2026 Topps Allen & Ginter Baseball", "when": "Out now · Oct 10", "score": "5.6",
+ "kind": "Review", "n": "2026 Topps Allen & Ginter Baseball", "when": "Out now · boxes and top rookies Nov 1", "score": "5.6",
  "facts": [
-  "Hobby: 24 packs of 8 with two hits. $139.99 at release, $201 median on eBay (24 boxes sold Oct 7 to 10, most at $199.99)",
+  "Hobby: 24 packs of 8 with two hits. $139.99 at release, $201 median on eBay in release week (24 boxes sold Oct 7 to 10), $200 three weeks on (40 boxes sold Oct 26 to Nov 1, $185 to $365)",
   "300-card base set, the smallest A&G base set so far, with no short prints for the first time since 2015 (Baseballcardpedia)",
   "About 149,200 copies of each base card by Baseballcardpedia's estimate",
   "Rip Cards: 200 subjects numbered /199, 1 in 81 hobby packs, so about one every 3.4 boxes. Unripped median $175 (23 sold Oct 9 to 10)",
@@ -48,6 +48,7 @@ REVIEW = {
    "Reading the two autograph sales above as a market. One Griffin /50 at $999 and one Murakami redemption at $250 are all we have."
   ],
   "notes": [
+   "Refreshed Nov 2 (eBay sold listings read in the browser pane, lots, cases and breaks excluded): hobby box $200 median on 40 sales Oct 26 to Nov 1 ($185 to $365), unchanged from release week. Murakami #5 base $1.96 median on 44 sales Oct 24 to Nov 1 (base and unnumbered minis, $0.02 to $7), down from $2.99; Griffin #103 base $1.50 median on 30 sales Oct 24 to Nov 1 ($0.01 to $4.99), down from $2.99. The other single-card lines below keep their Oct 5 to 10 reads.",
    "Hits per average hobby box from the published hobby odds (24 packs): framed mini autograph 0.36 baseball plus 0.16 non-baseball, Design A relic 0.65, Design B relic 0.34, framed mini relic 0.34, Rip Card 0.30, autographed relic 0.03. That adds to about 2.2, in line with the two hits Topps states.",
    "Parallel ladder (hobby odds): Silver Portrait 1 in 5, Foil Filigree 1 in 24, Blue /150, Green /99, Gold /50, Orange /25, Black /10, Red /5, Purple 1/1. Minis: A&G back 1 in 5, Black Border 1 in 10, No Number /50, Brooklyn Back /25, Stained Glass 25 copies, Metal /3, Wood 1/1.",
    "Chrome is back as a parallel: Chrome 1 in 13 packs, Refractor 1 in 24, X-Fractor 1 in 288, then numbered Blue through Red and a SuperFractor.",

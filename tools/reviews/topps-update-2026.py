@@ -8,10 +8,10 @@ P = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath
 s = open(P).read()
 
 REVIEW = {
- "kind": "Review", "n": "2026 Topps Update Series Baseball", "when": "Out now · prices Oct 15", "score": "5.4",
+ "kind": "Review", "n": "2026 Topps Update Series Baseball", "when": "Out now · boxes Nov 1, singles Oct 15", "score": "5.4",
  "facts": [
-  "Hobby: 20 packs of 12 with one autograph or relic. $109.99 at Topps' Sep 14 presale (sold out); $178 median on eBay in the first two days after release (34 boxes sold Oct 14 to 15, most $160 to $200), the same as the $180 presale median",
-  "Jumbo: 10 packs of 40 with one autograph and one relic, $325 median (50 sold Oct 14 to 15, $175 to $500), $319 in presale. Hobby cases $2,025 median (13 sold), about $169 a box",
+  "Hobby: 20 packs of 12 with one autograph or relic. $109.99 at Topps' Sep 14 presale (sold out); $178 median on eBay in the first two days after release (34 boxes sold Oct 14 to 15); $160 median two weeks on (48 boxes sold Oct 26 to Nov 1, $140 to $200)",
+  "Jumbo: 10 packs of 40 with one autograph and one relic, $325 median at release (50 sold Oct 14 to 15), $315 on Oct 26 to Nov 1 (52 sold, $280 to $600). Hobby cases $2,025 median (13 sold), about $169 a box",
   "350 cards, US1 to US350: 85 rookie cards, 40 Rookie Debut cards, 195 veterans, 16 Veteran Combos, 14 Season Highlights",
   "Base rookies on day one: Konnor Griffin US1 $2.29 median (45 sales), Kevin McGonigle US7 $3.49 (51), Munetaka Murakami US350 Rookie Debut $2.22 (12). Rookie Debuts of Griffin (US255) and McGonigle (US140) $3 to $4",
   "About two numbered parallels per hobby box. 1952 Rookie Variations fall 1 in 5,952 hobby packs, about one every 25 cases; two have sold so far ($80 and $1,000), neither a Griffin or McGonigle"
@@ -61,6 +61,7 @@ REVIEW = {
    "Confusing Rookie Debut cards with rookie cards when buying lots. Griffin, McGonigle, Wetherholt and Bazzana have both in this set; check the card number."
   ],
   "notes": [
+   "Refreshed Nov 2 (eBay sold listings read in the browser pane, lots, cases and breaks excluded): hobby box $160 median on 48 sales Oct 26 to Nov 1 ($139.50 to $349.99), down from $178 at release; jumbo $315 median on 52 sales ($280 to $600), unchanged. Griffin US1 base about $2 (28 sales Oct 30 to Nov 1, $0.50 to $9.99 for the base and unnumbered foils) and McGonigle US7 base $1.99 (33 sales, $0.55 to $19.99), both down from $2.29 and $3.49 on day one. The other single-card lines below keep their Oct 13 to 15 reads.",
    "Hobby odds used above (Checklist Insider): Rainbow Foil 1:10, Gold /2026 1:21, Purple Rainbow /250 1:44, Blue /150 1:74, Green /99 1:112, Gold Rainbow /50 1:217, Orange /25 1:433, Independence Day /76 1:560, Black /75 and 75 Years of Topps /75 1:567, Golden Mirror 1:606, Canvas /50 1:851, Black Rainbow /10 1:1,082, Wood /25 and Memorial Day Camo /25 1:1,701, Clear 1:2,058, Red Rainbow /5 1:2,168, 1952 Rookie Variation 1:5,952, Golden Mirror Legend 1:11,904, Player Number variation 1:29,671.",
    "Formats: hobby (20 packs of 12 plus a five-card Silver Pack), jumbo (10 packs of 40, two Silver Packs), value box (6 packs of 12, $24.99 at Topps), hanger (59 cards), fat pack (36 cards), super box. Sandglitter parallels are jumbo-only, Diamante hanger-only, Holiday variations retail-only, Clear variations hobby-only.",
    "Checklist counts are from baseball.cards and Cardsmiths Breaks and agree with each other on the card numbers quoted here. Topps marks the checklist as subject to change.",

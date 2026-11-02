@@ -8,9 +8,9 @@ P = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath
 s = open(P).read()
 
 REVIEW = {
- "kind": "Review", "n": "2026 Topps Chrome Formula 1", "when": "Out now · prices Oct 15", "score": "4.8",
+ "kind": "Review", "n": "2026 Topps Chrome Formula 1", "when": "Out now · boxes Nov 1, singles Oct 15", "score": "4.8",
  "facts": [
-  "Hobby: 20 packs of 4 (80 cards) with one autograph, four Prism Refractors and three or more numbered parallels. $469.99 at Topps' Sep 15 presale, $479.99 on release day; $850 median on eBay around release (10 boxes sold Oct 13 to 15, $775 to $1,049), down from $948 in presale (12 sold Oct 1 to 12)",
+  "Hobby: 20 packs of 4 (80 cards) with one autograph, four Prism Refractors and three or more numbered parallels. $469.99 at Topps' Sep 15 presale, $479.99 on release day; $850 median on eBay around release (10 boxes sold Oct 13 to 15), $677 two weeks on (26 boxes sold Oct 28 to Nov 1, $630 to $800), down from $948 in presale",
   "Mega box: 6 packs of 7, $209 median on eBay presale (21 sold Oct 3 to 12). Value box: 28 cards, $71 median (47 sold Oct 1 to 13)",
   "200-card base set: 22 F1 drivers, 22 F2, 27 F3, 17 F1 Academy, then cars, Grand Prix winners, legends, duos, team logos and team principals",
   "One rookie card on the checklist: Arvid Lindblad #12 (and his car card, #100). His F1 Debut Patch Autograph is a 1/1",
@@ -57,6 +57,7 @@ REVIEW = {
    "Confusing the formats when buying sealed. Hobby (Oct 15), mega and value boxes, First Day Issue (shipped Oct 9), Hongbao, Logofractor (Oct 29) and Sapphire (Nov 12) are seven different products with different parallels."
   ],
   "notes": [
+   "Refreshed Nov 2 (eBay sold listings read in the browser pane, lots, cases and breaks excluded): hobby box $677.50 median on 26 sales Oct 28 to Nov 1 ($630 to $799.99), down 20% from the $850 release-week median and 29% from the $948 presale. Lindblad base and unnumbered inserts (Helmet Collection, Dancing in the Rain, Prism Refractor) $3.49 median on 47 sales Oct 28 to Nov 1; Lindblad autographs: Aqua refractor $256, Checker /10 $1,000, Red Checker /5 $2,299.99 (one sale each, Oct 14 to 30). The other single-card lines below keep their Oct 10 to 15 reads.",
    "Box contents (Topps Ripped): hobby is 20 packs of 4 with one autograph, four Prism Refractors and three or more numbered parallels, 12 boxes a case. Mega is 6 packs of 7 with eight Checker Flag parallels, two refractors and two retail inserts. Value is 28 cards (7 packs of 4 per Topps Ripped, 4 packs of 7 per Checklist Insider) with four black-and-white RayWave Refractors, two refractors and two retail inserts. First Day Issue is 20 packs of 4 with one Molten Mercury autograph /15, two Molten Mercury parallels /15 and three more numbered cards.",
    "Presale box prices, eBay sold, single boxes only: hobby $900 median on 19 sales Sep 15 to 30 ($714 to $1,320) and $948 on 12 sales Oct 1 to 12. One sealed 12-box case sold for $11,694 on Sep 30, about $975 a box. Release week: hobby $850 median on 10 sales Oct 13 to 15 ($775 to $1,049). Mega $181 median on 68 sales since Sep 15, $209 on the 21 since Oct 3 ($143 to $280). Value $71 on 47 sales Oct 1 to 13 ($60 to $120).",
    "First Day Issue sold through a Topps Dutch auction on Sep 10 that opened at $2,000 and sold out at $1,600 (Checklist Insider). No sealed First Day Issue box showed up in eBay sold listings.",

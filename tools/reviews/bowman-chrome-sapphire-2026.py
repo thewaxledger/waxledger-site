@@ -5,9 +5,9 @@ P = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath
 s = open(P).read()
 
 REVIEW = {
- "kind": "Review", "n": "2026 Bowman Chrome Sapphire Baseball", "when": "Out now · Oct 10", "score": "7.3",
+ "kind": "Review", "n": "2026 Bowman Chrome Sapphire Baseball", "when": "Out now · boxes and top cards Nov 1", "score": "7.3",
  "facts": [
-  "$599.99 through an EQL draw on Oct 7, sold out. Resale $1,186 to $1,456 on eBay (3 boxes sold Oct 8 to 9)",
+  "$599.99 through an EQL draw on Oct 7, sold out. Resale $1,186 to $1,456 on eBay in release week (3 boxes sold Oct 8 to 9); $1,405 median on 13 boxes sold Oct 12 to 29 ($1,098 to $1,550, one at $2,410)",
   "8 packs of 4. One autograph and three numbered parallels per box; every parallel is Yellow /75 or better",
   "12,638 boxes, up 20.5% on 2025 Chrome Sapphire (SlabSquatch). Base Sapphire runs about 3,475 copies per card",
   "The 34-name prospect autograph list is the 2026 international class. Griffin, Holliday, De Vries, Made and the rookies do not sign it",
@@ -60,6 +60,7 @@ REVIEW = {
    "Treating the Griffin Sapphire Selections auto as a Chrome Prospect auto. It is unnumbered with about 60 copies, which is scarcer than the /199 tier, but it is a different card and a different market."
   ],
   "notes": [
+   "Refreshed Nov 2 (eBay sold listings read in the browser pane, lots, cases and breaks excluded): box $1,405 median on 13 sales Oct 12 to 29 ($1,098.06 to $2,410.38; all but one between $1,098 and $1,550), holding the release-week level. Griffin #1 base Sapphire $19.74 median on 44 sales Oct 13 to Nov 1 ($6.50 to $255, base and unnumbered variations together; Image Variation $101 and $175 on Nov 1; Black refractor auto /10 $5,100 on Nov 1). Ohtani #100 base Sapphire $126 median on 68 sales Oct 14 to Nov 1 ($82 to $300), down from $180 to $200 in release week. The other lines below keep their Oct 8 to 10 reads and June Sapphire comps.",
    "Who does not sign: Griffin (Selections only), Holliday, De Vries, Made, Walcott, Willits, Clark, Murakami, Misiorowski, Roman Anthony, Caglianone, Ohtani. The base Bowman Chrome has Murakami and Caglianone in eight autograph sets each; Sapphire has neither.",
    "Autograph tier split from the published odds: about 51% base /199, 26% Green /99, 13% Gold /50, 7% Orange /25, 3% Black /10, 1% Red /5, and a Padparadscha 1/1 at about 1 per 370 boxes.",
    "Parallel ladder for base and prospects: Yellow /75, Gold /50, White /30, Orange /25, Black /10, Red /5, Padparadscha 1/1. Three per box, so a 10-box case averages about 30 numbered cards, one or two Black /10 and most likely one Red /5.",

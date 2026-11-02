@@ -5,10 +5,10 @@ P = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath
 s = open(P).read()
 
 REVIEW = {
- "kind": "Review", "n": "2026 Bowman Football", "when": "Out now · reviewed Oct 9", "score": "6.7",
+ "kind": "Review", "n": "2026 Bowman Football", "when": "Out now · boxes and Manning / Mendoza autos Nov 1", "score": "6.7",
  "facts": [
-  "Hobby: 20 packs of 8, 2 autographs. $309.99 at Fanatics, $389 median on eBay (118 sold, Sep 30 to Oct 9)",
-  "Jumbo: 4 autographs, $660 median on eBay. First Day Issue about $1,035, down from $1,399 presale",
+  "Hobby: 20 packs of 8, 2 autographs. $309.99 at Fanatics, $389 median on eBay in the first ten days (118 sold, Sep 30 to Oct 9), $335 a month on (30 sold Oct 26 to Nov 1, $310 to $380)",
+  "Jumbo: 4 autographs, $660 median on eBay in the first ten days, $598 on Oct 26 to Nov 1 (17 sold, $549 to $1,000). First Day Issue about $1,035 at release, down from $1,399 presale",
   "401-card checklist: 100 NFL base, 100 NFL rookies, 201 college prospects in paper and Chrome",
   "Case hits (Anime, GPK, Crystallized, Spotlights, Etched) average 1 per 23 hobby boxes",
   "Arch Manning's only autograph is the Chrome Prospect Auto. Most week-one copies are redemptions"
@@ -71,6 +71,7 @@ REVIEW = {
    "Hobby boxes above $400. Two autographs where 57% come from a 97-name rookie list and the long tail of that list sells for $10 to $40. Jumbo at $660 for four autographs is the better per-auto price if you must rip."
   ],
   "notes": [
+   "Refreshed Nov 2 (eBay sold listings read in the browser pane, lots, cases and breaks excluded): hobby box $335.50 median on 30 sales Oct 26 to Nov 1 ($310 to $380), down 14% from $389; jumbo $597.99 median on 17 sales ($549 to $999.99), down from $660. Arch Manning Chrome Prospect Auto: base and base redemptions $202.50 to $475 (7 sales Oct 19 to Nov 1), Refractor /499 $255 median on 9 sales Oct 21 to Nov 1 ($222.50 to $375), against $770 and $860 in the first ten days; Gold Mojo /50 redemption $939 and $950, Blue Mojo $435 to $850, True Black /10 $10,000 (Oct 23). Fernando Mendoza Chrome Rookie Auto base $375 median on 31 sales Oct 19 to Nov 1 ($335 to $460 for the base; Refractor /499 $405 to $477, Green /99 $525 on Nov 1), down from $560. The other single-card lines below keep their Sep 30 to Oct 9 reads.",
    "Not in the set: Jeremiah Smith and Julian Sayin. Ohio State's college slot is Bo Jackson with two autographs. Mahomes and Lamar Jackson do not sign.",
    "Redemptions: almost every Arch Manning auto listed in week one is a redemption card. Topps redemption fulfilment runs months. Factor that into any price above $1,000.",
    "Exclusives by format: hobby Mini-Diamond Refractor; Jumbo Gridiron /125 and X-Fractors; Breaker Delight Geometric; Mega Mojo (Rose Gold Mojo 1/1); Blaster and Mega FireFractor /3; First Day Issue autos /14 and parallels /8.",

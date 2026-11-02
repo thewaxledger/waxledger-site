@@ -5,13 +5,13 @@ P = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath
 s = open(P).read()
 
 REVIEW = {
- "kind": "Review", "n": "2026-27 Upper Deck Series 1 Hockey", "when": "Out now · Oct 10", "score": "5.9",
+ "kind": "Review", "n": "2026-27 Upper Deck Series 1 Hockey", "when": "Out now · boxes and top Young Guns Nov 1", "score": "5.9",
  "facts": [
-  "Hobby: 12 packs of 12, about six Young Guns per box. $150 median on eBay (12 boxes sold Oct 7 to 10, $122 to $165); cases $1,515 to $1,952",
+  "Hobby: 12 packs of 12, about six Young Guns per box. $150 median on eBay at release (12 boxes sold Oct 7 to 10); $138 three weeks on (13 boxes sold Oct 28 to Nov 1, $100 to $181)",
   "250 cards: 200 veterans and 50 Young Guns (#201 to #250, the last one a Frondell/Martone checklist)",
   "No guaranteed autograph or memorabilia card. The only autographs are Snow Spray variations at about 1 in 5,570 packs",
   "Young Guns parallels: Outburst Silver 1 in 60 hobby packs, Clear Cut 1 in 144, Deluxe /250, Exclusives /100, Outburst Red /25, High Gloss /10",
-  "Six base Young Guns average about $62 a box at this week's medians, against a $150 box"
+  "Martone base $50 median (82 sales Oct 27 to Nov 1) and Hagens $56 (77 sales Oct 29 to Nov 1), down from $95 and $70 in release week"
  ],
  "bars": [["Rookie class", 6.5], ["Hit quality", 5.0], ["Print run", 5.0], ["Price vs. value", 6.0]],
  "deep": {
@@ -48,6 +48,7 @@ REVIEW = {
    "Treating the two published odds sheets as settled. Checklist Insider lists base Outburst Silver at 1 in 30 hobby packs and Hockey Checklists at 1 in 15; the Young Guns odds (1 in 60 and 1 in 144) agree on both."
   ],
   "notes": [
+   "Refreshed Nov 2 (eBay sold listings read in the browser pane, lots, cases and breaks excluded): hobby box $137.99 median on 13 sales Oct 28 to Nov 1 ($99.99 to $180.78), down from $150 at release. Porter Martone Young Guns base $49.96 median on 82 sales Oct 27 to Nov 1 ($0.99 to $67.89), down from $95; James Hagens base $55.99 median on 77 sales Oct 29 to Nov 1 ($4.25 to $99.99), down from $70. Hagens now sells above Martone. The other single-card lines below keep their Oct 7 to 10 reads.",
    "What a case looks like, from the published odds: 144 packs, about 72 Young Guns, six Canvas Young Guns, two or three Young Guns Outburst Silver and one Young Guns Clear Cut. With 50 subjects, a case does not guarantee one of each base Young Gun.",
    "Not in this set: anyone from the 2026 draft. Gavin McKenna appears only on an NHL Draft insert (SP-1). The 2026 class waits for later products (Cardlines).",
    "Short prints: Holotypes 1 in 1,008 packs; Electric Soul, Youthful Spirits and Bootleg 1 in 2,880; Fanimation 1 in 4,850. None had enough sales this week to price.",
