@@ -67,7 +67,7 @@ def compute(c):
     elif profit <= 0: r["code"], r["label"], r["why"] = "FAIL", "Fail", "Negative expected value after the fee, shipping and selling costs."
     elif gem_pop is None: r["code"], r["label"], r["why"] = "CANDIDATE", "Verify pop", "Profitable on a placeholder gem rate; the real population is not in yet."
     elif be is None or gem - be < A["minMargin"]: r["code"], r["label"], r["why"] = "MARGINAL", "Marginal", f"Gem rate {pct(gem)} is within 10 points of the {pct(be)} break-even."
-    else: r["code"], r["label"], r["why"] = "GRADE", "Grade", f"Gem rate {pct(gem)} against a {pct(be)} break-even, with {sales} PSA 10 sales in 90 days."
+    else: r["code"], r["label"], r["why"] = "GRADE", "Grade", f"Gem rate {pct(gem)} against {'an' if pct(be).startswith(('8', '11%', '18%')) else 'a'} {pct(be)} break-even, with {sales} PSA 10 sales in 90 days."
     return r
 
 # ---------- shell ----------

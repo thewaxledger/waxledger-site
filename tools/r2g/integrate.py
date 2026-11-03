@@ -3,7 +3,7 @@ import json, subprocess, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(os.path.dirname(HERE))
 DATA = os.path.join(SITE, "netlify/lib/screen-data.mjs")
-AS_OF = "2026-11-02"  # the day of the newest pull; set this when you run a refresh
+AS_OF = "2026-11-03"  # the day of the newest pull; set this when you run a refresh
 import datetime
 NICE = datetime.date.fromisoformat(AS_OF).strftime("%b ") + str(datetime.date.fromisoformat(AS_OF).day)
 src = open(DATA).read()
@@ -19,11 +19,12 @@ for n in new:
     if n["id"] in byid:
         old = byid[n["id"]]; n["order"] = old["order"]
         if old["note"].startswith(n["note"]) and len(old["note"]) > len(n["note"]):
-            # the board note carries refresh.py sentences that notes.json does not; keep them, and the board's
-            # numbers if they are newer than this pull
+            # the board note carries refresh.py sentences that notes.json does not; keep them
             n["note"] = old["note"]; n["src"] = old["src"]
-            if old.get("asOf", "") > n["asOf"]:
-                for k in ("raw", "rawSales30", "psa10", "psa10Sales90", "compType", "psa9", "pop10", "pop9", "popTotal", "asOf", "conf", "src"): n[k] = old[k]
+        if old.get("asOf", "") > n["asOf"]:
+            # the board was refreshed in place after this pull (Nov 3: the Flagg BRR-1 and PCA BD-72 refreshes were
+            # reverted here once); keep the board's numbers whenever they are newer than the newest saved pull
+            for k in ("raw", "rawSales30", "psa10", "psa10Sales90", "compType", "psa9", "pop10", "pop9", "popTotal", "asOf", "conf", "src"): n[k] = old[k]
         old.update(n); replaced += 1
     else:
         maxorder += 1; n["order"] = maxorder; cards.append(n); byid[n["id"]] = n; added += 1

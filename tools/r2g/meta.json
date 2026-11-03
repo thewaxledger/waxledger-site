@@ -2158,5 +2158,41 @@
   "cardNo": "202",
   "parallel": "Base RC",
   "sport": "Football"
+ },
+ "yamal-2023-tc-ucc-64": {
+  "id": "yamal-2023-topps-chrome-ucc-64-base",
+  "player": "Lamine Yamal",
+  "year": "2023-24",
+  "set": "Topps Chrome UEFA Club Competitions",
+  "cardNo": "64",
+  "parallel": "Base RC",
+  "sport": "Soccer"
+ },
+ "messi-2014-prizm-wc-12": {
+  "id": "messi-2014-panini-prizm-world-cup-12-base",
+  "player": "Lionel Messi",
+  "year": "2014",
+  "set": "Panini Prizm World Cup",
+  "cardNo": "12",
+  "parallel": "Base",
+  "sport": "Soccer"
+ },
+ "mbappe-2018-prizm-wc-80": {
+  "id": "mbappe-2018-panini-prizm-world-cup-80-base",
+  "player": "Kylian Mbappé",
+  "year": "2018",
+  "set": "Panini Prizm World Cup",
+  "cardNo": "80",
+  "parallel": "Base RC",
+  "sport": "Soccer"
+ },
+ "bueckers-2025-prizm-wnba-5": {
+  "id": "bueckers-2025-panini-prizm-wnba-5-base",
+  "player": "Paige Bueckers",
+  "year": "2025",
+  "set": "Panini Prizm WNBA",
+  "cardNo": "5",
+  "parallel": "Base RC",
+  "sport": "Basketball"
  }
 }
