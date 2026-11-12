@@ -104,6 +104,15 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
   `pull.js` returns `latest10`; refresh.py and r2gnotes.py read that key. integrate.py replaces every meta.json card from
   build.py, so a note edited on the board by hand (refresh.py sentences included) must be copied back into notes.json
   first or the next integrate run reverts it.
+  Nov 12 (psa-29.json, notes29.py): wide candidate search at Aidan's request, 20 cards added (309), 18 Grade and 2 Thin.
+  Method that worked: pop-report search by "year set player", `getPriceSummary` alone as the first screen (one call),
+  pop only for 20+ PSA 10 sales at $70+, then eBay sold raw (last 45 days) and a full pull for the ones with headroom.
+  The pane's JavaScript tool times out at 45 s, so run long loops in the page and poll; keep results in localStorage
+  (the pane dropped once mid-run). Never "sleep" by fetching psacard.com: about 300 quick requests got the whole site
+  a Cloudflare 429 for 15 minutes; with a 450 ms timer pause per tRPC call some 1,500 calls went through clean. eBay
+  answered 403 after a burst of searches too; 2.5 s between searches was fine. notes29.py's docstring lists what was
+  checked and left off (raw too high, blind-spot vintage) so it is not re-pulled. Hockey Young Guns do not resolve
+  through the pop search by name. PSA needs the pane signed in to a Collectors account (Aidan signed in Nov 12).
 - `tools/reviews/` — the scripts that inserted each Product Review (template for new ones). A review is an entry in
   `var REVIEWS=[...]` in the master, marked with a `/* slug */` comment so the script is idempotent. Entries with a
   `deep` object render the expandable "Full breakdown" and show "WAX SCORE / 10"; entries without are sample previews.

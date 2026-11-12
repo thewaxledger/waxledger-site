@@ -2194,5 +2194,185 @@
   "cardNo": "5",
   "parallel": "Base RC",
   "sport": "Basketball"
+ },
+ "curry-2012-prizm-72": {
+  "id": "curry-2012-panini-prizm-72-base",
+  "player": "Stephen Curry",
+  "year": "2012-13",
+  "set": "Panini Prizm",
+  "cardNo": "72",
+  "parallel": "Base (first-year Prizm)",
+  "sport": "Basketball"
+ },
+ "lebron-2012-prizm-1": {
+  "id": "james-2012-panini-prizm-1-base",
+  "player": "LeBron James",
+  "year": "2012-13",
+  "set": "Panini Prizm",
+  "cardNo": "1",
+  "parallel": "Base (first-year Prizm)",
+  "sport": "Basketball"
+ },
+ "kobe-2012-prizm-24": {
+  "id": "bryant-2012-panini-prizm-24-base",
+  "player": "Kobe Bryant",
+  "year": "2012-13",
+  "set": "Panini Prizm",
+  "cardNo": "24",
+  "parallel": "Base (first-year Prizm)",
+  "sport": "Basketball"
+ },
+ "wemby-2025-tc-221-refractor": {
+  "id": "wembanyama-2025-topps-chrome-221-refractor",
+  "player": "Victor Wembanyama",
+  "year": "2025-26",
+  "set": "Topps Chrome",
+  "cardNo": "221",
+  "parallel": "Refractor (unnumbered)",
+  "sport": "Basketball"
+ },
+ "curry-2025-tc-201-refractor": {
+  "id": "curry-2025-topps-chrome-201-refractor",
+  "player": "Stephen Curry",
+  "year": "2025-26",
+  "set": "Topps Chrome",
+  "cardNo": "201",
+  "parallel": "Refractor (unnumbered)",
+  "sport": "Basketball"
+ },
+ "lebron-2025-tc-127-refractor": {
+  "id": "james-2025-topps-chrome-127-refractor",
+  "player": "LeBron James",
+  "year": "2025-26",
+  "set": "Topps Chrome",
+  "cardNo": "127",
+  "parallel": "Refractor (unnumbered)",
+  "sport": "Basketball"
+ },
+ "duncan-1997-tc-115": {
+  "id": "duncan-1997-topps-chrome-115-base",
+  "player": "Tim Duncan",
+  "year": "1997-98",
+  "set": "Topps Chrome",
+  "cardNo": "115",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "wade-2003-tc-115": {
+  "id": "wade-2003-topps-chrome-115-base",
+  "player": "Dwyane Wade",
+  "year": "2003-04",
+  "set": "Topps Chrome",
+  "cardNo": "115",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "jsn-2023-prizm-390-silver": {
+  "id": "smith-njigba-2023-panini-prizm-390-silver",
+  "player": "Jaxon Smith-Njigba",
+  "year": "2023",
+  "set": "Panini Prizm",
+  "cardNo": "390",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football"
+ },
+ "allen-2018-donruss-304": {
+  "id": "allen-2018-panini-donruss-304-rated",
+  "player": "Josh Allen",
+  "year": "2018",
+  "set": "Panini Donruss",
+  "cardNo": "304",
+  "parallel": "Rated Rookie base",
+  "sport": "Football"
+ },
+ "haaland-2019-tc-ucl-74": {
+  "id": "haaland-2019-topps-chrome-ucl-74-base",
+  "player": "Erling Haaland",
+  "year": "2019-20",
+  "set": "Topps Chrome UEFA Champions League",
+  "cardNo": "74",
+  "parallel": "Base RC",
+  "sport": "Soccer"
+ },
+ "messi-2022-prizm-wc-7": {
+  "id": "messi-2022-panini-prizm-world-cup-7-base",
+  "player": "Lionel Messi",
+  "year": "2022",
+  "set": "Panini Prizm World Cup",
+  "cardNo": "7",
+  "parallel": "Base",
+  "sport": "Soccer"
+ },
+ "ronaldo-2014-prizm-wc-161": {
+  "id": "ronaldo-2014-panini-prizm-world-cup-161-base",
+  "player": "Cristiano Ronaldo",
+  "year": "2014",
+  "set": "Panini Prizm World Cup",
+  "cardNo": "161",
+  "parallel": "Base",
+  "sport": "Soccer"
+ },
+ "manning-1998-tc-165": {
+  "id": "manning-1998-topps-chrome-165-base",
+  "player": "Peyton Manning",
+  "year": "1998",
+  "set": "Topps Chrome",
+  "cardNo": "165",
+  "parallel": "Base RC",
+  "sport": "Football"
+ },
+ "kobe-1996-finest-74": {
+  "id": "bryant-1996-finest-74-base",
+  "player": "Kobe Bryant",
+  "year": "1996-97",
+  "set": "Topps Finest",
+  "cardNo": "74",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "kobe-1996-bowmans-best-r23": {
+  "id": "bryant-1996-bowmans-best-r23-base",
+  "player": "Kobe Bryant",
+  "year": "1996-97",
+  "set": "Bowman's Best",
+  "cardNo": "R23",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "giannis-2013-select-178": {
+  "id": "giannis-2013-panini-select-178-base",
+  "player": "Giannis Antetokounmpo",
+  "year": "2013-14",
+  "set": "Panini Select",
+  "cardNo": "178",
+  "parallel": "Base RC",
+  "sport": "Basketball"
+ },
+ "judge-2017-tcu-hmt50": {
+  "id": "judge-2017-topps-chrome-update-hmt50-debut",
+  "player": "Aaron Judge",
+  "year": "2017",
+  "set": "Topps Chrome Update",
+  "cardNo": "HMT50",
+  "parallel": "Rookie Debut",
+  "sport": "Baseball"
+ },
+ "yamal-2024-tc-euro-17": {
+  "id": "yamal-2024-topps-chrome-euro-17-base",
+  "player": "Lamine Yamal",
+  "year": "2024",
+  "set": "Topps Chrome UEFA Euro",
+  "cardNo": "17",
+  "parallel": "Base (National Debut)",
+  "sport": "Soccer"
+ },
+ "iverson-1996-tc-171": {
+  "id": "iverson-1996-topps-chrome-171-base",
+  "player": "Allen Iverson",
+  "year": "1996-97",
+  "set": "Topps Chrome",
+  "cardNo": "171",
+  "parallel": "Base RC",
+  "sport": "Basketball"
  }
 }
