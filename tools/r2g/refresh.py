@@ -21,6 +21,8 @@ for arg in sys.argv[2:]:
     if f"PSA APR ({nice})" in c["note"]:
         print("already refreshed", bid); continue
     psa10 = d["med10"] if d.get("med10") is not None else d["avg10"]; psa9 = d["med9"] if d.get("med9") is not None else d["avg9"]; raw = d["rawMed"]
+    no9 = psa9 is None
+    if no9: psa9 = c["psa9"]  # no PSA 9 sale in the window: keep the board's last PSA 9 price and say so in the sentence
     gem = d["pop10"] / d["popTotal"]
     fee = A["feeHigh"] if psa10 > A["feeCap"] else A["fee"]  # PSA Value up to the $500 cap, Standard above
     allIn = raw + fee + A["ship"]; net10 = psa10 * (1 - A["haircut"]) * (1 - A["sellFee"]); netMiss = psa9 * A["missReal"] * (1 - A["sellFee"])
@@ -28,7 +30,7 @@ for arg in sys.argv[2:]:
     rawtxt = (f"raw {money(raw)} on eBay sold ({d['rawSrc'].split('(')[1].rstrip(')')})" if d.get("rawSrc")
               else f"raw {money(raw, 2 if raw < 20 else 0)} median of {d['rawN']} PSA-tracked sales")
     n10txt = f"{d['n10']:,}" + ("+" if d["n10"] >= 1000 else "")
-    sent = (f" PSA APR ({nice}): PSA 10 {n10txt} sales/90d, median {money(psa10)}, latest {money(d['latest10'])}; PSA 9 {d['n9']:,} sales, median {money(psa9)}; {rawtxt}. "
+    sent = (f" PSA APR ({nice}): PSA 10 {n10txt} sales/90d, median {money(psa10)}, latest {money(d['latest10'])}; PSA 9 {d['n9']:,} sales{', median ' + money(psa9) if not no9 else ' (no PSA 9 sold in the window; the last price, ' + money(psa9) + ', is kept)'}; {rawtxt}. "
             f"PSA POP ({nice}): 10={d['pop10']:,}, 9={d['pop9']:,}, total {d['popTotal']:,} → {gem*100:.1f}% gem. "
             f"{money(allIn)} all-in at the {money(fee, 2)} fee: a 10 nets about {signed(net10 - allIn)}, a 9 nets {signed(netMiss - allIn)}, expected value {signed(ev - allIn)}.")
     c.update({"raw": round(raw * 100) / 100, "psa10": round(psa10 * 100) / 100, "psa9": round(psa9 * 100) / 100, "psa10Sales90": d["n10"], "compType": "Real",

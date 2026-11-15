@@ -2374,5 +2374,23 @@
   "cardNo": "171",
   "parallel": "Base RC",
   "sport": "Basketball"
+ },
+ "dart-2025-prizm-332": {
+  "player": "Jaxson Dart",
+  "year": "2025",
+  "set": "Panini Prizm",
+  "cardNo": "332",
+  "parallel": "Base RC",
+  "sport": "Football",
+  "id": "dart-2025-panini-prizm-332-base"
+ },
+ "nacua-2023-prizm-357": {
+  "player": "Puka Nacua",
+  "year": "2023",
+  "set": "Panini Prizm",
+  "cardNo": "357",
+  "parallel": "Base RC",
+  "sport": "Football",
+  "id": "nacua-2023-panini-prizm-357-base"
  }
 }
