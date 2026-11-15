@@ -4,6 +4,8 @@ Everything here is a draft until Aidan approves it in the chat. Numbers come fro
 
 Goal: 10 subscribers by Fri Nov 20 (Aidan, Nov 13). Starting point: 1 paying member, 22 X followers.
 
+**Nov 15 check (daily review):** the free list still has 2 active addresses, both from Oct 16 to 17, so the Nov 13 issue has not brought anyone in yet (or has not gone out: the admin panel on the B/S/T tab sends it). Site traffic Nov 13 to 14: 15 and 8 visitors, 14 of the 23 arriving with a chatgpt.com UTM, none from X, Instagram or Reddit. The Nov 15 board refresh changed three numbers used below, fixed in place: Tua base (45 PSA 10 sales, $15 ten), Holliday 2024 Chrome dropped to 24 sales and is swapped for Roman Anthony 2026 Topps #189 in the baseball table, and two football rookies were added to the board as fails (Dart 2025 Prizm #332, Nacua 2023 Prizm #357) and to the football table. Two more X and Instagram posts for Nov 21 and 22 are at the end of their sections with images in public/social/nov13/ (nov21-dart, nov22-mahomes).
+
 ## Plan
 
 1. Reddit has the biggest audience. Aidan posts from his own account (reddit is blocked in the browser pane). These are text posts with the table and **no link in the body**. If someone asks where the numbers come from, reply in a comment: "I run a small site that does this, thewaxledger.com". Answer every comment and offer to run anyone's card. One sub a day: basketball Sat, football Sun, baseball Tue.
@@ -138,6 +140,34 @@ Expected profit +$277 a card.
 thewaxledger.com/grade/bryant-2012-panini-prizm-24-base/
 ```
 
+### Sat Nov 21
+Image: nov21-dart-x.jpg · 270 characters
+
+```
+Jaxson Dart 2025 Prizm #332, the Giants' starter.
+
+28 PSA 10 sales in 90 days at $103. Raw $2. PSA 9 $22.
+Only 23% of the PSA pop is a 10, and the fee is $40.
+
+One attempt is worth –$23. Keep it raw or buy the 10.
+
+thewaxledger.com/grade/dart-2025-panini-prizm-332-base/
+```
+
+### Sun Nov 22
+Image: nov22-mahomes-x.jpg · 271 characters
+
+```
+Patrick Mahomes 2017 Prizm #269 Silver
+
+Raw $900. PSA 10 $7,800 (29 sales). PSA 9 $1,725. 15% gem.
+
+All-in $970. A 9 covers it (+$306). A 10 nets +$4,459.
+Expected profit +$932 a card, the widest on the board.
+
+thewaxledger.com/grade/mahomes-2017-panini-prizm-269-silver/
+```
+
 ## Instagram captions (the -ig.jpg images)
 
 ### nov13-18buys-ig.jpg
@@ -222,6 +252,26 @@ Kobe Bryant 2012-13 Prizm #24, from the first Prizm set. Raw $204, PSA 10 $1,474
 Link in bio.
 
 #kobebryant #panini #prizm #thehobby #psagrading
+```
+
+### nov21-dart-ig.jpg
+
+```
+Jaxson Dart 2025 Prizm #332. The PSA 10 trades, 28 sales in 90 days at $103, and the raw card is $2. It still loses money to grade: 23% of the PSA pop is a 10, the 9 is $22, and the fee is $40, so one attempt is worth –$23. Buy the 10 if you want the 10.
+
+Every card's verdict: link in bio.
+
+#jaxsondart #giants #footballcards #panini #psagrading
+```
+
+### nov22-mahomes-ig.jpg
+
+```
+Patrick Mahomes 2017 Prizm #269 Silver. Raw $900 on 44 eBay sales, PSA 10 $7,800 on 29 sales in 90 days, PSA 9 $1,725, 15% gem. All-in $970 with the $59.99 fee: a 9 alone covers it (+$306) and a 10 nets +$4,459, so the expected profit is +$932 a card, the widest margin on the board. 23% of the PSA pop is an 8 or lower, so the real risk is the grade below 9; buy a copy you have seen.
+
+Link in bio.
+
+#mahomes #chiefs #prizm #footballcards #psagrading
 ```
 
 ## Newsletter: Raw-to-Gem Friday, Nov 13
@@ -312,11 +362,11 @@ Not advice, just arithmetic. Happy to run the numbers on any card people are thi
 
 ### r/footballcardz (Sun Nov 15)
 
-**Title:** Which football rookies actually pay to grade? I priced 15 of them both ways (PSA 10 vs a miss, real gem rates, PSA's $39.99 Value fee)
+**Title:** Which football rookies actually pay to grade? I priced 17 of them both ways (PSA 10 vs a miss, real gem rates, PSA's $39.99 Value fee)
 
 PSA reopened its Value tier at $39.99 for cards under $500, so I re-ran the grading math on the football cards I track.
 
-**Method.** All-in = raw (eBay sold median) + PSA fee ($39.99 under a $500 ten, $59.99 above) + $10 shipping. A 10 sells at 80% of its 90-day PSA median, a 9 at 85%, both minus a 13% selling fee, weighted by the card's gem rate from the PSA pop report. Only cards with 25+ PSA 10 sales in 90 days. Numbers from Oct 11 to Nov 12.
+**Method.** All-in = raw (eBay sold median) + PSA fee ($39.99 under a $500 ten, $59.99 above) + $10 shipping. A 10 sells at 80% of its 90-day PSA median, a 9 at 85%, both minus a 13% selling fee, weighted by the card's gem rate from the PSA pop report. Only cards with 25+ PSA 10 sales in 90 days. Numbers from Oct 11 to Nov 15.
 
 **Clears the fee**
 
@@ -339,7 +389,9 @@ PSA reopened its Value tier at $39.99 for cards under $500, so I re-ran the grad
 | Card | Raw | PSA 9 | PSA 10 | PSA 10 sales, 90 days | Gem rate | All-in | Expected profit per card |
 |---|---|---|---|---|---|---|---|
 | C.J. Stroud 2023 Prizm #339 | $2 | $12 | $29 | 179 | 44% | $52 | –$39 |
-| Tua Tagovailoa 2020 Prizm #339 | $1 | $8 | $15 | 39 | 42% | $51 | –$44 |
+| Jaxson Dart 2025 Prizm #332 | $2 | $22 | $103 | 28 | 23% | $52 | –$23 |
+| Puka Nacua 2023 Prizm #357 | $2 | $20 | $56 | 27 | 41% | $52 | –$27 |
+| Tua Tagovailoa 2020 Prizm #339 | $1 | $8 | $15 | 45 | 42% | $51 | –$44 |
 | Michael Penix Jr. 2024 Prizm #378 | $1 | $10 | $25 | 41 | 34% | $51 | –$40 |
 | Anthony Richardson 2023 Prizm #343 | $2 | $7 | $12 | 34 | 46% | $52 | –$46 |
 
@@ -347,7 +399,7 @@ What stood out:
 
 - **Josh Allen Donruss #304 is the most liquid card I track,** with 332 PSA 10 sales in 90 days. The margin is thin (it stops working at about $170 raw), but you'll never wait long to sell it.
 - **Mahomes Donruss #327 has a 10% gem rate and still clears,** because a PSA 9 at $451 sells for more than the $270 all-in by itself.
-- **The base Prizm rookies of recent QBs are all negative.** Stroud #339 gems 44% and loses $39 a card: the PSA 10 sells for $29.
+- **The base Prizm rookies of recent QBs are all negative.** Stroud #339 gems 44% and loses $39 a card: the PSA 10 sells for $29. Dart #332 is the interesting one: the 10 is $103 and trades (28 sales), but only 23% of the pop is a 10, so one attempt is still –$23.
 - **JSN Silver has moved with his season.** The 10 is up, but raw has followed, so the margin is now about $7 wide.
 
 Not advice. Tell me a card and I'll run it.
@@ -381,14 +433,14 @@ Not advice. Tell me a card and I'll run it.
 |---|---|---|---|---|---|---|---|
 | Fernando Tatis Jr. 2019 Topps #410 | $2 | $10 | $19 | 191 | 56% | $51 | –$41 |
 | Fernando Tatis Jr. 2019 Topps Chrome #203 | $4 | $11 | $24 | 162 | 70% | $54 | –$40 |
-| Jackson Holliday 2024 Topps Chrome #88 | $1 | $9 | $25 | 26 | 62% | $51 | –$38 |
+| Roman Anthony 2026 Topps #189 | $2 | $13 | $40 | 158 | 67% | $51 | –$30 |
 | Wyatt Langford 2023 Bowman Draft Chrome #BDC-106 1st Bowman Chrome | $3 | $12 | $25 | 38 | 76% | $53 | –$38 |
 
 What stood out:
 
 - **Ohtani is the most dependable name on the list.** Six of his rookies clear on my board, and the three here have 218 to 383 PSA 10 sales in 90 days, so the 10s sell fast.
 - **The $1 and $2 2026 Topps rookies of the right players work.** Misiorowski #10 and Schlittler #111 are the cheapest cards here, and a 9 at $50 to $56 nearly covers the cost of grading.
-- **Tatis Chrome #203 gems 70% and loses $40.** The 10 sells for $24. Check the 10 price before the gem rate.
+- **Tatis Chrome #203 gems 70% and loses $40.** The 10 sells for $24. Check the 10 price before the gem rate. Roman Anthony's flagship rookie is the same story at a bigger name: 158 PSA 10 sales in 90 days, 67% gem, and a $40 ten that leaves –$30 a card.
 
 Not advice. Happy to run any card.
 

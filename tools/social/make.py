@@ -90,6 +90,10 @@ POSTS = [
    line="The ten has followed his season up. Raw has followed too, so the margin is about $7 wide.")),
  ("nov20-kobe", "math", dict(cid="bryant-2012-panini-prizm-24-base", eyebrow="The math · 2012-13 Prizm #24", head="Kobe Bryant<br><span class='gr'>first-year Prizm</span>",
    line="The PSA 9 covers the $274 all-in, so the risk is an 8, not a miss.")),
+ ("nov21-dart", "math", dict(cid="dart-2025-panini-prizm-332-base", eyebrow="The math · 2025 Prizm #332 · PSA APR + pop, Nov 15", head="Jaxson Dart<br><span class='r'>still loses money</span>",
+   line="The ten trades, 28 sales in 90 days, but only 23% of the pop is a 10 and the fee is $40.")),
+ ("nov22-mahomes", "math", dict(cid="mahomes-2017-panini-prizm-269-silver", eyebrow="The math · 2017 Prizm #269 Silver · PSA APR + pop, Nov 15", head="Patrick Mahomes<br><span class='gr'>Silver Prizm</span>",
+   line="A PSA 9 alone covers the $970 all-in. The widest margin on the board.")),
 ]
 
 def main(out):
