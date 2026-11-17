@@ -2428,5 +2428,41 @@
   "parallel": "Silver Prizm RC",
   "sport": "Football",
   "id": "ward-2025-panini-prizm-352-silver"
+ },
+ "flagg-2025-tc-251-xfractor": {
+  "id": "flagg-2025-topps-chrome-251-xfractor",
+  "player": "Cooper Flagg",
+  "year": "2025-26",
+  "set": "Topps Chrome",
+  "cardNo": "251",
+  "parallel": "X-Fractor (unnumbered)",
+  "sport": "Basketball"
+ },
+ "mendoza-2025-bu-chrome-109": {
+  "id": "mendoza-2025-bowman-university-chrome-109-base",
+  "player": "Fernando Mendoza",
+  "year": "2025",
+  "set": "Bowman University Chrome",
+  "cardNo": "109",
+  "parallel": "Base (college, 1st Bowman)",
+  "sport": "Football"
+ },
+ "neymar-2014-prizm-wc-112": {
+  "id": "neymar-2014-panini-prizm-world-cup-112-base",
+  "player": "Neymar Jr.",
+  "year": "2014",
+  "set": "Panini Prizm World Cup",
+  "cardNo": "112",
+  "parallel": "Base",
+  "sport": "Soccer"
+ },
+ "skenes-2024-tcu-usc88-refractor": {
+  "id": "skenes-2024-topps-chrome-update-usc88-refractor",
+  "player": "Paul Skenes",
+  "year": "2024",
+  "set": "Topps Chrome Update",
+  "cardNo": "USC88",
+  "parallel": "Refractor (unnumbered)",
+  "sport": "Baseball"
  }
 }
