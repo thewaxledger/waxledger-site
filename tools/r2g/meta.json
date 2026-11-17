@@ -2392,5 +2392,41 @@
   "parallel": "Base RC",
   "sport": "Football",
   "id": "nacua-2023-panini-prizm-357-base"
+ },
+ "ohtani-2018-tc-150-refractor": {
+  "player": "Shohei Ohtani",
+  "year": "2018",
+  "set": "Topps Chrome",
+  "cardNo": "150",
+  "parallel": "Refractor (unnumbered)",
+  "sport": "Baseball",
+  "id": "ohtani-2018-topps-chrome-150-refractor"
+ },
+ "yamal-2023-tc-ucc-64-refractor": {
+  "player": "Lamine Yamal",
+  "year": "2023-24",
+  "set": "Topps Chrome UEFA Club Competitions",
+  "cardNo": "64",
+  "parallel": "Refractor (unnumbered)",
+  "sport": "Soccer",
+  "id": "yamal-2023-topps-chrome-ucc-64-refractor"
+ },
+ "clark-2024-prizm-wnba-22-silver": {
+  "player": "Caitlin Clark",
+  "year": "2024",
+  "set": "Panini Prizm WNBA",
+  "cardNo": "22",
+  "parallel": "Silver Prizm RC",
+  "sport": "Basketball",
+  "id": "clark-2024-panini-prizm-wnba-22-silver"
+ },
+ "ward-2025-prizm-352-silver": {
+  "player": "Cam Ward",
+  "year": "2025",
+  "set": "Panini Prizm",
+  "cardNo": "352",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football",
+  "id": "ward-2025-panini-prizm-352-silver"
  }
 }
