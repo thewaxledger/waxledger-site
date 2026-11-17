@@ -34,7 +34,7 @@ I re-ran the grading math this morning on the QB rookie Silvers everyone has in 
 What stood out:
 
 - **Caleb is the only one with real room.** The 10 went from about $1,600 to $1,925 in a month and raw only moved $25. A 9 still loses about $70, so it's a bet on the 18%.
-- **Daniels is the trap.** $719 ten, but only 12% of everything PSA has graded is a 10, and 38% is an 8 or lower.
+- **Daniels is the trap.** $719 ten, but only 12% of everything PSA has graded is a 10, and half is an 8 or lower.
 - **Maye and Nix are break-even with extra steps.** Both clear on paper but by $23 and $4, so the raw price you pay decides it.
 - **Penix and McCarthy Silvers have the volume (96 and 150 sales) but not the price.** A $250 ten after the haircut and fees doesn't pay for the misses.
 
