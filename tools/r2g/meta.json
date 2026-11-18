@@ -2464,5 +2464,14 @@
   "cardNo": "USC88",
   "parallel": "Refractor (unnumbered)",
   "sport": "Baseball"
+ },
+ "misiorowski-2026-tc-196-refractor": {
+  "id": "misiorowski-2026-topps-chrome-196-refractor",
+  "player": "Jacob Misiorowski",
+  "year": "2026",
+  "set": "Topps Chrome",
+  "cardNo": "196",
+  "parallel": "Refractor (unnumbered)",
+  "sport": "Baseball"
  }
 }
