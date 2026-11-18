@@ -1,0 +1,58 @@
+[
+{
+"format": "hobby",
+"label": "Hobby",
+"top_team": "Raiders",
+"top_share": 12.3,
+"second_team": "Cardinals",
+"top4_share": 29,
+"bottom12_share": 17,
+"case_market": 8099,
+"autos_case": 12,
+"mendoza_auto_pct": 10.9,
+"mendoza_slot": 0.00957,
+"teams_under_half": 32
+},
+{
+"format": "jumbo",
+"label": "Jumbo",
+"top_team": "Raiders",
+"top_share": 12.3,
+"second_team": "Cardinals",
+"top4_share": 29,
+"bottom12_share": 17,
+"case_market": 10000,
+"autos_case": 16,
+"mendoza_auto_pct": 14.3,
+"mendoza_slot": 0.00957,
+"teams_under_half": 31
+},
+{
+"format": "delight",
+"label": "Breaker's Delight",
+"top_team": "Raiders",
+"top_share": 13.1,
+"second_team": "Titans",
+"top4_share": 31,
+"bottom12_share": 17,
+"case_market": 11550,
+"autos_case": 12,
+"mendoza_auto_pct": 10.5,
+"mendoza_slot": 0.00924,
+"teams_under_half": 32
+},
+{
+"format": "fdi",
+"label": "First Day Issue",
+"top_team": "Raiders",
+"top_share": 12.2,
+"second_team": "Titans",
+"top4_share": 29,
+"bottom12_share": 18,
+"case_market": 30800,
+"autos_case": 24,
+"mendoza_auto_pct": 17.8,
+"mendoza_slot": 0.00815,
+"teams_under_half": 7
+}
+]

@@ -2,6 +2,7 @@ import http from "node:http"; import fs from "node:fs"; import path from "node:p
 import { handle as auth } from "../../netlify/functions/auth.mjs";
 import { handle as bst } from "../../netlify/functions/bst.mjs";
 import { handle as screener } from "../../netlify/functions/screener.mjs";
+import { handle as breaks } from "../../netlify/functions/breaks.mjs";
 import { handle as comps } from "../../netlify/functions/comps.mjs";
 import { handle as hit } from "../../netlify/functions/hit.mjs";
 import { handle as newsletter } from "../../netlify/functions/newsletter.mjs";
@@ -18,7 +19,7 @@ function store() {
     delete: async k => { m.delete(k); }, list: async ({ prefix }) => ({ blobs: [...m.keys()].filter(k => k.startsWith(prefix || "")).map(key => ({ key })) }), _m: m
   };
 }
-const MEMBERS = new Set(["pro@example.com", "pro2@example.com", "pro3@example.com", "pro4@example.com"]);
+const MEMBERS = new Set(["pro@example.com", "pro2@example.com", "pro3@example.com", "pro4@example.com", "pro5@example.com"]);
 const mail = [];
 const deps = {
   users: store(), board: store(), photos: store(), traffic: store(), salt: "local", news: store(), now: () => Date.now(), site: "http://localhost:8791",
@@ -35,12 +36,13 @@ const deps = {
 http.createServer(async (req, res) => {
   const u = new URL(req.url, "http://x");
   if (u.pathname === "/__mail") { res.end(JSON.stringify(mail)); return; }
-  if (u.pathname === "/api/auth" || u.pathname === "/api/bst" || u.pathname === "/api/screener" || u.pathname === "/api/comps" || u.pathname === "/api/hit" || u.pathname === "/api/newsletter") {
+  if (u.pathname === "/api/auth" || u.pathname === "/api/bst" || u.pathname === "/api/screener" || u.pathname === "/api/breaks" || u.pathname === "/api/comps" || u.pathname === "/api/hit" || u.pathname === "/api/newsletter") {
     const chunks = []; for await (const c of req) chunks.push(c);
     const body = chunks.length ? Buffer.concat(chunks) : undefined;
     const r = new Request("http://localhost:8791" + req.url, { method: req.method, headers: req.headers, body: req.method === "GET" ? undefined : body });
     let out;
     if (u.pathname === "/api/screener") out = await screener(r, deps);
+    else if (u.pathname === "/api/breaks") out = await breaks(r, deps);
     else if (u.pathname === "/api/hit") out = await hit(r, deps);
     else if (u.pathname === "/api/newsletter") out = await newsletter(r, deps);
     else if (u.pathname === "/api/comps") out = await comps(r, { store: compsStore, fetchFn: scpFetch, token: "t", member: await currentMember(r, deps), visitor: "local-visitor" });

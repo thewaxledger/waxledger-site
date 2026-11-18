@@ -1,0 +1,29 @@
+{
+ "id": "topps-chrome-fb-2026",
+ "name": "2026 Topps Chrome Football",
+ "sport": "Football",
+ "release": "2026-11-18",
+ "asOf": "2026-11-18",
+ "review": "topps-chrome-fb-2026",
+ "unit": "team",
+ "star": {"label": "Mendoza rookie auto", "field": "mendoza_slot"},
+ "prices": {
+  "hobby": {"box": 575, "src": "eBay sold, median of 40 presale boxes Nov 12 to 16"},
+  "jumbo": {"box": 990, "src": "eBay sold, median of 5 presale boxes Nov 12 to 16"},
+  "delight": {"box": 1924.95, "src": "Dave & Adam's presale asking price per The Hobby Wire, Nov 17; no sold price yet"},
+  "fdi": {"box": 2336.99, "src": "eBay sold, one box Nov 16 (Topps auction closed at $2,500)"}
+ },
+ "caveat": "Topps had not published 2026 pack odds when this was built (Nov 17). Chase odds use the 2025 Chrome Football odds as a stand-in, and team shares are a model built on demand weights we set by hand, not sold comps. Every figure is an estimate.",
+ "noOdds": "No odds to lean on yet: Super Bowl at Night, Glass Canvas, Gridlock, Madden 99 Club, the Lombardi Trophy SuperFractor 1/1, the 106 Prem1ere Patch Autographs and the five Gold Shield Autographs. The Patrick Mahomes autographs are his first in a Topps product.",
+ "rookieNote": "Eight base rookies have no autograph in this product, including Jonah Coleman, Omar Cooper Jr. and Eli Stowers. Weight is our estimate of card demand with Mendoza at 100.",
+ "method": [
+  "Checklist: the Topps checklist as published by Degree Grading and HobbyMonitor. 92 rookies sign Rookie Variation Autographs; 43 more rookies sign only in retail boxes.",
+  "A team's share of the break blends three parts: autographs, base and rookie colour, and short-print inserts. The blend is 45/35/20 for Hobby and Jumbo, 70/20/10 for Breaker's Delight and 60/30/10 for First Day Issue. Cowboys get a 15% fan-base bump, Chiefs 10%, and Steelers, Packers, Bears, Eagles and 49ers 5%.",
+  "Fair spot is the team's share times the break cost (boxes times the box price you set), before a breaker's margin. Breakers usually add 15% to 30%.",
+  "Each autograph is treated as an independent draw, so a team's chance of a hit is one minus the chance that every autograph in the break misses it. For several teams the slot chances are added, which slightly overcounts the three dual autographs that cross teams.",
+  "Autograph odds assume rookies take 88% of autograph slots in Hobby and Jumbo, 85% in Breaker's Delight and 75% in First Day Issue, in line with the 2025 odds, and that every signer in a set is printed equally. Topps often prints the top names shorter, so read star-rookie odds as a best case.",
+  "Short-print insert grouping follows Haus of Sports Cards, since Topps does not label short prints.",
+  "Team rules to settle with the breaker up front: Warren Moon's Oilers cards are counted with the Titans; three dual autographs cross teams (Mendoza and Simpson, Reese and Downs, Tate and Tyson); Tom Brady's Kaiju and Ultra Violet are Buccaneers cards; Myles Garrett is listed with the Rams.",
+  "Demand weights are judgment calls. They get replaced with sold comps once hobby singles have a week of sales, and the odds get rerun when Topps posts the odds sheet."
+ ]
+}

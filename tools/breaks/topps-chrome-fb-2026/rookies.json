@@ -1,0 +1,212 @@
+[
+{
+"player": "Fernando Mendoza",
+"team": "Raiders",
+"pos": "QB",
+"weight": 100,
+"rookie_auto": "Yes",
+"other_autos": "1991 Topps, Chromographs, Dual",
+"ssp_inserts": 7,
+"status": "Now starting after the Cousins trade; OROY favorite (about +225)"
+},
+{
+"player": "Jeremiyah Love",
+"team": "Cardinals",
+"pos": "RB",
+"weight": 40,
+"rookie_auto": "Yes",
+"other_autos": "1991 Topps, Chromographs, Dual",
+"ssp_inserts": 7,
+"status": "Preseason favorite; has faded after an ankle injury"
+},
+{
+"player": "Carnell Tate",
+"team": "Titans",
+"pos": "WR",
+"weight": 40,
+"rookie_auto": "Yes",
+"other_autos": "1991 Topps, Chromographs, Dual",
+"ssp_inserts": 7,
+"status": "Led the OROY market into Week 10; now about +800"
+},
+{
+"player": "KC Concepcion",
+"team": "Browns",
+"pos": "WR",
+"weight": 28,
+"rookie_auto": "Yes",
+"other_autos": "Dual",
+"ssp_inserts": 1,
+"status": "About +500, second on the board"
+},
+{
+"player": "Denzel Boston",
+"team": "Browns",
+"pos": "WR",
+"weight": 26,
+"rookie_auto": "Yes",
+"other_autos": "Dual",
+"ssp_inserts": 1,
+"status": "About +800"
+},
+{
+"player": "Jordyn Tyson",
+"team": "Saints",
+"pos": "WR",
+"weight": 26,
+"rookie_auto": "Yes",
+"other_autos": "1991 Topps, Dual",
+"ssp_inserts": 5,
+"status": "Back from injury; 11 catches in his second game"
+},
+{
+"player": "Jonah Coleman",
+"team": "Broncos",
+"pos": "RB",
+"weight": 26,
+"rookie_auto": "No",
+"other_autos": "None",
+"ssp_inserts": 0,
+"status": "About +550, top-three OROY odds"
+},
+{
+"player": "Ty Simpson",
+"team": "Rams",
+"pos": "QB",
+"weight": 22,
+"rookie_auto": "Yes",
+"other_autos": "1991 Topps, Chromographs, Dual",
+"ssp_inserts": 4,
+"status": "Behind Stafford"
+},
+{
+"player": "Makai Lemon",
+"team": "Eagles",
+"pos": "WR",
+"weight": 20,
+"rookie_auto": "Yes",
+"other_autos": "Chromographs",
+"ssp_inserts": 4,
+"status": "Has dealt with injuries"
+},
+{
+"player": "Caleb Downs",
+"team": "Cowboys",
+"pos": "S",
+"weight": 18,
+"rookie_auto": "Yes",
+"other_autos": "Dual",
+"ssp_inserts": 1,
+"status": "Top defensive name with Reese"
+},
+{
+"player": "Carson Beck",
+"team": "Cardinals",
+"pos": "QB",
+"weight": 16,
+"rookie_auto": "Yes",
+"other_autos": "Dual",
+"ssp_inserts": 2,
+"status": "Expected to make his first start; about 16-1"
+},
+{
+"player": "Arvell Reese",
+"team": "Giants",
+"pos": "LB",
+"weight": 16,
+"rookie_auto": "Yes",
+"other_autos": "Dual",
+"ssp_inserts": 1,
+"status": "DROY favorite"
+},
+{
+"player": "Jadarian Price",
+"team": "Seahawks",
+"pos": "RB",
+"weight": 14,
+"rookie_auto": "Yes",
+"other_autos": "None",
+"ssp_inserts": 1,
+"status": ""
+},
+{
+"player": "David Bailey",
+"team": "Jets",
+"pos": "EDGE",
+"weight": 12,
+"rookie_auto": "Yes",
+"other_autos": "None",
+"ssp_inserts": 1,
+"status": "DROY contender"
+},
+{
+"player": "Garrett Nussmeier",
+"team": "Chiefs",
+"pos": "QB",
+"weight": 12,
+"rookie_auto": "Yes",
+"other_autos": "None",
+"ssp_inserts": 0,
+"status": "Behind Mahomes"
+},
+{
+"player": "Omar Cooper Jr.",
+"team": "Jets",
+"pos": "WR",
+"weight": 12,
+"rookie_auto": "No",
+"other_autos": "None",
+"ssp_inserts": 0,
+"status": "Was as high as 12% on Kalshi in late October"
+},
+{
+"player": "Kenyon Sadiq",
+"team": "Jets",
+"pos": "TE",
+"weight": 10,
+"rookie_auto": "Yes",
+"other_autos": "None",
+"ssp_inserts": 1,
+"status": "Has dealt with injuries"
+},
+{
+"player": "Drew Allar",
+"team": "Steelers",
+"pos": "QB",
+"weight": 9,
+"rookie_auto": "Yes",
+"other_autos": "None",
+"ssp_inserts": 1,
+"status": ""
+},
+{
+"player": "Cade Klubnik",
+"team": "Jets",
+"pos": "QB",
+"weight": 9,
+"rookie_auto": "Yes",
+"other_autos": "None",
+"ssp_inserts": 1,
+"status": ""
+},
+{
+"player": "Nick Singleton",
+"team": "Titans",
+"pos": "RB",
+"weight": 8,
+"rookie_auto": "Yes",
+"other_autos": "None",
+"ssp_inserts": 0,
+"status": ""
+},
+{
+"player": "Eli Stowers",
+"team": "Eagles",
+"pos": "TE",
+"weight": 6,
+"rookie_auto": "No",
+"other_autos": "None",
+"ssp_inserts": 0,
+"status": ""
+}
+]

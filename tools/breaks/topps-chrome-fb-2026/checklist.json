@@ -1,0 +1,7302 @@
+[
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Carson Beck",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 16,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Jeremiyah Love",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 40,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Reggie Virgil",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Falcons",
+"abbr": "ATL",
+"player": "Zachariah Branch",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 6,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Falcons",
+"abbr": "ATL",
+"player": "Avieon Terrell",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Falcons",
+"abbr": "ATL",
+"player": "Harold Perkins Jr.",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Ja'Kobi Lane",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 7,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Elijah Sarratt",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 5,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Zion Young",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Skyler Bell",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 5,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "T.J. Parker",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Davison Igbinosun",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Chris Brazzell II",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 6,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Lee Hunter",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "No autograph in this product"
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Will Lee III",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Zavion Thomas",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 5,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Sam Roush",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Dillon Thieneman",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 4,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Colbie Young",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Cashius Howell",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Tacario Davis",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Taylen Green",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 6,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "KC Concepcion",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 28,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Denzel Boston",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 26,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Emmanuel McNeil-Warren",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Malachi Lawrence",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Jaishawn Barham",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Caleb Downs",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 18,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Jonah Coleman",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 26,
+"note": "No autograph in this product"
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Justin Joly",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Dallen Bentley",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Kendrick Law",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Derrick Moore",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Keith Abney II",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Chris McClellan",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "No autograph in this product"
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Dani Dennis-Sutton",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Brandon Cisse",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "Marlin Klein",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "Keylan Rutledge",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "Kayden McDonald",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Colts",
+"abbr": "IND",
+"player": "Deion Burks",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 4,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Colts",
+"abbr": "IND",
+"player": "CJ Allen",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Colts",
+"abbr": "IND",
+"player": "A.J. Haulcy",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "Josh Cameron",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "Nate Boerkircher",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "Albert Regis",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Garrett Nussmeier",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 12,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Emmett Johnson",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 5,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Peter Woods",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 4,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Mansoor Delane",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 5,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Fernando Mendoza",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 100,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Mike Washington Jr.",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 7,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Jermod McCoy",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 4,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Brenen Thompson",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Akheem Mesidor",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Genesis Smith",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Ty Simpson",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 22,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "CJ Daniels",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Max Klare",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 4,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Dolphins",
+"abbr": "MIA",
+"player": "Caleb Douglas",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 4,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Dolphins",
+"abbr": "MIA",
+"player": "Jacob Rodriguez",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Dolphins",
+"abbr": "MIA",
+"player": "Chris Bell",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 6,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Vikings",
+"abbr": "MIN",
+"player": "Demond Claiborne",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 4,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Vikings",
+"abbr": "MIN",
+"player": "Caleb Banks",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Vikings",
+"abbr": "MIN",
+"player": "Jake Golday",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Behren Morton",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Eli Raridon",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Caleb Lomu",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Jordyn Tyson",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 26,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Bryce Lance",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Christen Miller",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Giants",
+"abbr": "NYG",
+"player": "Malachi Fields",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Giants",
+"abbr": "NYG",
+"player": "Francis Mauigoa",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 4,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Giants",
+"abbr": "NYG",
+"player": "Arvell Reese",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 16,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Giants",
+"abbr": "NYG",
+"player": "Colton Hood",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Jets",
+"abbr": "NYJ",
+"player": "Cade Klubnik",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 9,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Jets",
+"abbr": "NYJ",
+"player": "Omar Cooper Jr.",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 12,
+"note": "No autograph in this product"
+},
+{
+"team": "Jets",
+"abbr": "NYJ",
+"player": "Kenyon Sadiq",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 10,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Jets",
+"abbr": "NYJ",
+"player": "David Bailey",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 12,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Cole Payton",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 5,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Makai Lemon",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 20,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Eli Stowers",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 6,
+"note": "No autograph in this product"
+},
+{
+"team": "Steelers",
+"abbr": "PIT",
+"player": "Drew Allar",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 9,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Steelers",
+"abbr": "PIT",
+"player": "Germie Bernard",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 5,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Steelers",
+"abbr": "PIT",
+"player": "Daylen Everette",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Kaelon Black",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 4,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "De'Zhaun Stribling",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 7,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Romello Height",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Jadarian Price",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 14,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Julian Neal",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "No autograph in this product"
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Bud Clark",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "No autograph in this product"
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Ted Hurst",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Rueben Bain Jr.",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 6,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Josiah Trotter",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 2,
+"note": "No autograph in this product"
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Nick Singleton",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 8,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Carnell Tate",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 40,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Keldric Faulk",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 4,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "Kaytron Allen",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 5,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "Antonio Williams",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 6,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "Sonny Styles",
+"set": "Base rookie (301-400)",
+"kind": "Base rookie",
+"rc": "RC",
+"weight": 8,
+"note": "Rookie Variation Auto"
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Brock Bowers",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Fernando Mendoza",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "RC",
+"weight": 100,
+"note": ""
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Bo Nix",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Bryce Young",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Christian McCaffrey",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Carnell Tate",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "RC",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Cam Ward",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Caleb Williams",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 50,
+"note": ""
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Emeka Egbuka",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 15,
+"note": ""
+},
+{
+"team": "Jets",
+"abbr": "NYJ",
+"player": "Garrett Wilson",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "James Cook",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Giants",
+"abbr": "NYG",
+"player": "Jaxson Dart",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "Jayden Daniels",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 45,
+"note": ""
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Jared Goff",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Jeremiyah Love",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "RC",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Ja'Marr Chase",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Jordyn Tyson",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "RC",
+"weight": 26,
+"note": ""
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Tyler Shough",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Quinshon Judkins",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Sam Darnold",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Ty Simpson",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "RC",
+"weight": 22,
+"note": ""
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Xavier Worthy",
+"set": "1991 Topps Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Ashton Jeanty",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Brock Bowers",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Dont'e Thornton Jr.",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Vikings",
+"abbr": "MIN",
+"player": "Aaron Jones Sr.",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Vikings",
+"abbr": "MIN",
+"player": "Jordan Addison",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Vikings",
+"abbr": "MIN",
+"player": "Justin Jefferson",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Colts",
+"abbr": "IND",
+"player": "Alec Pierce",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Colts",
+"abbr": "IND",
+"player": "Daniel Jones",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Colts",
+"abbr": "IND",
+"player": "Tyler Warren",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Jets",
+"abbr": "NYJ",
+"player": "Breece Hall",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Bo Nix",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Pat Surtain II",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "RJ Harvey",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Brock Purdy",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Christian McCaffrey",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Fred Warner",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Kyle Juszczyk",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "Bhayshul Tuten",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "Brian Thomas Jr.",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "Trevor Lawrence",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Bryce Young",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Tetairoa McMillan",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 15,
+"note": ""
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Chase Brown",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Joe Burrow",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 70,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "CeeDee Lamb",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Dak Prescott",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Javonte Williams",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Colston Loveland",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Caleb Williams",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 50,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Luther Burden III",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Chris Olave",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Taysom Hill",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Tyler Shough",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Dolphins",
+"abbr": "MIA",
+"player": "Chop Robinson",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Dolphins",
+"abbr": "MIA",
+"player": "De'Von Achane",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Calvin Ridley",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Cam Ward",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Elic Ayomanor",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Carson Schwesinger",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Quinshon Judkins",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Derrick Henry",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Kyle Hamilton",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Roquan Smith",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Dawson Knox",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Josh Allen",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 80,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Keon Coleman",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Falcons",
+"abbr": "ATL",
+"player": "Drake London",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Falcons",
+"abbr": "ATL",
+"player": "Jalon Walker",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Falcons",
+"abbr": "ATL",
+"player": "Tua Tagovailoa",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Drake Maye",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 60,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "TreVeyon Henderson",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Edgerrin Cooper",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Matthew Golden",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Emeka Egbuka",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 15,
+"note": ""
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Tez Johnson",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "Jacory Croskey-Merritt",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "Jayden Daniels",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 45,
+"note": ""
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "Terry McLaurin",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Giants",
+"abbr": "NYG",
+"player": "Jaxson Dart",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Giants",
+"abbr": "NYG",
+"player": "Malik Nabers",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 18,
+"note": ""
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Jahmyr Gibbs",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 35,
+"note": ""
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Jared Goff",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Justin Herbert",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 30,
+"note": ""
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Ladd McConkey",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Omarion Hampton",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "Jayden Higgins",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "Kamari Lassiter",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "Woody Marks",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Jalen Hurts",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 35,
+"note": ""
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Saquon Barkley",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 30,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Jaxon Smith-Njigba",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Steelers",
+"abbr": "PIT",
+"player": "Kaleb Johnson",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Steelers",
+"abbr": "PIT",
+"player": "T.J. Watt",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Steelers",
+"abbr": "PIT",
+"player": "Will Howard",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Kyren Williams",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Matthew Stafford",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 30,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Puka Nacua",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Kenneth Walker III",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Patrick Mahomes II",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 150,
+"note": ""
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Xavier Worthy",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Michael Wilson",
+"set": "Base Variation Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Anquan Boldin",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Kurt Warner",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 15,
+"note": ""
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Antonio Gates",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "Andre Johnson",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Archie Manning",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Boomer Esiason",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Dolphins",
+"abbr": "MIA",
+"player": "Bob Griese",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Bo Jackson",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Howie Long",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Bernie Kosar",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Joe Thomas",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Barry Sanders",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 60,
+"note": ""
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Brian Westbrook",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Eric Allen",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Dez Bryant",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "DeMarco Murray",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "DeAngelo Hall",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "John Riggins",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Dante Hall",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Jets",
+"abbr": "NYJ",
+"player": "Darrelle Revis",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Eric Dickerson",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 15,
+"note": ""
+},
+{
+"team": "Giants",
+"abbr": "NYG",
+"player": "Eli Manning",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Frank Gore",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Jerry Rice",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 60,
+"note": ""
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "John Elway",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 45,
+"note": ""
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Steve Atwater",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Jim McMahon",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "William Perry",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Kam Chancellor",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Richard Sherman",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "LeRoy Butler",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Sterling Sharpe",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "LeSean McCoy",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Thurman Thomas",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Mike Alstott",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Warren Sapp",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "Maurice Jones-Drew",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Falcons",
+"abbr": "ATL",
+"player": "Michael Vick",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Falcons",
+"abbr": "ATL",
+"player": "Tony Gonzalez",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Colts",
+"abbr": "IND",
+"player": "Peyton Manning",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 80,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Rob Gronkowski",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 30,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Tom Brady",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 150,
+"note": ""
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Ray Lewis",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Terrell Suggs",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Vikings",
+"abbr": "MIN",
+"player": "Randy Moss",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Steelers",
+"abbr": "PIT",
+"player": "Rod Woodson",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Steelers",
+"abbr": "PIT",
+"player": "Troy Polamalu",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Warren Moon",
+"set": "Chrome Legends Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Vikings",
+"abbr": "MIN",
+"player": "Aaron Jones Sr.",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Alvin Kamara",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Steelers",
+"abbr": "PIT",
+"player": "Aaron Rodgers",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "",
+"weight": 35,
+"note": ""
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Amon-Ra St. Brown",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Jets",
+"abbr": "NYJ",
+"player": "Breece Hall",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Brock Purdy",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "Brian Thomas Jr.",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "CeeDee Lamb",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Carnell Tate",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "RC",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Falcons",
+"abbr": "ATL",
+"player": "Drake London",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "Deebo Samuel",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Emeka Egbuka",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "",
+"weight": 15,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Fernando Mendoza",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "RC",
+"weight": 100,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Maxx Crosby",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Joe Burrow",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "",
+"weight": 70,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Josh Jacobs",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Jeremiyah Love",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "RC",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Colts",
+"abbr": "IND",
+"player": "Jonathan Taylor",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Luther Burden III",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Makai Lemon",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "RC",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Matthew Stafford",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "",
+"weight": 30,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Ty Simpson",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "RC",
+"weight": 22,
+"note": ""
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "Nico Collins",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Zay Flowers",
+"set": "Chromographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Adam Vinatieri",
+"set": "Class of 26 Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Drew Brees",
+"set": "Class of 26 Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Larry Fitzgerald",
+"set": "Class of 26 Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Luke Kuechly",
+"set": "Class of 26 Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 15,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Roger Craig",
+"set": "Class of 26 Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Ashton Jeanty",
+"set": "Future Stars Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Colston Loveland",
+"set": "Future Stars Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Luther Burden III",
+"set": "Future Stars Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Carson Schwesinger",
+"set": "Future Stars Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Quinshon Judkins",
+"set": "Future Stars Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Cam Ward",
+"set": "Future Stars Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Emeka Egbuka",
+"set": "Future Stars Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 15,
+"note": ""
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Jihaad Campbell",
+"set": "Future Stars Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Giants",
+"abbr": "NYG",
+"player": "Jaxson Dart",
+"set": "Future Stars Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "Jayden Higgins",
+"set": "Future Stars Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "Woody Marks",
+"set": "Future Stars Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Matthew Golden",
+"set": "Future Stars Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Omarion Hampton",
+"set": "Future Stars Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "RJ Harvey",
+"set": "Future Stars Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "TreVeyon Henderson",
+"set": "Future Stars Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Tetairoa McMillan",
+"set": "Future Stars Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 15,
+"note": ""
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Tyler Shough",
+"set": "Future Stars Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Colts",
+"abbr": "IND",
+"player": "Tyler Warren",
+"set": "Future Stars Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Anthony Munoz",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "Art Monk",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Brian Dawkins",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Bruce Matthews",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Vikings",
+"abbr": "MIN",
+"player": "Cris Carter",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Dan Fouts",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Dolphins",
+"abbr": "MIA",
+"player": "Dan Marino",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 50,
+"note": ""
+},
+{
+"team": "Falcons",
+"abbr": "ATL",
+"player": "Deion Sanders",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 45,
+"note": ""
+},
+{
+"team": "Colts",
+"abbr": "IND",
+"player": "Edgerrin James",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Steelers",
+"abbr": "PIT",
+"player": "Jerome Bettis",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Jim Kelly",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "James Lofton",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Joe Montana",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 70,
+"note": ""
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Jonathan Ogden",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Kurt Warner",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 15,
+"note": ""
+},
+{
+"team": "Giants",
+"abbr": "NYG",
+"player": "Lawrence Taylor",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 30,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Michael Irvin",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Mike Singletary",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Ozzie Newsome",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Steve Largent",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "Tony Boselli",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Tim Brown",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Terrell Davis",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Ty Law",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Warren Sapp",
+"set": "Hall of Chrome Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Joe Flacco",
+"set": "Ring of Honor Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Malcolm Smith",
+"set": "Ring of Honor Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Tom Brady",
+"set": "Ring of Honor Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 150,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Tom Brady",
+"set": "Ring of Honor Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 150,
+"note": ""
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Von Miller",
+"set": "Ring of Honor Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "Art Monk",
+"set": "Tecmo Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Cornelius Bennett",
+"set": "Tecmo Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Christian Okoye",
+"set": "Tecmo Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Derrick Henry",
+"set": "Tecmo Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Drake Maye",
+"set": "Tecmo Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 60,
+"note": ""
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Joe Burrow",
+"set": "Tecmo Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 70,
+"note": ""
+},
+{
+"team": "Vikings",
+"abbr": "MIN",
+"player": "Justin Jefferson",
+"set": "Tecmo Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Jerry Rice",
+"set": "Tecmo Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 60,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Myles Garrett",
+"set": "Tecmo Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Steelers",
+"abbr": "PIT",
+"player": "Rod Woodson",
+"set": "Tecmo Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Sterling Sharpe",
+"set": "Tecmo Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Troy Aikman",
+"set": "Tecmo Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 35,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Warren Moon",
+"set": "Tecmo Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "William Perry",
+"set": "Tecmo Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Ja'Marr Chase / Joe Burrow",
+"set": "Dual Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Carson Beck / Jeremiyah Love",
+"set": "Dual Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Denzel Boston / KC Concepcion",
+"set": "Dual Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Sam Darnold / Jaxon Smith-Njigba",
+"set": "Dual Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Amon-Ra St. Brown / Jahmyr Gibbs",
+"set": "Dual Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Saquon Barkley / Jalen Hurts",
+"set": "Dual Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Tom Brady / Drake Maye",
+"set": "Dual Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Fernando Mendoza / Ty Simpson",
+"set": "Dual Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": "Two teams: set the rule before the break"
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Fernando Mendoza / Ty Simpson",
+"set": "Dual Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": "Two teams: set the rule before the break"
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Bo Nix / John Elway",
+"set": "Dual Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Tony Romo / Dak Prescott",
+"set": "Dual Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Brock Purdy / Steve Young",
+"set": "Dual Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Giants",
+"abbr": "NYG",
+"player": "Arvell Reese / Caleb Downs",
+"set": "Dual Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": "Two teams: set the rule before the break"
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Arvell Reese / Caleb Downs",
+"set": "Dual Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": "Two teams: set the rule before the break"
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Tyler Shough / Drew Brees",
+"set": "Dual Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Carnell Tate / Jordyn Tyson",
+"set": "Dual Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": "Two teams: set the rule before the break"
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Carnell Tate / Jordyn Tyson",
+"set": "Dual Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": "Two teams: set the rule before the break"
+},
+{
+"team": "Jets",
+"abbr": "NYJ",
+"player": "Breece Hall / Garrett Wilson",
+"set": "Dual Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Tetairoa McMillan / Bryce Young",
+"set": "Dual Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Carson Schwesinger",
+"set": "Gold Shield Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 8,
+"note": "1/1 patch auto"
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Jaxon Smith-Njigba",
+"set": "Gold Shield Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 40,
+"note": "1/1 patch auto"
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Myles Garrett",
+"set": "Gold Shield Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 20,
+"note": "1/1 patch auto"
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Matthew Stafford",
+"set": "Gold Shield Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 30,
+"note": "1/1 patch auto"
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Tetairoa McMillan",
+"set": "Gold Shield Autographs",
+"kind": "Auto",
+"rc": "",
+"weight": 15,
+"note": "1/1 patch auto"
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Andrei Iosivas",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Chase Brown",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Amarius Mims",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Kris Jenkins",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Aidan O'Connell",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Michael Mayer",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Tre Tucker",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Brock Bowers",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Colts",
+"abbr": "IND",
+"player": "Anthony Richardson",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 6,
+"note": ""
+},
+{
+"team": "Colts",
+"abbr": "IND",
+"player": "Josh Downs",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Colts",
+"abbr": "IND",
+"player": "Anthony Gould",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Brandon Aubrey",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Luke Schoonmaker",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Brevyn Spann-Ford",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Cooper Beebe",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Marist Liufau",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Tyler Guyton",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Brian Branch",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Jahmyr Gibbs",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 35,
+"note": ""
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Sam LaPorta",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Falcons",
+"abbr": "ATL",
+"player": "Bijan Robinson",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 30,
+"note": ""
+},
+{
+"team": "Falcons",
+"abbr": "ATL",
+"player": "Michael Penix Jr.",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "Brenton Strange",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "Parker Washington",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "Tank Bigsby",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "Brian Thomas Jr.",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "Cam Little",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Bryce Young",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Jonathan Mingo",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Jalen Coker",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Ja'Tavion Sanders",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Xavier Legette",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Christian Gonzalez",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Kayshon Boutte",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Drake Maye",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 60,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Ja'Lynn Polk",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Joe Milton III",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "CJ Stroud",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "Henry To'oTo'o",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "Will Anderson Jr.",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "Calen Bullock",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "Cade Stover",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Cedric Tillman",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Dalton Kincaid",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Cole Bishop",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Keon Coleman",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Dontayvion Wicks",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Luke Musgrave",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Lukas Van Ness",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Edgerrin Cooper",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Javon Bullard",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "MarShawn Lloyd",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Dolphins",
+"abbr": "MIA",
+"player": "De'Von Achane",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Dolphins",
+"abbr": "MIA",
+"player": "Malik Washington",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Devon Witherspoon",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Jaxon Smith-Njigba",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Zach Charbonnet",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Byron Murphy II",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "George Holani",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Steelers",
+"abbr": "PIT",
+"player": "Darnell Washington",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Steelers",
+"abbr": "PIT",
+"player": "Payton Wilson",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Vikings",
+"abbr": "MIN",
+"player": "Jordan Addison",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Vikings",
+"abbr": "MIN",
+"player": "Dallas Turner",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Vikings",
+"abbr": "MIN",
+"player": "Will Reichard",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Jalen Carter",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Jeremiah Trotter",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Will Shipley",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Jake Moody",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Jacob Cowing",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Kobie Turner",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Puka Nacua",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Blake Corum",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Joshua Karty",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Jared Verse",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Kamren Kinchens",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Marvin Mims Jr.",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Audric Estime",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Bo Nix",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Michael Wilson",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Trey Benson",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Quentin Johnston",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Joe Alt",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Junior Colson",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Ladd McConkey",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Roschon Johnson",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Tyson Bagent",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Caleb Williams",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 50,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Rome Odunze",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Rashee Rice",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Xavier Worthy",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Tyjae Spears",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Will Levis",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "T'Vondre Sweat",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Zay Flowers",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Nate Wiggins",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Jets",
+"abbr": "NYJ",
+"player": "Braelon Allen",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Bucky Irving",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Chris Braswell",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Graham Barton",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Jalen McMillan",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "Jayden Daniels",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 45,
+"note": ""
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "Luke McCaffrey",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "Mike Sainristil",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Spencer Rattler",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Giants",
+"abbr": "NYG",
+"player": "Theo Johnson",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Giants",
+"abbr": "NYG",
+"player": "Tyrone Tracy Jr.",
+"set": "Prem1ere Patch Autographs",
+"kind": "Patch auto 1/1",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Aaron Anderson",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Joe Royer",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Spencer Fano",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Anthony Hill Jr.",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "Athan Kaliakmanis",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "Robert Henry Jr.",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Adam Randall",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Josh Cuevas",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Anthony Smith",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "LT Overton",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Michael Trigg",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Blake Miller",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Luke Altmyer",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Cyrus Allen",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Chase Bisontis",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Colts",
+"abbr": "IND",
+"player": "Caden Curry",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Colts",
+"abbr": "IND",
+"player": "Seth McGowan",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Vikings",
+"abbr": "MIN",
+"player": "Caleb Tiernan",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Domani Jackson",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Deontae Lawson",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Jets",
+"abbr": "NYJ",
+"player": "D'Angelo Ponds",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Emmanuel Henderson Jr.",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Ephesians Prysock",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Isaiah World",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Jake Slaughter",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Jalon Daniels",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Jack Endries",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Jalon Kilgore",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Zane Durant",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "J'Mari Taylor",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "Tanner Koziol",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Dolphins",
+"abbr": "MIA",
+"player": "Kevin Coleman Jr.",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "Lewis Bond",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "Noah Whittington",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Steelers",
+"abbr": "PIT",
+"player": "Lake McRee",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Monroe Freeling",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Zakee Wheatley",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Miller Moss",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Malik Muhammad",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Oscar Delp",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Roman Hemby",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Tim Keenan III",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Taurean York",
+"set": "Retail Rookie Autographs",
+"kind": "Retail auto",
+"rc": "",
+"weight": 8,
+"note": "Retail boxes only"
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Lamar Jackson",
+"set": "Kaiju",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 60,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Dak Prescott",
+"set": "Kaiju",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Bo Nix",
+"set": "Kaiju",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Carnell Tate",
+"set": "Kaiju",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Drake Maye",
+"set": "Kaiju",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 60,
+"note": ""
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Tom Brady",
+"set": "Kaiju",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 150,
+"note": ""
+},
+{
+"team": "Vikings",
+"abbr": "MIN",
+"player": "Justin Jefferson",
+"set": "Kaiju",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Myles Garrett",
+"set": "Kaiju",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Fernando Mendoza",
+"set": "Kaiju",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 100,
+"note": ""
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Jeremiyah Love",
+"set": "Kaiju",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Drake Maye",
+"set": "Super Bowl at Night",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 60,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "TreVeyon Henderson",
+"set": "Super Bowl at Night",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Rhamondre Stevenson",
+"set": "Super Bowl at Night",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Mack Hollins",
+"set": "Super Bowl at Night",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Hunter Henry",
+"set": "Super Bowl at Night",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Robert Spillane",
+"set": "Super Bowl at Night",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Christian Gonzalez",
+"set": "Super Bowl at Night",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Sam Darnold",
+"set": "Super Bowl at Night",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Kenneth Walker III",
+"set": "Super Bowl at Night",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Jaxon Smith-Njigba",
+"set": "Super Bowl at Night",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Cooper Kupp",
+"set": "Super Bowl at Night",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "AJ Barner",
+"set": "Super Bowl at Night",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Uchenna Nwosu",
+"set": "Super Bowl at Night",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Devon Witherspoon",
+"set": "Super Bowl at Night",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Nick Emmanwori",
+"set": "Super Bowl at Night",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Jeremiyah Love",
+"set": "Helix",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Josh Allen",
+"set": "Helix",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 80,
+"note": ""
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Bryce Young",
+"set": "Helix",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Dak Prescott",
+"set": "Helix",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Amon-Ra St. Brown",
+"set": "Helix",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Brett Favre",
+"set": "Helix",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Matthew Stafford",
+"set": "Helix",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 30,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Ty Simpson",
+"set": "Helix",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 22,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Drake Maye",
+"set": "Helix",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 60,
+"note": ""
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Jordyn Tyson",
+"set": "Helix",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 26,
+"note": ""
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Makai Lemon",
+"set": "Helix",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 20,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Jerry Rice",
+"set": "Helix",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 60,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Sam Darnold",
+"set": "Helix",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Baker Mayfield",
+"set": "Helix",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 15,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Carnell Tate",
+"set": "Helix",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Jeremiyah Love",
+"set": "Shadow Etch",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Josh Allen",
+"set": "Shadow Etch",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 80,
+"note": ""
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Tetairoa McMillan",
+"set": "Shadow Etch",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 15,
+"note": ""
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Ja'Marr Chase",
+"set": "Shadow Etch",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Dak Prescott",
+"set": "Shadow Etch",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Bo Nix",
+"set": "Shadow Etch",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Jared Goff",
+"set": "Shadow Etch",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "Trevor Lawrence",
+"set": "Shadow Etch",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Patrick Mahomes II",
+"set": "Shadow Etch",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 150,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Fernando Mendoza",
+"set": "Shadow Etch",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 100,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Matthew Stafford",
+"set": "Shadow Etch",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 30,
+"note": ""
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Jordyn Tyson",
+"set": "Shadow Etch",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 26,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Drake Maye",
+"set": "Shadow Etch",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 60,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Brock Purdy",
+"set": "Shadow Etch",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Jaxon Smith-Njigba",
+"set": "Shadow Etch",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Troy Aikman",
+"set": "Tecmo",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 35,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Warren Moon",
+"set": "Tecmo",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "QB Bills",
+"set": "Tecmo",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Cornelius Bennett",
+"set": "Tecmo",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Christian Okoye",
+"set": "Tecmo",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Jerry Rice",
+"set": "Tecmo",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 60,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Sterling Sharpe",
+"set": "Tecmo",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "Art Monk",
+"set": "Tecmo",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "William Perry",
+"set": "Tecmo",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Steelers",
+"abbr": "PIT",
+"player": "Rod Woodson",
+"set": "Tecmo",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Joe Burrow",
+"set": "Tecmo",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 70,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Drake Maye",
+"set": "Tecmo",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 60,
+"note": ""
+},
+{
+"team": "Vikings",
+"abbr": "MIN",
+"player": "Justin Jefferson",
+"set": "Tecmo",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Derrick Henry",
+"set": "Tecmo",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Myles Garrett",
+"set": "Tecmo",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "QB Eagles",
+"set": "Tecmo",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "QB Browns",
+"set": "Tecmo",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Josh Allen",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 80,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Caleb Williams",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 50,
+"note": ""
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Patrick Mahomes II",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 150,
+"note": ""
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Justin Herbert",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 30,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Matthew Stafford",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 30,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Myles Garrett",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Ty Simpson",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 22,
+"note": ""
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Derrick Henry",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Christian McCaffrey",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "George Kittle",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "CeeDee Lamb",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Amon-Ra St. Brown",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Jaxon Smith-Njigba",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Micah Parsons",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Tom Brady",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 150,
+"note": ""
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "Sean Taylor",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 30,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Fernando Mendoza",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 100,
+"note": ""
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Jeremiyah Love",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Makai Lemon",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Carnell Tate",
+"set": "Ultra Violet",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Josh Allen",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 80,
+"note": ""
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Bryce Young",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Caleb Williams",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 50,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Dak Prescott",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "CeeDee Lamb",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Bo Nix",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Jordan Love",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 15,
+"note": ""
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "CJ Stroud",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "Trevor Lawrence",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Patrick Mahomes II",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 150,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Maxx Crosby",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Justin Herbert",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 30,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Puka Nacua",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Drake Maye",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 60,
+"note": ""
+},
+{
+"team": "Giants",
+"abbr": "NYG",
+"player": "Jaxson Dart",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Jalen Hurts",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 35,
+"note": ""
+},
+{
+"team": "Steelers",
+"abbr": "PIT",
+"player": "T.J. Watt",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 20,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "George Kittle",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Jaxon Smith-Njigba",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "Jayden Daniels",
+"set": "Lightning Leaders",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 45,
+"note": ""
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Carson Beck",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 16,
+"note": ""
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Jeremiyah Love",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Chris Brazzell II",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 6,
+"note": ""
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "KC Concepcion",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 28,
+"note": ""
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Denzel Boston",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 26,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Caleb Downs",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 18,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Fernando Mendoza",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 100,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Ty Simpson",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 22,
+"note": ""
+},
+{
+"team": "Dolphins",
+"abbr": "MIA",
+"player": "Chris Bell",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 6,
+"note": ""
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Jordyn Tyson",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 26,
+"note": ""
+},
+{
+"team": "Giants",
+"abbr": "NYG",
+"player": "Arvell Reese",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 16,
+"note": ""
+},
+{
+"team": "Jets",
+"abbr": "NYJ",
+"player": "Cade Klubnik",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 9,
+"note": ""
+},
+{
+"team": "Jets",
+"abbr": "NYJ",
+"player": "Kenyon Sadiq",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Jets",
+"abbr": "NYJ",
+"player": "David Bailey",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Makai Lemon",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Steelers",
+"abbr": "PIT",
+"player": "Drew Allar",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 9,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Kaelon Black",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 4,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Jadarian Price",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 14,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Carnell Tate",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Commanders",
+"abbr": "WAS",
+"player": "Sonny Styles",
+"set": "Radiating Rookies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Jeremiyah Love",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Josh Allen",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 80,
+"note": ""
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Bryce Young",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Joe Burrow",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 70,
+"note": ""
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Shedeur Sanders",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Dak Prescott",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Jaylen Waddle",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Amon-Ra St. Brown",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Jordan Love",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 15,
+"note": ""
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "CJ Stroud",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Colts",
+"abbr": "IND",
+"player": "Daniel Jones",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "Trevor Lawrence",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Patrick Mahomes II",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 150,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Fernando Mendoza",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 100,
+"note": ""
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Justin Herbert",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 30,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Ty Simpson",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 22,
+"note": ""
+},
+{
+"team": "Dolphins",
+"abbr": "MIA",
+"player": "De'Von Achane",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Jordyn Tyson",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 26,
+"note": ""
+},
+{
+"team": "Jets",
+"abbr": "NYJ",
+"player": "Garrett Wilson",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Makai Lemon",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Steelers",
+"abbr": "PIT",
+"player": "Aaron Rodgers",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 35,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Brock Purdy",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Sam Darnold",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Baker Mayfield",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 15,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Carnell Tate",
+"set": "Game Genies",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Carson Beck",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 16,
+"note": ""
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Lamar Jackson",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 60,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Josh Allen",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 80,
+"note": ""
+},
+{
+"team": "Panthers",
+"abbr": "CAR",
+"player": "Bryce Young",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Caleb Williams",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 50,
+"note": ""
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Joe Burrow",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 70,
+"note": ""
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Patrick Mahomes II",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 150,
+"note": ""
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Travis Kelce",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "Dak Prescott",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Peyton Manning",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 80,
+"note": ""
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Barry Sanders",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 60,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Jordan Love",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 15,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Fernando Mendoza",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 100,
+"note": ""
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Justin Herbert",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 30,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Matthew Stafford",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 30,
+"note": ""
+},
+{
+"team": "Dolphins",
+"abbr": "MIA",
+"player": "Dan Marino",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 50,
+"note": ""
+},
+{
+"team": "Vikings",
+"abbr": "MIN",
+"player": "Randy Moss",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "Tom Brady",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 150,
+"note": ""
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Jordyn Tyson",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 26,
+"note": ""
+},
+{
+"team": "Giants",
+"abbr": "NYG",
+"player": "Jaxson Dart",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Jalen Hurts",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 35,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Jerry Rice",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 60,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Jaxon Smith-Njigba",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Buccaneers",
+"abbr": "TB",
+"player": "Baker Mayfield",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 15,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Carnell Tate",
+"set": "Glass Canvas",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Jeremiyah Love",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Falcons",
+"abbr": "ATL",
+"player": "Bijan Robinson",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 30,
+"note": ""
+},
+{
+"team": "Ravens",
+"abbr": "BAL",
+"player": "Lamar Jackson",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 60,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Josh Allen",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 80,
+"note": ""
+},
+{
+"team": "Bears",
+"abbr": "CHI",
+"player": "Colston Loveland",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Ja'Marr Chase",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Browns",
+"abbr": "CLE",
+"player": "Quinshon Judkins",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Cowboys",
+"abbr": "DAL",
+"player": "George Pickens",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Broncos",
+"abbr": "DEN",
+"player": "Jaylen Waddle",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Lions",
+"abbr": "DET",
+"player": "Jahmyr Gibbs",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 35,
+"note": ""
+},
+{
+"team": "Packers",
+"abbr": "GB",
+"player": "Josh Jacobs",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Texans",
+"abbr": "HOU",
+"player": "CJ Stroud",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Colts",
+"abbr": "IND",
+"player": "Tyler Warren",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Jaguars",
+"abbr": "JAX",
+"player": "Trevor Lawrence",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Chiefs",
+"abbr": "KC",
+"player": "Kenneth Walker III",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Raiders",
+"abbr": "LV",
+"player": "Fernando Mendoza",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 100,
+"note": ""
+},
+{
+"team": "Chargers",
+"abbr": "LAC",
+"player": "Omarion Hampton",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Puka Nacua",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Vikings",
+"abbr": "MIN",
+"player": "Kyler Murray",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Patriots",
+"abbr": "NE",
+"player": "TreVeyon Henderson",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Saints",
+"abbr": "NO",
+"player": "Chris Olave",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Giants",
+"abbr": "NYG",
+"player": "Cam Skattebo",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 12,
+"note": ""
+},
+{
+"team": "Eagles",
+"abbr": "PHI",
+"player": "Saquon Barkley",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 30,
+"note": ""
+},
+{
+"team": "49ers",
+"abbr": "SF",
+"player": "Christian McCaffrey",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 25,
+"note": ""
+},
+{
+"team": "Titans",
+"abbr": "TEN",
+"player": "Carnell Tate",
+"set": "Gridlock",
+"kind": "Short-print insert",
+"rc": "RC",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Bills",
+"abbr": "BUF",
+"player": "Josh Allen",
+"set": "Madden 99 Club",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 80,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Matthew Stafford",
+"set": "Madden 99 Club",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 30,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Myles Garrett",
+"set": "Madden 99 Club",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 20,
+"note": ""
+},
+{
+"team": "Bengals",
+"abbr": "CIN",
+"player": "Ja'Marr Chase",
+"set": "Madden 99 Club",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Jaxon Smith-Njigba",
+"set": "Madden 99 Club",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 40,
+"note": ""
+},
+{
+"team": "Cardinals",
+"abbr": "ARI",
+"player": "Trey McBride",
+"set": "Madden 99 Club",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 10,
+"note": ""
+},
+{
+"team": "Seahawks",
+"abbr": "SEA",
+"player": "Super Bowl LX trophy card",
+"set": "Lombardi Trophy SuperFractor 1/1",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 8,
+"note": ""
+},
+{
+"team": "Rams",
+"abbr": "LAR",
+"player": "Matthew Stafford",
+"set": "MVP Buyback",
+"kind": "Short-print insert",
+"rc": "",
+"weight": 30,
+"note": ""
+}
+]

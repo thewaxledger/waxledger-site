@@ -7,7 +7,7 @@
 import { json, bad, currentMember, sha, liveDeps } from "../lib/members.mjs";
 
 export const config = { path: "/api/hit" };
-const VIEWS = ["market", "comps", "screener", "pregrade", "trade", "releases", "trending", "reviews", "membership"];
+const VIEWS = ["market", "comps", "screener", "breaks", "pregrade", "trade", "releases", "trending", "reviews", "membership"];
 const BOT = /bot|crawl|spider|slurp|preview|headless|lighthouse|pingdom|monitor|facebookexternalhit|embedly|curl|wget|python-requests/i;
 const MAX_UNIQ = 20000; // per day; past this, visitors are still counted as views but not as new uniques
 const dayOf = ms => new Date(ms).toISOString().slice(0, 10);

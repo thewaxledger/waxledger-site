@@ -1,0 +1,46 @@
+[
+{
+"format": "hobby",
+"label": "Hobby",
+"boxes_case": 12,
+"autos_box": 1,
+"autos_case": 12,
+"box_presale": 439.99,
+"box_market": 674.95,
+"case_market": 8099,
+"rookie_auto_share_pct": 88
+},
+{
+"format": "jumbo",
+"label": "Jumbo",
+"boxes_case": 8,
+"autos_box": 2,
+"autos_case": 16,
+"box_presale": 789.99,
+"box_market": 1249.95,
+"case_market": 10000,
+"rookie_auto_share_pct": 88
+},
+{
+"format": "delight",
+"label": "Breaker's Delight",
+"boxes_case": 6,
+"autos_box": 2,
+"autos_case": 12,
+"box_presale": null,
+"box_market": 1924.95,
+"case_market": 11550,
+"rookie_auto_share_pct": 85
+},
+{
+"format": "fdi",
+"label": "First Day Issue",
+"boxes_case": 8,
+"autos_box": 3,
+"autos_case": 24,
+"box_presale": 2500.0,
+"box_market": 3849.95,
+"case_market": 30800,
+"rookie_auto_share_pct": 75
+}
+]

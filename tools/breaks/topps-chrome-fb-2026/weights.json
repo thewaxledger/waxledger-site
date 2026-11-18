@@ -1,0 +1,767 @@
+[
+{
+"player": "Patrick Mahomes II",
+"weight": 150,
+"type": "Veteran or legend"
+},
+{
+"player": "Tom Brady",
+"weight": 150,
+"type": "Veteran or legend"
+},
+{
+"player": "Fernando Mendoza",
+"weight": 100,
+"type": "Rookie"
+},
+{
+"player": "Josh Allen",
+"weight": 80,
+"type": "Veteran or legend"
+},
+{
+"player": "Peyton Manning",
+"weight": 80,
+"type": "Veteran or legend"
+},
+{
+"player": "Joe Burrow",
+"weight": 70,
+"type": "Veteran or legend"
+},
+{
+"player": "Joe Montana",
+"weight": 70,
+"type": "Veteran or legend"
+},
+{
+"player": "Drake Maye",
+"weight": 60,
+"type": "Veteran or legend"
+},
+{
+"player": "Lamar Jackson",
+"weight": 60,
+"type": "Veteran or legend"
+},
+{
+"player": "Barry Sanders",
+"weight": 60,
+"type": "Veteran or legend"
+},
+{
+"player": "Jerry Rice",
+"weight": 60,
+"type": "Veteran or legend"
+},
+{
+"player": "Caleb Williams",
+"weight": 50,
+"type": "Veteran or legend"
+},
+{
+"player": "Dan Marino",
+"weight": 50,
+"type": "Veteran or legend"
+},
+{
+"player": "Jayden Daniels",
+"weight": 45,
+"type": "Veteran or legend"
+},
+{
+"player": "John Elway",
+"weight": 45,
+"type": "Veteran or legend"
+},
+{
+"player": "Deion Sanders",
+"weight": 45,
+"type": "Veteran or legend"
+},
+{
+"player": "Jeremiyah Love",
+"weight": 40,
+"type": "Rookie"
+},
+{
+"player": "Carnell Tate",
+"weight": 40,
+"type": "Rookie"
+},
+{
+"player": "Jaxson Dart",
+"weight": 40,
+"type": "Veteran or legend"
+},
+{
+"player": "Justin Jefferson",
+"weight": 40,
+"type": "Veteran or legend"
+},
+{
+"player": "Ja'Marr Chase",
+"weight": 40,
+"type": "Veteran or legend"
+},
+{
+"player": "Jaxon Smith-Njigba",
+"weight": 40,
+"type": "Veteran or legend"
+},
+{
+"player": "Puka Nacua",
+"weight": 40,
+"type": "Veteran or legend"
+},
+{
+"player": "Randy Moss",
+"weight": 40,
+"type": "Veteran or legend"
+},
+{
+"player": "Bo Jackson",
+"weight": 40,
+"type": "Veteran or legend"
+},
+{
+"player": "Drew Brees",
+"weight": 40,
+"type": "Veteran or legend"
+},
+{
+"player": "Brett Favre",
+"weight": 40,
+"type": "Veteran or legend"
+},
+{
+"player": "Jahmyr Gibbs",
+"weight": 35,
+"type": "Veteran or legend"
+},
+{
+"player": "Jalen Hurts",
+"weight": 35,
+"type": "Veteran or legend"
+},
+{
+"player": "Aaron Rodgers",
+"weight": 35,
+"type": "Veteran or legend"
+},
+{
+"player": "Troy Aikman",
+"weight": 35,
+"type": "Veteran or legend"
+},
+{
+"player": "Saquon Barkley",
+"weight": 30,
+"type": "Veteran or legend"
+},
+{
+"player": "Bijan Robinson",
+"weight": 30,
+"type": "Veteran or legend"
+},
+{
+"player": "Matthew Stafford",
+"weight": 30,
+"type": "Veteran or legend"
+},
+{
+"player": "Justin Herbert",
+"weight": 30,
+"type": "Veteran or legend"
+},
+{
+"player": "Travis Hunter",
+"weight": 30,
+"type": "Veteran or legend"
+},
+{
+"player": "Lawrence Taylor",
+"weight": 30,
+"type": "Veteran or legend"
+},
+{
+"player": "Rob Gronkowski",
+"weight": 30,
+"type": "Veteran or legend"
+},
+{
+"player": "Steve Young",
+"weight": 30,
+"type": "Veteran or legend"
+},
+{
+"player": "Sean Taylor",
+"weight": 30,
+"type": "Veteran or legend"
+},
+{
+"player": "KC Concepcion",
+"weight": 28,
+"type": "Rookie"
+},
+{
+"player": "Denzel Boston",
+"weight": 26,
+"type": "Rookie"
+},
+{
+"player": "Jordyn Tyson",
+"weight": 26,
+"type": "Rookie"
+},
+{
+"player": "Jonah Coleman",
+"weight": 26,
+"type": "Rookie"
+},
+{
+"player": "CJ Stroud",
+"weight": 25,
+"type": "Veteran or legend"
+},
+{
+"player": "Brock Purdy",
+"weight": 25,
+"type": "Veteran or legend"
+},
+{
+"player": "CeeDee Lamb",
+"weight": 25,
+"type": "Veteran or legend"
+},
+{
+"player": "Dak Prescott",
+"weight": 25,
+"type": "Veteran or legend"
+},
+{
+"player": "Bo Nix",
+"weight": 25,
+"type": "Veteran or legend"
+},
+{
+"player": "Cam Ward",
+"weight": 25,
+"type": "Veteran or legend"
+},
+{
+"player": "Ashton Jeanty",
+"weight": 25,
+"type": "Veteran or legend"
+},
+{
+"player": "Christian McCaffrey",
+"weight": 25,
+"type": "Veteran or legend"
+},
+{
+"player": "Derrick Henry",
+"weight": 25,
+"type": "Veteran or legend"
+},
+{
+"player": "Eli Manning",
+"weight": 25,
+"type": "Veteran or legend"
+},
+{
+"player": "Michael Vick",
+"weight": 25,
+"type": "Veteran or legend"
+},
+{
+"player": "Troy Polamalu",
+"weight": 25,
+"type": "Veteran or legend"
+},
+{
+"player": "Ray Lewis",
+"weight": 25,
+"type": "Veteran or legend"
+},
+{
+"player": "Ty Simpson",
+"weight": 22,
+"type": "Rookie"
+},
+{
+"player": "Makai Lemon",
+"weight": 20,
+"type": "Rookie"
+},
+{
+"player": "Shedeur Sanders",
+"weight": 20,
+"type": "Veteran or legend"
+},
+{
+"player": "Brock Bowers",
+"weight": 20,
+"type": "Veteran or legend"
+},
+{
+"player": "Myles Garrett",
+"weight": 20,
+"type": "Veteran or legend"
+},
+{
+"player": "T.J. Watt",
+"weight": 20,
+"type": "Veteran or legend"
+},
+{
+"player": "Amon-Ra St. Brown",
+"weight": 20,
+"type": "Veteran or legend"
+},
+{
+"player": "Micah Parsons",
+"weight": 20,
+"type": "Veteran or legend"
+},
+{
+"player": "Travis Kelce",
+"weight": 20,
+"type": "Veteran or legend"
+},
+{
+"player": "Larry Fitzgerald",
+"weight": 20,
+"type": "Veteran or legend"
+},
+{
+"player": "Caleb Downs",
+"weight": 18,
+"type": "Rookie"
+},
+{
+"player": "Malik Nabers",
+"weight": 18,
+"type": "Veteran or legend"
+},
+{
+"player": "Carson Beck",
+"weight": 16,
+"type": "Rookie"
+},
+{
+"player": "Arvell Reese",
+"weight": 16,
+"type": "Rookie"
+},
+{
+"player": "Jordan Love",
+"weight": 15,
+"type": "Veteran or legend"
+},
+{
+"player": "Tetairoa McMillan",
+"weight": 15,
+"type": "Veteran or legend"
+},
+{
+"player": "Baker Mayfield",
+"weight": 15,
+"type": "Veteran or legend"
+},
+{
+"player": "Emeka Egbuka",
+"weight": 15,
+"type": "Veteran or legend"
+},
+{
+"player": "Tony Romo",
+"weight": 15,
+"type": "Veteran or legend"
+},
+{
+"player": "Kurt Warner",
+"weight": 15,
+"type": "Veteran or legend"
+},
+{
+"player": "Eric Dickerson",
+"weight": 15,
+"type": "Veteran or legend"
+},
+{
+"player": "Luke Kuechly",
+"weight": 15,
+"type": "Veteran or legend"
+},
+{
+"player": "Jadarian Price",
+"weight": 14,
+"type": "Rookie"
+},
+{
+"player": "David Bailey",
+"weight": 12,
+"type": "Rookie"
+},
+{
+"player": "Garrett Nussmeier",
+"weight": 12,
+"type": "Rookie"
+},
+{
+"player": "Omar Cooper Jr.",
+"weight": 12,
+"type": "Rookie"
+},
+{
+"player": "Cam Skattebo",
+"weight": 12,
+"type": "Veteran or legend"
+},
+{
+"player": "Trevor Lawrence",
+"weight": 12,
+"type": "Veteran or legend"
+},
+{
+"player": "Tyler Shough",
+"weight": 12,
+"type": "Veteran or legend"
+},
+{
+"player": "George Kittle",
+"weight": 12,
+"type": "Veteran or legend"
+},
+{
+"player": "Sam Darnold",
+"weight": 12,
+"type": "Veteran or legend"
+},
+{
+"player": "Omarion Hampton",
+"weight": 12,
+"type": "Veteran or legend"
+},
+{
+"player": "TreVeyon Henderson",
+"weight": 12,
+"type": "Veteran or legend"
+},
+{
+"player": "Jonathan Taylor",
+"weight": 12,
+"type": "Veteran or legend"
+},
+{
+"player": "De'Von Achane",
+"weight": 12,
+"type": "Veteran or legend"
+},
+{
+"player": "Terrell Davis",
+"weight": 12,
+"type": "Veteran or legend"
+},
+{
+"player": "Jerome Bettis",
+"weight": 12,
+"type": "Veteran or legend"
+},
+{
+"player": "Michael Irvin",
+"weight": 12,
+"type": "Veteran or legend"
+},
+{
+"player": "Jim Kelly",
+"weight": 12,
+"type": "Veteran or legend"
+},
+{
+"player": "Kenyon Sadiq",
+"weight": 10,
+"type": "Rookie"
+},
+{
+"player": "Tyler Warren",
+"weight": 10,
+"type": "Veteran or legend"
+},
+{
+"player": "Luther Burden III",
+"weight": 10,
+"type": "Veteran or legend"
+},
+{
+"player": "Colston Loveland",
+"weight": 10,
+"type": "Veteran or legend"
+},
+{
+"player": "Quinshon Judkins",
+"weight": 10,
+"type": "Veteran or legend"
+},
+{
+"player": "Bryce Young",
+"weight": 10,
+"type": "Veteran or legend"
+},
+{
+"player": "Maxx Crosby",
+"weight": 10,
+"type": "Veteran or legend"
+},
+{
+"player": "Trey McBride",
+"weight": 10,
+"type": "Veteran or legend"
+},
+{
+"player": "Garrett Wilson",
+"weight": 10,
+"type": "Veteran or legend"
+},
+{
+"player": "Jared Goff",
+"weight": 10,
+"type": "Veteran or legend"
+},
+{
+"player": "Kenneth Walker III",
+"weight": 10,
+"type": "Veteran or legend"
+},
+{
+"player": "Drew Allar",
+"weight": 9,
+"type": "Rookie"
+},
+{
+"player": "Cade Klubnik",
+"weight": 9,
+"type": "Rookie"
+},
+{
+"player": "Nick Singleton",
+"weight": 8,
+"type": "Rookie"
+},
+{
+"player": "Sonny Styles",
+"weight": 8,
+"type": "Rookie"
+},
+{
+"player": "Matthew Golden",
+"weight": 8,
+"type": "Veteran or legend"
+},
+{
+"player": "Xavier Worthy",
+"weight": 8,
+"type": "Veteran or legend"
+},
+{
+"player": "Carson Schwesinger",
+"weight": 8,
+"type": "Veteran or legend"
+},
+{
+"player": "Brian Thomas Jr.",
+"weight": 8,
+"type": "Veteran or legend"
+},
+{
+"player": "Drake London",
+"weight": 8,
+"type": "Veteran or legend"
+},
+{
+"player": "Breece Hall",
+"weight": 8,
+"type": "Veteran or legend"
+},
+{
+"player": "Nico Collins",
+"weight": 8,
+"type": "Veteran or legend"
+},
+{
+"player": "James Cook",
+"weight": 8,
+"type": "Veteran or legend"
+},
+{
+"player": "Alvin Kamara",
+"weight": 8,
+"type": "Veteran or legend"
+},
+{
+"player": "Rome Odunze",
+"weight": 8,
+"type": "Veteran or legend"
+},
+{
+"player": "Rashee Rice",
+"weight": 8,
+"type": "Veteran or legend"
+},
+{
+"player": "Ladd McConkey",
+"weight": 8,
+"type": "Veteran or legend"
+},
+{
+"player": "Michael Penix Jr.",
+"weight": 8,
+"type": "Veteran or legend"
+},
+{
+"player": "Mike Washington Jr.",
+"weight": 7,
+"type": "Rookie"
+},
+{
+"player": "Ja'Kobi Lane",
+"weight": 7,
+"type": "Rookie"
+},
+{
+"player": "De'Zhaun Stribling",
+"weight": 7,
+"type": "Rookie"
+},
+{
+"player": "Taylen Green",
+"weight": 6,
+"type": "Rookie"
+},
+{
+"player": "Chris Bell",
+"weight": 6,
+"type": "Rookie"
+},
+{
+"player": "Antonio Williams",
+"weight": 6,
+"type": "Rookie"
+},
+{
+"player": "Zachariah Branch",
+"weight": 6,
+"type": "Rookie"
+},
+{
+"player": "Chris Brazzell II",
+"weight": 6,
+"type": "Rookie"
+},
+{
+"player": "Rueben Bain Jr.",
+"weight": 6,
+"type": "Rookie"
+},
+{
+"player": "Eli Stowers",
+"weight": 6,
+"type": "Rookie"
+},
+{
+"player": "Anthony Richardson",
+"weight": 6,
+"type": "Veteran or legend"
+},
+{
+"player": "Skyler Bell",
+"weight": 5,
+"type": "Rookie"
+},
+{
+"player": "Germie Bernard",
+"weight": 5,
+"type": "Rookie"
+},
+{
+"player": "Kaytron Allen",
+"weight": 5,
+"type": "Rookie"
+},
+{
+"player": "Zavion Thomas",
+"weight": 5,
+"type": "Rookie"
+},
+{
+"player": "Elijah Sarratt",
+"weight": 5,
+"type": "Rookie"
+},
+{
+"player": "Emmett Johnson",
+"weight": 5,
+"type": "Rookie"
+},
+{
+"player": "Mansoor Delane",
+"weight": 5,
+"type": "Rookie"
+},
+{
+"player": "Cole Payton",
+"weight": 5,
+"type": "Rookie"
+},
+{
+"player": "Deion Burks",
+"weight": 4,
+"type": "Rookie"
+},
+{
+"player": "Francis Mauigoa",
+"weight": 4,
+"type": "Rookie"
+},
+{
+"player": "Dillon Thieneman",
+"weight": 4,
+"type": "Rookie"
+},
+{
+"player": "Jermod McCoy",
+"weight": 4,
+"type": "Rookie"
+},
+{
+"player": "Keldric Faulk",
+"weight": 4,
+"type": "Rookie"
+},
+{
+"player": "Peter Woods",
+"weight": 4,
+"type": "Rookie"
+},
+{
+"player": "Kaelon Black",
+"weight": 4,
+"type": "Rookie"
+},
+{
+"player": "Caleb Douglas",
+"weight": 4,
+"type": "Rookie"
+},
+{
+"player": "Demond Claiborne",
+"weight": 4,
+"type": "Rookie"
+},
+{
+"player": "Max Klare",
+"weight": 4,
+"type": "Rookie"
+}
+]

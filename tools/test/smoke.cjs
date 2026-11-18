@@ -2,7 +2,7 @@
 // Known noise: /api/comps returns 402 for non-members in the stub (comps are member-gated), so that one is ignored.
 const { chromium } = require('./pw.cjs');
 const B = 'http://localhost:8791';
-const VIEWS = ['market', 'screener', 'pregrade', 'trade', 'comps', 'releases', 'reviews', 'trending', 'membership'];
+const VIEWS = ['market', 'screener', 'breaks', 'pregrade', 'trade', 'comps', 'releases', 'reviews', 'trending', 'membership'];
 (async () => {
   const b = await chromium.launch(); let bad = 0;
   for (const [name, vp] of [['desk', { width: 1280, height: 900 }], ['phone', { width: 390, height: 844 }]]) {

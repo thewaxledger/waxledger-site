@@ -33,6 +33,17 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
 - Share images: "Share image" on a Pre-Grading result and "Share the math" in the Raw-to-Gem drawer render a watermarked
   PNG (canvas) and use the Web Share sheet on phones, download elsewhere.
 - `tools/outreach-drafts-<date>.md` — post and message drafts. Nothing in there is posted or sent without Aidan's go.
+- Break Guide (`#breaks`, Pro only; added Nov 18, 2026 at Aidan's request): a team-break guide per product. Product picker,
+  box type, boxes in the break, price per box, a team selector (tick the teams you hold) and a quoted-price check, then
+  the 32-team spot table, chase odds, rookie board and formats. Data: `tools/breaks/<product-id>/` holds `product.json`
+  (identity, box price per format with its source, caveat, method) and the model rows (`formats`, `summary`, `spots`,
+  `chases`, `rookies`, `checklist`, `weights` .json) plus the `model.py` that made them; `python3 tools/breaks/build.py`
+  writes `netlify/lib/break-data.mjs`, which `/api/breaks` (`netlify/functions/breaks.mjs`) serves in full to members and
+  as a bare product list to everyone else, so the model never reaches the public page. Page code: `renderBreaks()` and the
+  `BRK` state in the master (selection saved in localStorage `wl-brk`). To add a product: copy the folder, rewrite
+  model.py for the new checklist (teams, signers, short prints, demand weights, pack odds), run it, set box prices from
+  eBay sold with counts, run build.py. Aidan wants a guide for every top product as its checklist comes out; shares are a
+  model on hand-set weights, so the caveat must say what is modelled and which odds are stand-ins. Test: `brk.cjs`.
 - `netlify/lib/screen-data.mjs` — the Raw-to-Gem Calculator card data (default export, JSON array). Also mirrored into
   the page by `tools/r2g/integrate.py`.
 - `netlify/functions/screener.mjs` — `score()` is the server copy of the page's `scrCompute` model. Keep them identical.
@@ -119,7 +130,7 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
 - `tools/test/` — `run.sh` starts a stub API server on :8791 serving `public/` (in-memory members, mail, comps) and runs
   `smoke.cjs` (every view, desktop + phone, console errors, horizontal overflow), `rev.cjs` (Product Reviews render),
   `scr.cjs` (member sign-in + Raw-to-Gem board), `traffic.cjs` (visit counting and the admin panel), `panel.cjs`
-  (screenshot of the traffic panel), `news.cjs` (newsletter), `pages.cjs` (static pages + deep link), `filt.cjs` (Raw-to-Gem column sort and filter dropdowns, desktop + phone), `share.cjs`
+  (screenshot of the traffic panel), `news.cjs` (newsletter), `pages.cjs` (static pages + deep link), `filt.cjs` (Raw-to-Gem column sort and filter dropdowns, desktop + phone), `brk.cjs` (Break Guide: locked for visitors, member flow), `share.cjs`
   (share images), `pg.cjs` (Pre-Grading detection on synthetic photos: plain, toploader rim, dark-on-dark, off-centre,
   keystone, chrome pinstripe in a toploader, lit holder corner). `signin.cjs` signs a test member in through the site's own forms. Screenshots land in `tools/test/out/` (ignored). The stub's `/api/comps` returns
   402 for non-members; that is expected noise.
@@ -128,7 +139,7 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
 
 1. Edit `src/index.src.html` (and/or `netlify/**`).
 2. `python3 tools/build.py`
-3. `bash tools/test/run.sh` — every block must end OK (SMOKE, TRAFFIC, NEWS, PAGES, FILT, SHARE, PG) with no page errors.
+3. `bash tools/test/run.sh` — every block must end OK (SMOKE, TRAFFIC, NEWS, PAGES, FILT, BREAKS, SHARE, PG) with no page errors.
 4. Update the dates: the beta banner text ("checked <date>") and "Preview build · <date>" in the master, `asOf` in
    `screener.mjs` and `screen-data.mjs` entries you refreshed.
 5. Commit with a clear message and push `main`.

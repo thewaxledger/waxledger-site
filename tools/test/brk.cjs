@@ -1,0 +1,44 @@
+// Break Guide: locked for visitors (no model data in the response), full tool for a member: product, box type,
+// box count, team selection, quoted price. Desktop and phone (no horizontal overflow).
+const { chromium } = require('./pw.cjs');
+const signIn = require('./signin.cjs');
+const B = 'http://localhost:8791';
+(async () => {
+  const b = await chromium.launch(); let bad = 0; const expect = (n, ok) => { console.log((ok ? 'ok  ' : 'BAD ') + n); if (!ok) bad++; };
+  const ctx = await b.newContext({ viewport: { width: 1280, height: 900 } }); const p = await ctx.newPage();
+  const errs = []; p.on('pageerror', e => errs.push(e.message)); p.on('console', m => { if (m.type() === 'error' && !/font|net::|402/i.test(m.text())) errs.push(m.text()) });
+  const pub = await (await p.request.get(B + '/api/breaks', { headers: { cookie: '' } })).json();
+  expect('visitor feed lists products without the model', pub.member === false && pub.products.length >= 1 && typeof pub.products[0].teams === 'number' && !JSON.stringify(pub).includes('share'));
+  await p.goto(B + '/#breaks'); await p.waitForTimeout(900);
+  expect('visitor sees the lock and no tool', await p.isVisible('#brk-lock') && await p.isVisible('#brk-teaser') && !(await p.isVisible('#brk-app')));
+  await signIn(p, 'pro5@example.com');
+  await p.goto(B + '/#breaks'); await p.waitForSelector('#brk-body tr', { timeout: 15000 });
+  await p.evaluate(() => { const d = document.getElementById('auth-dlg'); if (d && d.open) d.close(); });
+  errs.length = 0;
+  const num = async sel => +(await p.innerText(sel)).replace(/[^0-9.]/g, '');
+  expect('32 teams listed, Raiders first', await p.locator('#brk-body tr').count() === 32 && /Raiders/.test(await p.innerText('#brk-body tr:first-child')));
+  expect('product picker has Chrome Football', /Topps Chrome Football/.test(await p.innerText('#brk-product')));
+  const cost12 = await num('#brk-tiles .tile:nth-child(1) .v');
+  expect('hobby case cost is 12 boxes at the box price: ' + cost12, cost12 === 12 * 575);
+  await p.fill('#brk-boxes', '6'); await p.dispatchEvent('#brk-boxes', 'change'); await p.waitForTimeout(150);
+  expect('6 boxes halves the cost', await num('#brk-tiles .tile:nth-child(1) .v') === 6 * 575 && await num('#brk-tiles .tile:nth-child(2) .v') === 6);
+  await p.selectOption('#brk-fmt', 'jumbo'); await p.waitForTimeout(150);
+  expect('jumbo resets to a full case of 8 with 16 autographs', await p.inputValue('#brk-boxes') === '8' && await num('#brk-tiles .tile:nth-child(2) .v') === 16);
+  await p.click('#brk-chips [data-brk-team="LV"]'); await p.click('#brk-body tr[data-brk-team="ARI"]'); await p.waitForTimeout(150);
+  const fair = await num('#brk-mine .tile:nth-child(1) .v');
+  const rowSum = await p.evaluate(() => [...document.querySelectorAll('#brk-body tr.brk-on')].reduce((a, tr) => a + +tr.querySelectorAll('td')[5].innerText.replace(/[^0-9.]/g, ''), 0));
+  expect('two teams ticked, combined fair value matches the rows: ' + fair + ' vs ' + rowSum, await p.locator('#brk-body tr.brk-on').count() === 2 && Math.abs(fair - rowSum) <= 2 && fair > 0);
+  expect('team cards list what each holds', await p.locator('.brk-card').count() === 2 && /Mendoza/.test(await p.innerText('#brk-mine')));
+  await p.fill('#brk-quote', String(Math.round(fair * 1.5))); await p.dispatchEvent('#brk-quote', 'change'); await p.waitForTimeout(150);
+  expect('quoted price gets a verdict', /50% over fair value/.test(await p.innerText('#brk-mine')));
+  await p.click('#brk-chase-mine'); await p.waitForTimeout(100);
+  expect('chase filter keeps only my teams', await p.evaluate(() => { const r = [...document.querySelectorAll('#brk-chases tr')]; return r.length > 0 && r.every(tr => /Raiders|Cardinals/.test(tr.innerText)) }));
+  await p.reload(); await p.waitForSelector('#brk-body tr.brk-on', { timeout: 15000 });
+  expect('selection survives a reload', await p.locator('#brk-body tr.brk-on').count() === 2 && await p.inputValue('#brk-fmt') === 'jumbo');
+  await p.screenshot({ path: 'out/breaks.png', fullPage: true });
+  await p.setViewportSize({ width: 390, height: 800 }); await p.waitForTimeout(300);
+  expect('phone: no horizontal overflow', await p.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1));
+  await p.screenshot({ path: 'out/breaks-phone.png', fullPage: true });
+  expect('no page errors ' + JSON.stringify(errs), errs.length === 0);
+  await b.close(); console.log(bad ? 'BREAKS FAILED' : 'BREAKS OK'); process.exit(bad ? 1 : 0);
+})();

@@ -539,6 +539,23 @@ details.method summary{cursor:pointer;font-weight:600;font-size:1rem}
 @media (max-width:480px){.hdr-auth .btn{padding:6px 10px;font-size:12.5px}.brand{font-size:1.5rem}}
 .lockbar{display:flex;justify-content:space-between;align-items:center;gap:10px 18px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--gold);border-radius:8px;padding:12px 16px;font-size:13.5px;margin:0 0 16px}
 .lockbar b{font-weight:600;margin-right:4px}
+#brk-app{display:flex;flex-direction:column;gap:clamp(20px,3vw,32px);min-width:0}
+.brk-pick{display:flex;flex-direction:column;gap:6px}
+.brk-prod{font-family:var(--display);font-weight:700;font-size:clamp(1.15rem,3.4vw,1.6rem);padding:10px 14px;max-width:100%;width:max-content;border-color:var(--ink)}
+.brk-ctl{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;font-size:13.5px;color:var(--ink-2)}
+.brk-ctl label{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.brk-num{width:5.2em;font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink)}
+.brk-price{width:7em}
+.brk-minetiles{margin:4px 0}
+.brk-verdict{font-size:14px;border-left:3px solid var(--gold);padding-left:10px}
+.brk-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.brk-card{border:1px solid var(--line);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.brk-card-h{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:15px}
+.brk-ul{margin:0;padding-left:1.1em;font-size:13px;line-height:1.5;display:flex;flex-direction:column;gap:3px}
+.brk-row{cursor:pointer}
+[data-view="breaks"] td.num,[data-view="breaks"] th.num{padding-right:16px}
+.brk-on td{background:var(--surface-2)}
+.brk-bar{display:inline-block;height:8px;border-radius:2px;background:var(--gold);margin-right:8px;vertical-align:middle}
 .auth-dialog{width:min(520px,calc(100vw - 32px))}
 .auth-stack{flex-direction:column;align-items:stretch}.auth-stack input{flex:0 0 auto}.auth-stack .btn-sm{align-self:flex-start}
 .news-band{border-top:1px solid var(--line);background:var(--surface);padding-block:30px}
@@ -560,6 +577,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
     <a class="brand" href="#screener" data-go="screener"><svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true"><rect x="12" y="4" width="76" height="92" rx="9" fill="var(--label)" stroke="var(--ink)" stroke-width="4"/><rect x="19" y="11" width="62" height="24" rx="3" fill="var(--card-ink)"/><rect x="24" y="16" width="16" height="4.5" rx="2.25" fill="#F3F5F7" opacity=".9"/><rect x="24" y="25" width="11" height="4.5" rx="2.25" fill="#F3F5F7" opacity=".55"/><rect x="19" y="41" width="62" height="48" rx="3" fill="var(--card-ink)"/><g transform="translate(50 65) scale(0.46) translate(-50 -50)"><circle cx="50" cy="50" r="46" fill="#E3A92B"/><g transform="translate(51 50) scale(0.95) translate(-50 -50)"><polyline points="12,40 22,66 32,51 42,69 55,28" fill="none" stroke="#0F1B2D" stroke-width="9" stroke-linejoin="miter" stroke-linecap="round"/><circle cx="55" cy="28" r="6" fill="#0F1B2D" stroke="#E3A92B" stroke-width="3"/><polyline points="74,36 65,68 80,68" fill="none" stroke="#0F1B2D" stroke-width="9" stroke-linejoin="miter" stroke-linecap="round"/></g></g></svg>Wax Ledger</a>
     <nav class="nav" aria-label="Sections">
       <a href="#screener" data-go="screener">Raw-to-Gem Calculator</a>
+      <a href="#breaks" data-go="breaks">Break Guide</a>
       <a href="#market" data-go="market">Market</a>
       <a href="#pregrade" data-go="pregrade">Pre-Grading Tool</a>
       <a href="#trade" data-go="trade">Buy/Sell/Trade</a>
@@ -572,7 +590,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
     <div class="hdr-auth"><button class="btn btn-sm" type="button" id="hdr-signin">Sign in</button><a class="btn btn-gold" id="hdr-pro" href="#membership" data-go="membership">Go Pro</a></div>
   </div>
 </header>
-<div class="preview-bar"><div class="wrap"><b>Preview build</b><span>Movers and the preview review scores are sample data. Comps are live values compiled from completed sales; Raw-to-Gem Calculator prices, the fifteen full product reviews (Topps Chrome Football, Topps Midnight Football, Topps Museum Collection Baseball, Topps Inception Football, Topps Flagship Basketball, Topps Cosmic Chrome Baseball, Panini Donruss Football, Panini Select Basketball, Topps Heritage Football, Topps Chrome Formula 1, Topps Update, Series 1 Hockey, Allen &amp; Ginter, Bowman Chrome Sapphire, Bowman Football) and release dates are real, checked Nov 17, 2026.</span></div></div>
+<div class="preview-bar"><div class="wrap"><b>Preview build</b><span>Movers and the preview review scores are sample data. Comps are live values compiled from completed sales; Raw-to-Gem Calculator prices, the fifteen full product reviews (Topps Chrome Football, Topps Midnight Football, Topps Museum Collection Baseball, Topps Inception Football, Topps Flagship Basketball, Topps Cosmic Chrome Baseball, Panini Donruss Football, Panini Select Basketball, Topps Heritage Football, Topps Chrome Formula 1, Topps Update, Series 1 Hockey, Allen &amp; Ginter, Bowman Chrome Sapphire, Bowman Football) and release dates are real, checked Nov 18, 2026.</span></div></div>
 
 <main class="wrap">
 
@@ -815,6 +833,65 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
 </section>
 
 <!-- PRE-GRADING TOOL -->
+<section class="view" data-view="breaks" hidden>
+  <div class="view-head">
+    <p class="eyebrow">Break Guide</p>
+    <h2>Know what a spot is worth before you buy in</h2>
+    <p class="lede">Pick the product, the box type and how many boxes are in the break, then tick the teams you are getting. The guide prices those spots, gives the odds of an autograph landing on them and lists what each team holds.</p>
+  </div>
+  <div class="lockbar" id="brk-lock" hidden><div><b>The Break Guide is for Pro members.</b><span class="muted" id="brk-lock-body"></span></div><div class="linkrow"><button class="btn btn-sm" type="button" data-signin>Sign in</button><a class="btn btn-gold btn-sm" href="#membership" data-go="membership">Go Pro</a></div></div>
+  <div class="panel" id="brk-teaser" hidden>
+    <h3>What is inside</h3>
+    <ul class="brk-ul">
+      <li>A fair price for every team spot, for the box type and number of boxes in the break you are looking at</li>
+      <li>A team picker: tick the teams you hold and see their combined value against the price you were quoted</li>
+      <li>The chance of an autograph, and of a rookie autograph, landing on your teams in that break</li>
+      <li>Odds at the main chases, the rookie board with the players who have no autograph, and every team's checklist</li>
+    </ul>
+    <p class="small muted" id="brk-teaser-list"></p>
+  </div>
+  <div id="brk-app" hidden>
+    <div class="brk-pick"><label class="eyebrow" for="brk-product">Product</label><select class="sel brk-prod" id="brk-product" aria-label="Product"></select><span class="small muted" id="brk-prodnote"></span></div>
+    <div class="panel brk-setup">
+      <div class="brk-ctl">
+        <label>Box type <select class="sel" id="brk-fmt" aria-label="Box type"></select></label>
+        <label>Boxes in the break <input class="sel brk-num" id="brk-boxes" type="number" min="1" max="60" step="1" inputmode="numeric" aria-label="Number of boxes in the break"></label>
+        <button class="btn btn-sm" type="button" id="brk-case">Full case</button>
+        <label>Price per box $ <input class="sel brk-num brk-price" id="brk-price" type="number" min="1" step="1" inputmode="decimal" aria-label="Price per box"></label>
+      </div>
+      <p class="small muted" id="brk-setupnote"></p>
+    </div>
+    <div class="tiles" id="brk-tiles"></div>
+    <div class="panel">
+      <div class="panel-head"><div><p class="eyebrow">Your teams</p><h3 id="brk-mine-title">Tick the teams you have in this break</h3></div>
+        <div class="linkrow"><button class="btn btn-sm" type="button" id="brk-clear">Clear</button></div></div>
+      <div class="chips" id="brk-chips" aria-label="Teams in your break"></div>
+      <div id="brk-mine"></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><div><p class="eyebrow">All teams <span class="pill pill-sample">Model</span></p><h3>Spot pricing and hit odds for this break</h3></div></div>
+      <p class="small muted">Fair spot is the team's share times the break cost, before a breaker's margin. Tiers: S is 7% of the break or more, A 4%, B 2.5%, C 1.5%, D below that. Tap a row to add or drop the team.</p>
+      <div class="tablewrap"><table id="brk-table"><thead><tr><th></th><th>#</th><th>Team</th><th>Tier</th><th class="num">Share</th><th class="num">Fair spot</th><th class="num">Any auto</th><th class="num">Rookie auto</th><th>Top rookie signers</th><th class="num">Other autos</th><th class="num">SP inserts</th><th class="num">Patch 1/1s</th></tr></thead><tbody id="brk-body"></tbody></table></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><div><p class="eyebrow">Chases</p><h3>Odds at the chases, for this break</h3></div>
+        <div class="chips"><button class="chip" type="button" id="brk-chase-mine" aria-pressed="false">My teams only</button></div></div>
+      <p class="small muted">"2025 odds" rows apply last year's pack odds to this year's set sizes. "Model" rows assume signers are printed equally. "1 in N breaks" means breaks of this size and box type.</p>
+      <div class="tablewrap"><table><thead><tr><th>Chase</th><th>Team</th><th>Odds</th><th>Basis</th></tr></thead><tbody id="brk-chases"></tbody></table></div>
+      <p class="small muted" id="brk-noodds"></p>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><div><p class="eyebrow">Rookies</p><h3>Rookie board and no-auto traps</h3></div></div>
+      <p class="small muted" id="brk-rookienote"></p>
+      <div class="tablewrap"><table><thead><tr><th>Player</th><th>Team</th><th>Pos</th><th>Rookie auto</th><th>Other autos</th><th class="num">SP inserts</th><th class="num">Weight</th><th>Status</th></tr></thead><tbody id="brk-rookies"></tbody></table></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><div><p class="eyebrow">Formats</p><h3>Box types and prices</h3></div></div>
+      <div class="tablewrap"><table><thead><tr><th>Format</th><th class="num">Boxes / case</th><th class="num">Autos / box</th><th class="num">Topps price</th><th class="num">Street box price</th><th>Street price source</th></tr></thead><tbody id="brk-formats"></tbody></table></div>
+    </div>
+    <details class="method panel"><summary>How these numbers are worked out, and what to settle before a break</summary><ul class="brk-ul" id="brk-method"></ul></details>
+  </div>
+</section>
 <section class="view" data-view="pregrade" hidden>
   <div class="view-head">
     <p class="eyebrow">Pre-Grading Tool</p>
@@ -900,7 +977,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
     <label class="check"><input type="checkbox" id="upcoming-only" checked> Upcoming only</label>
   </div>
   <div id="cal"></div>
-  <p class="small muted">Dates compiled from manufacturer announcements as reported by DraftKings Network, Checklist Insider and retailer listings (Dave &amp; Adam's, Steel City), checked Nov 17, 2026.</p>
+  <p class="small muted">Dates compiled from manufacturer announcements as reported by DraftKings Network, Checklist Insider and retailer listings (Dave &amp; Adam's, Steel City), checked Nov 18, 2026.</p>
 </section>
 
 <!-- TRENDING -->
@@ -1102,6 +1179,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
         <li>Unlimited comp lookups, every grade</li>
         <li>The full Raw-to-Gem Calculator, every card ranked by expected return</li>
         <li>Unlimited pre-grading</li>
+        <li>The Break Guide: fair spot prices and hit odds for team breaks</li>
         <li>Founding-member price: $8 a month locked in for as long as you stay subscribed, whatever the price does later</li>
         <li>Coming soon: price alerts, watchlist and saved reports</li>
       </ul>
@@ -1146,7 +1224,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--ink-
 </section>
 <footer><div class="wrap foot">
   <p>Wax Ledger is an independent publication. It is not affiliated with eBay, PSA, Topps, Fanatics, Panini, Upper Deck or Leaf. Nothing here is financial advice.<br><a href="mailto:info@thewaxledger.com">info@thewaxledger.com</a> · <a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a> · <a href="/refunds.html">Refunds &amp; cancellation</a> · <a href="/grade/">Grading guides</a> · <a href="/reviews/">Reviews</a></p>
-  <p class="mono">Preview build · Nov 17, 2026</p>
+  <p class="mono">Preview build · Nov 18, 2026</p>
 </div></footer>
 
 <script>
@@ -1166,7 +1244,7 @@ function hash(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i)
 function median(a){var s=a.slice().sort(function(x,y){return x-y});var m=s.length>>1;return s.length?(s.length%2?s[m]:(s[m-1]+s[m])/2):0}
 
 /* ---------- data ---------- */
-// Real release dates (DraftKings Network, Checklist Insider, retailer listings; checked Nov 17, 2026).
+// Real release dates (DraftKings Network, Checklist Insider, retailer listings; checked Nov 18, 2026).
 var RELEASES=[
  {d:"2026-09-30",n:"Bowman Football",m:"Topps",s:"Football",t:"Hobby: 20 packs of 8 with two autographs. 200 NFL cards plus 200 Bowman Prospects."},
  {d:"2026-09-30",n:"Prizm WNBA",m:"Panini",s:"Basketball",t:"Hobby: 12 packs of 12 with two autographs and 24 Prizm parallels."},
@@ -1245,6 +1323,7 @@ var RELEASES=[
  {d:"2026-12-23",n:"Panini Combat Anthology",m:"Panini",s:"MMA",t:"Moved from Nov 18: Checklist Insider's page, updated Nov 16, now lists Dec 23, matching Diamond Cards Online (approximate, $160); Cardsmiths Breaks does not carry it. Hobby: 10 packs of 4 with about two autographs and 20 inserts or parallels, 12 boxes a case; MLW and PFL licenses."},
 ];
 var NEWS=[
+ {d:"Nov 18",h:"New for Pro members: the Break Guide, starting with Topps Chrome Football",b:"A new tab for anyone buying into a team break. Pick the product, the box type (Hobby, Jumbo, Breaker's Delight, First Day Issue) and the number of boxes, tick the teams you are getting, and the guide gives a fair price for those spots, the chance of an autograph and of a rookie autograph landing on them, the odds at the main chases and each team's checklist; enter the price you were quoted and it says how far over or under the model that is. 2026 Topps Chrome Football (out today) is the first product: in a 12-box hobby case at the $575 eBay presale median the Raiders spot models at 12.3% of the break. The shares are a model built on hand-set demand weights and the 2025 pack odds, since Topps has not published 2026 odds; the tab says so. A guide is added for each major release once its checklist is out. Also added to Raw-to-Gem: Jacob Misiorowski 2026 Topps Chrome #196 Refractor, a liquidity fail on 4 PSA 10 sales (320 cards)."},
  {d:"Nov 17",h:"Topps Update and Chrome F1 singles re-priced a month on; Raw-to-Gem refresh moves Burrow Optic Holo to Grade and adds Flagg X-Fractor; Immaculate NASCAR to Nov 20, Combat Anthology to Dec 23",b:"Second pass of the day. Topps Update singles, re-read from eBay sold listings Nov 15 to 17: Griffin US1 $1.50 (39 sales) and McGonigle US7 $1.89 (33), both about half their day-one prices; Murakami US350 $1.48 (32); Golden Mirror variations $42 median on 178 sales; autographs $38 median on 173; the Griffin 1952 Rookie Variation has four sales at $475 to $600 and the McGonigle one at $390, while the Benge that opened at $1,000 resold for $400. Hobby box $160 (14 sales), jumbo $320 (5). Topps Chrome F1 singles: base autographs $24 median on 42 sales, Lindblad #12 $2.60 (8) and his Refractor $9.50 (13), Verstappen base $3 and his Helmet Collection insert $35 (14), hobby box $630 (12 sales Nov 10 to 16). Raw-to-Gem: the ten entries dated Oct 11 (Bryce Young base, Richardson base and Silver, Love base and Silver, Prescott Silver, Mahomes and Burrow Optic Rated Rookies and Holos) were re-pulled from PSA sales and pop with eBay sold raw prices for the four higher-value cards. Burrow 2020 Optic Holo moves from Marginal to Grade (PSA 10 $382 on 94 sales, raw $70, 42% gem against a 24% break-even at the $39.99 fee, +$34); Richardson Silver now has 34 PSA 10 sales, so it fails on value rather than volume; Love Silver sits at break-even on 14 sales; Mahomes Optic Holo stays a thin market at 18 sales. Four cards added (319): Cooper Flagg 2025-26 Topps Chrome #251 X-Fractor clears as Grade (141 PSA 10 sales at $710, raw $155.50 on 31 eBay sales, 43% gem, +$71, with both the 10 and the raw sliding), Fernando Mendoza 2025 Bowman University Chrome #109 base is marginal (108 sales at $125, raw $5.50, 45% gem on a 45% break-even), Paul Skenes 2024 Topps Chrome Update USC88 Refractor is a thin market (20 sales at $188, +$3) and Neymar 2014 Prizm World Cup #112 fails (19% gem). Calendar: Panini Immaculate NASCAR moves from Nov 18 to Nov 20 and Combat Anthology from Nov 18 to Dec 23 on Checklist Insider's pages updated Nov 16; Panini's Black Friday Cyber Monday multi-sport promo (Nov 27) is added; Stadium Club Basketball is back to Nov 25 on all three sources; Checklist Insider shows Dec 15 for Triumphant Tennis against Nov 17 everywhere else."},
  {d:"Nov 17",h:"Chrome Football presale boxes $575 on 40 eBay sales; ten Raw-to-Gem refreshes, no verdict changes; Absolute Football back to Nov 18",b:"2026 Topps Chrome Football (out Nov 18) gets real box prices a day early: single hobby boxes sold on eBay at a $575 median on 40 presale sales Nov 12 to 16 ($559 to $799.99, 36 of them between $559 and $600; $580 on the 15 sold Nov 16), $135 over the $439.99 Topps price; presale jumbo boxes $990 median on 5 ($950 to $1,299), 12-box cases $7,250 to $7,995.95 (3), one FDI jumbo $2,336.99. Singles stay pending: only one 2026 Chrome Football single (a Lenoir Molten Mercury 1/6, $40) had a completed sale, and the Mendoza search returned only his Bowman, Flagship, Heritage and Holiday cards. Raw-to-Gem: the ten entries dated Oct 11 (Trevor Lawrence 2021 Prizm base; the 2024 Prizm Silvers of Caleb Williams, Jayden Daniels, Drake Maye, Bo Nix, J.J. McCarthy and Michael Penix Jr.; McCarthy and Penix base; Bryce Young 2023 Prizm Silver) were re-pulled from PSA sales and pop data with eBay sold raw prices (27 to 116 sales each in 45 days). No verdict changed. Caleb Williams Silver is the mover: PSA 10 $1,925 median on 115 sales (from $1,600), raw $225 (from $200), expected value +$135 (from +$99). Maye Silver (+$23) and Nix Silver (+$4, from +$32) stay marginal; Bryce Young Silver still clears (+$26, 46% gem on 191 sales). Lawrence base now has 19 PSA 10 sales (from 6) at $160 but a 9% gem rate keeps it a fail. Four cards join the board (315): Shohei Ohtani 2018 Topps Chrome #150 Refractor clears as Grade (84 PSA 10 sales in 90 days, $4,202 median of the newest 50 and sliding from a $5,249 90-day average, 67% gem on 3,098 graded, raw $2,025 on 15 eBay sales, +$496 expected value on a $2,095 all-in; a 9 loses $190) and so does Lamine Yamal 2023-24 Topps Chrome UCC #64 Refractor (27 sales at $1,800, 43% gem, raw $304 on 9 sales, +$315); Caitlin Clark 2024 Prizm WNBA #22 Silver (19 sales at $2,880, but 7% gem on 3,471 graded, raw $260 on 47, +$24) and Cam Ward 2025 Prizm #352 Silver (10 sales at $473, 21% gem, raw $19 on 97, +$52) go on as thin markets. Screened and left off for volume: Baker Mayfield 2018 Prizm Silver (1 PSA 10 sale), Jude Bellingham 2020 Topps Chrome Bundesliga base (16) and Refractor (8), Ladd McConkey (8), Jalen Williams (2), Evan Mobley (2), Jared McCain (1), Roki Sasaki Refractor (2), Travis Hunter 2025 Prizm base (0). Trending: Cameron Boozer 29 points with seven threes, 7 rebounds and 7 assists in a 136-120 win at Washington on Nov 16 against AJ Dybantsa's 21 (Memphis 10-4, 7-0 on the road; Washington 4-11, eight straight losses); Darryn Peterson 17 points in a 110-102 loss to San Antonio on Nov 15 (Utah 1-13); Cooper Flagg said he was sick after the 131-94 loss at Boston. Calendar: Panini Absolute Football goes back to Nov 18 (Checklist Insider's page updated Nov 16 and The Collector Nation both list it; Diamond Cards had Dec 30); Checklist Insider now lists Five Star Basketball Nov 24 (Cardsmiths Breaks keeps Nov 19) and Black & White MLS Nov 30; Cardsmiths moved Select WNBA to Dec 16 (Checklist Insider keeps Nov 25) and Mangaverse to TBD; added 2026-27 Topps Gold Premier League (Nov 16, Checklist Insider) and 2025-26 Topps True Football Bundesliga (Dec 1 EQL presale, $369.99, five autographs and two relics per box); Cardsmiths presale prices added for Triumphant Tennis ($249.99), Pro Debut jumbo ($219.95) and Immaculate NASCAR ($459.99), plus the Flagship Basketball Fanatics box (Nov 19) and Black Friday value box (Nov 27)."},
  {d:"Nov 16",h:"Topps Chrome Football review is up before Wednesday's release (sold prices pending); Mendoza's first start; Merlin UEFA and Donruss Elite Women's World Cup join the calendar",b:"2026 Topps Chrome Football (Nov 18) gets a structural review: 20 packs of 4 with one autograph at $439.99 (Topps EQL presale Oct 19, up $90 on 2025), jumbo $789.99 with two, FDI jumbo $2,500 at the Oct 16 Dutch auction, a 400-card base set with 100 rookies (Mendoza #351, Simpson #357, Love #302, Beck #301), a Refractor ladder that adds Lavender /299, Yellow /275 and Pink /250 above /199, and 15 autograph sets led by 92 Rookie Variation Autographs and 106 NFL debut-patch autographs. No eBay sold read was possible today (the browser pane was down), so every 2026 single is marked pending and the box figures are asking prices, labelled as such: $569.99 to $704.99 at ten retailers on Waxstat (Nov 15) and $565.99 to $580 for the lowest eBay Buy It Nows; the 2025 box ($349.99 at release) averages $588 on StockX over three months (13 sales). Trending: Fernando Mendoza's first start Nov 15 was 17 of 29 for 143 yards, six sacks and a rushing touchdown in a 21-13 loss to Seattle (Raiders 4-6); Carson Beck's first Cardinals start was 11 of 18 with two interceptions in a 34-6 loss; Arch Manning threw three interceptions and the 4-yard winner with 3 seconds left as Texas beat LSU 22-21; Cooper Flagg had 18 and 17 points in losses at Cleveland and Boston (Dallas 7-7); Boozer 15-8-5 in a win over Brooklyn (Memphis 9-4); Peterson left the Houston game with a sore left knee and said he would play Sunday. Calendar: added 2025-26 Topps Merlin UEFA Club Competitions Soccer (Dec 3, Cardsmiths Breaks) and 2026 Donruss Elite Road to Women's World Cup 2027 Soccer (Dec 4, Checklist Insider estimate); Checklist Insider moved Five Star Basketball to TBA (Cardsmiths still Nov 19) and its Crown Royale WNBA page still says Nov 18 while Cardsmiths lists Dec 2; Finest Formula 1 gets its $289.99 presale price. The Raw-to-Gem refresh was skipped today for the same reason as the prices."},
@@ -1360,7 +1439,7 @@ var CHECKOUT={monthly:"https://buy.stripe.com/bJeeV65z565XgzTcpC3wQ02",annual:"h
 (function(){try{var qs=location.search;if(/[?&]giveaway=1/.test(qs))document.addEventListener("DOMContentLoaded",function(){var g=document.getElementById("giveaway-bar");if(g)g.hidden=false;if(location.hash!=="#membership")location.hash="membership";});if(/[?&]welcome=pro/.test(qs))document.addEventListener("DOMContentLoaded",function(){var n=document.getElementById("plan-note");if(n)n.textContent=/[?&]session_id=/.test(qs)?"Welcome to Wax Ledger Pro. Choose a password to finish setting up your account. Your receipt is on its way.":"Welcome to Wax Ledger Pro. Your receipt is on its way. Click Sign in, then 'First time here' to set your password."})}catch(e){}})();
 
 /* ---------- router ---------- */
-var VIEWS=["market","comps","screener","pregrade","trade","releases","trending","reviews","membership"];
+var VIEWS=["market","comps","screener","breaks","pregrade","trade","releases","trending","reviews","membership"];
 function show(name,keepScroll){
   if(VIEWS.indexOf(name)<0)name="screener";
   $$("[data-view]").forEach(function(v){v.hidden=v.dataset.view!==name});
@@ -2824,7 +2903,7 @@ function authRefresh(){
 function authChanged(){
   var me=AUTH.me,b=$("#hdr-signin");
   b.textContent=me?(me.name||"Member")+" · Sign out":"Sign in";$("#hdr-pro").hidden=!!me;
-  loadScreener();pgLimitNote();
+  loadScreener();loadBreaks();pgLimitNote();
   if(!$('[data-view="trade"]').hidden)bstInit();
 }
 function authLogout(){api("/api/auth",{action:"logout"}).then(authRefresh)}
@@ -2912,6 +2991,135 @@ function authBind(){
     }).catch(function(){});
   }
 }
+/* ---------- break guide ---------- */
+// Pro-only. /api/breaks returns the product models (netlify/lib/break-data.mjs, built by tools/breaks/build.py).
+var BRK={loaded:false,member:false,products:[],pid:null,st:{},chaseMine:false};
+function brkSave(){try{localStorage.setItem("wl-brk",JSON.stringify({pid:BRK.pid,st:BRK.st}))}catch(e){}}
+function brkProd(){for(var i=0;i<BRK.products.length;i++)if(BRK.products[i].id===BRK.pid)return BRK.products[i];return BRK.products[0]||null}
+function brkFmt(p,id){for(var i=0;i<p.formats.length;i++)if(p.formats[i].id===id)return p.formats[i];return p.formats[0]}
+function brkState(p){
+  var s=BRK.st[p.id];if(!s)s=BRK.st[p.id]={fmt:p.formats[0].id,boxes:p.formats[0].boxesCase,price:null,sel:{},quote:null};
+  if(!s.sel)s.sel={};var f=brkFmt(p,s.fmt);s.fmt=f.id;
+  s.boxes=Math.max(1,Math.min(60,Math.round(+s.boxes||f.boxesCase)));
+  return s;
+}
+function brkSet(sel,h){var el=$(sel);if(el&&el._h!==h){el.innerHTML=h;el._h=h}}
+function brkPct(x,d){return (x*100).toFixed(d==null?0:d)+"%"}
+function brkUsd(x){return "$"+Math.round(x).toLocaleString("en-US")}
+function brkHit(p,n){return 1-Math.pow(1-Math.min(p,.999),n)}
+function brkCalc(p){
+  var s=brkState(p),f=brkFmt(p,s.fmt),price=s.price>0?s.price:f.box,cost=s.boxes*price,autos=s.boxes*f.autosBox;
+  var rows=p.teams.map(function(t){var x=t.f[f.id];return {t:t,x:x,fair:x.share*cost,any:brkHit(x.p,autos),rk:brkHit(x.pr,autos),on:!!s.sel[t.abbr]}}).sort(function(a,b){return a.x.rank-b.x.rank});
+  var mine=rows.filter(function(r){return r.on}),sh=0,pa=0,pr=0;
+  mine.forEach(function(r){sh+=r.x.share;pa+=r.x.p;pr+=r.x.pr});
+  return {s:s,f:f,price:price,cost:cost,autos:autos,rows:rows,mine:mine,share:sh,fair:sh*cost,any:brkHit(pa,autos),rk:brkHit(pr,autos)};
+}
+function loadBreaks(){
+  fetch("/api/breaks",{credentials:"same-origin"}).then(function(r){return r.json()}).then(function(j){
+    if(j.status!=="ok")return;
+    BRK.products=j.products||[];BRK.member=!!j.member;BRK.loaded=true;
+    try{var o=JSON.parse(localStorage.getItem("wl-brk")||"{}");if(o.st)BRK.st=o.st;if(o.pid)BRK.pid=o.pid}catch(e){}
+    if(!brkProd()||brkProd().id!==BRK.pid)BRK.pid=BRK.products.length?BRK.products[0].id:null;
+    renderBreaks();
+  }).catch(function(){});
+}
+function renderBreaks(){
+  if(!BRK.loaded)return;
+  var lock=!BRK.member;
+  $("#brk-lock").hidden=!lock;$("#brk-teaser").hidden=!lock;$("#brk-app").hidden=lock;
+  if(lock){
+    $("#brk-lock-body").textContent=" Spot prices, hit odds and team checklists for every break format.";
+    $("#brk-teaser-list").textContent=BRK.products.length?"Covered now: "+BRK.products.map(function(p){return p.name+" ("+p.teams+" teams; "+p.formats.join(", ")+")"}).join("; ")+". A guide is added for each major release once its checklist is out.":"";
+    return;
+  }
+  var p=brkProd();if(!p)return;
+  var c=brkCalc(p),s=c.s,f=c.f;
+  var ps=$("#brk-product");
+  ps.innerHTML=BRK.products.map(function(x){return '<option value="'+esc(x.id)+'">'+esc(x.name)+'</option>'}).join("");ps.value=p.id;
+  $("#brk-prodnote").textContent="Model as of "+p.asOf+". New products are added as their checklists come out.";
+  var fs=$("#brk-fmt");fs.innerHTML=p.formats.map(function(x){return '<option value="'+esc(x.id)+'">'+esc(x.label)+'</option>'}).join("");fs.value=f.id;
+  if(document.activeElement!==$("#brk-boxes"))$("#brk-boxes").value=s.boxes;
+  if(document.activeElement!==$("#brk-price"))$("#brk-price").value=Math.round(c.price*100)/100;
+  $("#brk-setupnote").textContent="A "+f.label+" case is "+f.boxesCase+" boxes with "+f.autosBox+" autograph"+(f.autosBox===1?"":"s")+" a box. Box price starts at "+brkUsd(f.box)+" ("+f.boxSrc+"); change it to what your breaker paid. "+p.caveat;
+  var starP=f.star!=null?brkHit(f.star,c.autos):null;
+  brkSet("#brk-tiles",
+    '<div class="tile"><div class="v">'+brkUsd(c.cost)+'</div><div class="k">Break cost: '+s.boxes+' '+esc(f.label)+' box'+(s.boxes===1?"":"es")+' at '+brkUsd(c.price)+'</div></div>'+
+    '<div class="tile"><div class="v">'+c.autos+'</div><div class="k">Autographs in this break</div></div>'+
+    '<div class="tile"><div class="v">'+(starP==null?"n/a":brkPct(starP,1))+'</div><div class="k">Chance of a '+esc(p.starLabel)+' in this break</div></div>'+
+    '<div class="tile"><div class="v">'+(c.mine.length?brkPct(c.share,1):"—")+'</div><div class="k">'+(c.mine.length?"Share of the break held by your "+c.mine.length+" team"+(c.mine.length===1?"":"s"):"Tick your teams below")+'</div></div>');
+  brkSet("#brk-chips",p.teams.slice().sort(function(a,b){return a.team<b.team?-1:1}).map(function(t){
+    return '<button class="chip" type="button" data-brk-team="'+esc(t.abbr)+'" aria-pressed="'+(s.sel[t.abbr]?"true":"false")+'">'+esc(t.team)+'</button>'}).join(""));
+  $("#brk-mine-title").textContent=c.mine.length?"Your "+c.mine.length+" team"+(c.mine.length===1?"":"s")+" in this break":"Tick the teams you have in this break";
+  var m="";
+  if(!c.mine.length)m='<p class="small muted">Nothing ticked yet. Tap team names above, or rows in the table below.</p>';
+  else{
+    var q=s.quote>0?s.quote:null,vd="";
+    if(q){var d=q/c.fair-1;vd='<p class="brk-verdict">'+brkUsd(q)+' for spots the model values at '+brkUsd(c.fair)+': <b>'+(Math.abs(d)<.005?"right at fair value":brkPct(Math.abs(d))+(d>0?" over":" under")+" fair value")+'</b>. '+(d>.3?"Breakers usually add 15% to 30%, so this is past a normal margin.":d>0?"Inside the 15% to 30% a breaker usually adds.":"Under the model's value before any breaker margin.")+'</p>'}
+    m='<div class="tiles brk-minetiles">'+
+      '<div class="tile"><div class="v">'+brkUsd(c.fair)+'</div><div class="k">Fair value of your spots</div></div>'+
+      '<div class="tile"><div class="v">'+brkPct(c.share,1)+'</div><div class="k">Share of the break</div></div>'+
+      '<div class="tile"><div class="v">'+brkPct(c.any)+'</div><div class="k">Chance of any autograph</div></div>'+
+      '<div class="tile"><div class="v">'+brkPct(c.rk)+'</div><div class="k">Chance of a rookie autograph</div></div></div>'+
+      '<div class="brk-ctl"><label>Price you were quoted for these spots $ <input class="sel brk-num brk-price" id="brk-quote" type="number" min="1" step="1" inputmode="decimal" value="'+(q||"")+'" aria-label="Price quoted for your spots"></label></div>'+vd+
+      '<div class="brk-cards">'+c.mine.map(function(r){
+        var h=r.t.hold||{},li=function(a){return a.map(function(x){return '<li><b>'+esc(x[0])+'</b>'+(x[1]?' <span class="muted">'+esc(x[1])+'</span>':"")+'</li>'}).join("")};
+        return '<div class="brk-card"><div class="brk-card-h"><b>'+esc(r.t.team)+'</b><span class="pill">Tier '+esc(r.x.tier)+' · #'+r.x.rank+'</span></div>'+
+          '<p class="small">'+brkPct(r.x.share,1)+' of the break · fair spot <b>'+brkUsd(r.fair)+'</b> · any auto '+brkPct(r.any)+' · rookie auto '+brkPct(r.rk)+'</p>'+
+          (h.rookies&&h.rookies.length?'<p class="eyebrow">Rookies ('+h.rookies.length+')</p><ul class="brk-ul">'+li(h.rookies)+'</ul>':"")+
+          (h.autos&&h.autos.length?'<details><summary class="small">Autographs ('+h.autos.length+' signers)</summary><ul class="brk-ul">'+li(h.autos)+'</ul></details>':"")+
+          (h.ssp&&h.ssp.length?'<details><summary class="small">Short-print inserts ('+h.ssp.length+' players)</summary><ul class="brk-ul">'+li(h.ssp)+'</ul></details>':"")+
+          (h.patch&&h.patch.length?'<p class="small muted">Patch autograph 1/1s: '+esc(h.patch.join(", "))+'</p>':"")+
+          (h.retail&&h.retail.length?'<p class="small muted">Retail-only rookie autographs (not in hobby breaks): '+esc(h.retail.join(", "))+'</p>':"")+'</div>'}).join("")+'</div>';
+  }
+  if(!(document.activeElement&&document.activeElement.id==="brk-quote"))brkSet("#brk-mine",m);
+  var mx=c.rows.length?c.rows[0].x.share:1;
+  brkSet("#brk-body",c.rows.map(function(r){
+    return '<tr class="brk-row'+(r.on?" brk-on":"")+'" data-brk-team="'+esc(r.t.abbr)+'"><td><input type="checkbox" tabindex="-1" aria-label="'+esc(r.t.team)+'"'+(r.on?" checked":"")+'></td><td>'+r.x.rank+'</td><td><b>'+esc(r.t.team)+'</b></td><td>'+esc(r.x.tier)+'</td>'+
+      '<td class="num"><span class="brk-bar" style="width:'+Math.max(2,Math.round(r.x.share/mx*56))+'px"></span>'+brkPct(r.x.share,1)+'</td><td class="num">'+brkUsd(r.fair)+'</td><td class="num">'+brkPct(r.any)+'</td><td class="num">'+brkPct(r.rk)+'</td>'+
+      '<td>'+esc(r.t.signers||"—")+'</td><td class="num">'+r.t.otherAutos+'</td><td class="num">'+r.t.ssp+'</td><td class="num">'+r.t.patch+'</td></tr>'}).join(""));
+  var names=c.mine.map(function(r){return r.t.team});
+  var hasMine=function(x){for(var i=0;i<names.length;i++)if(x.team.indexOf(names[i])>=0)return true;return false};
+  var cm=$("#brk-chase-mine");cm.setAttribute("aria-pressed",BRK.chaseMine&&names.length?"true":"false");cm.hidden=!names.length;
+  var chs=p.chases.filter(function(x){return !(BRK.chaseMine&&names.length)||hasMine(x)});
+  brkSet("#brk-chases",chs.map(function(x){
+    var pb=x.perBox[f.id],o;
+    if(pb==null)o="Not in this format in 2025";
+    else{var hits=pb*s.boxes,n=1/(1-Math.exp(-hits));o=hits>=1?hits.toFixed(1)+" per break":"1 in "+(n<20?n.toFixed(1):Math.round(n).toLocaleString("en-US"))+" breaks"}
+    return '<tr'+(hasMine(x)?' class="brk-on"':"")+'><td>'+esc(x.chase)+'</td><td>'+esc(x.team)+'</td><td>'+esc(o)+'</td><td>'+esc(x.basis)+'</td></tr>'}).join("")||'<tr><td colspan="4" class="muted">None of the listed chases sit on your teams.</td></tr>');
+  $("#brk-noodds").textContent=p.noOdds||"";
+  $("#brk-rookienote").textContent=p.rookieNote||"";
+  brkSet("#brk-rookies",p.rookies.map(function(r){return '<tr><td><b>'+esc(r.player)+'</b></td><td>'+esc(r.team)+'</td><td>'+esc(r.pos)+'</td><td>'+esc(r.auto)+'</td><td>'+esc(r.other||"—")+'</td><td class="num">'+r.ssp+'</td><td class="num">'+r.weight+'</td><td>'+esc(r.status||"")+'</td></tr>'}).join(""));
+  brkSet("#brk-formats",p.formats.map(function(x){return '<tr><td><b>'+esc(x.label)+'</b></td><td class="num">'+x.boxesCase+'</td><td class="num">'+x.autosBox+'</td><td class="num">'+(x.boxTopps?money(x.boxTopps):"—")+'</td><td class="num">'+money(x.box)+'</td><td>'+esc(x.boxSrc)+'</td></tr>'}).join(""));
+  brkSet("#brk-method",p.method.map(function(x){return '<li>'+esc(x)+'</li>'}).join(""));
+}
+(function(){
+  var v=$('[data-view="breaks"]');if(!v)return;
+  v.addEventListener("input",function(e){
+    var p=brkProd();if(!p)return;var s=brkState(p),id=e.target.id,n=+e.target.value;
+    if(id==="brk-boxes"){if(!(n>=1))return;s.boxes=n}
+    else if(id==="brk-price"){s.price=n>0?n:null}
+    else return;
+    brkSave();renderBreaks();
+  });
+  v.addEventListener("change",function(e){
+    var p=brkProd();if(!p)return;var s=brkState(p),id=e.target.id;
+    if(id==="brk-product"){BRK.pid=e.target.value}
+    else if(id==="brk-fmt"){s.fmt=e.target.value;s.boxes=brkFmt(p,s.fmt).boxesCase;s.price=null;$("#brk-boxes").value=s.boxes;$("#brk-price").value=brkFmt(p,s.fmt).box}
+    else if(id==="brk-boxes"){s.boxes=+e.target.value||brkFmt(p,s.fmt).boxesCase}
+    else if(id==="brk-price"){s.price=+e.target.value>0?+e.target.value:null}
+    else if(id==="brk-quote"){s.quote=+e.target.value>0?+e.target.value:null;e.target.blur()}
+    else return;
+    brkSave();renderBreaks();
+  });
+  v.addEventListener("click",function(e){
+    var p=brkProd();if(!p)return;var s=brkState(p);
+    if(e.target.closest("#brk-case")){s.boxes=brkFmt(p,s.fmt).boxesCase;$("#brk-boxes").value=s.boxes}
+    else if(e.target.closest("#brk-clear")){s.sel={};s.quote=null}
+    else if(e.target.closest("#brk-chase-mine")){BRK.chaseMine=!BRK.chaseMine}
+    else{var t=e.target.closest("[data-brk-team]");if(!t)return;var a=t.getAttribute("data-brk-team");if(s.sel[a])delete s.sel[a];else s.sel[a]=1}
+    brkSave();renderBreaks();
+  });
+})();
 // Screener feed: Pro members get the full board, everyone else the top 3.
 function loadScreener(){
   fetch("/api/screener",{credentials:"same-origin"}).then(function(r){return r.json()}).then(function(j){
