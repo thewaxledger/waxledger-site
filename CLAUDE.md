@@ -124,6 +124,10 @@ Netlify deploys `main` on every push, so **a push is a deploy**.
   answered 403 after a burst of searches too; 2.5 s between searches was fine. notes29.py's docstring lists what was
   checked and left off (raw too high, blind-spot vintage) so it is not re-pulled. Hockey Young Guns do not resolve
   through the pop search by name. PSA needs the pane signed in to a Collectors account (Aidan signed in Nov 12).
+  Nov 18 (psa-37.json refreshes, psa-38.json + notes38.py adds): Dart 2025 Prizm #332 Silver 15125121 (Grade), Ohtani
+  2018 Bowman Chrome #1 2641967 (Marginal; raw from 9 eBay base sales, PSA's raw tracking is junk), Nacua Silver
+  10229686, Maye Optic #229 13213542, Nix Optic #209 13213522. notes38.py's docstring lists what was screened and left
+  off. The first popSearch calls of a session can fail ("popSearch failed"); retry after a few other calls.
 - `tools/reviews/` — the scripts that inserted each Product Review (template for new ones). A review is an entry in
   `var REVIEWS=[...]` in the master, marked with a `/* slug */` comment so the script is idempotent. Entries with a
   `deep` object render the expandable "Full breakdown" and show "WAX SCORE / 10"; entries without are sample previews.

@@ -2473,5 +2473,50 @@
   "cardNo": "196",
   "parallel": "Refractor (unnumbered)",
   "sport": "Baseball"
+ },
+ "dart-2025-prizm-332-silver": {
+  "id": "dart-2025-panini-prizm-332-silver",
+  "player": "Jaxson Dart",
+  "year": "2025",
+  "set": "Panini Prizm",
+  "cardNo": "332",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football"
+ },
+ "nacua-2023-prizm-357-silver": {
+  "id": "nacua-2023-panini-prizm-357-silver",
+  "player": "Puka Nacua",
+  "year": "2023",
+  "set": "Panini Prizm",
+  "cardNo": "357",
+  "parallel": "Silver Prizm RC",
+  "sport": "Football"
+ },
+ "maye-2024-optic-229": {
+  "id": "maye-2024-donruss-optic-229-rated",
+  "player": "Drake Maye",
+  "year": "2024",
+  "set": "Panini Donruss Optic",
+  "cardNo": "229",
+  "parallel": "Rated Rookie base",
+  "sport": "Football"
+ },
+ "nix-2024-optic-209": {
+  "id": "nix-2024-donruss-optic-209-rated",
+  "player": "Bo Nix",
+  "year": "2024",
+  "set": "Panini Donruss Optic",
+  "cardNo": "209",
+  "parallel": "Rated Rookie base",
+  "sport": "Football"
+ },
+ "ohtani-2018-bc-1": {
+  "id": "ohtani-2018-bowman-chrome-1-base",
+  "player": "Shohei Ohtani",
+  "year": "2018",
+  "set": "Bowman Chrome",
+  "cardNo": "1",
+  "parallel": "Base RC (Batting)",
+  "sport": "Baseball"
  }
 }
